@@ -54,7 +54,10 @@
   "license": "MIT",
   "pnpm": {
     "overrides": {
-      "picomatch": "^4.0.4"
+      "picomatch": "^4.0.4",
+      "minimatch": ">=10.2.5",
+      "protobufjs": "^7.6.1",
+      "serialize-javascript": ">=7.0.3"
     }
   }
 }
