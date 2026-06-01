@@ -47,7 +47,7 @@
     "typescript-eslint": "^8.46.4",
     "vite": "^7.3.2",
     "vite-plugin-pwa": "^1.2.0",
-    "vitest": "^4.0.17",
+    "vitest": "^4.1.0",
     "workbox-window": "^7.4.0"
   },
   "description": "Interactive encryption algorithm visualizer built with React and Vite",
