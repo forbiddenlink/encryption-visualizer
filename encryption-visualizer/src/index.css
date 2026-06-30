@@ -1,8 +1,6 @@
+@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@config "../tailwind.config.js";
 
 @layer base {
   body {
@@ -64,7 +62,7 @@
   }
 
   .glass-card-hover {
-    @apply glass-card;
+    @apply bg-white border border-slate-200 rounded-card transition-all duration-300;
   }
 
   .glass-card-hover:hover {
