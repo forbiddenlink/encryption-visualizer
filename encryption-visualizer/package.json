@@ -41,7 +41,7 @@
     "globals": "^17.7.0",
     "happy-dom": "^20.10.6",
     "lucide-react": "^1.24.0",
-    "postcss": "^8.5.19",
+    "postcss": "^8.5.23",
     "prettier": "^3.9.5",
     "tailwindcss": "^4.3.3",
     "typescript": "~6.0.3",
