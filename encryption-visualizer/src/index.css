@@ -179,6 +179,51 @@
   }
 }
 
+/* Cipher Lab hero backdrop — faint scanning "data stream" behind the headline.
+   Purely decorative; the global prefers-reduced-motion rule freezes the drift. */
+.cipher-rain {
+  position: absolute;
+  inset: -20% 0 -20% 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.5;
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      rgba(6, 182, 212, 0.05) 0,
+      rgba(6, 182, 212, 0.05) 1px,
+      transparent 1px,
+      transparent 22px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(59, 130, 246, 0.05) 0,
+      rgba(59, 130, 246, 0.05) 1px,
+      transparent 1px,
+      transparent 22px
+    );
+  mask-image: radial-gradient(ellipse 60% 55% at 50% 45%, #000 0%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 60% 55% at 50% 45%, #000 0%, transparent 78%);
+  animation: cipherDrift 18s linear infinite;
+}
+
+.dark .cipher-rain {
+  opacity: 0.7;
+}
+
+@keyframes cipherDrift {
+  0% {
+    background-position:
+      0 0,
+      0 0;
+  }
+  100% {
+    background-position:
+      0 0,
+      0 220px;
+  }
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;

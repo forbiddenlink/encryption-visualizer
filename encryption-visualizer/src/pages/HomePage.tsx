@@ -5,6 +5,7 @@ import { useProgressStore } from '@/store/progressStore';
 import { CompletionBadge } from '@/components/ui/ProgressIndicator';
 import { WebSiteSchema } from '@/components/seo/JsonLd';
 import { websiteSchema } from '@/data/structuredData';
+import { CipherLabDemo } from '@/components/visualizations/CipherLab/CipherLabDemo';
 
 const algorithmCards = [
   { to: ROUTES.AES, icon: Cpu, title: 'AES Encryption', description: 'The worldwide standard for symmetric encryption. Watch SubBytes, ShiftRows, MixColumns, and AddRoundKey transform your data.', tag: 'symmetric', slug: 'aes' },
@@ -30,8 +31,9 @@ export const HomePage = () => {
     <WebSiteSchema {...websiteSchema} />
     <article className="space-y-16 sm:space-y-24">
       {/* Hero Section */}
-      <header className="py-16 sm:py-24">
-        <div className="text-center space-y-8">
+      <header className="relative pt-16 sm:pt-24 pb-8 overflow-hidden">
+        <div className="cipher-rain" aria-hidden="true" />
+        <div className="relative text-center space-y-8">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-cyber-blue/10 border border-cyber-blue/20 rounded-full">
             <Shield className="w-4 h-4 text-cyber-cyan" />
@@ -71,6 +73,14 @@ export const HomePage = () => {
           </div>
         </div>
       </header>
+
+      {/* Cipher Lab — live animated transform */}
+      <section aria-labelledby="cipher-lab-heading" className="max-w-3xl mx-auto w-full">
+        <h2 id="cipher-lab-heading" className="sr-only">
+          Live cipher lab
+        </h2>
+        <CipherLabDemo />
+      </section>
 
       {/* Algorithm Cards */}
       <section aria-labelledby="algorithms-heading">
