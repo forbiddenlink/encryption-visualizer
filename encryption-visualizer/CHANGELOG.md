@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.1](https://github.com/forbiddenlink/encryption-visualizer/compare/encryption-visualizer-v1.0.0...encryption-visualizer-v1.0.1) (2026-09-02)
+
+
+### Bug Fixes
+
+* **deps:** give every resolution override an upper bound ([7028006](https://github.com/forbiddenlink/encryption-visualizer/commit/702800686de864b8ae01feffe417f9e85b0fc050))
+* **security:** pin transitive dependencies flagged by Dependabot ([808925e](https://github.com/forbiddenlink/encryption-visualizer/commit/808925ead5e5c586dae82959535bfaa7ffb21cf2))
+
 ## 1.0.0 (2026-08-29)
 
 
