@@ -64,3 +64,6 @@ out/
 # Next.js
 .next/
 .env*
+
+# Generated agent scratch output. Churns on every run and is not source.
+.claude/cache/
