@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/forbiddenlink/encryption-visualizer/compare/encryption-visualizer-v1.0.1...encryption-visualizer-v1.0.2) (2026-09-10)
+
+
+### Bug Fixes
+
+* **deps:** override fast-uri to &gt;=3.1.6 &lt;4 to clear 4 high alerts ([#46](https://github.com/forbiddenlink/encryption-visualizer/issues/46)) ([6012075](https://github.com/forbiddenlink/encryption-visualizer/commit/6012075c3045affe6ab0a1569d2a0d6a47488cc7))
+
 ## [1.0.1](https://github.com/forbiddenlink/encryption-visualizer/compare/encryption-visualizer-v1.0.0...encryption-visualizer-v1.0.1) (2026-09-02)
 
 
