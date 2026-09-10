@@ -49,7 +49,8 @@
     "vite": "^8.2.2",
     "vite-plugin-pwa": "^1.3.0",
     "vitest": "^4.1.11",
-    "workbox-window": "^7.4.1"
+    "workbox-window": "^7.4.1",
+    "fast-uri": "3.1.6"
   },
   "description": "Interactive encryption algorithm visualizer built with React and Vite",
   "license": "MIT",
@@ -60,7 +61,8 @@
       "protobufjs": "^7.6.1",
       "serialize-javascript": ">=7.0.3 <8",
       "browserslist": ">=4.28.7 <5",
-      "esbuild": ">=0.28.1 <1"
+      "esbuild": ">=0.28.1 <1",
+      "fast-uri": ">=3.1.6 <4.0.0"
     }
   }
 }
