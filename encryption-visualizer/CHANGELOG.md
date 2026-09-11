@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/forbiddenlink/encryption-visualizer/compare/encryption-visualizer-v1.0.2...encryption-visualizer-v1.0.3) (2026-09-11)
+
+
+### Bug Fixes
+
+* **seo:** stop advertising cryptoviz.app, an unowned domain ([#48](https://github.com/forbiddenlink/encryption-visualizer/issues/48)) ([aceae25](https://github.com/forbiddenlink/encryption-visualizer/commit/aceae254cd5ab48afe28abe87c4af46bfb851f84))
+
 ## [1.0.2](https://github.com/forbiddenlink/encryption-visualizer/compare/encryption-visualizer-v1.0.1...encryption-visualizer-v1.0.2) (2026-09-10)
 
 
