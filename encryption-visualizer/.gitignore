@@ -25,3 +25,6 @@ dist-ssr
 
 # Specter knowledge graph cache
 .specter/
+
+# Generated agent scratch output
+.claude/cache/
