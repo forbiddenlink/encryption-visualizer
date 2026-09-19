@@ -4,7 +4,7 @@ Guidance for Claude Code (and other AI agents via the AGENTS.md symlink) working
 
 ## What this is
 
-CryptoViz (repo name `encryption-visualizer`, GitHub forbiddenlink/EncryptionVisualizer) -
+CryptoViz (repo name `encryption-visualizer`, GitHub forbiddenlink/encryption-visualizer) -
 an interactive educational web app that visualizes cryptographic algorithms step by step:
 AES-128 (FIPS 197), RSA key generation, ECC, Diffie-Hellman, hash functions, HMAC, digital
 signatures, padding schemes, password hashing, TLS, and cryptanalysis, plus a glossary,
@@ -61,7 +61,7 @@ pnpm run test:e2e:ui  # playwright test --ui
   every page except `HomePage`)
 - `src/store/` - Zustand stores: `themeStore`, `progressStore`, `visualizationStore`,
   `compareStore`, `accessibilityStore`, `toastStore`
-- `src/components/{compare,controls,educational,glossary,layout,learning,seo,ui,
+- `src/components/{compare,controls,educational,layout,learning,seo,ui,
   visualizations}/` - shared UI, organized by concern
 - `src/data/quizzes/` - quiz content
 - `src/hooks/`, `src/lib/types/`, `src/lib/cipher-lab.ts`, `src/lib/motionFeatures.ts`,
