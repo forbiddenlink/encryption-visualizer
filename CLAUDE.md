@@ -12,13 +12,12 @@ quizzes, and guided learning paths.
 
 **The real application lives in the nested `encryption-visualizer/` subdirectory**, not at
 this repo root. Run all commands below from inside that subdirectory. The outer root holds
-deploy config
-(`vercel.json`, `release-please-config.json`) and a large set of legacy planning/status
-markdown files (`ARCHITECTURE_DIAGRAM.md`, `PROJECT_PLAN.md`, `TECH_SPEC.md`, `GAP_ANALYSIS.md`,
-`START_HERE.md`, etc.) that are stale snapshots, not current documentation - the nested
-`encryption-visualizer/docs/` directory duplicates several of the same filenames and is
-similarly a point-in-time record, not living docs. Treat the code in
-`encryption-visualizer/src/` as the source of truth over any of these `.md` files.
+only deploy config (`vercel.json`, `release-please-config.json`, `renovate.json`) plus this
+file and a pointer README - the ~20 stale planning/status markdown files that used to live
+here (and the duplicate copies that used to sit in the nested app's own docs subfolder) were
+removed as frozen,
+unmaintained snapshots (all dated to a single day, superseded by this file and the code).
+Treat the code in `encryption-visualizer/src/` as the source of truth.
 
 ## Stack (in `encryption-visualizer/`)
 
@@ -65,7 +64,8 @@ pnpm run test:e2e:ui  # playwright test --ui
 - `src/components/{compare,controls,educational,glossary,layout,learning,seo,ui,
   visualizations}/` - shared UI, organized by concern
 - `src/data/quizzes/` - quiz content
-- `src/hooks/`, `src/lib/types/`, `src/lib/utils/`, `src/styles/`
+- `src/hooks/`, `src/lib/types/`, `src/lib/cipher-lab.ts`, `src/lib/motionFeatures.ts`,
+  `src/index.css`
 - `src/test/` - test setup/utilities
 - `e2e/` - Playwright specs (one per algorithm area: `aes.spec.ts`, `rsa.spec.ts`,
   `hashing.spec.ts`, `signatures.spec.ts`, `quiz.spec.ts`, `navigation.spec.ts`)
