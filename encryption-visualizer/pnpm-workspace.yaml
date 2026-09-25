@@ -1,0 +1,18 @@
+packages:
+  - "."
+
+# core-js's postinstall only prints a funding banner, so its build stays off.
+# pnpm 12 refuses to install while a build script is unclassified.
+allowBuilds:
+  core-js: false
+
+# Dependency floors that close advisories in transitive packages. These moved
+# out of package.json's pnpm.overrides, which pnpm stopped reading in v10.
+overrides:
+  picomatch: "^4.0.4"
+  minimatch: ">=10.2.5 <11"
+  protobufjs: "^7.6.1"
+  serialize-javascript: ">=7.0.3 <8"
+  browserslist: ">=4.28.7 <5"
+  esbuild: ">=0.28.1 <1"
+  fast-uri: ">=3.1.6 <4.0.0"

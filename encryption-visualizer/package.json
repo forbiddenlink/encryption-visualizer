@@ -53,16 +53,5 @@
     "fast-uri": "3.1.6"
   },
   "description": "Interactive encryption algorithm visualizer built with React and Vite",
-  "license": "MIT",
-  "pnpm": {
-    "overrides": {
-      "picomatch": "^4.0.4",
-      "minimatch": ">=10.2.5 <11",
-      "protobufjs": "^7.6.1",
-      "serialize-javascript": ">=7.0.3 <8",
-      "browserslist": ">=4.28.7 <5",
-      "esbuild": ">=0.28.1 <1",
-      "fast-uri": ">=3.1.6 <4.0.0"
-    }
-  }
+  "license": "MIT"
 }
