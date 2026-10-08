@@ -1,3 +1,4 @@
+import { LessonHeader } from '@/components/learning/LessonHeader';
 import { useState } from 'react';
 import { useExpandedSections } from '@/hooks/useExpandedSections';
 import { useAutoAdvance } from '@/hooks/useAutoAdvance';
@@ -14,7 +15,6 @@ import {
 import { useVisualizationStore } from '@/store/visualizationStore';
 import type { BlockModeStep } from '@/lib/types';
 import {
-  BookOpen,
   Layers,
   Info,
   AlertTriangle,
@@ -104,23 +104,7 @@ export const BlockModesPage = () => {
 
   return (
     <div className="space-y-6 sm:space-y-8">
-      {/* Page Header */}
-      <div className="glass-card p-4 sm:p-6">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <div>
-            <h1 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white mb-2">
-              Block Cipher Modes
-            </h1>
-            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400">
-              Compare ECB, CBC, and GCM encryption modes
-            </p>
-          </div>
-          <button className="btn-secondary text-sm self-end sm:self-auto">
-            <BookOpen className="w-4 h-4" />
-            Learn More
-          </button>
-        </div>
-      </div>
+      <LessonHeader slug="block-modes" title="Block Cipher Modes" description="Compare ECB, CBC, and GCM encryption modes" />
 
       {/* Main Content Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -228,6 +212,7 @@ export const BlockModesPage = () => {
                 <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto justify-center sm:justify-start">
                   <button
                     onClick={reset}
+                      aria-label="Reset visualization"
                     className="p-2 sm:p-3 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 rounded-xl transition-all duration-300 hover:scale-110 active:scale-95"
                   >
                     <Layers className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 dark:text-blue-400" />
@@ -375,7 +360,7 @@ export const BlockModesPage = () => {
         </div>
 
         {/* Right Column: Educational Content */}
-        <div className="lg:col-span-1 space-y-4">
+        <div id="lesson-notes" className="lesson-notes lg:col-span-1 space-y-4" tabIndex={-1}>
           {/* What are Block Modes */}
           <EducationalCard
             title={blockModesEducationalContent.whatAreBlockModes.title}

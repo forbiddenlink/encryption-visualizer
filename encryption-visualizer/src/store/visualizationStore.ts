@@ -10,6 +10,7 @@ import type { PasswordHashStep } from '@/lib/types/password-hashing';
 export type VisualizationSteps = AESStep[] | RSAStep[] | HashStep[] | SignatureStep[] | DHStep[] | BlockModeStep[] | TLSStep[] | ECCStep[] | CryptanalysisStep[] | HMACStep[] | PaddingStep[] | PasswordHashStep[];
 
 interface VisualizationStore extends VisualizationState {
+  sessionPath: string | null;
   steps: VisualizationSteps;
   setAlgorithm: (algorithm: Algorithm) => void;
   play: () => void;
@@ -25,6 +26,7 @@ interface VisualizationStore extends VisualizationState {
 }
 
 export const useVisualizationStore = create<VisualizationStore>((set) => ({
+  sessionPath: null,
   algorithm: 'AES',
   isPlaying: false,
   currentStep: 0,

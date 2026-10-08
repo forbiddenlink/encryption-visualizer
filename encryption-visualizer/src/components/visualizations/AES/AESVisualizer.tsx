@@ -46,6 +46,8 @@ export const AESVisualizer: React.FC<AESVisualizerProps> = ({ steps: propSteps }
     return (
       <div className="glass-card p-12 text-center text-slate-500 dark:text-slate-400">
         <p>No visualization data available</p>
+        <h2 className="section-title text-2xl mt-4 text-slate-900 dark:text-white">Watch a block become ciphertext.</h2>
+        <p className="text-sm mt-4 max-w-md mx-auto">Use the example above, then start encryption. Pause at any round to inspect the state matrix and each transformation.</p>
       </div>
     );
   }

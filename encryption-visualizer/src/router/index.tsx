@@ -23,7 +23,7 @@ const AboutPage = lazy(() => import('@/pages/AboutPage').then(m => ({ default: m
 
 function LazyPage({ children }: { children: React.ReactNode }) {
   return (
-    <Suspense fallback={<div className="flex items-center justify-center min-h-[60vh]"><div className="w-8 h-8 border-2 border-cyber-cyan border-t-transparent rounded-full animate-spin" /></div>}>
+    <Suspense fallback={<div role="status" className="flex flex-col gap-4 items-center justify-center min-h-[60vh]"><div aria-hidden="true" className="w-8 h-8 border-2 border-cyber-cyan border-t-transparent rounded-full motion-safe:animate-spin" /><p className="eyebrow">Loading your lesson…</p></div>}>
       {children}
     </Suspense>
   );

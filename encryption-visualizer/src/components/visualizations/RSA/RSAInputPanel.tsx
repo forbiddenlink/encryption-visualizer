@@ -49,11 +49,12 @@ export const RSAInputPanel: React.FC<RSAInputPanelProps> = ({ onGenerate }) => {
           <legend className="text-sm font-semibold text-slate-600 dark:text-slate-400 mb-3 block">
             Select Key Size:
           </legend>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3" role="radiogroup" aria-label="Key size selection">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3" role="group" aria-label="Key size selection">
             {keySizes.map((keySize) => (
               <m.button
                 key={keySize.size}
                 onClick={() => setSelectedSize(keySize.size)}
+                aria-pressed={selectedSize === keySize.size}
                 className={`relative p-4 rounded-xl border-2 transition-all duration-300 text-left ${
                   selectedSize === keySize.size
                     ? 'border-purple-500 bg-purple-100 dark:bg-purple-500/20'

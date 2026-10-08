@@ -27,13 +27,13 @@ export const HashInputPanel: React.FC<{ onHash: (input: string) => void }> = ({ 
           <label htmlFor="hash-input" className="text-sm font-semibold text-slate-600 dark:text-slate-400 mb-2 block">
             Enter text to hash:
           </label>
-          <div className="flex gap-3">
+          <div className="flex flex-col sm:flex-row gap-3">
             <input
               id="hash-input"
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              className="flex-1 px-4 py-3 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all"
+              className="min-w-0 flex-1 px-4 py-3 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all"
               placeholder="Enter any text..."
             />
             <button

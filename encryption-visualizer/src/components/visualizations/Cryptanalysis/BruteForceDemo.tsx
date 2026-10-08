@@ -191,9 +191,9 @@ export const BruteForceDemo: React.FC<BruteForceDemoProps> = ({
           Cosmic Timeline of Brute Force
         </h4>
 
-        <div className="relative h-48 sm:h-32">
+        <div className="relative grid gap-3 sm:block sm:h-32">
           {/* Timeline line */}
-          <div className="absolute left-0 right-0 top-1/2 h-0.5 bg-slate-300 dark:bg-slate-600" />
+          <div className="hidden sm:block absolute left-0 right-0 top-1/2 h-0.5 bg-slate-300 dark:bg-slate-600" />
 
           {TIMELINE_EVENTS.map((event, idx) => (
             <m.div
@@ -201,10 +201,10 @@ export const BruteForceDemo: React.FC<BruteForceDemoProps> = ({
               initial={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: 10 }}
               animate={prefersReducedMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
               transition={{ ...transition, delay: idx * 0.1 }}
-              className="absolute"
+              className={`static sm:absolute ${event.position > 70 ? 'sm:-translate-x-full' : ''}`}
               style={{ left: `${event.position}%`, top: idx % 2 === 0 ? '0%' : '55%' }}
             >
-              <div className={`text-[9px] sm:text-[10px] font-bold whitespace-nowrap ${
+              <div className={`text-xs sm:text-[10px] font-bold whitespace-nowrap ${
                 event.label.includes('AES') || event.label.includes('Heat')
                   ? 'text-red-500 dark:text-red-400'
                   : event.label.includes('Caesar')
@@ -213,12 +213,12 @@ export const BruteForceDemo: React.FC<BruteForceDemoProps> = ({
               }`}>
                 {event.label}
               </div>
-              <div className="text-[8px] sm:text-[9px] text-slate-400 dark:text-slate-500 font-mono">
+              <div className="text-xs sm:text-[10px] text-slate-600 dark:text-slate-400 font-mono">
                 {event.time}
               </div>
               {/* Dot on timeline */}
               <div
-                className={`absolute w-2 h-2 rounded-full ${
+                className={`hidden sm:block absolute w-2 h-2 rounded-full ${
                   event.label.includes('AES')
                     ? 'bg-red-500'
                     : event.label.includes('Caesar')
@@ -226,7 +226,7 @@ export const BruteForceDemo: React.FC<BruteForceDemoProps> = ({
                       : 'bg-slate-400'
                 }`}
                 style={{
-                  left: 0,
+                  left: event.position > 70 ? '100%' : 0,
                   top: idx % 2 === 0 ? '100%' : '-8px',
                 }}
               />

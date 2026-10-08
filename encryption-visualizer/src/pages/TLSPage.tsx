@@ -1,3 +1,4 @@
+import { LessonHeader } from '@/components/learning/LessonHeader';
 import { useExpandedSections } from '@/hooks/useExpandedSections';
 import { useAutoAdvance } from '@/hooks/useAutoAdvance';
 import { TLSVisualizer } from '@/components/visualizations/TLS/TLSVisualizer';
@@ -5,7 +6,7 @@ import { ErrorBoundary } from '@/components/ui/ErrorBoundary';
 import { simulateTLSHandshake } from '@/lib/crypto/tls';
 import { useVisualizationStore } from '@/store/visualizationStore';
 import type { TLSStep } from '@/lib/types/tls';
-import { BookOpen, Info, AlertTriangle, CheckCircle, Globe, Terminal, FileText, XCircle, Lightbulb, ExternalLink, Shield, ArrowRightLeft, Link2, Lock } from 'lucide-react';
+import { Info, AlertTriangle, CheckCircle, Globe, Terminal, FileText, XCircle, Lightbulb, ExternalLink, Shield, ArrowRightLeft, Link2, Lock } from 'lucide-react';
 import { QuizSystem } from '@/components/educational/QuizSystem';
 import { tlsQuizQuestions } from '@/data/quizzes/tlsQuiz';
 import { EducationalCard } from '@/components/educational/EducationalCard';
@@ -48,23 +49,7 @@ export const TLSPage = () => {
 
   return (
     <div className="space-y-6 sm:space-y-8">
-      {/* Page Header */}
-      <div className="glass-card p-4 sm:p-6">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <div>
-            <h1 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white mb-2">
-              TLS 1.3 Handshake
-            </h1>
-            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400">
-              Watch how a secure connection is established between a client and server
-            </p>
-          </div>
-          <button className="btn-secondary text-sm self-end sm:self-auto">
-            <BookOpen className="w-4 h-4" />
-            Learn More
-          </button>
-        </div>
-      </div>
+      <LessonHeader slug="tls" title="TLS 1.3 Handshake" description="Watch how a secure connection is established between a client and server" />
 
       {/* Main Content Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -104,6 +89,7 @@ export const TLSPage = () => {
                 <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto justify-center sm:justify-start">
                   <button
                     onClick={reset}
+                      aria-label="Reset visualization"
                     className="p-2 sm:p-3 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 rounded-xl transition-all duration-300 hover:scale-110 active:scale-95"
                   >
                     <ArrowRightLeft className="w-4 h-4 sm:w-5 sm:h-5 text-indigo-600 dark:text-indigo-400" />
@@ -168,7 +154,7 @@ export const TLSPage = () => {
         </div>
 
         {/* Right Column: Educational Content */}
-        <div className="lg:col-span-1 space-y-4">
+        <div id="lesson-notes" className="lesson-notes lg:col-span-1 space-y-4" tabIndex={-1}>
           {/* What is TLS? */}
           <EducationalCard
             title={tlsEducationalContent.whatIsTLS.title}

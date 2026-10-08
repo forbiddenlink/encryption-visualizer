@@ -24,9 +24,9 @@ const iconMap: Record<string, React.FC<{ className?: string }>> = {
 };
 
 const difficultyColors: Record<string, string> = {
-  beginner: 'text-emerald-400 bg-emerald-400/10 border-emerald-400/20',
-  intermediate: 'text-amber-400 bg-amber-400/10 border-amber-400/20',
-  advanced: 'text-rose-400 bg-rose-400/10 border-rose-400/20',
+  beginner: 'text-emerald-700 dark:text-emerald-400 bg-emerald-400/10 border-emerald-400/20',
+  intermediate: 'text-amber-700 dark:text-amber-400 bg-amber-400/10 border-amber-400/20',
+  advanced: 'text-rose-700 dark:text-rose-400 bg-rose-400/10 border-rose-400/20',
 };
 
 export const LearningPathsPage = () => {
@@ -43,7 +43,7 @@ export const LearningPathsPage = () => {
   const getPathCompletion = (path: LearningPath): number => {
     const completed = getCompletedModules(path.id);
     return path.modules.length > 0
-      ? Math.round((completed.length / path.modules.length) * 100)
+      ? Math.round((path.modules.filter((module) => completed.includes(module.id)).length / path.modules.length) * 100)
       : 0;
   };
 
@@ -58,21 +58,20 @@ export const LearningPathsPage = () => {
 
   const handleStartPath = (path: LearningPath) => {
     const current = getCurrentModule(path);
-    if (current) {
-      navigate(current.algorithmPage);
-    }
+    navigate((current ?? path.modules[0]).algorithmPage);
   };
 
   return (
     <div className="space-y-8">
+      <p className="eyebrow">The curriculum / 03 guided paths</p>
       {/* Page Header */}
-      <div className="glass-card p-4 sm:p-6">
+      <div className="lesson-header">
         <div className="flex items-center gap-3">
           <div className="p-2 bg-gradient-to-br from-cyber-cyan to-cyber-blue rounded-lg">
-            <BookOpen className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+            <BookOpen className="w-6 h-6 sm:w-8 sm:h-8 text-slate-900 dark:text-white" />
           </div>
           <div>
-            <h1 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white mb-1">
+            <h1 className="section-title mb-4">
               Learning Paths
             </h1>
             <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400">
@@ -82,6 +81,7 @@ export const LearningPathsPage = () => {
         </div>
       </div>
 
+      <p className="text-sm text-slate-600 dark:text-slate-400">Pass a lesson’s knowledge check to complete its module. Your progress is saved on this device. Modules unlock as you complete their prerequisites.</p>
       <AnimatePresence mode="wait">
         {selectedPath ? (
           /* Path Detail View */
@@ -95,7 +95,7 @@ export const LearningPathsPage = () => {
             {/* Back Button */}
             <button
               onClick={() => setSelectedPath(null)}
-              className="flex items-center gap-2 text-sm font-semibold text-slate-400 hover:text-white transition-colors"
+              className="flex items-center gap-2 text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:text-white transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
               All Paths
@@ -108,14 +108,14 @@ export const LearningPathsPage = () => {
                   <div className="p-3 bg-gradient-to-br from-cyber-cyan to-cyber-blue rounded-xl">
                     {(() => {
                       const Icon = iconMap[selectedPath.icon] ?? BookOpen;
-                      return <Icon className="w-8 h-8 text-white" />;
+                      return <Icon className="w-8 h-8 text-slate-900 dark:text-white" />;
                     })()}
                   </div>
                   <div>
-                    <h2 className="text-2xl font-bold text-white">
+                    <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
                       {selectedPath.title}
                     </h2>
-                    <p className="text-sm text-slate-400 mt-1">
+                    <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">
                       {selectedPath.description}
                     </p>
                   </div>
@@ -129,7 +129,7 @@ export const LearningPathsPage = () => {
                   >
                     {selectedPath.difficulty}
                   </span>
-                  <span className="flex items-center gap-1 text-xs text-slate-400">
+                  <span className="flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400">
                     <Clock className="w-3.5 h-3.5" />
                     {selectedPath.estimatedTime}
                   </span>
@@ -139,7 +139,7 @@ export const LearningPathsPage = () => {
               {/* Overall progress */}
               <div className="mt-6">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-semibold text-slate-400">Progress</span>
+                  <span className="text-xs font-semibold text-slate-600 dark:text-slate-400">Progress</span>
                   <span className="text-xs font-bold text-cyber-cyan">
                     {getPathCompletion(selectedPath)}%
                   </span>
@@ -159,7 +159,7 @@ export const LearningPathsPage = () => {
 
             {/* Module List */}
             <div className="glass-card p-6">
-              <h3 className="text-lg font-bold text-white mb-6">Modules</h3>
+              <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-6">Modules</h3>
               <PathProgress
                 modules={selectedPath.modules}
                 completedModules={getCompletedModules(selectedPath.id)}
@@ -174,7 +174,7 @@ export const LearningPathsPage = () => {
               onClick={() => handleStartPath(selectedPath)}
               className="btn-primary w-full sm:w-auto"
             >
-              {getPathCompletion(selectedPath) > 0 ? 'Continue' : 'Start Path'}
+              {getPathCompletion(selectedPath) === 100 ? 'Review Path' : getPathCompletion(selectedPath) > 0 ? 'Continue' : 'Start Path'}
               <ChevronRight className="w-5 h-5" />
             </button>
           </motion.div>
@@ -200,7 +200,7 @@ export const LearningPathsPage = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
                     onClick={() => setSelectedPath(path)}
-                    className="glass-card-hover p-6 text-left w-full"
+                    className="glass-card-hover curriculum-card p-6 text-left w-full"
                   >
                     <div className="flex items-start justify-between mb-4">
                       <div className="p-2.5 bg-gradient-to-br from-cyber-cyan/20 to-cyber-blue/20 border border-cyber-blue/20 rounded-lg">
@@ -215,7 +215,7 @@ export const LearningPathsPage = () => {
                       </span>
                     </div>
 
-                    <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
+                    <h3 className="section-title text-2xl mb-3">
                       {path.title}
                     </h3>
                     <p className="text-xs text-slate-600 dark:text-slate-400 mb-4 line-clamp-2">
@@ -251,7 +251,7 @@ export const LearningPathsPage = () => {
 
                     {/* Current module hint */}
                     {currentModule && (
-                      <div className="text-[11px] text-slate-400">
+                      <div className="text-[11px] text-slate-600 dark:text-slate-400">
                         Next: <span className="text-cyber-cyan font-semibold">{currentModule.title}</span>
                       </div>
                     )}

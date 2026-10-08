@@ -1,0 +1,375 @@
+{
+  "config": {
+    "argv": [
+      "/Users/elizabethstein/.local/share/mise/installs/node/22.23.1/bin/node",
+      "/Volumes/LizsDisk/encryption-visualizer/encryption-visualizer/node_modules/@playwright/test/cli.js",
+      "test",
+      "--config",
+      "../design-research/playwright.config.ts",
+      "e2e/utility-states.spec.ts",
+      "e2e/learning-journeys.spec.ts",
+      "--grep",
+      "curriculum|loading|boundary|client-side lesson",
+      "--workers=1",
+      "--reporter=line,json"
+    ],
+    "configFile": "/Volumes/LizsDisk/encryption-visualizer/design-research/playwright.config.ts",
+    "rootDir": "/Volumes/LizsDisk/encryption-visualizer/encryption-visualizer/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Volumes/LizsDisk/encryption-visualizer/design-research/browser-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Volumes/LizsDisk/encryption-visualizer/encryption-visualizer/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "line"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.1",
+    "workers": 1,
+    "webServer": {
+      "command": "pnpm run dev -- --port 3002",
+      "url": "http://localhost:3002",
+      "reuseExistingServer": true,
+      "timeout": 120000,
+      "cwd": "../encryption-visualizer"
+    }
+  },
+  "suites": [
+    {
+      "title": "learning-journeys.spec.ts",
+      "file": "learning-journeys.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "curriculum start, locked prerequisites, completion persistence and resume",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2197,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-08T16:58:22.729Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a8ca10ebc182377ab94f-f14191d355352a830f4d",
+          "file": "learning-journeys.spec.ts",
+          "line": 58,
+          "column": 1
+        },
+        {
+          "title": "client-side lesson switching clears incompatible visualization frames",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1658,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-08T16:58:25.342Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a8ca10ebc182377ab94f-d15068151ea11d646c71",
+          "file": "learning-journeys.spec.ts",
+          "line": 82,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "utility-states.spec.ts",
+      "file": "utility-states.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "partial and completed curriculum, glossary recovery and about links at 1440",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6755,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-08T16:58:27.016Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1100e67b228141cfc194-bc9a409904fb85365674",
+          "file": "utility-states.spec.ts",
+          "line": 13,
+          "column": 3
+        },
+        {
+          "title": "lesson loading and offline recovery at 1440",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3905,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-08T16:58:33.779Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1100e67b228141cfc194-4c716a38f90c1be7a4c1",
+          "file": "utility-states.spec.ts",
+          "line": 64,
+          "column": 3
+        },
+        {
+          "title": "visualization error boundary and retry at 1440",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1496,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-08T16:58:37.693Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1100e67b228141cfc194-4751b2f86da30a1e29da",
+          "file": "utility-states.spec.ts",
+          "line": 82,
+          "column": 3
+        },
+        {
+          "title": "partial and completed curriculum, glossary recovery and about links at 390",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6795,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-08T16:58:39.199Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1100e67b228141cfc194-caa67a0300e25dd6f35a",
+          "file": "utility-states.spec.ts",
+          "line": 13,
+          "column": 3
+        },
+        {
+          "title": "lesson loading and offline recovery at 390",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4096,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-08T16:58:46.009Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1100e67b228141cfc194-ab88f0254b7b51f0d7f0",
+          "file": "utility-states.spec.ts",
+          "line": 64,
+          "column": 3
+        },
+        {
+          "title": "visualization error boundary and retry at 390",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1521,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-08T16:58:50.121Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1100e67b228141cfc194-1ddf87631e0722d1c6bf",
+          "file": "utility-states.spec.ts",
+          "line": 82,
+          "column": 3
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-08T16:58:22.092Z",
+    "duration": 29875.631,
+    "expected": 8,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

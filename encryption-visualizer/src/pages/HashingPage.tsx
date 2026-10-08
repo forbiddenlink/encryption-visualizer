@@ -1,3 +1,5 @@
+import { LessonHeader } from '@/components/learning/LessonHeader';
+import { SpeedControl } from '@/components/controls/SpeedControl';
 import { useLocation } from 'react-router-dom';
 import { useExpandedSections } from '@/hooks/useExpandedSections';
 import { useAutoAdvance } from '@/hooks/useAutoAdvance';
@@ -10,7 +12,7 @@ import { HashPlayground } from '@/components/visualizations/Hash/HashPlayground'
 import { ErrorBoundary } from '@/components/ui/ErrorBoundary';
 import { useVisualizationStore } from '@/store/visualizationStore';
 import { hashWithSteps, type HashStep } from '@/lib/crypto/hash';
-import { BookOpen } from 'lucide-react';
+import { } from 'lucide-react';
 import { QuizSystem } from '@/components/educational/QuizSystem';
 import { hashingQuizQuestions } from '@/data/quizzes/hashingQuiz';
 import { EducationalCard } from '@/components/educational/EducationalCard';
@@ -62,23 +64,7 @@ export const HashingPage = () => {
       url={`https://cryptoviz.app${location.pathname}`}
     />
     <div className="space-y-8">
-      {/* Page Header */}
-      <div className="glass-card p-6">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <div>
-            <h1 className="text-4xl font-black text-slate-900 dark:text-white mb-2">
-              Hash Functions Visualizer
-            </h1>
-            <p className="text-slate-600 dark:text-slate-400">
-              Explore one-way functions and the avalanche effect
-            </p>
-          </div>
-          <button className="btn-secondary text-sm">
-            <BookOpen className="w-4 h-4" />
-            Learn More
-          </button>
-        </div>
-      </div>
+      <LessonHeader slug="hashing" title="Hash Functions Visualizer" description="Explore one-way functions and the avalanche effect" />
 
       {/* Main Content Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -97,7 +83,7 @@ export const HashingPage = () => {
             />
           </div>
 
-          <div className="flex items-center justify-between">
+          <div className="flex flex-wrap gap-4 items-center justify-between">
             <div className="flex items-center gap-3">
               <button
                 onClick={reset}
@@ -135,6 +121,7 @@ export const HashingPage = () => {
               Step {currentStep + 1} / {hashSteps.length}
             </div>
           </div>
+          <SpeedControl />
         </div>
       )}
 
@@ -151,7 +138,7 @@ export const HashingPage = () => {
         </div>
 
         {/* Right Column: Educational Content */}
-        <div className="lg:col-span-1 space-y-4">
+        <div id="lesson-notes" className="lesson-notes lg:col-span-1 space-y-4" tabIndex={-1}>
           {/* What is Hashing? */}
           <EducationalCard
             title={hashingEducationalContent.whatIsHashing.title}

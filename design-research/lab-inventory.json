@@ -1,0 +1,1811 @@
+[
+  {
+    "slug": "aes",
+    "inputs": [
+      {
+        "tag": "INPUT",
+        "type": "text",
+        "id": "aes-plaintext",
+        "name": null,
+        "labels": [
+          "Plaintext (max 16 characters)"
+        ],
+        "placeholder": "Enter plaintext...",
+        "value": "Hello AES!"
+      },
+      {
+        "tag": "INPUT",
+        "type": "text",
+        "id": "aes-key",
+        "name": null,
+        "labels": [
+          "Encryption Key (16 characters for AES-128)"
+        ],
+        "placeholder": "Enter 16-character key...",
+        "value": "SecretKey12345!"
+      }
+    ],
+    "buttons": [
+      {
+        "text": "Load Example",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Start Encryption Visualization",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "What is AES?",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "The Four Operations",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Key Sizes",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Security Considerations",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Real-World Applications",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Common Mistakes to Avoid",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Want to Learn More?",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "2 more rounds",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "4 more rounds",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "6 more rounds",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "8 more rounds",
+        "name": null,
+        "disabled": false
+      }
+    ],
+    "headings": [
+      "AES Encryption Input",
+      "Initial Plaintext",
+      "What is AES?",
+      "The Four Operations",
+      "Key Sizes",
+      "Security Considerations",
+      "Real-World Applications",
+      "Common Mistakes to Avoid",
+      "Want to Learn More?",
+      "AES Knowledge Check",
+      "How many more rounds does AES-256 perform compared to AES-128?",
+      "Turn the experiment into understanding."
+    ]
+  },
+  {
+    "slug": "rsa",
+    "inputs": [],
+    "buttons": [
+      {
+        "text": "RECOMMENDED\nSmall (Educational)\n\nPrime range: 10-50\n\nFast generation, easy to understand",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Medium\n\nPrime range: 50-200\n\nBalanced speed and complexity",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Large\n\nPrime range: 200-500\n\nSlower, more realistic numbers",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Generate RSA Key Pair",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "",
+        "name": "Reset visualization",
+        "disabled": false
+      },
+      {
+        "text": "←",
+        "name": "Previous step",
+        "disabled": true
+      },
+      {
+        "text": "Play",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "→",
+        "name": "Next step",
+        "disabled": false
+      },
+      {
+        "text": "0.5x",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "1x",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "2x",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "4x",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "What is RSA?",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Key Generation Steps",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Security & Math",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Where is RSA Used?",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Common Mistakes to Avoid",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Want to Learn More?",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Private Key",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Public Key",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Both Keys",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Neither Key",
+        "name": null,
+        "disabled": false
+      }
+    ],
+    "headings": [
+      "RSA Key Generation",
+      "Select First Prime (p)",
+      "What is RSA?",
+      "Key Generation Steps",
+      "Security & Math",
+      "Where is RSA Used?",
+      "Common Mistakes to Avoid",
+      "Want to Learn More?",
+      "RSA Knowledge Check",
+      "Which key is shared publicly in RSA?",
+      "Turn the experiment into understanding."
+    ]
+  },
+  {
+    "slug": "ecc",
+    "inputs": [],
+    "buttons": [
+      {
+        "text": "Tiny (p=23)\ny² = x³ + x + 1",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Small (p=97)\ny² = x³ + 2x + 3",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Medium (p=263)\ny² = x³ + 2x + 3",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "",
+        "name": "Reset visualization",
+        "disabled": false
+      },
+      {
+        "text": "←",
+        "name": "Previous step",
+        "disabled": true
+      },
+      {
+        "text": "Play",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "→",
+        "name": "Next step",
+        "disabled": false
+      },
+      {
+        "text": "0.5x",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "1x",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "2x",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "4x",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Try Again",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "What is Elliptic Curve Cryptography?",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "How Point Addition Works",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "ECDH Key Exchange",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "ECDSA Digital Signatures",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "ECC vs RSA: Key Size Comparison",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Security Considerations",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Where is ECC Used?",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Common Mistakes to Avoid",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Want to Learn More?",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Symmetric encryption",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Asymmetric (public-key) encryption",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Hashing",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Stream cipher",
+        "name": null,
+        "disabled": false
+      }
+    ],
+    "headings": [
+      "Select Curve Size",
+      "Something went wrong",
+      "What is Elliptic Curve Cryptography?",
+      "How Point Addition Works",
+      "ECDH Key Exchange",
+      "ECDSA Digital Signatures",
+      "ECC vs RSA: Key Size Comparison",
+      "Security Considerations",
+      "Where is ECC Used?",
+      "Common Mistakes to Avoid",
+      "Want to Learn More?",
+      "ECC Knowledge Check",
+      "What type of cryptography does ECC belong to?",
+      "Turn the experiment into understanding."
+    ]
+  },
+  {
+    "slug": "block-modes",
+    "inputs": [
+      {
+        "tag": "TEXTAREA",
+        "type": "textarea",
+        "id": "plaintext-input",
+        "name": null,
+        "labels": [
+          "Plaintext Message"
+        ],
+        "placeholder": "Enter message to encrypt...",
+        "value": "Hello World! This is a test message for block cipher modes."
+      },
+      {
+        "tag": "INPUT",
+        "type": "text",
+        "id": "key-input",
+        "name": null,
+        "labels": [
+          "Encryption Key (16 characters)"
+        ],
+        "placeholder": "Enter 16-character key...",
+        "value": "mysecretkey12345"
+      }
+    ],
+    "buttons": [
+      {
+        "text": "ECB",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "CBC",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "GCM",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Encrypt with ECB",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "",
+        "name": "Reset visualization",
+        "disabled": false
+      },
+      {
+        "text": "←",
+        "name": "Previous step",
+        "disabled": true
+      },
+      {
+        "text": "Play",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "→",
+        "name": "Next step",
+        "disabled": false
+      },
+      {
+        "text": "0.5x",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "1x",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "2x",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "4x",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "What are Block Cipher Modes?",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "The ECB Penguin Problem",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Mode Comparison",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Security Considerations",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Real-World Applications",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Common Mistakes to Avoid",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Want to Learn More?",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "It requires an IV",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "It is too slow",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Identical plaintext blocks produce identical ciphertext",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "It cannot be parallelized",
+        "name": null,
+        "disabled": false
+      }
+    ],
+    "headings": [
+      "Input Plaintext",
+      "What are Block Cipher Modes?",
+      "The ECB Penguin Problem",
+      "Mode Comparison",
+      "Security Considerations",
+      "Real-World Applications",
+      "Common Mistakes to Avoid",
+      "Want to Learn More?",
+      "Block Modes Knowledge Check",
+      "What is the main security flaw of ECB mode?",
+      "Turn the experiment into understanding."
+    ]
+  },
+  {
+    "slug": "diffie-hellman",
+    "inputs": [
+      {
+        "tag": "INPUT",
+        "type": "range",
+        "id": "",
+        "name": null,
+        "labels": [],
+        "placeholder": "",
+        "value": "5"
+      },
+      {
+        "tag": "INPUT",
+        "type": "number",
+        "id": "",
+        "name": null,
+        "labels": [],
+        "placeholder": "",
+        "value": "5"
+      },
+      {
+        "tag": "INPUT",
+        "type": "range",
+        "id": "",
+        "name": null,
+        "labels": [],
+        "placeholder": "",
+        "value": "7"
+      },
+      {
+        "tag": "INPUT",
+        "type": "number",
+        "id": "",
+        "name": null,
+        "labels": [],
+        "placeholder": "",
+        "value": "7"
+      }
+    ],
+    "buttons": [
+      {
+        "text": "RECOMMENDED\nSmall (Educational)\n\nPrime range: 23-97\n\nFast generation, easy to follow",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Medium\n\nPrime range: 101-499\n\nBalanced complexity",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Large\n\nPrime range: 503-997\n\nMore realistic numbers",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Start Key Exchange",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "",
+        "name": "Reset visualization",
+        "disabled": false
+      },
+      {
+        "text": "←",
+        "name": "Previous step",
+        "disabled": true
+      },
+      {
+        "text": "Play",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "→",
+        "name": "Next step",
+        "disabled": false
+      },
+      {
+        "text": "0.5x",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "1x",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "2x",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "4x",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "New Prime",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "What is Diffie-Hellman?",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Key Exchange Steps",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Security & Math",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Where is Diffie-Hellman Used?",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Common Mistakes to Avoid",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Want to Learn More?",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Private keys only",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Prime p, generator g, and public values A and B",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "The shared secret",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "All keys and secrets",
+        "name": null,
+        "disabled": false
+      }
+    ],
+    "headings": [
+      "Diffie-Hellman Key Exchange",
+      "Public Parameters Setup",
+      "DH Playground",
+      "What is Diffie-Hellman?",
+      "Key Exchange Steps",
+      "Security & Math",
+      "Where is Diffie-Hellman Used?",
+      "Common Mistakes to Avoid",
+      "Want to Learn More?",
+      "Diffie-Hellman Knowledge Check",
+      "In Diffie-Hellman, which values are publicly shared?",
+      "Turn the experiment into understanding."
+    ]
+  },
+  {
+    "slug": "hashing",
+    "inputs": [
+      {
+        "tag": "INPUT",
+        "type": "text",
+        "id": "hash-input",
+        "name": null,
+        "labels": [
+          "Enter text to hash:"
+        ],
+        "placeholder": "Enter any text...",
+        "value": "Hello, World!"
+      },
+      {
+        "tag": "INPUT",
+        "type": "text",
+        "id": "",
+        "name": null,
+        "labels": [],
+        "placeholder": "Enter text to test...",
+        "value": "Hello"
+      },
+      {
+        "tag": "INPUT",
+        "type": "text",
+        "id": "",
+        "name": null,
+        "labels": [],
+        "placeholder": "Type to hash in real-time...",
+        "value": ""
+      }
+    ],
+    "buttons": [
+      {
+        "text": "Hash It!",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Hello, World!",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Cryptography",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "SHA-256",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Blockchain",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "⏮️",
+        "name": "Go to first step",
+        "disabled": false
+      },
+      {
+        "text": "◀️",
+        "name": "Previous step",
+        "disabled": true
+      },
+      {
+        "text": "⏸️ Pause",
+        "name": "Pause visualization",
+        "disabled": false
+      },
+      {
+        "text": "▶️",
+        "name": "Next step",
+        "disabled": false
+      },
+      {
+        "text": "Demonstrate",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Single",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Compare",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Hex",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Binary",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Blocks",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "What is Hashing?",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Key Properties",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Common Algorithms",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Applications",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Common Mistakes to Avoid",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Want to Learn More?",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Encrypting emails",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Storing passwords securely",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Compressing files",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Speeding up internet",
+        "name": null,
+        "disabled": false
+      }
+    ],
+    "headings": [
+      "Hash Function Input",
+      "Input Message",
+      "Avalanche Effect",
+      "Hash Playground",
+      "What is Hashing?",
+      "Key Properties",
+      "Common Algorithms",
+      "Applications",
+      "Common Mistakes to Avoid",
+      "Want to Learn More?",
+      "Hashing Knowledge Check",
+      "Which of these is a common use for hashing?",
+      "Turn the experiment into understanding."
+    ]
+  },
+  {
+    "slug": "hmac",
+    "inputs": [
+      {
+        "tag": "INPUT",
+        "type": "text",
+        "id": "hmac-field-1",
+        "name": null,
+        "labels": [
+          "Secret Key"
+        ],
+        "placeholder": "Enter secret key...",
+        "value": "my-secret-key"
+      },
+      {
+        "tag": "TEXTAREA",
+        "type": "textarea",
+        "id": "hmac-field-2",
+        "name": null,
+        "labels": [
+          "Message"
+        ],
+        "placeholder": "Enter message to authenticate...",
+        "value": "Hello, World!"
+      }
+    ],
+    "buttons": [
+      {
+        "text": "Compute HMAC",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "",
+        "name": "Reset visualization",
+        "disabled": false
+      },
+      {
+        "text": "←",
+        "name": "Previous step",
+        "disabled": true
+      },
+      {
+        "text": "Play",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "→",
+        "name": "Next step",
+        "disabled": false
+      },
+      {
+        "text": "0.5x",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "1x",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "2x",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "4x",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "What is HMAC?",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Why Not Just Hash(key + message)?",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Inner and Outer Hash",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "HMAC vs Digital Signatures",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Real-World Applications",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Common Mistakes",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Further Learning",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Hash Message Access Control",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Hash-based Message Authentication Code",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Hashed MAC Address Code",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "High-security Message Authentication Cipher",
+        "name": null,
+        "disabled": false
+      }
+    ],
+    "headings": [
+      "HMAC Inputs",
+      "HMAC Inputs",
+      "What is HMAC?",
+      "Why Not Just Hash(key + message)?",
+      "Inner and Outer Hash",
+      "HMAC vs Digital Signatures",
+      "Real-World Applications",
+      "Common Mistakes",
+      "Further Learning",
+      "HMAC Knowledge Check",
+      "What does HMAC stand for?",
+      "Turn the experiment into understanding."
+    ]
+  },
+  {
+    "slug": "signatures",
+    "inputs": [
+      {
+        "tag": "TEXTAREA",
+        "type": "textarea",
+        "id": "sign-message",
+        "name": null,
+        "labels": [
+          "Message to Sign:"
+        ],
+        "placeholder": "Enter a message to sign...",
+        "value": "Hello, this message is from Alice!"
+      }
+    ],
+    "buttons": [
+      {
+        "text": "RECOMMENDED\nSmall (Educational)\n\nPrime range: 10-50\n\nFast generation, easy to understand",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Medium\n\nPrime range: 50-200\n\nBalanced speed and complexity",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Large\n\nPrime range: 200-500\n\nSlower, more realistic numbers",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Sign Message",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "",
+        "name": "Reset visualization",
+        "disabled": false
+      },
+      {
+        "text": "←",
+        "name": "Previous step",
+        "disabled": true
+      },
+      {
+        "text": "Play",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "→",
+        "name": "Next step",
+        "disabled": false
+      },
+      {
+        "text": "0.5x",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "1x",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "2x",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "4x",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "What is a Digital Signature?",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "How Signing Works",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "How Verification Works",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Signing vs Encrypting",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Security Properties",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Real-World Uses",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Common Mistakes to Avoid",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Want to Learn More?",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Private Key",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Public Key",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "The same key used to sign",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "A new key pair",
+        "name": null,
+        "disabled": false
+      }
+    ],
+    "headings": [
+      "Create Digital Signature",
+      "Input Message",
+      "What is a Digital Signature?",
+      "How Signing Works",
+      "How Verification Works",
+      "Signing vs Encrypting",
+      "Security Properties",
+      "Real-World Uses",
+      "Common Mistakes to Avoid",
+      "Want to Learn More?",
+      "Signatures Knowledge Check",
+      "Which key do you use to VERIFY a digital signature?",
+      "Turn the experiment into understanding."
+    ]
+  },
+  {
+    "slug": "padding",
+    "inputs": [
+      {
+        "tag": "INPUT",
+        "type": "text",
+        "id": "padding-field-1",
+        "name": null,
+        "labels": [
+          "Input Text"
+        ],
+        "placeholder": "Enter text to pad...",
+        "value": "Hello, World!"
+      },
+      {
+        "tag": "SELECT",
+        "type": "select-one",
+        "id": "padding-field-2",
+        "name": null,
+        "labels": [
+          "Scheme"
+        ],
+        "value": "pkcs7"
+      }
+    ],
+    "buttons": [
+      {
+        "text": "8 bytes",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "16 bytes",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Apply Padding",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "",
+        "name": "Reset visualization",
+        "disabled": false
+      },
+      {
+        "text": "←",
+        "name": "Previous step",
+        "disabled": true
+      },
+      {
+        "text": "Play",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "→",
+        "name": "Next step",
+        "disabled": false
+      },
+      {
+        "text": "0.5x",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "1x",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "2x",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "4x",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Why Padding Matters",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "PKCS#7 Padding",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Zero Padding",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "ANSI X.923 Padding",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Padding Oracle Attacks",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "When NOT to Pad",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Common Mistakes",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Further Learning",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "To make the data harder to decrypt",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "To ensure plaintext length is a multiple of the block size",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "To add encryption keys to the data",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "To compress the data before encryption",
+        "name": null,
+        "disabled": false
+      }
+    ],
+    "headings": [
+      "Padding Input",
+      "Input Data",
+      "Why Padding Matters",
+      "PKCS#7 Padding",
+      "Zero Padding",
+      "ANSI X.923 Padding",
+      "Padding Oracle Attacks",
+      "When NOT to Pad",
+      "Common Mistakes",
+      "Further Learning",
+      "Padding Knowledge Check",
+      "Why do block ciphers need padding?",
+      "Turn the experiment into understanding."
+    ]
+  },
+  {
+    "slug": "password-hashing",
+    "inputs": [
+      {
+        "tag": "INPUT",
+        "type": "text",
+        "id": "passwordhashing-field-1",
+        "name": null,
+        "labels": [
+          "Password"
+        ],
+        "placeholder": "Enter a password...",
+        "value": "correcthorsebatterystaple"
+      },
+      {
+        "tag": "INPUT",
+        "type": "range",
+        "id": "passwordhashing-field-2",
+        "name": null,
+        "labels": [
+          "Cost Factor: 4 (2^4 = 16 iterations)"
+        ],
+        "placeholder": "",
+        "value": "4"
+      },
+      {
+        "tag": "INPUT",
+        "type": "text",
+        "id": "",
+        "name": null,
+        "labels": [],
+        "placeholder": "Enter a password...",
+        "value": "password123"
+      }
+    ],
+    "buttons": [
+      {
+        "text": "Hash Password",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "",
+        "name": "Reset visualization",
+        "disabled": false
+      },
+      {
+        "text": "←",
+        "name": "Previous step",
+        "disabled": true
+      },
+      {
+        "text": "Play",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "→",
+        "name": "Next step",
+        "disabled": false
+      },
+      {
+        "text": "0.5x",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "1x",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "2x",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "4x",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Benchmark",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Why Not SHA-256 for Passwords?",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "What is a Salt?",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Work Factor / Cost Parameter",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Password Hashing Algorithms",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Rainbow Tables",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Real-World Applications",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Common Mistakes",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Further Learning",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "It produces too short of a hash",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "It is too fast, allowing billions of guesses per second",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "It is not deterministic",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "It has been mathematically broken",
+        "name": null,
+        "disabled": false
+      }
+    ],
+    "headings": [
+      "Password Input",
+      "Password Input",
+      "Key Stretching Demo",
+      "Why Not SHA-256 for Passwords?",
+      "What is a Salt?",
+      "Work Factor / Cost Parameter",
+      "Password Hashing Algorithms",
+      "Rainbow Tables",
+      "Real-World Applications",
+      "Common Mistakes",
+      "Further Learning",
+      "Password Hashing Knowledge Check",
+      "Why is SHA-256 bad for password hashing?",
+      "Turn the experiment into understanding."
+    ]
+  },
+  {
+    "slug": "tls",
+    "inputs": [],
+    "buttons": [
+      {
+        "text": "Start Handshake",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "",
+        "name": "Reset visualization",
+        "disabled": false
+      },
+      {
+        "text": "←",
+        "name": "Previous step",
+        "disabled": true
+      },
+      {
+        "text": "Play",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "→",
+        "name": "Next step",
+        "disabled": false
+      },
+      {
+        "text": "0.5x",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "1x",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "2x",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "4x",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "What is TLS/SSL?",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "The TLS 1.3 Handshake",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "How TLS Uses Other Algorithms",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Cipher Suites Explained",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Certificate Verification & PKI",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Forward Secrecy",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "TLS 1.2 vs 1.3 Differences",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Security Considerations",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Real-World Applications",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Common Mistakes",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Further Learning",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "To compress data for faster transmission",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "To establish encryption keys and verify server identity",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "To route packets to the correct server",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "To check if the server is online",
+        "name": null,
+        "disabled": false
+      }
+    ],
+    "headings": [
+      "Simulate TLS Handshake",
+      "ClientHello",
+      "Message Sequence Diagram",
+      "What is TLS/SSL?",
+      "The TLS 1.3 Handshake",
+      "How TLS Uses Other Algorithms",
+      "Cipher Suites Explained",
+      "Certificate Verification & PKI",
+      "Forward Secrecy",
+      "TLS 1.2 vs 1.3 Differences",
+      "Security Considerations",
+      "Real-World Applications",
+      "Common Mistakes",
+      "Further Learning",
+      "TLS Knowledge Check",
+      "What is the primary purpose of the TLS handshake?",
+      "Turn the experiment into understanding."
+    ]
+  },
+  {
+    "slug": "cryptanalysis",
+    "inputs": [
+      {
+        "tag": "TEXTAREA",
+        "type": "textarea",
+        "id": "",
+        "name": "Plaintext to encrypt and attack",
+        "labels": [],
+        "placeholder": "Enter plaintext to encrypt and attack...",
+        "value": "The quick brown fox jumps over the lazy dog. Cryptography is the practice of secure communication."
+      }
+    ],
+    "buttons": [
+      {
+        "text": "Frequency Analysis",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Brute Force",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Padding Oracle",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Timing Attack",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "",
+        "name": "Reset visualization",
+        "disabled": false
+      },
+      {
+        "text": "←",
+        "name": "Previous step",
+        "disabled": true
+      },
+      {
+        "text": "Play",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "→",
+        "name": "Next step",
+        "disabled": false
+      },
+      {
+        "text": "0.5x",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "1x",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "2x",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "4x",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "What is Cryptanalysis?",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Frequency Analysis",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Classical Ciphers",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Side-Channel Attacks",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Why Modern Ciphers Are Secure",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Security Considerations",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Real-World Attacks",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Want to Learn More?",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Encryption algorithms should be kept secret",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "A system should be secure even if everything except the key is public",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "Only government agencies should have access to encryption",
+        "name": null,
+        "disabled": false
+      },
+      {
+        "text": "The key must be longer than the message",
+        "name": null,
+        "disabled": false
+      }
+    ],
+    "headings": [
+      "Plaintext Input",
+      "Choose Attack",
+      "Brute Force Attack: Setup",
+      "What is Cryptanalysis?",
+      "Frequency Analysis",
+      "Classical Ciphers",
+      "Side-Channel Attacks",
+      "Why Modern Ciphers Are Secure",
+      "Security Considerations",
+      "Real-World Attacks",
+      "Want to Learn More?",
+      "Cryptanalysis Knowledge Check",
+      "What does Kerckhoffs's Principle state?",
+      "Turn the experiment into understanding."
+    ]
+  }
+]

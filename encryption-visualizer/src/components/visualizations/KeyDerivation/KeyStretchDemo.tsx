@@ -70,13 +70,13 @@ export const KeyStretchDemo: React.FC = () => {
       </div>
 
       {/* Password input */}
-      <div className="flex gap-3">
+      <div className="flex flex-col sm:flex-row gap-3">
         <input
           type="text"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="flex-1 px-4 py-3 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all"
-          placeholder="Enter a password..."
+          className="min-w-0 flex-1 px-4 py-3 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all"
+          aria-label="Key stretching password" placeholder="Enter a password..."
         />
         <button
           onClick={runBenchmark}

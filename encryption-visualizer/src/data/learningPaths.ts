@@ -97,7 +97,7 @@ export const learningPaths: LearningPath[] = [
       {
         id: 'kx-tls',
         title: 'TLS Handshake Overview',
-        algorithmPage: ROUTES.COMPARE,
+        algorithmPage: ROUTES.TLS,
         sections: ['overview'],
         prerequisites: ['kx-dh', 'kx-signatures'],
         description:
@@ -117,7 +117,7 @@ export const learningPaths: LearningPath[] = [
       {
         id: 'adv-cryptanalysis',
         title: 'Cryptanalysis Concepts',
-        algorithmPage: ROUTES.COMPARE,
+        algorithmPage: ROUTES.CRYPTANALYSIS,
         sections: ['security-levels'],
         prerequisites: [],
         description:
@@ -126,7 +126,7 @@ export const learningPaths: LearningPath[] = [
       {
         id: 'adv-ecc',
         title: 'Elliptic Curve Cryptography',
-        algorithmPage: ROUTES.COMPARE,
+        algorithmPage: ROUTES.ECC,
         sections: ['security-levels'],
         prerequisites: ['adv-cryptanalysis'],
         description:
@@ -135,7 +135,7 @@ export const learningPaths: LearningPath[] = [
       {
         id: 'adv-password-hashing',
         title: 'Password Hashing',
-        algorithmPage: ROUTES.HASHING,
+        algorithmPage: ROUTES.PASSWORD_HASHING,
         sections: ['overview', 'sha256-steps', 'avalanche', 'quiz'],
         prerequisites: ['adv-cryptanalysis'],
         description:
@@ -144,7 +144,7 @@ export const learningPaths: LearningPath[] = [
       {
         id: 'adv-hmac',
         title: 'HMAC & Message Authentication',
-        algorithmPage: ROUTES.SIGNATURES,
+        algorithmPage: ROUTES.HMAC,
         sections: ['overview', 'signing', 'verification', 'quiz'],
         prerequisites: ['adv-password-hashing'],
         description:

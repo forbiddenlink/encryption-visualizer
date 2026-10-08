@@ -136,7 +136,7 @@ export const HashPlayground: React.FC = () => {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               className="w-full px-4 py-3 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all pr-16"
-              placeholder="Type to hash in real-time..."
+              aria-label="Playground message" placeholder="Type to hash in real-time..."
             />
             <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-slate-400 font-mono">
               {input.length} chars
@@ -178,7 +178,7 @@ export const HashPlayground: React.FC = () => {
               value={compareInput}
               onChange={(e) => setCompareInput(e.target.value)}
               className="w-full px-4 py-3 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all"
-              placeholder="Compare with..."
+              aria-label="Comparison message" placeholder="Compare with..."
             />
 
             <AnimatePresence mode="wait">

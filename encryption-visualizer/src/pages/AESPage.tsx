@@ -1,3 +1,5 @@
+import { LessonHeader } from '@/components/learning/LessonHeader';
+import { PlaybackControls } from '@/components/controls/PlaybackControls';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useExpandedSections } from '@/hooks/useExpandedSections';
@@ -11,7 +13,6 @@ import { useVisualizationStore } from '@/store/visualizationStore';
 import { useProgressStore } from '@/store/progressStore';
 import { aesEducationalContent } from '@/data/aesEducationalContent';
 import {
-  BookOpen,
   AlertTriangle,
   CheckCircle,
   Info,
@@ -54,6 +55,8 @@ const ALGORITHM_ID = 'aes';
 export const AESPage = () => {
   const location = useLocation();
   const setSteps = useVisualizationStore((state) => state.setSteps);
+  const steps = useVisualizationStore((state) => state.steps);
+  const reset = useVisualizationStore((state) => state.reset);
   const { expandedSections, toggleSection } = useExpandedSections(['whatIsAES', 'fourOperations']);
   const markSectionViewed = useProgressStore((state) => state.markSectionViewed);
   const sectionProgress = useProgressStore((state) => state.sectionProgress);
@@ -83,6 +86,7 @@ export const AESPage = () => {
   const handleEncrypt = (plaintext: string, key: string) => {
     const steps = encryptAESWithSteps(plaintext, key);
     setSteps(steps);
+    reset();
   };
 
   const isSectionViewed = (sectionId: string): boolean => {
@@ -96,36 +100,21 @@ export const AESPage = () => {
       url={`https://cryptoviz.app${location.pathname}`}
     />
     <div className="space-y-6 sm:space-y-8">
-      {/* Page Header */}
-      <div className="glass-card p-4 sm:p-6">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <div>
-            <h1 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white mb-2">
-              AES Encryption Visualizer
-            </h1>
-            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400">
-              Explore the Advanced Encryption Standard step-by-step
-            </p>
-          </div>
-          <button className="btn-secondary text-sm self-end sm:self-auto">
-            <BookOpen className="w-4 h-4" />
-            Learn More
-          </button>
-        </div>
-      </div>
+      <LessonHeader slug="aes" title="AES Encryption Visualizer" description="Explore the Advanced Encryption Standard step-by-step" />
 
       {/* Main Content Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
         {/* Left Column: Input & Visualization */}
         <div className="lg:col-span-2 space-y-6 sm:space-y-8">
           <AESInputPanel onEncrypt={handleEncrypt} />
+          {steps.length > 0 && <PlaybackControls />}
           <ErrorBoundary>
             <AESVisualizer />
           </ErrorBoundary>
         </div>
 
         {/* Right Column: Educational Content */}
-        <div className="lg:col-span-1 space-y-4">
+        <div id="lesson-notes" className="lesson-notes lg:col-span-1 space-y-4" tabIndex={-1}>
           {/* Section Progress Header */}
           <div className="glass-card p-3 rounded-xl flex items-center gap-3">
             <div className="flex-1">

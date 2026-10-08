@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Cpu, Key, Hash, ArrowRight, Lock, Fingerprint, FileSignature, GitCompare, Users, Globe, ShieldAlert, KeyRound, Ellipsis, GraduationCap } from 'lucide-react';
+import { lessons } from '@/data/lessonCatalog';
 import { ROUTES } from '@/router/routes';
 import { useProgressStore } from '@/store/progressStore';
 import { CompletionBadge } from '@/components/ui/ProgressIndicator';
@@ -26,6 +27,10 @@ const algorithmCards = [
 export const HomePage = () => {
   const isAlgorithmComplete = useProgressStore((state) => state.isAlgorithmComplete);
   const getQuizScore = useProgressStore((state) => state.getQuizScore);
+
+  const lastVisited = useProgressStore((state) => state.lastVisitedAlgorithm);
+  const completed = useProgressStore((state) => state.completedAlgorithms);
+  const resumeLesson = lessons.find((lesson) => lesson.slug === lastVisited);
 
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState('All');
@@ -71,6 +76,8 @@ export const HomePage = () => {
           <span>12 topics · 3 guided paths · Learn at your pace</span>
         </div>
       </div>
+
+      {resumeLesson && <section className="guided-callout" aria-label="Your learning progress"><div><p className="eyebrow mb-3">Your field notes / saved on this device</p><h2 className="section-title text-2xl">{completed.filter((slug) => lessons.some((lesson) => lesson.slug === slug)).length} of 12 knowledge checks passed</h2><p className="mt-3 text-sm text-slate-600 dark:text-slate-400">Last visited: {resumeLesson.title}</p></div><Link to={`/${resumeLesson.slug}`} className="btn-primary">Resume learning →</Link></section>}
 
       {/* Algorithm Cards */}
       <section id="topics" aria-labelledby="algorithms-heading">

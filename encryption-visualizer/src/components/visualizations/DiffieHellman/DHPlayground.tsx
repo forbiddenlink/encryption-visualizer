@@ -65,11 +65,12 @@ export const DHPlayground: React.FC = () => {
           <h4 className="font-bold text-blue-700 dark:text-blue-300 text-sm">Alice</h4>
 
           <div>
-            <label className="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1.5 mb-1">
+            <p className="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1.5 mb-1">
               <EyeOff className="w-3 h-3" /> Private Key (a)
-            </label>
+            </p>
             <input
               type="range"
+              aria-label="Alice private key slider"
               min={2}
               max={p - 2}
               value={alicePrivate}
@@ -80,6 +81,7 @@ export const DHPlayground: React.FC = () => {
               <span className="font-mono text-sm font-bold text-blue-700 dark:text-blue-300">{alicePrivate}</span>
               <input
                 type="number"
+                aria-label="Alice private key"
                 min={2}
                 max={p - 2}
                 value={alicePrivate}
@@ -135,11 +137,12 @@ export const DHPlayground: React.FC = () => {
           <h4 className="font-bold text-purple-700 dark:text-purple-300 text-sm">Bob</h4>
 
           <div>
-            <label className="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1.5 mb-1">
+            <p className="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1.5 mb-1">
               <EyeOff className="w-3 h-3" /> Private Key (b)
-            </label>
+            </p>
             <input
               type="range"
+              aria-label="Bob private key slider"
               min={2}
               max={p - 2}
               value={bobPrivate}
@@ -150,6 +153,7 @@ export const DHPlayground: React.FC = () => {
               <span className="font-mono text-sm font-bold text-purple-700 dark:text-purple-300">{bobPrivate}</span>
               <input
                 type="number"
+                aria-label="Bob private key"
                 min={2}
                 max={p - 2}
                 value={bobPrivate}

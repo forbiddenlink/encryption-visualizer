@@ -30,39 +30,47 @@ Branch: `design/upgrade`. Started 2026-10-08. Goal: complete the seven requested
 - Full lint is blocked by pre-existing minimatch override / jsx-a11y compatibility (`_minimatch.default is not a function`); resolve in Phase 6 without disabling the rule. Build warns about the existing large initial chunk and future Vite native-config compatibility; performance measurements are pending.
 - All 17 routes have initial desktop/mobile foundation captures with no page exceptions or overflow (`foundation-browser.json`). **These are smoke checks, not completed page upgrades or complete state testing.**
 
-## Phase 5 — not started
+## Phase 5 — complete
 
-| Template / route | Status | Remaining |
+- Applied the field-guide design to every template, with desktop/mobile captures in both themes and individual eight-dimension scores in `rollout-review.md`. Two review/fix rounds plus final corrections; all final editorial dimensions score 4/5.
+- Added lesson identity/anchors/continuation, local resume, functioning quiz-to-curriculum progress and achievement derivation, correct existing module destinations, actual comparison playback, AES controls, hashing speed, glossary related navigation and clear educational simulation scope.
+- Fixed inline RSA validation, form labels/mobile rows, mobile cryptanalysis timeline overflow and selected-filter appearance. Route transitions atomically clear incompatible lab frames without altering persistent learning data.
+- Browser results: 24 lab-state checks, 14 quiz/curriculum/glossary checks, 10 secondary-feature checks, 8 utility/recovery checks, plus a separate active-lab transition check. Focused session-reset retests are recorded separately. All passed at the respective latest runs; see JSON evidence and `rollout-review.md` for limits.
+- Fresh build/typecheck and 371 unit tests pass. New components/stores/tests pass targeted lint. Comprehensive lint/Lighthouse/all-page accessibility and the complete pre-existing e2e suite remain Phase 6.
+- Global pnpm 12 attempted an automatic incompatible reinstall during a build; stopped it, restored frozen dependencies with pnpm 9.15.9, and reran build/unit checks. Package manifest/lockfile are unchanged. Use direct local tool binaries or explicitly pnpm 9.15.9; do not use the global pnpm for checks.
+
+| Template / route | Status | Verification |
 |---|---|---|
-| Homepage `/` | done (Phase 4) | Final Lighthouse/journey checks in Phase 6 |
-| AES `/aes` | pending | Individual redesign, states, desktop/mobile rubric |
-| RSA `/rsa` | pending | Individual redesign, states, desktop/mobile rubric |
-| ECC `/ecc` | pending | Individual redesign, states, desktop/mobile rubric |
-| Block modes `/block-modes` | pending | Individual redesign, states, desktop/mobile rubric |
-| Diffie–Hellman `/diffie-hellman` | pending | Individual redesign, states, desktop/mobile rubric |
-| Hashing `/hashing` | pending | Individual redesign, states, desktop/mobile rubric |
-| HMAC `/hmac` | pending | Individual redesign, states, desktop/mobile rubric |
-| Signatures `/signatures` | pending | Individual redesign, states, desktop/mobile rubric |
-| Padding `/padding` | pending | Individual redesign, states, desktop/mobile rubric |
-| Password hashing `/password-hashing` | pending | Individual redesign, states, desktop/mobile rubric |
-| TLS `/tls` | pending | Individual redesign, states, desktop/mobile rubric |
-| Cryptanalysis `/cryptanalysis` | pending | Individual redesign, states, desktop/mobile rubric |
-| Comparison `/compare` | pending | Individual redesign, states, desktop/mobile rubric |
-| Learning paths `/learn` | pending | Individual redesign, verify module links/progress/achievements |
-| Glossary `/glossary` | pending | Individual redesign, search/filter/related/empty states |
-| About `/about` | pending | Individual redesign and verified content/links |
+| Homepage `/` | done | Desktop/mobile review and applicable states; evidence in rollout-review.md |
+| AES `/aes` | done | Desktop/mobile review and applicable states; evidence in rollout-review.md |
+| RSA `/rsa` | done | Desktop/mobile review and applicable states; evidence in rollout-review.md |
+| ECC `/ecc` | done | Desktop/mobile review and applicable states; evidence in rollout-review.md |
+| Block modes `/block-modes` | done | Desktop/mobile review and applicable states; evidence in rollout-review.md |
+| Diffie–Hellman `/diffie-hellman` | done | Desktop/mobile review and applicable states; evidence in rollout-review.md |
+| Hashing `/hashing` | done | Desktop/mobile review and applicable states; evidence in rollout-review.md |
+| HMAC `/hmac` | done | Desktop/mobile review and applicable states; evidence in rollout-review.md |
+| Signatures `/signatures` | done | Desktop/mobile review and applicable states; evidence in rollout-review.md |
+| Padding `/padding` | done | Desktop/mobile review and applicable states; evidence in rollout-review.md |
+| Password hashing `/password-hashing` | done | Desktop/mobile review and applicable states; evidence in rollout-review.md |
+| TLS `/tls` | done | Desktop/mobile review and applicable states; evidence in rollout-review.md |
+| Cryptanalysis `/cryptanalysis` | done | Desktop/mobile review and applicable states; evidence in rollout-review.md |
+| Comparison `/compare` | done | Desktop/mobile review and applicable states; evidence in rollout-review.md |
+| Learning paths `/learn` | done | Desktop/mobile review and applicable states; evidence in rollout-review.md |
+| Glossary `/glossary` | done | Desktop/mobile review and applicable states; evidence in rollout-review.md |
+| About `/about` | done | Desktop/mobile review and applicable states; evidence in rollout-review.md |
 
 ## Remaining
 
-5. Roll out every route with desktop/mobile states and scoring.
-6. Build/typecheck/lint/tests, Lighthouse and browser journeys.
-7. Final report with before/after evidence, scores and approval list.
+6. Complete full build/typecheck/lint/tests, Lighthouse and production/browser journey verification; fix measured regressions and commit.
+7. Write final report with every before/after pair, features, scores, blockers and complete approval backlog; commit and stop without merge/deploy.
 
 ## Resume checkpoint
 
-Context grew long; stopped at the completed Phase 4 boundary as requested. Continue Phase 5 using `plan.md`, `profile.md` and `features.md`. Do not repeat research or mark foundation-only captures as completed page reviews. Commit each subsequent phase on `design/upgrade`; do not merge/deploy. Existing root `CLAUDE.md` remains untracked and untouched. No risky work listed in `needs-approval.md` has been performed. The final Phase 7 report has not been written because rollout and verification remain unfinished.
+Context grew long; stopped at the completed Phase 5 boundary as requested. Resume Phase 6 from this checkpoint. Do not repeat research or initial template rollout. Read `rollout-review.md` for evidence and outstanding limits. Fix the existing minimatch override / jsx-a11y crash without disabling accessibility rules, run the complete original plus added browser suites (some original selectors may need updating for the upgraded navigation), audit production Lighthouse/accessibility, and test offline navigation against the production service worker. Existing large initial bundle warning and future Vite native-config warning remain to assess. Production deployments/main must remain untouched. No risky backlog work has been performed. Phase 7 report has not been written because full verification remains unfinished.
 
 ## Reproduction
 
 From nested app: `mise exec node@22.23.1 -- ./node_modules/.bin/vite --host 127.0.0.1 --port 3002`.
-From root: `mise exec node@22.23.1 -- node design-research/capture.cjs before` (browser launch needs unsandboxed execution on this macOS host).
+From root: `mise exec node@22.23.1 -- node design-research/capture.cjs rollout-final` (browser launch needs unsandboxed execution on this macOS host).
+
+Browser tests from nested app: `PLAYWRIGHT_JSON_OUTPUT_NAME=../design-research/verification-results.json mise exec node@22.23.1 -- ./node_modules/.bin/playwright test --config ../design-research/playwright.config.ts --workers=1 --reporter=line,json`. This config uses installed Chrome, so cached Playwright Chromium revisions are unnecessary. Browser/server launch requires unsandboxed execution on this host. The dev server is on 127.0.0.1:3002; do not start duplicate servers if it is already running. Prefer direct local `tsc -b`, `vite build`, `vitest run` and `eslint` through mise for checks, or explicitly use `npx --yes pnpm@9.15.9`.

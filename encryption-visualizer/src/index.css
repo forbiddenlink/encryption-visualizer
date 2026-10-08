@@ -402,3 +402,30 @@ summary::-webkit-details-marker { display: none; }
   .brand-name { font-size: 1rem; }
   .site-header [role='radio'] { min-width: 40px; }
 }
+
+/* Lesson field guide: editorial introduction, working lab, reading notes. */
+.lesson-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; padding: 8px 0 32px; border-bottom: 1px solid var(--line); }
+.lesson-heading { max-width: 760px; }
+.lesson-header .section-title { margin: 20px 0 16px; font-size: clamp(2.25rem, 4vw, 3.5rem); }
+.lesson-description { max-width: 65ch; color: var(--muted); line-height: 1.65; }
+.lesson-actions { display: flex; flex-direction: column; gap: 16px; flex-shrink: 0; }
+.lesson-actions .eyebrow { font-size: 10px; }
+.lesson-notes, #lesson-quiz { scroll-margin-top: 110px; }
+.lesson-next { margin-top: 64px; border-top: 1px solid var(--line); padding-top: 32px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+.lesson-next .section-title { font-size: clamp(1.75rem, 3vw, 2.5rem); max-width: 24ch; margin: 16px 0; }
+.lesson-next p:not(.eyebrow) { color: var(--muted); max-width: 60ch; font-size: 14px; line-height: 1.65; }
+@media (max-width: 1023px) { .lesson-header { flex-direction: column; align-items: flex-start; } .lesson-next { flex-direction: column; align-items: flex-start; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
+.reading-section { padding: 32px 0; border-top: 1px solid var(--line); }
+.about-intro { padding: 8px 0 24px; }
+.about-intro .section-title { font-size: clamp(2.5rem, 5vw, 4rem); }
+.lesson-notes .text-xs { font-size: .8125rem; line-height: 1.6; }
+.lesson-notes [class~="text-[10px]"] { font-size: .75rem; line-height: 1.5; }
+.lesson-notes .text-slate-400, .lesson-notes .text-slate-500, .dark .lesson-notes .dark\:text-slate-500 { color: var(--muted); }
+.lesson-notes button { min-height: 44px; }
+.site-main button, .site-main input[type="text"], .site-main input[type="search"], .site-main select { min-height: 44px; }
+.curriculum-card .section-title { font-size: clamp(1.75rem, 2.5vw, 2rem); line-height: 1.15; }
+.lesson-scope { margin-top: 20px; max-width: 65ch; padding-left: 16px; border-left: 2px solid var(--accent); font-size: .8125rem; line-height: 1.65; color: var(--muted); }
+/* Solid lab actions share the guide accent; diagrams retain their semantic colors. */
+.site-main button[class*="bg-"][class~="text-white"], .site-main .btn-primary { background-color: var(--action); color: white; background-image: none; }
+.site-main button[class*="bg-"][class~="text-white"]:hover, .site-main .btn-primary:hover { background-color: var(--action-hover); }

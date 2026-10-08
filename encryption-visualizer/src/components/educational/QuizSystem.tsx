@@ -173,7 +173,7 @@ export const QuizSystem: React.FC<QuizSystemProps> = ({
     }
 
     return (
-        <div className="glass-card overflow-hidden">
+        <div id="lesson-quiz" className="glass-card overflow-hidden" tabIndex={-1}>
             {/* Quiz Header */}
             <div className="p-4 border-b border-slate-200 dark:border-slate-700 flex items-center justify-between">
                 <h3 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">

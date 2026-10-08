@@ -1,3 +1,4 @@
+import { LessonHeader } from '@/components/learning/LessonHeader';
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useExpandedSections } from '@/hooks/useExpandedSections';
@@ -7,7 +8,7 @@ import { ErrorBoundary } from '@/components/ui/ErrorBoundary';
 import { padWithSteps } from '@/lib/crypto/padding';
 import { useVisualizationStore } from '@/store/visualizationStore';
 import type { PaddingStep, PaddingScheme } from '@/lib/types/padding';
-import { BookOpen, Info, XCircle, Lightbulb, ExternalLink, Layers, Grid3X3 } from 'lucide-react';
+import { Info, XCircle, Lightbulb, ExternalLink, Layers, Grid3X3 } from 'lucide-react';
 import { QuizSystem } from '@/components/educational/QuizSystem';
 import { paddingQuizQuestions } from '@/data/quizzes/paddingQuiz';
 import { EducationalCard } from '@/components/educational/EducationalCard';
@@ -211,25 +212,9 @@ export const PaddingPage = () => {
         keywords={['padding', 'PKCS#7', 'zero padding', 'ANSI X.923', 'block cipher', 'padding oracle']}
       />
       <div className="space-y-6 sm:space-y-8">
-        {/* Page Header */}
-        <div className="glass-card p-4 sm:p-6">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <div>
-              <h1 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white mb-2">
-                Padding Schemes Visualizer
-              </h1>
-              <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400">
-                See how padding aligns data to block boundaries for encryption
-              </p>
-            </div>
-            <button className="btn-secondary text-sm self-end sm:self-auto">
-              <BookOpen className="w-4 h-4" />
-              Learn More
-            </button>
-          </div>
-        </div>
+        <LessonHeader slug="padding" title="Padding Schemes Visualizer" description="See how padding aligns data to block boundaries for encryption" />
 
-        {/* Main Content Grid */}
+      {/* Main Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
           {/* Left Column */}
           <div className="lg:col-span-2 space-y-6 sm:space-y-8">
@@ -238,8 +223,8 @@ export const PaddingPage = () => {
               <h3 className="text-lg font-bold text-slate-900 dark:text-white">Padding Input</h3>
               <div className="space-y-3">
                 <div>
-                  <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1">Input Text</label>
-                  <input
+                  <label htmlFor="padding-field-1" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1">Input Text</label>
+                  <input id="padding-field-1"
                     type="text"
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
@@ -250,12 +235,13 @@ export const PaddingPage = () => {
 
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1">Block Size</label>
-                    <div className="flex gap-2">
+                    <p id="padding-block-size" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1">Block Size</p>
+                    <div className="flex gap-2" role="group" aria-labelledby="padding-block-size">
                       {[8, 16].map((size) => (
                         <button
                           key={size}
                           onClick={() => setBlockSize(size)}
+                          aria-pressed={blockSize === size}
                           className={`flex-1 py-2 rounded-xl text-sm font-bold transition-all ${
                             blockSize === size
                               ? 'bg-violet-600 text-white'
@@ -268,8 +254,8 @@ export const PaddingPage = () => {
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1">Scheme</label>
-                    <select
+                    <label htmlFor="padding-field-2" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1">Scheme</label>
+                    <select id="padding-field-2"
                       value={scheme}
                       onChange={(e) => setScheme(e.target.value as PaddingScheme)}
                       className="w-full bg-slate-50 dark:bg-cyber-dark border border-slate-200 dark:border-slate-700 rounded-xl p-2 text-sm text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-violet-500"
@@ -306,6 +292,7 @@ export const PaddingPage = () => {
                   <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto justify-center sm:justify-start">
                     <button
                       onClick={reset}
+                      aria-label="Reset visualization"
                       className="p-2 sm:p-3 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 rounded-xl transition-all duration-300 hover:scale-110 active:scale-95"
                     >
                       <Layers className="w-4 h-4 sm:w-5 sm:h-5 text-violet-600 dark:text-violet-400" />
@@ -370,7 +357,7 @@ export const PaddingPage = () => {
           </div>
 
           {/* Right Column: Educational Content */}
-          <div className="lg:col-span-1 space-y-4">
+          <div id="lesson-notes" className="lesson-notes lg:col-span-1 space-y-4" tabIndex={-1}>
             {/* Why Padding Matters */}
             <EducationalCard
               title={paddingEducationalContent.whyPaddingMatters.title}

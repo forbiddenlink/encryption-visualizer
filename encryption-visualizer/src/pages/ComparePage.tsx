@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useCompareStore, type ComparableAlgorithm } from '@/store/compareStore';
 import { CompareControls } from '@/components/compare/CompareControls';
 import { ComparePanel } from '@/components/compare/ComparePanel';
+import { ComparisonExperiment } from '@/components/compare/ComparisonExperiment';
 import { SecurityLevelChart } from '@/components/compare/SecurityLevelChart';
 import { PerformanceChart } from '@/components/compare/PerformanceChart';
 import { UseCaseMatrix } from '@/components/compare/UseCaseMatrix';
@@ -33,15 +34,16 @@ export const ComparePage = () => {
 
   return (
     <div className="space-y-6 sm:space-y-8">
+      <p className="eyebrow">The comparison desk / 06 algorithms</p>
       {/* Page Header */}
-      <div className="glass-card p-4 sm:p-6">
+      <div className="lesson-header">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-gradient-to-br from-cyber-cyan to-cyber-blue rounded-lg">
               <GitCompare className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
             </div>
             <div>
-              <h1 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white mb-1">
+              <h1 className="section-title mb-4">
                 Algorithm Comparison
               </h1>
               <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400">
@@ -56,7 +58,7 @@ export const ComparePage = () => {
       <CompareControls />
 
       {/* Comparison Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-6">
         <ComparePanel algorithm={leftAlgorithm} side="left" />
 
         {/* Comparison Arrow (visible on lg screens) */}
@@ -70,6 +72,7 @@ export const ComparePage = () => {
       </div>
 
       {/* Comparison Table */}
+      <ComparisonExperiment key={`${leftAlgorithm}-${rightAlgorithm}`} />
       <div className="glass-card p-4 sm:p-6 overflow-x-auto">
         <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4">
           Feature Comparison
