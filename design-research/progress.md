@@ -67,9 +67,9 @@ Branch: `design/upgrade`. Started 2026-10-08. Goal: complete the seven requested
 - Final both-theme desktop/mobile captures for every route: zero page exceptions/overflow. Added local licensed fonts and a small logo rendition; deferred analytics and precache; reserved loading geometry and corrected result-label contrast.
 - Lighthouse key pages: mobile performance 78–81, desktop homepage 99; accessibility/best-practices/SEO 100 throughout. CLS zero throughout. Mobile LCP under throttling remains 4.7–5.1s; do not describe this as perfect mobile performance. Evidence and limitations: verification.md.
 
-## Remaining / resume checkpoint
+## Phase 7 — complete / stop checkpoint
 
-Phase 7 only: write report.md with every before/after pair, added features, eight-dimension scores, blockers/untested work and full needs-approval list. Commit and stop without merging/deploying. Do not repeat completed research/rollout/verification. User-owned root CLAUDE.md stays untouched/untracked. Temporary third-party patch scratch in design-research/lint-plugin-patch stays untracked; the minimal persistent patch is in the nested app's patches/ directory.
+report.md includes before/after pairs for every template, all eight scores, implemented features, production verification, explicit limits and the full approval backlog. All seven phases are complete and committed on design/upgrade. Main and production remain untouched; no merge or deployment. Stop here. Any later work is a new scope. User-owned CLAUDE.md and temporary lint-plugin-patch scratch remain untracked; do not delete them.
 
 ## Reproduction
 
