@@ -3,50 +3,32 @@ import { test, expect } from '@playwright/test';
 test.describe('Navigation', () => {
   test('should load homepage and show navigation', async ({ page }) => {
     await page.goto('/');
-
-    // Check main heading
-    await expect(page.getByRole('heading', { level: 1 })).toContainText('Encryption');
-
-    // Check navigation buttons exist in the header
-    const nav = page.getByRole('navigation');
-    await expect(nav.getByRole('button', { name: 'AES', exact: true })).toBeVisible();
-    await expect(nav.getByRole('button', { name: 'RSA', exact: true })).toBeVisible();
-    await expect(nav.getByRole('button', { name: 'Hashing', exact: true })).toBeVisible();
-    await expect(nav.getByRole('button', { name: 'Glossary', exact: true })).toBeVisible();
+    await expect(page.getByRole('heading', { level: 1 })).toContainText(/encryption/i);
+    const nav = page.getByRole('navigation', { name: 'Main navigation', exact: true });
+    await nav.locator('summary').click();
+    for (const label of ['AES Encryption', 'RSA Encryption', 'Hash Functions', 'Glossary']) {
+      await expect(nav.getByRole('link', { name: label, exact: true })).toBeVisible();
+    }
   });
 
-  test('should navigate to AES page', async ({ page }) => {
-    await page.goto('/');
-    await page.getByRole('navigation').getByRole('button', { name: 'AES', exact: true }).click();
-    await expect(page.getByRole('heading', { name: /AES Encryption Visualizer/i })).toBeVisible();
-  });
-
-  test('should navigate to RSA page', async ({ page }) => {
-    await page.goto('/');
-    await page.getByRole('navigation').getByRole('button', { name: 'RSA', exact: true }).click();
-    await expect(page.getByRole('heading', { name: /RSA Encryption Visualizer/i })).toBeVisible();
-  });
-
-  test('should navigate to Hashing page', async ({ page }) => {
-    await page.goto('/');
-    await page.getByRole('navigation').getByRole('button', { name: 'Hashing', exact: true }).click();
-    await expect(page.getByRole('heading', { name: /Hash Functions Visualizer/i })).toBeVisible();
-  });
-
-  test('should navigate to Glossary page', async ({ page }) => {
-    await page.goto('/');
-    await page.getByRole('navigation').getByRole('button', { name: 'Glossary', exact: true }).click();
-    await expect(page.getByRole('heading', { name: /Crypto Glossary/i })).toBeVisible();
-  });
+  for (const [label, heading] of [
+    ['AES Encryption', 'AES Encryption Visualizer'],
+    ['RSA Encryption', 'RSA Encryption Visualizer'],
+    ['Hash Functions', 'Hash Functions Visualizer'],
+    ['Glossary', 'Crypto Glossary'],
+  ]) {
+    test(`should navigate to ${label}`, async ({ page }) => {
+      await page.goto('/');
+      const nav = page.getByRole('navigation', { name: 'Main navigation', exact: true });
+      if (label !== 'Glossary') await nav.locator('summary').click();
+      await nav.getByRole('link', { name: label, exact: true }).click();
+      await expect(page.getByRole('heading', { name: heading, exact: true })).toBeVisible();
+    });
+  }
 
   test('should toggle theme', async ({ page }) => {
     await page.goto('/');
-
-    // Check dark mode is default
-    const darkRadio = page.getByRole('radio', { name: 'Dark mode' });
-    await expect(darkRadio).toBeChecked();
-
-    // Switch to light mode
+    await expect(page.getByRole('radio', { name: 'Dark mode' })).toBeChecked();
     await page.getByRole('radio', { name: 'Light mode' }).click();
     await expect(page.getByRole('radio', { name: 'Light mode' })).toBeChecked();
   });

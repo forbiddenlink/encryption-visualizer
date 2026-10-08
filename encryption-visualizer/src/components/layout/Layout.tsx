@@ -2,6 +2,7 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { AnimatePresence, m, useReducedMotion } from 'framer-motion';
 import { Header } from './Header';
+import { Footer } from './Footer';
 import { ScrollToTop } from './ScrollToTop';
 import { ToastContainer } from '@/components/ui/Toast';
 
@@ -28,7 +29,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
       <main
         id="main-content"
         role="main"
-        className="pt-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-6 sm:py-12"
+        className="site-main"
       >
         <AnimatePresence mode="wait">
           <m.div
@@ -43,6 +44,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
         </AnimatePresence>
       </main>
 
+      <Footer />
       <ToastContainer />
     </div>
   );

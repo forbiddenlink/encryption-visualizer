@@ -27,12 +27,12 @@ const ByteCell = ({ char, hex, state, variant, reduced }: ByteCellProps) => {
   const tone =
     variant === 'in'
       ? {
-          pending: 'bg-slate-100 dark:bg-cyber-dark border-slate-200 dark:border-white/5 text-slate-400 dark:text-slate-600',
-          active: 'bg-cyber-blue/10 border-cyber-blue text-cyber-blue',
+          pending: 'bg-slate-100 dark:bg-cyber-dark border-slate-200 dark:border-white/5 text-slate-500 dark:text-slate-400',
+          active: 'bg-cyber-blue/10 border-cyber-blue text-cyber-blue dark:text-cyber-cyan',
           done: 'bg-slate-100 dark:bg-cyber-dark border-slate-200 dark:border-white/10 text-slate-500 dark:text-slate-500',
         }
       : {
-          pending: 'bg-slate-100 dark:bg-cyber-dark border-slate-200 dark:border-white/5 text-slate-300 dark:text-slate-700',
+          pending: 'bg-slate-100 dark:bg-cyber-dark border-slate-200 dark:border-white/5 text-slate-500 dark:text-slate-400',
           active: 'bg-cyber-cyan/15 border-cyber-cyan text-cyber-cyan shadow-[0_0_16px_rgba(6,182,212,0.35)]',
           done: 'bg-emerald-500/10 dark:bg-cyber-cyan/5 border-emerald-500/30 dark:border-cyber-cyan/25 text-emerald-600 dark:text-cyber-cyan',
         };
@@ -78,7 +78,7 @@ export const CipherLabDemo = () => {
   const revealed = step;
   const activeIndex = revealed > 0 ? revealed - 1 : -1;
   const activeFrame = activeIndex >= 0 ? frames[activeIndex] : null;
-  const atEnd = revealed >= total;
+  const atEnd = total > 0 && revealed >= total;
 
   const clearTimer = () => {
     if (timerRef.current !== null) {
@@ -163,20 +163,19 @@ export const CipherLabDemo = () => {
             Cipher Lab
           </h2>
         </div>
-        <p className="text-xs font-mono text-slate-400 dark:text-slate-500">
+        <p className="text-xs font-mono text-slate-500 dark:text-slate-400">
           live byte-by-byte transform
         </p>
       </div>
 
       {/* Algorithm selector */}
-      <div className="flex flex-wrap gap-2" role="tablist" aria-label="Cipher algorithm">
+      <div className="flex flex-wrap gap-2" role="group" aria-label="Cipher algorithm">
         {CIPHER_ALGOS.map((a) => {
           const selected = a.id === algo;
           return (
             <button
               key={a.id}
-              role="tab"
-              aria-selected={selected}
+              aria-pressed={selected}
               onClick={() => selectAlgo(a.id)}
               className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-sm font-semibold transition-all duration-150 active:scale-[0.98] border ${
                 selected
@@ -186,7 +185,7 @@ export const CipherLabDemo = () => {
             >
               {a.label}
               <span
-                className={`text-[10px] font-mono px-1.5 py-0.5 rounded ${
+                className={`hidden sm:inline text-[10px] font-mono px-1.5 py-0.5 rounded ${
                   selected ? 'bg-white/20' : 'bg-white dark:bg-cyber-surface text-slate-400'
                 }`}
               >
@@ -233,7 +232,7 @@ export const CipherLabDemo = () => {
       <div className="space-y-4">
         {/* Plaintext row */}
         <div>
-          <div className="text-[11px] font-mono uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2">
+          <div className="text-[11px] font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">
             Input
           </div>
           <div className="flex flex-wrap gap-1.5">
@@ -254,7 +253,7 @@ export const CipherLabDemo = () => {
         <div className="flex items-center justify-center gap-3 py-1">
           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-slate-200 dark:via-white/10 to-slate-200 dark:to-white/10" />
           <m.div
-            className="flex items-center gap-2 px-4 py-2 rounded-full bg-cyber-blue/10 border border-cyber-blue/30 text-cyber-blue font-mono text-sm font-semibold"
+            className="flex items-center gap-2 px-4 py-2 rounded-full bg-cyber-blue/10 border border-cyber-blue/30 text-cyber-blue dark:text-cyber-cyan font-mono text-sm font-semibold"
             animate={reduced || !playing ? undefined : { scale: [1, 1.04, 1] }}
             transition={{ duration: 0.6, repeat: Infinity }}
           >
@@ -267,7 +266,7 @@ export const CipherLabDemo = () => {
 
         {/* Ciphertext row */}
         <div>
-          <div className="text-[11px] font-mono uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2">
+          <div className="text-[11px] font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">
             Ciphertext
           </div>
           <div className="flex flex-wrap gap-1.5">
@@ -285,12 +284,14 @@ export const CipherLabDemo = () => {
         </div>
       </div>
 
+      {total === 0 && <p role="status" className="text-sm text-slate-600 dark:text-slate-300">Enter a message to see its bytes and begin the transformation.</p>}
+
       {/* Step note */}
       <div
         className="min-h-[2.5rem] flex items-center gap-2 px-3.5 py-2.5 rounded-lg bg-slate-100/70 dark:bg-cyber-dark/60 border border-slate-200 dark:border-white/5"
         aria-live="polite"
       >
-        <span className="text-xs font-mono text-slate-400 dark:text-slate-500 shrink-0">
+        <span className="text-xs font-mono text-slate-500 dark:text-slate-400 shrink-0">
           {activeFrame ? `[${activeIndex + 1}/${total}]` : `[0/${total}]`}
         </span>
         <span className="text-sm text-slate-600 dark:text-slate-300 font-medium">
@@ -320,7 +321,8 @@ export const CipherLabDemo = () => {
           </button>
           <button
             onClick={togglePlay}
-            className="min-h-[44px] px-6 py-3 bg-cyber-blue hover:bg-cyber-cyan hover:text-cyber-dark text-white rounded-lg transition-all duration-150 active:scale-[0.98] flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-cyber-cyan"
+            disabled={total === 0}
+            className="min-h-[44px] px-6 py-3 disabled:opacity-40 disabled:cursor-not-allowed bg-cyber-blue hover:bg-cyber-cyan hover:text-cyber-dark text-white rounded-lg transition-all duration-150 active:scale-[0.98] flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-cyber-cyan"
             aria-label={playing ? 'Pause' : atEnd ? 'Replay' : 'Play'}
           >
             {playing ? (
@@ -334,7 +336,7 @@ export const CipherLabDemo = () => {
           </button>
           <button
             onClick={forward}
-            disabled={atEnd}
+            disabled={atEnd || total === 0}
             className="min-w-[44px] min-h-[44px] p-2.5 bg-slate-100 dark:bg-cyber-surface hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-200 dark:border-white/5 rounded-lg transition-all duration-150 active:scale-[0.98] disabled:opacity-40 disabled:active:scale-100 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-cyber-blue flex items-center justify-center"
             title="Step forward"
             aria-label="Next step"
@@ -350,7 +352,7 @@ export const CipherLabDemo = () => {
             <button
               key={s}
               onClick={() => setSpeed(s)}
-              className={`px-2 py-1 rounded-md text-xs font-semibold transition-all duration-150 active:scale-95 ${
+              className={`min-w-[44px] min-h-[44px] px-2 py-1 rounded-md text-xs font-semibold transition-all duration-150 active:scale-95 ${
                 speed === s
                   ? 'bg-cyber-blue text-white'
                   : 'bg-white dark:bg-cyber-dark text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-white/5'

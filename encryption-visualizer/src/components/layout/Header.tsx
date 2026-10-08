@@ -1,7 +1,6 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
-import { Cpu, Hash, Menu, X, Book, Key, Info, FileSignature, Users, Layers, ShieldAlert, Globe, Lock, KeyRound, Ellipsis, GraduationCap, GitCompare } from 'lucide-react';
-import { AnimatePresence, m } from 'framer-motion';
+import { Cpu, Hash, Menu, Book, Key, Info, FileSignature, Users, Layers, ShieldAlert, Globe, Lock, KeyRound, Ellipsis, GraduationCap, GitCompare, ChevronDown } from 'lucide-react';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import { ROUTES } from '@/router/routes';
 
@@ -28,173 +27,70 @@ const otherLinks = [
 ];
 
 export const Header = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const headerRef = useRef<HTMLElement>(null);
+  const categories = ['Symmetric', 'Asymmetric', 'Hashing', 'Protocols', 'Attacks'];
 
-  const closeMobileMenu = useCallback(() => setMobileMenuOpen(false), []);
-
-  // Close mobile menu on route change
   useEffect(() => {
-    setMobileMenuOpen(false);
-  }, [location.pathname]);
+    const closeMenus = () => headerRef.current?.querySelectorAll('details[open]').forEach((menu) => menu.removeAttribute('open'));
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        const openMenu = headerRef.current?.querySelector('details[open]');
+        closeMenus();
+        openMenu?.querySelector('summary')?.focus();
+      }
+    };
+    const onOutside = (event: PointerEvent) => {
+      if (event.target instanceof Node && !headerRef.current?.contains(event.target)) closeMenus();
+    };
+    document.addEventListener('keydown', onKey);
+    document.addEventListener('pointerdown', onOutside);
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.removeEventListener('pointerdown', onOutside);
+    };
+  }, []);
 
-  const navLinkClass = ({ isActive }: { isActive: boolean }) =>
-    `px-4 py-2 rounded-lg transition-colors flex items-center gap-2 ${
-      isActive
-        ? 'bg-slate-100 dark:bg-slate-800 text-cyber-cyan'
-        : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
-    }`;
-
-  const mobileNavLinkClass = ({ isActive }: { isActive: boolean }) =>
-    `w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
-      isActive
-        ? 'bg-slate-100 dark:bg-slate-800 text-cyber-cyan'
-        : 'hover:bg-slate-100 dark:hover:bg-slate-800'
-    }`;
-
-  // Group algorithm links by category for mobile
-  const categories = ['Symmetric', 'Asymmetric', 'Hashing', 'Protocols', 'Attacks'] as const;
-  const grouped = categories.map((cat) => ({
-    category: cat,
-    links: algorithmLinks.filter((l) => l.category === cat),
-  }));
+  const topicGroups = (
+    <div className="topic-menu-grid">
+      {categories.map((category) => (
+        <div key={category}>
+          <p className="eyebrow mb-2">{category}</p>
+          {algorithmLinks.filter((link) => link.category === category).map(({ to, icon: Icon, label }) => (
+            <NavLink key={to} to={to} className="menu-topic">
+              <Icon className="w-4 h-4" aria-hidden="true" />{label}
+            </NavLink>
+          ))}
+        </div>
+      ))}
+    </div>
+  );
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <Link
-            to={ROUTES.HOME}
-            className="flex items-center gap-2 sm:gap-3 cursor-pointer focus:outline-none focus:ring-2 focus:ring-cyber-blue focus:ring-offset-2 focus:ring-offset-slate-900 rounded-lg group"
-            aria-label="Go to home page"
-          >
-            <div className="bg-cyber-blue group-hover:bg-cyan-500 p-2 border border-cyber-cyan/30 rounded-lg shadow-inner transition-colors duration-150">
-              <img src="/logo.png" alt="CryptoViz" className="w-5 h-5 object-contain" />
-            </div>
-            <div className="text-left">
-              <span className="text-xl font-bold tracking-tight text-slate-900 dark:text-white group-hover:text-cyber-cyan transition-colors duration-150">
-                CryptoViz
-              </span>
-              <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium uppercase tracking-wider hidden sm:block">Interactive Learning</p>
-            </div>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1">
-            {grouped.map(({ category, links }) => (
-              <div key={category} className="relative group/dropdown">
-                <button className="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                  {category}
-                </button>
-                <div className="absolute top-full left-0 mt-1 py-2 w-52 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl shadow-xl opacity-0 invisible group-hover/dropdown:opacity-100 group-hover/dropdown:visible transition-all z-50">
-                  {links.map(({ to, icon: Icon, label }) => (
-                    <NavLink
-                      key={to}
-                      to={to}
-                      className={({ isActive }) =>
-                        `flex items-center gap-2.5 px-4 py-2 text-sm transition-colors ${
-                          isActive
-                            ? 'text-cyber-cyan bg-slate-50 dark:bg-slate-800'
-                            : 'text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800'
-                        }`
-                      }
-                    >
-                      <Icon className="w-4 h-4" />
-                      {label}
-                    </NavLink>
-                  ))}
-                </div>
-              </div>
-            ))}
-
-            <div className="w-px h-6 bg-slate-200 dark:bg-slate-700 mx-1" />
-
-            {otherLinks.map(({ to, icon: Icon, label }) => (
-              <NavLink key={to} to={to} className={navLinkClass}>
-                <Icon className="w-4 h-4" />
-                <span className="text-sm font-medium">{label}</span>
-              </NavLink>
-            ))}
-
-            <div className="w-px h-6 bg-slate-200 dark:bg-slate-700 mx-1" />
-
-            <ThemeToggle />
-          </nav>
-
-          {/* Mobile Menu Button */}
-          <div className="flex items-center gap-2 lg:hidden">
-            <ThemeToggle />
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
-              aria-expanded={mobileMenuOpen}
-              aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
-            >
-              {mobileMenuOpen ? (
-                <X className="w-5 h-5 text-slate-600 dark:text-slate-300" />
-              ) : (
-                <Menu className="w-5 h-5 text-slate-600 dark:text-slate-300" />
-              )}
-            </button>
-          </div>
+    <header ref={headerRef} className="site-header">
+      <div className="site-header-inner">
+        <Link to={ROUTES.HOME} className="brand" aria-label="CryptoViz home">
+          <span className="brand-mark"><img src="/logo.png" alt="" className="w-6 h-6 object-contain" /></span>
+          <span><span className="brand-name">CryptoViz</span><span className="brand-caption">Interactive learning</span></span>
+        </Link>
+        <nav className="desktop-nav" aria-label="Main navigation" key={`desktop-${location.pathname}`}>
+          <details className="explore-menu">
+            <summary className="nav-item">Explore topics <ChevronDown className="w-4 h-4" aria-hidden="true" /></summary>
+            <div className="topic-menu">{topicGroups}<Link to={`${ROUTES.HOME}#topics`} className="menu-topic mt-4">View the complete library →</Link></div>
+          </details>
+          {otherLinks.map(({ to, label }) => <NavLink key={to} to={to} className="nav-item">{label}</NavLink>)}
+          <ThemeToggle />
+        </nav>
+        <div className="mobile-nav" key={`mobile-${location.pathname}`}>
+          <ThemeToggle />
+          <details className="mobile-menu">
+            <summary className="nav-item" aria-label="Open navigation menu"><Menu className="w-5 h-5" aria-hidden="true" /></summary>
+            <nav className="mobile-menu-panel" aria-label="Mobile navigation">
+              {otherLinks.map(({ to, icon: Icon, label }) => <NavLink key={to} to={to} className="menu-topic"><Icon className="w-4 h-4" aria-hidden="true" />{label}</NavLink>)}
+              <div className="mt-6">{topicGroups}</div>
+            </nav>
+          </details>
         </div>
-
-        {/* Mobile Navigation */}
-        <AnimatePresence>
-          {mobileMenuOpen && (
-            <m.nav
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: 'auto', opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.2, ease: 'easeOut' }}
-              className="lg:hidden overflow-hidden border-t border-slate-200 dark:border-slate-800"
-              aria-label="Mobile navigation"
-            >
-              <div className="py-4 space-y-4">
-                {/* Grouped algorithm links */}
-                {grouped.map(({ category, links }) => (
-                  <div key={category}>
-                    <p className="px-4 mb-1 text-[11px] font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500">
-                      {category}
-                    </p>
-                    <div className="space-y-0.5">
-                      {links.map(({ to, icon: Icon, label }) => (
-                        <NavLink
-                          key={to}
-                          to={to}
-                          className={mobileNavLinkClass}
-                          onClick={closeMobileMenu}
-                        >
-                          <Icon className="w-5 h-5 text-slate-600 dark:text-slate-400" />
-                          <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{label}</span>
-                        </NavLink>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-
-                {/* Divider */}
-                <div className="border-t border-slate-200 dark:border-slate-800 mx-4" />
-
-                {/* Other links */}
-                <div className="space-y-0.5">
-                  {otherLinks.map(({ to, icon: Icon, label }) => (
-                    <NavLink
-                      key={to}
-                      to={to}
-                      className={mobileNavLinkClass}
-                      onClick={closeMobileMenu}
-                    >
-                      <Icon className="w-5 h-5 text-slate-600 dark:text-slate-400" />
-                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{label}</span>
-                    </NavLink>
-                  ))}
-                </div>
-              </div>
-            </m.nav>
-          )}
-        </AnimatePresence>
       </div>
     </header>
   );

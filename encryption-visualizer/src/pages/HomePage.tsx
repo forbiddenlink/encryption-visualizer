@@ -1,5 +1,6 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Cpu, Key, Hash, ArrowRight, Shield, Lock, Fingerprint, FileSignature, GitCompare, Users, Globe, ShieldAlert, KeyRound, Ellipsis, GraduationCap } from 'lucide-react';
+import { Cpu, Key, Hash, ArrowRight, Lock, Fingerprint, FileSignature, GitCompare, Users, Globe, ShieldAlert, KeyRound, Ellipsis, GraduationCap } from 'lucide-react';
 import { ROUTES } from '@/router/routes';
 import { useProgressStore } from '@/store/progressStore';
 import { CompletionBadge } from '@/components/ui/ProgressIndicator';
@@ -26,113 +27,88 @@ export const HomePage = () => {
   const isAlgorithmComplete = useProgressStore((state) => state.isAlgorithmComplete);
   const getQuizScore = useProgressStore((state) => state.getQuizScore);
 
+  const [query, setQuery] = useState('');
+  const [category, setCategory] = useState('All');
+  const categories = ['All', 'Symmetric', 'Asymmetric', 'Hashing', 'Protocols', 'Attacks'];
+  const categoryFor = (slug: string): string => {
+    if (['aes', 'block-modes', 'padding'].includes(slug)) return 'Symmetric';
+    if (['rsa', 'ecc', 'diffie-hellman', 'signatures'].includes(slug)) return 'Asymmetric';
+    if (['hashing', 'hmac', 'password-hashing'].includes(slug)) return 'Hashing';
+    return slug === 'tls' ? 'Protocols' : 'Attacks';
+  };
+  const filteredCards = algorithmCards.filter((card) =>
+    (category === 'All' || categoryFor(card.slug) === category) &&
+    `${card.title} ${card.description} ${card.tag}`.toLowerCase().includes(query.trim().toLowerCase())
+  );
+
   return (
     <>
     <WebSiteSchema {...websiteSchema} />
-    <article className="space-y-16 sm:space-y-24">
-      {/* Hero Section */}
-      <header className="relative pt-16 sm:pt-24 pb-8 overflow-hidden">
-        <div className="cipher-rain" aria-hidden="true" />
-        <div className="relative text-center space-y-8">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-cyber-blue/10 border border-cyber-blue/20 rounded-full">
-            <Shield className="w-4 h-4 text-cyber-cyan" />
-            <span className="text-xs font-semibold tracking-wide uppercase text-cyber-blue">
-              Interactive Cryptography Education
-            </span>
-          </div>
-
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tighter">
-            <span className="block text-slate-900 dark:text-white mb-2">
-              See How Encryption
-            </span>
-            <span className="block bg-gradient-to-br from-cyber-cyan to-cyber-blue bg-clip-text text-transparent">
-              Actually Works
-            </span>
-          </h1>
-
-          <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed font-medium">
-            Don&apos;t just read about cryptography. <em>Experience</em> it.
-            Watch bytes transform, witness key generation, and observe the avalanche effect.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-            <Link
-              to={ROUTES.AES}
-              className="btn-primary"
-            >
-              Start with AES
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-            <Link
-              to={ROUTES.GLOSSARY}
-              className="btn-secondary"
-            >
-              Browse Glossary
-            </Link>
-          </div>
+    <article style={{ display: 'grid', gap: 'var(--space-section)' }}>
+      <div>
+        <div className="home-guide">
+          <header className="home-intro">
+            <p className="eyebrow">A field guide to cryptography / 01</p>
+            <h1 className="display-title">See how encryption <span style={{ color: 'var(--accent)' }}>actually works.</span></h1>
+            <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300">
+              Don&apos;t just read about cryptography. <em>Experience</em> it.
+              Watch bytes transform, witness key generation, and observe the avalanche effect.
+            </p>
+            <div className="flex flex-wrap items-center gap-3 mt-8">
+              <Link to={ROUTES.LEARNING_PATHS} className="btn-primary">Start learning <ArrowRight className="w-4 h-4" aria-hidden="true" /></Link>
+              <Link to={ROUTES.AES} className="btn-secondary">Start with AES</Link>
+            </div>
+            <Link to={ROUTES.GLOSSARY} className="inline-flex mt-5 text-sm text-slate-600 dark:text-slate-300 underline underline-offset-4">Browse Glossary</Link>
+          </header>
+          <section aria-labelledby="cipher-lab-heading" className="home-lab">
+            <h2 id="cipher-lab-heading" className="sr-only">Live cipher lab</h2>
+            <CipherLabDemo />
+            <p className="text-xs text-slate-600 dark:text-slate-400 mt-4">Try a message. Step through each byte. This introductory lab demonstrates Caesar, XOR, and the AES S-box.</p>
+          </section>
         </div>
-      </header>
-
-      {/* Cipher Lab — live animated transform */}
-      <section aria-labelledby="cipher-lab-heading" className="max-w-3xl mx-auto w-full">
-        <h2 id="cipher-lab-heading" className="sr-only">
-          Live cipher lab
-        </h2>
-        <CipherLabDemo />
-      </section>
+        <div className="home-meta eyebrow">
+          <span>Interactive cryptography education</span>
+          <span>12 topics · 3 guided paths · Learn at your pace</span>
+        </div>
+      </div>
 
       {/* Algorithm Cards */}
-      <section aria-labelledby="algorithms-heading">
-        <div className="text-center mb-10">
-          <h2 id="algorithms-heading" className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">
-            Choose Your Learning Path
-          </h2>
-          <p className="mt-3 text-slate-600 dark:text-slate-400 max-w-xl mx-auto">
-            Each algorithm is broken down into visual, digestible steps
-          </p>
+      <section id="topics" aria-labelledby="algorithms-heading">
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <div>
+            <p className="eyebrow mb-3">The algorithm library / 02</p>
+            <h2 id="algorithms-heading" className="section-title">Choose your learning path</h2>
+            <p className="mt-3 text-slate-600 dark:text-slate-400">Each algorithm is broken down into visual, digestible steps.</p>
+          </div>
+          <Link to={ROUTES.COMPARE} className="btn-secondary text-sm">Compare algorithms <GitCompare className="w-4 h-4" aria-hidden="true" /></Link>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {algorithmCards.map(({ to, icon: Icon, title, description, tag, slug }) => (
-            <Link
-              key={to}
-              to={to}
-              className="group relative glass-card-hover p-6 cursor-pointer overflow-hidden text-left block w-full"
-            >
+        <div className="catalog-controls">
+          <div className="catalog-filters" role="group" aria-label="Filter topics by category">
+            {categories.map((item) => <button key={item} className="filter-button" aria-pressed={category === item} onClick={() => setCategory(item)}>{item}</button>)}
+          </div>
+          <div className="catalog-search">
+            <label htmlFor="topic-search" className="sr-only">Search algorithm topics</label>
+            <input id="topic-search" type="search" placeholder="Search topics or concepts…" value={query} onChange={(event) => setQuery(event.target.value)} />
+          </div>
+        </div>
+        <p className="eyebrow mb-5" role="status">{filteredCards.length} of {algorithmCards.length} topics</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {filteredCards.map(({ to, icon: Icon, title, description, tag, slug }) => (
+            <Link key={to} to={to} className="group relative glass-card-hover topic-card">
               <CompletionBadge isComplete={isAlgorithmComplete(slug)} quizScore={getQuizScore(slug)} />
-              <div className="space-y-5">
-                <div className="flex items-start justify-between">
-                  <div className="p-2.5 bg-cyber-dark border border-white/5 rounded-lg group-hover:border-cyber-blue/30 transition-colors duration-300">
-                    <Icon className="w-6 h-6 text-cyber-blue group-hover:text-cyber-cyan transition-colors" strokeWidth={1.5} />
-                  </div>
-                  <span className="text-xs font-mono text-slate-500 bg-cyber-dark px-2 py-1 rounded border border-white/5">
-                    {tag}
-                  </span>
-                </div>
-                <div className="space-y-2">
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-cyber-cyan transition-colors duration-150 tracking-tight">
-                    {title}
-                  </h3>
-                  <p className="text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed font-medium">
-                    {description}
-                  </p>
-                </div>
+              <div className="flex items-center justify-between">
+                <span className="topic-number">{String(algorithmCards.findIndex((card) => card.slug === slug) + 1).padStart(2, '0')} / {categoryFor(slug)}</span>
+                <Icon className="w-5 h-5 text-slate-600 dark:text-slate-400" strokeWidth={1.5} aria-hidden="true" />
               </div>
+              <h3>{title}</h3><p>{description}</p>
+              <span className="topic-action"><span>{tag}</span><span className="flex items-center gap-2">Explore <ArrowRight className="w-4 h-4" aria-hidden="true" /></span></span>
             </Link>
           ))}
         </div>
-
-        {/* Learning Paths CTA */}
-        <div className="mt-8 text-center">
-          <Link
-            to={ROUTES.LEARNING_PATHS}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 rounded-xl transition-colors text-sm font-semibold text-slate-700 dark:text-slate-300"
-          >
-            <GraduationCap className="w-5 h-5" />
-            Follow a Guided Learning Path
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+        {filteredCards.length === 0 && <div className="glass-card p-8 text-center"><h3 className="text-xl mb-2">No matching topics</h3><p className="text-slate-600 dark:text-slate-400 mb-5">Try another concept or clear your filters to see every lab.</p><button className="btn-secondary mx-auto" onClick={() => { setQuery(''); setCategory('All'); }}>Clear filters</button></div>}
+        <div className="guided-callout mt-8">
+          <div><p className="eyebrow mb-3">A little structure goes a long way</p><h3 className="text-xl mb-2">New to cryptography?</h3><p className="text-sm text-slate-600 dark:text-slate-400">Start with the fundamentals, then connect encryption, key exchange, and authentication.</p></div>
+          <Link to={ROUTES.LEARNING_PATHS} className="btn-primary shrink-0"><GraduationCap className="w-5 h-5" aria-hidden="true" />Follow a Guided Learning Path<ArrowRight className="w-4 h-4" aria-hidden="true" /></Link>
         </div>
       </section>
 
