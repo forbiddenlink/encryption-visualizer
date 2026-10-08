@@ -1,0 +1,1864 @@
+[
+  {
+    "route": "aes",
+    "width": 1440,
+    "label": "What is AES?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "aes",
+    "width": 1440,
+    "label": "The Four Operations",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "aes",
+    "width": 1440,
+    "label": "Key Sizes",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "aes",
+    "width": 1440,
+    "label": "Security Considerations",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "aes",
+    "width": 1440,
+    "label": "Real-World Applications",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "aes",
+    "width": 1440,
+    "label": "Common Mistakes to Avoid",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "aes",
+    "width": 1440,
+    "label": "Want to Learn More?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "rsa",
+    "width": 1440,
+    "label": "What is RSA?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "rsa",
+    "width": 1440,
+    "label": "Key Generation Steps",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "rsa",
+    "width": 1440,
+    "label": "Security & Math",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "rsa",
+    "width": 1440,
+    "label": "Where is RSA Used?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "rsa",
+    "width": 1440,
+    "label": "Common Mistakes to Avoid",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "rsa",
+    "width": 1440,
+    "label": "Want to Learn More?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "ecc",
+    "width": 1440,
+    "label": "What is Elliptic Curve Cryptography?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "ecc",
+    "width": 1440,
+    "label": "How Point Addition Works",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "ecc",
+    "width": 1440,
+    "label": "ECDH Key Exchange",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "ecc",
+    "width": 1440,
+    "label": "ECDSA Digital Signatures",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "ecc",
+    "width": 1440,
+    "label": "ECC vs RSA: Key Size Comparison",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "ecc",
+    "width": 1440,
+    "label": "Security Considerations",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "ecc",
+    "width": 1440,
+    "label": "Where is ECC Used?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "ecc",
+    "width": 1440,
+    "label": "Common Mistakes to Avoid",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "ecc",
+    "width": 1440,
+    "label": "Want to Learn More?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "block-modes",
+    "width": 1440,
+    "label": "What are Block Cipher Modes?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "block-modes",
+    "width": 1440,
+    "label": "The ECB Penguin Problem",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "block-modes",
+    "width": 1440,
+    "label": "Mode Comparison",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "block-modes",
+    "width": 1440,
+    "label": "Security Considerations",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "block-modes",
+    "width": 1440,
+    "label": "Real-World Applications",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "block-modes",
+    "width": 1440,
+    "label": "Common Mistakes to Avoid",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "block-modes",
+    "width": 1440,
+    "label": "Want to Learn More?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "diffie-hellman",
+    "width": 1440,
+    "label": "What is Diffie-Hellman?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "diffie-hellman",
+    "width": 1440,
+    "label": "Key Exchange Steps",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "diffie-hellman",
+    "width": 1440,
+    "label": "Security & Math",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "diffie-hellman",
+    "width": 1440,
+    "label": "Where is Diffie-Hellman Used?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "diffie-hellman",
+    "width": 1440,
+    "label": "Common Mistakes to Avoid",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "diffie-hellman",
+    "width": 1440,
+    "label": "Want to Learn More?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "hashing",
+    "width": 1440,
+    "label": "What is Hashing?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "hashing",
+    "width": 1440,
+    "label": "Key Properties",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "hashing",
+    "width": 1440,
+    "label": "Common Algorithms",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "hashing",
+    "width": 1440,
+    "label": "Applications",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "hashing",
+    "width": 1440,
+    "label": "Common Mistakes to Avoid",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "hashing",
+    "width": 1440,
+    "label": "Want to Learn More?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "hmac",
+    "width": 1440,
+    "label": "What is HMAC?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "hmac",
+    "width": 1440,
+    "label": "Why Not Just Hash(key + message)?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "hmac",
+    "width": 1440,
+    "label": "Inner and Outer Hash",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "hmac",
+    "width": 1440,
+    "label": "HMAC vs Digital Signatures",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "hmac",
+    "width": 1440,
+    "label": "Real-World Applications",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "hmac",
+    "width": 1440,
+    "label": "Common Mistakes",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "hmac",
+    "width": 1440,
+    "label": "Further Learning",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "signatures",
+    "width": 1440,
+    "label": "What is a Digital Signature?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "signatures",
+    "width": 1440,
+    "label": "How Signing Works",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "signatures",
+    "width": 1440,
+    "label": "How Verification Works",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "signatures",
+    "width": 1440,
+    "label": "Signing vs Encrypting",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "signatures",
+    "width": 1440,
+    "label": "Security Properties",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "signatures",
+    "width": 1440,
+    "label": "Real-World Uses",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "signatures",
+    "width": 1440,
+    "label": "Common Mistakes to Avoid",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "signatures",
+    "width": 1440,
+    "label": "Want to Learn More?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "padding",
+    "width": 1440,
+    "label": "Why Padding Matters",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "padding",
+    "width": 1440,
+    "label": "PKCS#7 Padding",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "padding",
+    "width": 1440,
+    "label": "Zero Padding",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "padding",
+    "width": 1440,
+    "label": "ANSI X.923 Padding",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "padding",
+    "width": 1440,
+    "label": "Padding Oracle Attacks",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "padding",
+    "width": 1440,
+    "label": "When NOT to Pad",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "padding",
+    "width": 1440,
+    "label": "Common Mistakes",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "padding",
+    "width": 1440,
+    "label": "Further Learning",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "password-hashing",
+    "width": 1440,
+    "label": "Why Not SHA-256 for Passwords?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "password-hashing",
+    "width": 1440,
+    "label": "What is a Salt?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "password-hashing",
+    "width": 1440,
+    "label": "Work Factor / Cost Parameter",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "password-hashing",
+    "width": 1440,
+    "label": "Password Hashing Algorithms",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "password-hashing",
+    "width": 1440,
+    "label": "Rainbow Tables",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "password-hashing",
+    "width": 1440,
+    "label": "Real-World Applications",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "password-hashing",
+    "width": 1440,
+    "label": "Common Mistakes",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "password-hashing",
+    "width": 1440,
+    "label": "Further Learning",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "tls",
+    "width": 1440,
+    "label": "What is TLS/SSL?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "tls",
+    "width": 1440,
+    "label": "The TLS 1.3 Handshake",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "tls",
+    "width": 1440,
+    "label": "How TLS Uses Other Algorithms",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "tls",
+    "width": 1440,
+    "label": "Cipher Suites Explained",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "tls",
+    "width": 1440,
+    "label": "Certificate Verification & PKI",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "tls",
+    "width": 1440,
+    "label": "Forward Secrecy",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "tls",
+    "width": 1440,
+    "label": "TLS 1.2 vs 1.3 Differences",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "tls",
+    "width": 1440,
+    "label": "Security Considerations",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "tls",
+    "width": 1440,
+    "label": "Real-World Applications",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "tls",
+    "width": 1440,
+    "label": "Common Mistakes",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "tls",
+    "width": 1440,
+    "label": "Further Learning",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "cryptanalysis",
+    "width": 1440,
+    "label": "What is Cryptanalysis?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "cryptanalysis",
+    "width": 1440,
+    "label": "Frequency Analysis",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "cryptanalysis",
+    "width": 1440,
+    "label": "Classical Ciphers",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "cryptanalysis",
+    "width": 1440,
+    "label": "Side-Channel Attacks",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "cryptanalysis",
+    "width": 1440,
+    "label": "Why Modern Ciphers Are Secure",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "cryptanalysis",
+    "width": 1440,
+    "label": "Security Considerations",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "cryptanalysis",
+    "width": 1440,
+    "label": "Real-World Attacks",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "cryptanalysis",
+    "width": 1440,
+    "label": "Want to Learn More?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 1440,
+    "label": "AES for Encrypt bulk data: Recommended",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 1440,
+    "label": "RSA for Encrypt bulk data: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 1440,
+    "label": "SHA-256 for Encrypt bulk data: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 1440,
+    "label": "HMAC for Encrypt bulk data: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 1440,
+    "label": "DH for Encrypt bulk data: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 1440,
+    "label": "Signatures for Encrypt bulk data: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 1440,
+    "label": "AES for Sign documents: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 1440,
+    "label": "RSA for Sign documents: Recommended",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 1440,
+    "label": "SHA-256 for Sign documents: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 1440,
+    "label": "HMAC for Sign documents: Possible",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 1440,
+    "label": "DH for Sign documents: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 1440,
+    "label": "Signatures for Sign documents: Recommended",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 1440,
+    "label": "AES for Exchange keys: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 1440,
+    "label": "RSA for Exchange keys: Possible",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 1440,
+    "label": "SHA-256 for Exchange keys: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 1440,
+    "label": "HMAC for Exchange keys: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 1440,
+    "label": "DH for Exchange keys: Recommended",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 1440,
+    "label": "Signatures for Exchange keys: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 1440,
+    "label": "AES for Hash passwords: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 1440,
+    "label": "RSA for Hash passwords: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 1440,
+    "label": "SHA-256 for Hash passwords: Possible",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 1440,
+    "label": "HMAC for Hash passwords: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 1440,
+    "label": "DH for Hash passwords: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 1440,
+    "label": "Signatures for Hash passwords: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 1440,
+    "label": "AES for Authenticate messages: Possible",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 1440,
+    "label": "RSA for Authenticate messages: Possible",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 1440,
+    "label": "SHA-256 for Authenticate messages: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 1440,
+    "label": "HMAC for Authenticate messages: Recommended",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 1440,
+    "label": "DH for Authenticate messages: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 1440,
+    "label": "Signatures for Authenticate messages: Recommended",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 1440,
+    "label": "AES for Store secrets: Recommended",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 1440,
+    "label": "RSA for Store secrets: Possible",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 1440,
+    "label": "SHA-256 for Store secrets: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 1440,
+    "label": "HMAC for Store secrets: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 1440,
+    "label": "DH for Store secrets: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 1440,
+    "label": "Signatures for Store secrets: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 1440,
+    "label": "AES for TLS/HTTPS: Recommended",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 1440,
+    "label": "RSA for TLS/HTTPS: Possible",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 1440,
+    "label": "SHA-256 for TLS/HTTPS: Recommended",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 1440,
+    "label": "HMAC for TLS/HTTPS: Recommended",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 1440,
+    "label": "DH for TLS/HTTPS: Recommended",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 1440,
+    "label": "Signatures for TLS/HTTPS: Recommended",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "aes",
+    "width": 390,
+    "label": "What is AES?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "aes",
+    "width": 390,
+    "label": "The Four Operations",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "aes",
+    "width": 390,
+    "label": "Key Sizes",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "aes",
+    "width": 390,
+    "label": "Security Considerations",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "aes",
+    "width": 390,
+    "label": "Real-World Applications",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "aes",
+    "width": 390,
+    "label": "Common Mistakes to Avoid",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "aes",
+    "width": 390,
+    "label": "Want to Learn More?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "rsa",
+    "width": 390,
+    "label": "What is RSA?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "rsa",
+    "width": 390,
+    "label": "Key Generation Steps",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "rsa",
+    "width": 390,
+    "label": "Security & Math",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "rsa",
+    "width": 390,
+    "label": "Where is RSA Used?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "rsa",
+    "width": 390,
+    "label": "Common Mistakes to Avoid",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "rsa",
+    "width": 390,
+    "label": "Want to Learn More?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "ecc",
+    "width": 390,
+    "label": "What is Elliptic Curve Cryptography?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "ecc",
+    "width": 390,
+    "label": "How Point Addition Works",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "ecc",
+    "width": 390,
+    "label": "ECDH Key Exchange",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "ecc",
+    "width": 390,
+    "label": "ECDSA Digital Signatures",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "ecc",
+    "width": 390,
+    "label": "ECC vs RSA: Key Size Comparison",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "ecc",
+    "width": 390,
+    "label": "Security Considerations",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "ecc",
+    "width": 390,
+    "label": "Where is ECC Used?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "ecc",
+    "width": 390,
+    "label": "Common Mistakes to Avoid",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "ecc",
+    "width": 390,
+    "label": "Want to Learn More?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "block-modes",
+    "width": 390,
+    "label": "What are Block Cipher Modes?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "block-modes",
+    "width": 390,
+    "label": "The ECB Penguin Problem",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "block-modes",
+    "width": 390,
+    "label": "Mode Comparison",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "block-modes",
+    "width": 390,
+    "label": "Security Considerations",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "block-modes",
+    "width": 390,
+    "label": "Real-World Applications",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "block-modes",
+    "width": 390,
+    "label": "Common Mistakes to Avoid",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "block-modes",
+    "width": 390,
+    "label": "Want to Learn More?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "diffie-hellman",
+    "width": 390,
+    "label": "What is Diffie-Hellman?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "diffie-hellman",
+    "width": 390,
+    "label": "Key Exchange Steps",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "diffie-hellman",
+    "width": 390,
+    "label": "Security & Math",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "diffie-hellman",
+    "width": 390,
+    "label": "Where is Diffie-Hellman Used?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "diffie-hellman",
+    "width": 390,
+    "label": "Common Mistakes to Avoid",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "diffie-hellman",
+    "width": 390,
+    "label": "Want to Learn More?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "hashing",
+    "width": 390,
+    "label": "What is Hashing?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "hashing",
+    "width": 390,
+    "label": "Key Properties",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "hashing",
+    "width": 390,
+    "label": "Common Algorithms",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "hashing",
+    "width": 390,
+    "label": "Applications",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "hashing",
+    "width": 390,
+    "label": "Common Mistakes to Avoid",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "hashing",
+    "width": 390,
+    "label": "Want to Learn More?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "hmac",
+    "width": 390,
+    "label": "What is HMAC?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "hmac",
+    "width": 390,
+    "label": "Why Not Just Hash(key + message)?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "hmac",
+    "width": 390,
+    "label": "Inner and Outer Hash",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "hmac",
+    "width": 390,
+    "label": "HMAC vs Digital Signatures",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "hmac",
+    "width": 390,
+    "label": "Real-World Applications",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "hmac",
+    "width": 390,
+    "label": "Common Mistakes",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "hmac",
+    "width": 390,
+    "label": "Further Learning",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "signatures",
+    "width": 390,
+    "label": "What is a Digital Signature?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "signatures",
+    "width": 390,
+    "label": "How Signing Works",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "signatures",
+    "width": 390,
+    "label": "How Verification Works",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "signatures",
+    "width": 390,
+    "label": "Signing vs Encrypting",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "signatures",
+    "width": 390,
+    "label": "Security Properties",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "signatures",
+    "width": 390,
+    "label": "Real-World Uses",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "signatures",
+    "width": 390,
+    "label": "Common Mistakes to Avoid",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "signatures",
+    "width": 390,
+    "label": "Want to Learn More?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "padding",
+    "width": 390,
+    "label": "Why Padding Matters",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "padding",
+    "width": 390,
+    "label": "PKCS#7 Padding",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "padding",
+    "width": 390,
+    "label": "Zero Padding",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "padding",
+    "width": 390,
+    "label": "ANSI X.923 Padding",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "padding",
+    "width": 390,
+    "label": "Padding Oracle Attacks",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "padding",
+    "width": 390,
+    "label": "When NOT to Pad",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "padding",
+    "width": 390,
+    "label": "Common Mistakes",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "padding",
+    "width": 390,
+    "label": "Further Learning",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "password-hashing",
+    "width": 390,
+    "label": "Why Not SHA-256 for Passwords?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "password-hashing",
+    "width": 390,
+    "label": "What is a Salt?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "password-hashing",
+    "width": 390,
+    "label": "Work Factor / Cost Parameter",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "password-hashing",
+    "width": 390,
+    "label": "Password Hashing Algorithms",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "password-hashing",
+    "width": 390,
+    "label": "Rainbow Tables",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "password-hashing",
+    "width": 390,
+    "label": "Real-World Applications",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "password-hashing",
+    "width": 390,
+    "label": "Common Mistakes",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "password-hashing",
+    "width": 390,
+    "label": "Further Learning",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "tls",
+    "width": 390,
+    "label": "What is TLS/SSL?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "tls",
+    "width": 390,
+    "label": "The TLS 1.3 Handshake",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "tls",
+    "width": 390,
+    "label": "How TLS Uses Other Algorithms",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "tls",
+    "width": 390,
+    "label": "Cipher Suites Explained",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "tls",
+    "width": 390,
+    "label": "Certificate Verification & PKI",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "tls",
+    "width": 390,
+    "label": "Forward Secrecy",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "tls",
+    "width": 390,
+    "label": "TLS 1.2 vs 1.3 Differences",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "tls",
+    "width": 390,
+    "label": "Security Considerations",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "tls",
+    "width": 390,
+    "label": "Real-World Applications",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "tls",
+    "width": 390,
+    "label": "Common Mistakes",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "tls",
+    "width": 390,
+    "label": "Further Learning",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "cryptanalysis",
+    "width": 390,
+    "label": "What is Cryptanalysis?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "cryptanalysis",
+    "width": 390,
+    "label": "Frequency Analysis",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "cryptanalysis",
+    "width": 390,
+    "label": "Classical Ciphers",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "cryptanalysis",
+    "width": 390,
+    "label": "Side-Channel Attacks",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "cryptanalysis",
+    "width": 390,
+    "label": "Why Modern Ciphers Are Secure",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "cryptanalysis",
+    "width": 390,
+    "label": "Security Considerations",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "cryptanalysis",
+    "width": 390,
+    "label": "Real-World Attacks",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "cryptanalysis",
+    "width": 390,
+    "label": "Want to Learn More?",
+    "keyboardExpand": "passed",
+    "keyboardCollapse": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 390,
+    "label": "AES for Encrypt bulk data: Recommended",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 390,
+    "label": "RSA for Encrypt bulk data: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 390,
+    "label": "SHA-256 for Encrypt bulk data: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 390,
+    "label": "HMAC for Encrypt bulk data: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 390,
+    "label": "DH for Encrypt bulk data: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 390,
+    "label": "Signatures for Encrypt bulk data: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 390,
+    "label": "AES for Sign documents: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 390,
+    "label": "RSA for Sign documents: Recommended",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 390,
+    "label": "SHA-256 for Sign documents: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 390,
+    "label": "HMAC for Sign documents: Possible",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 390,
+    "label": "DH for Sign documents: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 390,
+    "label": "Signatures for Sign documents: Recommended",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 390,
+    "label": "AES for Exchange keys: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 390,
+    "label": "RSA for Exchange keys: Possible",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 390,
+    "label": "SHA-256 for Exchange keys: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 390,
+    "label": "HMAC for Exchange keys: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 390,
+    "label": "DH for Exchange keys: Recommended",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 390,
+    "label": "Signatures for Exchange keys: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 390,
+    "label": "AES for Hash passwords: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 390,
+    "label": "RSA for Hash passwords: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 390,
+    "label": "SHA-256 for Hash passwords: Possible",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 390,
+    "label": "HMAC for Hash passwords: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 390,
+    "label": "DH for Hash passwords: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 390,
+    "label": "Signatures for Hash passwords: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 390,
+    "label": "AES for Authenticate messages: Possible",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 390,
+    "label": "RSA for Authenticate messages: Possible",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 390,
+    "label": "SHA-256 for Authenticate messages: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 390,
+    "label": "HMAC for Authenticate messages: Recommended",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 390,
+    "label": "DH for Authenticate messages: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 390,
+    "label": "Signatures for Authenticate messages: Recommended",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 390,
+    "label": "AES for Store secrets: Recommended",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 390,
+    "label": "RSA for Store secrets: Possible",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 390,
+    "label": "SHA-256 for Store secrets: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 390,
+    "label": "HMAC for Store secrets: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 390,
+    "label": "DH for Store secrets: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 390,
+    "label": "Signatures for Store secrets: Not Suitable",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 390,
+    "label": "AES for TLS/HTTPS: Recommended",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 390,
+    "label": "RSA for TLS/HTTPS: Possible",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 390,
+    "label": "SHA-256 for TLS/HTTPS: Recommended",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 390,
+    "label": "HMAC for TLS/HTTPS: Recommended",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 390,
+    "label": "DH for TLS/HTTPS: Recommended",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  },
+  {
+    "route": "compare",
+    "width": 390,
+    "label": "Signatures for TLS/HTTPS: Recommended",
+    "explanation": "passed",
+    "keyboardClose": "passed"
+  }
+]

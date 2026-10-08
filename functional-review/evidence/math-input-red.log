@@ -1,0 +1,369 @@
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - `__dirname` (vite.config.ts:83:25). Use `import.meta.dirname` instead
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+
+ RUN  v4.1.11 /Volumes/LizsDisk/encryption-visualizer/encryption-visualizer
+
+ ❯ src/components/visualizations/DiffieHellman/DHPlayground.test.tsx (2 tests | 2 failed) 107ms
+     × keeps both keys inside the new prime range immediately 82ms
+     × normalizes fractional and empty numeric keys to supported integers 21ms
+ ❯ src/components/visualizations/AES/AESInputPanel.test.tsx (3 tests | 2 failed) 81ms
+     × explains unsupported input without truncating: 😀 50ms
+     × explains unsupported input without truncating: aaaaaaaaaaaaaaaaa 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/components/visualizations/AES/AESInputPanel.test.tsx > AES input byte validation > explains unsupported input without truncating: 😀
+TestingLibraryElementError: Unable to find an accessible element with the role "alert"
+
+Here are the accessible roles:
+
+  heading:
+
+  Name "AES Encryption Input":
+  [36m<h2[39m
+    [33mclass[39m=[32m"text-xl sm:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-2 sm:gap-3"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  button:
+
+  Name "Load Example":
+  [36m<button[39m
+    [33mclass[39m=[32m"btn-secondary text-xs sm:text-sm self-end sm:self-auto px-4 py-2"[39m
+  [36m/>[39m
+
+  Name "Start Encryption Visualization":
+  [36m<button[39m
+    [33mclass[39m=[32m"w-full btn-primary justify-center py-3 sm:py-4 text-sm sm:text-base disabled:opacity-50 disabled:cursor-not-allowed"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  textbox:
+
+  Name "Plaintext (max 16 characters)":
+  [36m<input[39m
+    [33mclass[39m=[32m"w-full px-3 py-2 sm:px-4 sm:py-3 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-sm sm:text-base text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all font-mono"[39m
+    [33mid[39m=[32m"aes-plaintext"[39m
+    [33mmaxlength[39m=[32m"16"[39m
+    [33mplaceholder[39m=[32m"Enter plaintext..."[39m
+    [33mtype[39m=[32m"text"[39m
+    [33mvalue[39m=[32m"😀"[39m
+  [36m/>[39m
+
+  Name "Encryption Key (16 characters for AES-128)":
+  [36m<input[39m
+    [33mclass[39m=[32m"w-full px-3 py-2 sm:px-4 sm:py-3 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-sm sm:text-base text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all font-mono"[39m
+    [33mid[39m=[32m"aes-key"[39m
+    [33mmaxlength[39m=[32m"16"[39m
+    [33mplaceholder[39m=[32m"Enter 16-character key..."[39m
+    [33mtype[39m=[32m"text"[39m
+    [33mvalue[39m=[32m"SecretKey12345!"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"glass-card p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-6 w-full"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0"[39m
+      [36m>[39m
+        [36m<h2[39m
+          [33mclass[39m=[32m"text-xl sm:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-2 sm:gap-3"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"p-1.5 sm:p-2 bg-blue-600 rounded-lg sm:rounded-xl"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-sparkles w-4 h-4 sm:w-5 sm:h-5 text-white"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mheight[39m=[32m"24"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"24"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M20 2v4"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M22 4h-4"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcx[39m=[32m"4"[39m
+                [33mcy[39m=[32m"20"[39m
+                [33mr[39m=[32m"2"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+          [36m</div>[39m
+          [0mAES Encryption Input[0m
+        [36m</h2>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"btn-secondary text-xs sm:text-sm self-end sm:self-auto px-4 py-2"[39m
+        [36m>[39m
+          [0mLoad Example[0m
+        [36m</button>[39m
+      [36m</div>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"space-y-4"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"space-y-2"[39m
+        [36m>[39m
+          [36m<label[39m
+            [33mclass[39m=[32m"flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-400"[39m
+            [33mfor[39m=[32m"aes-plaintext"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-file-text w-3 h-3 sm:w-4 sm:h-4 text-blue-600 dark:text-cyber-cyan"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mheight[39m=[32m"24"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"24"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M14 2v5a1 1 0 0 0 1 1h5"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M10 9H8"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M16 13H8"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M16 17H8"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [0mPlaintext (max 16 characters)[0m
+          [36m</label>[39m
+          [36m<input[39m
+            [33mclass[39m=[32m"w-full px-3 py-2 sm:px-4 sm:py-3 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-sm sm:text-base text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all font-mono"[39m
+            [33mid[39m=[32m"aes-plaintext"[39m
+            [33mmaxlength[39m=[32m"16"[39m
+            [33mplaceholder[39m=[32m"Enter plaintext..."[39m
+            [33mtype[39m=[32m"text"[39m
+            [33mvalue[39m=[32m"😀"[39m
+          [36m/>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"text-[10px] sm:text-xs text-slate-500 dark:text-slate-400"[39m
+          [36m>[39m
+            [0mLength: [0m
+            [0m2[0m
+            [0m/16 [0m
+            [0m(will be padded)[0m
+          [36m</div>[39m
+        [36m</div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"space-y-2"[39m
+        [36m>[39m
+          [36m<label[39m
+            [33mclass[39m=[32m"flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-400"[39m
+            [33mfor[39m=[32m"aes-key"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-key w-3 h-3 sm:w-4 sm:h-4 text-blue-600 dark:text-cyber-cyan"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mheight[39m=[32m"24"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"24"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"m2 21 9.6-9.6"[39m
+              [36m/>[39m
+              [36m<path[39m
+                [33md[39m=[32m"m7.5 15.5 2.3 2.3a1 1 0 0 1 0 1.4l-2.1 2.1a1 1 0 0 1-1.4 0L4 19"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcx[39m=[32m"15.5"[39m
+                [33mcy[39m=[32m"7.5"[39m
+                [33mr[39m=[32m"5.5"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+            [0mEncryption Key (16 characters for AES-128)[0m
+          [36m</label>[39m
+          [36m<input[39m
+            [33mclass[39m=[32m"w-full px-3 py-2 sm:px-4 sm:py-3 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-sm sm:text-base text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all font-mono"[39m
+            [33mid[39m=[32m"aes-key"[39m
+            [33mmaxlength[39m=[32m"16"[39m
+            [33mplaceholder[39m=[32m"Enter 16-character key..."[39m
+            [33mtype[39m=[32m"text"[39m
+            [33mvalue[39m=[32m"SecretKey12345!"[39m
+          [36m/>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"text-[10px] sm:text-xs text-slate-500 dark:text-slate-400"[39m
+          [36m>[39m
+            [0mLength: [0m
+            [0m15[0m
+            [0m/16 [0m
+            [0m(will be padded)[0m
+          [36m</div>[39m
+        [36m</div>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"w-full btn-primary justify-center py-3 sm:py-4 text-sm sm:text-base disabled:opacity-50 disabled:cursor-not-allowed"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33maria-hidden[39m=[32m"true"[39m
+            [33mclass[39m=[32m"lucide lucide-play w-4 h-4 sm:w-5 sm:h-5"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"24"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstroke-linecap[39m=[32m"round"[39m
+            [33mstroke-linejoin[39m=[32m"round"[39m
+            [33mstroke-width[39m=[32m"2"[39m
+            [33mviewBox[39m=[32m"0 0 24 24"[39m
+            [33mwidth[39m=[32m"24"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+          [0mStart Encryption Visualization[0m
+        [36m</button>[39m
+      [36m</div>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"bg-blue-50 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/30 rounded-xl p-3 sm:p-4 space-y-2"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"flex items-start gap-2"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33maria-hidden[39m=[32m"true"[39m
+            [33mclass[39m=[32m"lucide lucide-sparkles w-3 h-3 sm:w-4 sm:h-4 text-blue-600 dark:text-cyber-cyan mt-0.5 flex-shrink-0"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"24"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstroke-linecap[39m=[32m"round"[39m
+            [33mstroke-linejoin[39m=[32m"round"[39m
+            [33mstroke-width[39m=[32m"2"[39m
+            [33mviewBox[39m=[32m"0 0 24 24"[39m
+            [33mwidth[39m=[32m"24"[39m
+            [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+          [36m>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"[39m
+            [36m/>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M20 2v4"[39m
+            [36m/>[39m
+            [36m<path[39m
+              [33md[39m=[32m"M22 4h-4"[39m
+            [36m/>[39m
+            [36m<circle[39m
+              [33mcx[39m=[32m"4"[39m
+              [33mcy[39m=[32m"20"[39m
+              [33mr[39m=[32m"2"[39m
+            [36m/>[39m
+          [36m</svg>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed"[39m
+          [36m>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"font-semibold text-blue-600 dark:text-cyber-cyan"[39m
+            [36m>[39m
+              [0mPro Tip:[0m
+            [36m</span>[39m
+            [0m AES-128 uses a 128-bit (16-byte) key. Watch as your plaintext goes through 10 rounds of SubBytes, ShiftRows, MixColumns, and AddRoundKey transformations![0m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</div>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ Object.getElementError node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ src/components/visualizations/AES/AESInputPanel.test.tsx:13:19
+     11|     fireEvent.change(screen.getByLabelText(/Plaintext/), { target: { v…
+     12|     expect(screen.getByLabelText(/Plaintext/)).toHaveValue(input);
+     13|     expect(screen.getByRole('alert')).toHaveTextContent(/Latin-1|16 by…
+       |                   ^
+     14|     fireEvent.click(screen.getByRole('button', { name: /Start Encrypti…
+     15|     expect(encrypt).not.toHaveBeenCalled();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  src/components/visualizations/AES/AESInputPanel.test.tsx > AES input byte validation > explains unsupported input without truncating: aaaaaaaaaaaaaaaaa
+Error: expect(element).toHaveValue(aaaaaaaaaaaaaaaaa)
+
+Expected the element to have value:
+  aaaaaaaaaaaaaaaaa
+Received:
+  aaaaaaaaaaaaaaaa
+ ❯ src/components/visualizations/AES/AESInputPanel.test.tsx:12:48
+     10|     render(<AESInputPanel onEncrypt={encrypt} />);
+     11|     fireEvent.change(screen.getByLabelText(/Plaintext/), { target: { v…
+     12|     expect(screen.getByLabelText(/Plaintext/)).toHaveValue(input);
+       |                                                ^
+     13|     expect(screen.getByRole('alert')).toHaveTextContent(/Latin-1|16 by…
+     14|     fireEvent.click(screen.getByRole('button', { name: /Start Encrypti…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  src/components/visualizations/DiffieHellman/DHPlayground.test.tsx > DH playground private-key bounds > keeps both keys inside the new prime range immediately
+Error: expect(element).toHaveValue(21)
+
+Expected the element to have value:
+  21
+Received:
+  95
+ ❯ src/components/visualizations/DiffieHellman/DHPlayground.test.tsx:15:75
+     13|     fireEvent.change(screen.getByRole('spinbutton', { name: 'Bob priva…
+     14|     fireEvent.click(screen.getByRole('button', { name: 'New Prime' }));
+     15|     expect(screen.getByRole('spinbutton', { name: 'Alice private key' …
+       |                                                                           ^
+     16|     expect(screen.getByRole('spinbutton', { name: 'Bob private key' })…
+     17|     expect(screen.getByText('Both computed the same shared secret: 5')…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  src/components/visualizations/DiffieHellman/DHPlayground.test.tsx > DH playground private-key bounds > normalizes fractional and empty numeric keys to supported integers
+Error: expect(element).toHaveValue(3)
+
+Expected the element to have value:
+  3
+Received:
+  3.5
+ ❯ src/components/visualizations/DiffieHellman/DHPlayground.test.tsx:25:19
+     23|     const alice = screen.getByRole('spinbutton', { name: 'Alice privat…
+     24|     fireEvent.change(alice, { target: { value: '3.5' } });
+     25|     expect(alice).toHaveValue(3);
+       |                   ^
+     26|     fireEvent.change(alice, { target: { value: '' } });
+     27|     expect(alice).toHaveValue(2);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  4 failed | 1 passed (5)
+   Start at  14:06:02
+   Duration  6.10s (transform 491ms, setup 1.45s, import 2.06s, tests 188ms, environment 1.17s)
+

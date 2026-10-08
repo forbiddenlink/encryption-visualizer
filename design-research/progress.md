@@ -77,3 +77,7 @@ From nested app: `mise exec node@22.23.1 -- ./node_modules/.bin/vite --host 127.
 From root: `mise exec node@22.23.1 -- node design-research/capture.cjs rollout-final` (browser launch needs unsandboxed execution on this macOS host).
 
 Browser tests from nested app: `PLAYWRIGHT_JSON_OUTPUT_NAME=../design-research/verification-results.json mise exec node@22.23.1 -- ./node_modules/.bin/playwright test --config ../design-research/playwright.config.ts --workers=1 --reporter=line,json`. This config uses installed Chrome, so cached Playwright Chromium revisions are unnecessary. Browser/server launch requires unsandboxed execution on this host. The dev server is on 127.0.0.1:3002; do not start duplicate servers if it is already running. Prefer direct local `tsc -b`, `vite build`, `vitest run` and `eslint` through mise for checks, or explicitly use `npx --yes pnpm@9.15.9`.
+
+## Functional audit follow-up — 2026-10-08
+
+Independent audit and safe repairs complete on design/upgrade (source commit76c6595). See `../functional-review/report.md`, coverage.md, issues.md and improvements.md for current evidence. Final460unit/component tests, build/typecheck and lint pass;106distinct browser cases pass across full/focused runs,266additional keyboard/control checks pass. Actual production offline behavior verified. All36final route/viewport screenshots loaded without exceptions or horizontal overflow. No merge/deployment, user data reset, service provisioning or production configuration changes.

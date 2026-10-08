@@ -1,0 +1,198 @@
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - ESM syntax in a file loaded as CommonJS (functional-review/vitest.config.ts:1:1). Use a `.mjs` extension or set `"type": "module"` in the closest package.json
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+
+ RUN  v4.1.11 /Volumes/LizsDisk/encryption-visualizer/encryption-visualizer
+
+ ❯ src/components/educational/QuizSystem.test.tsx (1 test | 1 failed) 1074ms
+   × missed-question practice clears the miss without overwriting a failed full assessment 1073ms
+ ❯ src/components/visualizations/AES/AESVisualizer.test.tsx (1 test | 1 failed) 102ms
+   × completing AES playback at 4x awards the existing Speed Demon achievement 100ms
+ ❯ src/store/visualizationStore.test.ts (2 tests | 2 failed) 10ms
+   × empty playback stays at a valid position and cannot start 8ms
+   × seek requests stay within finite integer bounds and shorter data resets playback 1ms
+ ❯ src/pages/ComparePage.test.tsx (1 test | 1 failed) 258ms
+   × initializes reversed query pairs atomically and lets visitors change the pair afterward 256ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/store/visualizationStore.test.ts > empty playback stays at a valid position and cannot start
+AssertionError: expected { sessionPath: null, …(17) } to match object { currentStep: +0, isPlaying: false }
+(16 matching properties omitted from actual)
+
+- Expected
++ Received
+
+  {
+-   "currentStep": 0,
+-   "isPlaying": false,
++   "currentStep": -1,
++   "isPlaying": true,
+  }
+
+ ❯ src/store/visualizationStore.test.ts:8:44
+      6|   store.nextStep();
+      7|   store.play();
+      8|   expect(useVisualizationStore.getState()).toMatchObject({ currentStep…
+       |                                            ^
+      9| });
+     10| it('seek requests stay within finite integer bounds and shorter data r…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  src/store/visualizationStore.test.ts > seek requests stay within finite integer bounds and shorter data resets playback
+AssertionError: expected 100 to be 2 // Object.is equality
+
+- Expected
++ Received
+
+- 2
++ 100
+
+ ❯ src/store/visualizationStore.test.ts:14:56
+     12|   store.setTotalSteps(3);
+     13|   store.goToStep(100);
+     14|   expect(useVisualizationStore.getState().currentStep).toBe(2);
+       |                                                        ^
+     15|   store.setCurrentStep(-2);
+     16|   expect(useVisualizationStore.getState().currentStep).toBe(0);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  src/pages/ComparePage.test.tsx > initializes reversed query pairs atomically and lets visitors change the pair afterward
+Error: AES input must contain at most 16 bytes.
+ ❯ assertAESInput src/lib/crypto/aes.ts:46:20
+     44| function assertAESInput(input: string): void {
+     45|   const error = validateAESInput(input);
+     46|   if (error) throw new Error(error);
+       |                    ^
+     47| }
+     48|
+ ❯ stringToState src/lib/crypto/aes.ts:55:3
+ ❯ encryptAESWithSteps src/lib/crypto/aes.ts:210:15
+ ❯ experiment src/components/compare/ComparisonExperiment.tsx:17:24
+ ❯ src/components/compare/ComparisonExperiment.tsx:28:41
+ ❯ mountMemo node_modules/.pnpm/react-dom@19.2.8_react@19.2.8/node_modules/react-dom/cjs/react-dom-client.development.js:8777:23
+ ❯ Object.useMemo node_modules/.pnpm/react-dom@19.2.8_react@19.2.8/node_modules/react-dom/cjs/react-dom-client.development.js:26216:18
+ ❯ process.env.NODE_ENV.exports.useMemo node_modules/.pnpm/react@19.2.8/node_modules/react/cjs/react.development.js:1251:34
+ ❯ ComparisonExperiment src/components/compare/ComparisonExperiment.tsx:28:18
+ ❯ Object.react_stack_bottom_frame node_modules/.pnpm/react-dom@19.2.8_react@19.2.8/node_modules/react-dom/cjs/react-dom-client.development.js:25904:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  src/components/educational/QuizSystem.test.tsx > missed-question practice clears the miss without overwriting a failed full assessment
+AssertionError: expected { score: 1, total: 1, …(1) } to match object { score: 1, total: 2 }
+(1 matching property omitted from actual)
+
+- Expected
++ Received
+
+  {
+    "score": 1,
+-   "total": 2,
++   "total": 1,
+  }
+
+ ❯ src/components/educational/QuizSystem.test.tsx:22:58
+     20|   fireEvent.click(screen.getByRole('button', { name: /See Results/ }));
+     21|   await screen.findByRole('button', { name: 'Try Again', exact: true }…
+     22|   expect(useProgressStore.getState().quizScores.hashing).toMatchObject…
+       |                                                          ^
+     23|   expect(useProgressStore.getState().completedAlgorithms).not.toContai…
+     24|   expect(useProgressStore.getState().getMissedQuestions('hashing')).to…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+ FAIL  src/components/visualizations/AES/AESVisualizer.test.tsx > completing AES playback at 4x awards the existing Speed Demon achievement
+AssertionError: expected [] to include 'speed-demon'
+ ❯ src/components/visualizations/AES/AESVisualizer.test.tsx:21:52
+     19|   expect(useVisualizationStore.getState().currentStep).toBe(1);
+     20|   expect(useVisualizationStore.getState().isPlaying).toBe(false);
+     21|   expect(useProgressStore.getState().achievements).toContain('speed-de…
+       |                                                    ^
+     22| });
+     23|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯
+
+⎯⎯⎯⎯⎯⎯ Unhandled Errors ⎯⎯⎯⎯⎯⎯
+
+Vitest caught 4 unhandled errors during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.
+
+⎯⎯⎯⎯ Unhandled Rejection ⎯⎯⎯⎯⎯
+AbortError: The animation was canceled.
+ ❯ Animation.cancel node_modules/.pnpm/happy-dom@20.12.0/node_modules/happy-dom/lib/animation/Animation.js:161:32
+ ❯ NativeAnimationExtended.cancel node_modules/.pnpm/motion-dom@13.2.0/node_modules/motion-dom/dist/es/animation/NativeAnimation.mjs:73:28
+ ❯ NativeAnimationExtended.stop node_modules/.pnpm/motion-dom@13.2.0/node_modules/motion-dom/dist/es/animation/NativeAnimation.mjs:92:18
+ ❯ AsyncMotionValueAnimation.stop node_modules/.pnpm/motion-dom@13.2.0/node_modules/motion-dom/dist/es/animation/AsyncMotionValueAnimation.mjs:29:33
+ ❯ MotionValue.stop node_modules/.pnpm/motion-dom@13.2.0/node_modules/motion-dom/dist/es/value/index.mjs:282:28
+ ❯ node_modules/.pnpm/motion-dom@13.2.0/node_modules/motion-dom/dist/es/value/index.mjs:138:30
+ ❯ triggerCallback node_modules/.pnpm/motion-dom@13.2.0/node_modules/motion-dom/dist/es/frameloop/render-step.mjs:28:9
+ ❯ Object.process node_modules/.pnpm/motion-dom@13.2.0/node_modules/motion-dom/dist/es/frameloop/render-step.mjs:69:23
+ ❯ processBatch node_modules/.pnpm/motion-dom@13.2.0/node_modules/motion-dom/dist/es/frameloop/batcher.mjs:35:14
+
+This error originated in "src/components/educational/QuizSystem.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "missed-question practice clears the miss without overwriting a failed full assessment". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯ Unhandled Rejection ⎯⎯⎯⎯⎯
+AbortError: The animation was canceled.
+ ❯ Animation.cancel node_modules/.pnpm/happy-dom@20.12.0/node_modules/happy-dom/lib/animation/Animation.js:161:32
+ ❯ NativeAnimationExtended.cancel node_modules/.pnpm/motion-dom@13.2.0/node_modules/motion-dom/dist/es/animation/NativeAnimation.mjs:73:28
+ ❯ NativeAnimationExtended.stop node_modules/.pnpm/motion-dom@13.2.0/node_modules/motion-dom/dist/es/animation/NativeAnimation.mjs:92:18
+ ❯ AsyncMotionValueAnimation.stop node_modules/.pnpm/motion-dom@13.2.0/node_modules/motion-dom/dist/es/animation/AsyncMotionValueAnimation.mjs:29:33
+ ❯ MotionValue.stop node_modules/.pnpm/motion-dom@13.2.0/node_modules/motion-dom/dist/es/value/index.mjs:282:28
+ ❯ node_modules/.pnpm/motion-dom@13.2.0/node_modules/motion-dom/dist/es/value/index.mjs:138:30
+ ❯ triggerCallback node_modules/.pnpm/motion-dom@13.2.0/node_modules/motion-dom/dist/es/frameloop/render-step.mjs:28:9
+ ❯ Object.process node_modules/.pnpm/motion-dom@13.2.0/node_modules/motion-dom/dist/es/frameloop/render-step.mjs:69:23
+ ❯ processBatch node_modules/.pnpm/motion-dom@13.2.0/node_modules/motion-dom/dist/es/frameloop/batcher.mjs:35:14
+
+This error originated in "src/components/educational/QuizSystem.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "missed-question practice clears the miss without overwriting a failed full assessment". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯ Unhandled Rejection ⎯⎯⎯⎯⎯
+AbortError: The animation was canceled.
+ ❯ Animation.cancel node_modules/.pnpm/happy-dom@20.12.0/node_modules/happy-dom/lib/animation/Animation.js:161:32
+ ❯ NativeAnimationExtended.cancel node_modules/.pnpm/motion-dom@13.2.0/node_modules/motion-dom/dist/es/animation/NativeAnimation.mjs:73:28
+ ❯ NativeAnimationExtended.stop node_modules/.pnpm/motion-dom@13.2.0/node_modules/motion-dom/dist/es/animation/NativeAnimation.mjs:92:18
+ ❯ AsyncMotionValueAnimation.stop node_modules/.pnpm/motion-dom@13.2.0/node_modules/motion-dom/dist/es/animation/AsyncMotionValueAnimation.mjs:29:33
+ ❯ MotionValue.stop node_modules/.pnpm/motion-dom@13.2.0/node_modules/motion-dom/dist/es/value/index.mjs:282:28
+ ❯ MotionValue.start node_modules/.pnpm/motion-dom@13.2.0/node_modules/motion-dom/dist/es/value/index.mjs:261:14
+ ❯ animateTarget node_modules/.pnpm/motion-dom@13.2.0/node_modules/motion-dom/dist/es/animation/interfaces/visual-element-target.mjs:86:15
+ ❯ animateVisualElement node_modules/.pnpm/motion-dom@13.2.0/node_modules/motion-dom/dist/es/animation/interfaces/visual-element.mjs:19:33
+ ❯ node_modules/.pnpm/motion-dom@13.2.0/node_modules/motion-dom/dist/es/render/utils/animation-state.mjs:15:71
+
+This error originated in "src/components/educational/QuizSystem.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "missed-question practice clears the miss without overwriting a failed full assessment". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯ Unhandled Rejection ⎯⎯⎯⎯⎯
+AbortError: The animation was canceled.
+ ❯ Animation.cancel node_modules/.pnpm/happy-dom@20.12.0/node_modules/happy-dom/lib/animation/Animation.js:161:32
+ ❯ NativeAnimationExtended.cancel node_modules/.pnpm/motion-dom@13.2.0/node_modules/motion-dom/dist/es/animation/NativeAnimation.mjs:73:28
+ ❯ NativeAnimationExtended.stop node_modules/.pnpm/motion-dom@13.2.0/node_modules/motion-dom/dist/es/animation/NativeAnimation.mjs:92:18
+ ❯ AsyncMotionValueAnimation.stop node_modules/.pnpm/motion-dom@13.2.0/node_modules/motion-dom/dist/es/animation/AsyncMotionValueAnimation.mjs:29:33
+ ❯ MotionValue.stop node_modules/.pnpm/motion-dom@13.2.0/node_modules/motion-dom/dist/es/value/index.mjs:282:28
+ ❯ node_modules/.pnpm/motion-dom@13.2.0/node_modules/motion-dom/dist/es/value/index.mjs:138:30
+ ❯ triggerCallback node_modules/.pnpm/motion-dom@13.2.0/node_modules/motion-dom/dist/es/frameloop/render-step.mjs:28:9
+ ❯ Object.process node_modules/.pnpm/motion-dom@13.2.0/node_modules/motion-dom/dist/es/frameloop/render-step.mjs:69:23
+ ❯ processBatch node_modules/.pnpm/motion-dom@13.2.0/node_modules/motion-dom/dist/es/frameloop/batcher.mjs:35:14
+
+This error originated in "src/components/educational/QuizSystem.test.tsx" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "missed-question practice clears the miss without overwriting a failed full assessment". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+
+
+ Test Files  4 failed (4)
+      Tests  5 failed (5)
+     Errors  4 errors
+   Start at  14:18:42
+   Duration  17.27s (transform 1.77s, setup 2.57s, import 6.54s, tests 1.44s, environment 4.00s)
+

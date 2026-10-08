@@ -1,0 +1,61 @@
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - `__dirname` (vite.config.ts:83:25). Use `import.meta.dirname` instead
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+
+ RUN  v4.1.11 /Volumes/LizsDisk/encryption-visualizer/encryption-visualizer
+
+ ❯ src/store/visualizationStore.test.ts (2 tests | 2 failed) 15ms
+   × empty playback stays at a valid position and cannot start 14ms
+   × seek requests stay within finite integer bounds and shorter data resets playback 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/store/visualizationStore.test.ts > empty playback stays at a valid position and cannot start
+AssertionError: expected { sessionPath: null, …(17) } to match object { currentStep: +0, isPlaying: false }
+(16 matching properties omitted from actual)
+
+- Expected
++ Received
+
+  {
+-   "currentStep": 0,
+-   "isPlaying": false,
++   "currentStep": -1,
++   "isPlaying": true,
+  }
+
+ ❯ src/store/visualizationStore.test.ts:8:44
+      6|   store.nextStep();
+      7|   store.play();
+      8|   expect(useVisualizationStore.getState()).toMatchObject({ currentStep…
+       |                                            ^
+      9| });
+     10| it('seek requests stay within finite integer bounds and shorter data r…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  src/store/visualizationStore.test.ts > seek requests stay within finite integer bounds and shorter data resets playback
+AssertionError: expected 100 to be 2 // Object.is equality
+
+- Expected
++ Received
+
+- 2
++ 100
+
+ ❯ src/store/visualizationStore.test.ts:14:56
+     12|   store.setTotalSteps(3);
+     13|   store.goToStep(100);
+     14|   expect(useVisualizationStore.getState().currentStep).toBe(2);
+       |                                                        ^
+     15|   store.setCurrentStep(-2);
+     16|   expect(useVisualizationStore.getState().currentStep).toBe(0);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed (2)
+   Start at  14:18:08
+   Duration  24.56s (transform 190ms, setup 6.75s, import 551ms, tests 15ms, environment 15.09s)
+

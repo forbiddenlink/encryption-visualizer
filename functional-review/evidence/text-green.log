@@ -1,0 +1,52 @@
+PASS independent FNV-1a vector ""
+PASS independent FNV-1a vector "a"
+PASS independent FNV-1a vector "hello"
+PASS independent FNV-1a vector "foobar"
+PASS emoji binary encodes all four UTF-8 bytes
+PASS independent toy byte-HMAC ASCII vector
+PASS independent toy byte-HMAC Unicode vector
+PASS distinct emoji keys stay distinct
+PASS HMAC key normalization measures UTF-8 bytes
+PASS pkcs7 Unicode/control roundtrip
+PASS ansi-x923 Unicode/control roundtrip
+PASS aligned zero padding has no fabricated bytes
+PASS ANSI fill corruption is rejected
+PASS invalid block size 0
+PASS invalid block size -1
+PASS invalid block size 1.5
+PASS invalid block size 256
+PASS invalid block size NaN
+PASS out-of-range bytes rejected
+PASS encryptECBWithSteps encodes Unicode as bytes
+PASS encryptECBWithSteps caps visualization work
+PASS encryptECBWithSteps rejects oversized UTF-8 key
+PASS encryptCBCWithSteps encodes Unicode as bytes
+PASS encryptCBCWithSteps caps visualization work
+PASS encryptCBCWithSteps rejects oversized UTF-8 key
+PASS encryptGCMWithSteps encodes Unicode as bytes
+PASS encryptGCMWithSteps caps visualization work
+PASS encryptGCMWithSteps rejects oversized UTF-8 key
+PASS GCM stream length ""
+PASS GCM stream length "a"
+PASS GCM stream length "é😀"
+PASS GCM stream length "AAAAAAAAAAAAAAAA"
+PASS GCM stream length "AAAAAAAAAAAAAAAAA"
+PASS toy tag includes changed suffix
+PASS malformed signature -1
+PASS malformed signature 1.5
+PASS malformed signature NaN
+PASS malformed signature Infinity
+PASS malformed signature 3233
+PASS malformed signature 9007199254740992
+PASS congruent out-of-range signature rejected
+PASS strict signature parse 123junk
+PASS strict signature parse 12.5
+PASS strict signature parse 1e2
+PASS strict signature parse -1
+PASS strict signature parse 3233
+PASS frequency analysis uncertainty ""
+PASS frequency analysis uncertainty "12345!"
+PASS frequency analysis uncertainty "X"
+WORKING: 49/49 passed; 0 failed
+(node:50633) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
