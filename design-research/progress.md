@@ -13,13 +13,17 @@ Branch: `design/upgrade`. Started 2026-10-08. Goal: complete the seven requested
 
 ## Phase 2 — complete
 
-- 15 live reference candidates captured; all four requested galleries attempted with explicit blocked/redirect evidence. Animation-loader recaptures pending final inspection before using those references.
+- 15 live reference candidates captured; all four requested galleries attempted with explicit blocked/redirect evidence. Animation-heavy references recaptured after 15 seconds; final inspection recorded in references.md.
 - Ten peer key pages loaded and screenshotted; visible/offered feature inventory in `features.md`. Authenticated capabilities were not independently tested.
 - `references.md` links gallery provenance and actual live screenshots; blockers and limited captures are explicit.
 
-## Phase 3 — next
+## Phase 3 — complete
 
-Write the field-guide direction and page-by-page plan, then build the foundation.
+`plan.md` sets the field-guide direction, precise tokens/type/layout/motion, ranked safe features, every-route work and verification gates.
+
+## Phase 4 — in progress
+
+Build global/shared foundations and homepage; two required screenshot/score/fix rounds before moving on.
 
 ## Remaining
 
