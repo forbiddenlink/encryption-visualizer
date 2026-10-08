@@ -465,3 +465,40 @@ describe('AES Crypto Functions', () => {
     });
   });
 });
+
+
+describe('AES byte arithmetic regressions', () => {
+  const fromHex = (hex: string): string => hex.match(/../g)!.map(byte => String.fromCharCode(parseInt(byte, 16))).join('');
+  const finalHex = (plaintext: string, key: string): string => {
+    const final = encryptAESWithSteps(fromHex(plaintext), fromHex(key)).at(-1)!;
+    return Array.from({ length: 16 }, (_, i) => final.state[i % 4][Math.floor(i / 4)].toString(16).padStart(2, '0')).join('');
+  };
+
+  it('matches the FIPS 197 AES-128 known-answer ciphertext', () => {
+    expect(finalHex('00112233445566778899aabbccddeeff', '000102030405060708090a0b0c0d0e0f')).toBe('69c4e0d86a7b0430d8cdb78070b4c55a');
+  });
+
+  it('matches the AES-128 all-zero block/key vector', () => {
+    expect(finalHex('00000000000000000000000000000000', '00000000000000000000000000000000')).toBe('66e94bd4ef8a2c3b884cfa59ca342b2e');
+  });
+
+  it('reduces high-bit MixColumns products to bytes', () => {
+    const result = mixColumns([[128, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]);
+    expect(result.map(row => row[0])).toEqual([27, 128, 128, 155]);
+  });
+
+  it('keeps every example frame renderable as 16 bytes', () => {
+    for (const step of encryptAESWithSteps('Hello AES!', 'SecretKey12345!')) {
+      expect(step.state.flat().every(byte => Number.isInteger(byte) && byte >= 0 && byte <= 255)).toBe(true);
+      expect(() => stateToHex(step.state)).not.toThrow();
+    }
+  });
+
+  it.each(['😀', '漢', 'a'.repeat(17)])('rejects unsupported plaintext without truncating: %s', input => {
+    expect(() => encryptAESWithSteps(input, 'key')).toThrow(/Latin-1|16 bytes/);
+  });
+
+  it.each(['😀', '漢', 'k'.repeat(17)])('rejects unsupported keys without truncating: %s', key => {
+    expect(() => encryptAESWithSteps('message', key)).toThrow(/Latin-1|16 bytes/);
+  });
+});

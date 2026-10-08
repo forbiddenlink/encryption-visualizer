@@ -148,6 +148,18 @@ export function frequencyAnalysisAttack(ciphertext: string): CryptanalysisStep[]
     },
   });
 
+  if (totalLetters === 0) {
+    steps.push({
+      stepNumber: 1,
+      type: 'result',
+      attackType: 'frequency-analysis',
+      title: 'No Letter Frequencies to Analyze',
+      description: 'Enter text containing English letters A-Z. Without letters, frequency analysis cannot suggest a Caesar shift.',
+      values: { 'total letters': 0 },
+    });
+    return steps;
+  }
+
   // Step 1: Count frequencies
   const freqData = Object.entries(counts)
     .map(([letter, count]) => ({
@@ -228,9 +240,9 @@ export function frequencyAnalysisAttack(ciphertext: string): CryptanalysisStep[]
     type: 'result',
     attackType: 'frequency-analysis',
     title: 'Attack Complete',
-    description: `Frequency analysis successfully identified the shift key as ${bestShift}. This attack works because Caesar cipher preserves the frequency distribution of letters -- it just shifts them. Any substitution cipher that maps one-to-one is vulnerable.`,
+    description: `The best candidate shift is ${bestShift}, based on resemblance to English letter frequencies. This is a statistical guess, not confirmed recovery; short or non-English messages may rank the wrong key. Inspect the candidate plaintext to evaluate it.`,
     values: {
-      'recovered key': bestShift,
+      'candidate key': bestShift,
       'decrypted text': decrypted.slice(0, 100),
       'attack complexity': '26 comparisons (trivial)',
     },

@@ -30,6 +30,9 @@ export const Header = () => {
   const location = useLocation();
   const headerRef = useRef<HTMLElement>(null);
   const categories = ['Symmetric', 'Asymmetric', 'Hashing', 'Protocols', 'Attacks'];
+  const closeMenus = (): void => {
+    headerRef.current?.querySelectorAll('details[open]').forEach((menu) => menu.removeAttribute('open'));
+  };
 
   useEffect(() => {
     const closeMenus = () => headerRef.current?.querySelectorAll('details[open]').forEach((menu) => menu.removeAttribute('open'));
@@ -57,7 +60,7 @@ export const Header = () => {
         <div key={category}>
           <p className="eyebrow mb-2">{category}</p>
           {algorithmLinks.filter((link) => link.category === category).map(({ to, icon: Icon, label }) => (
-            <NavLink key={to} to={to} className="menu-topic">
+            <NavLink key={to} to={to} className="menu-topic" onClick={closeMenus}>
               <Icon className="w-4 h-4" aria-hidden="true" />{label}
             </NavLink>
           ))}
@@ -76,7 +79,7 @@ export const Header = () => {
         <nav className="desktop-nav" aria-label="Main navigation" key={`desktop-${location.pathname}`}>
           <details className="explore-menu">
             <summary className="nav-item">Explore topics <ChevronDown className="w-4 h-4" aria-hidden="true" /></summary>
-            <div className="topic-menu">{topicGroups}<Link to={`${ROUTES.HOME}#topics`} className="menu-topic mt-4">View the complete library →</Link></div>
+            <div className="topic-menu">{topicGroups}<Link to={`${ROUTES.HOME}#topics`} className="menu-topic mt-4" onClick={closeMenus}>View the complete library →</Link></div>
           </details>
           {otherLinks.map(({ to, label }) => <NavLink key={to} to={to} className="nav-item">{label}</NavLink>)}
           <ThemeToggle />
@@ -86,7 +89,7 @@ export const Header = () => {
           <details className="mobile-menu">
             <summary className="nav-item" aria-label="Open navigation menu"><Menu className="w-5 h-5" aria-hidden="true" /></summary>
             <nav className="mobile-menu-panel" aria-label="Mobile navigation">
-              {otherLinks.map(({ to, icon: Icon, label }) => <NavLink key={to} to={to} className="menu-topic"><Icon className="w-4 h-4" aria-hidden="true" />{label}</NavLink>)}
+              {otherLinks.map(({ to, icon: Icon, label }) => <NavLink key={to} to={to} className="menu-topic" onClick={closeMenus}><Icon className="w-4 h-4" aria-hidden="true" />{label}</NavLink>)}
               <div className="mt-6">{topicGroups}</div>
             </nav>
           </details>

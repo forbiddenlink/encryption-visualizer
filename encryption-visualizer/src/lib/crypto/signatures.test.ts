@@ -4,6 +4,7 @@
  */
 import { describe, it, expect } from 'vitest';
 import {
+  parseSignature,
   signMessageWithSteps,
   verifySignatureWithSteps,
   signMessage,
@@ -284,5 +285,30 @@ describe('Digital Signatures', () => {
       // Tampered should fail
       expect(verifySignature(tampered, signature, keyPair.publicKey)).toBe(false);
     });
+  });
+});
+
+
+describe('Signature representative validation', () => {
+  const publicKey = { n: 3233, e: 17 };
+  const privateKey = { n: 3233, d: 2753 };
+  it.each([-1, 1.5, NaN, Infinity, 3233, Number.MAX_SAFE_INTEGER + 1])('rejects malformed representative %s', (signature) => {
+    expect(verifySignature('message', signature, publicKey)).toBe(false);
+    expect(verifySignatureWithSteps('message', signature, publicKey).isValid).toBe(false);
+  });
+  it('rejects a congruent signature outside the modulus', () => {
+    const signature = signMessage('message', privateKey);
+    expect(verifySignature('message', signature + publicKey.n, publicKey)).toBe(false);
+  });
+});
+
+
+describe('Signature text parsing', () => {
+  it.each(['123junk', '12.5', '1e2', '-1', 'Infinity', '3233', ''])('rejects %s without truncating it', (input) => {
+    expect(parseSignature(input, 3233)).toBeNull();
+  });
+  it('accepts only a complete in-range decimal integer', () => {
+    expect(parseSignature(' 123 ', 3233)).toBe(123);
+    expect(parseSignature('0', 3233)).toBe(0);
   });
 });

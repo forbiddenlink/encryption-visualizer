@@ -9,7 +9,7 @@
  * ipad = 0x36 repeated, opad = 0x5c repeated
  */
 
-import { simpleHash } from './hash';
+import { simpleHash, simpleHashBytes } from './hash';
 import type { HMACStep } from '@/lib/types/hmac';
 
 export type { HMACStep };
@@ -19,30 +19,26 @@ const BLOCK_SIZE = 16; // Simplified block size for visualization
 /**
  * Pad or truncate key to block size
  */
-function normalizeKey(key: string): string {
-  if (key.length > BLOCK_SIZE) {
-    // If key is longer than block size, hash it first
-    return simpleHash(key).padEnd(BLOCK_SIZE, '\0');
-  }
-  return key.padEnd(BLOCK_SIZE, '\0');
+function normalizeKey(key: string): number[] {
+  const bytes = Array.from(new TextEncoder().encode(key));
+  const normalized = bytes.length > BLOCK_SIZE ? hexToBytes(simpleHashBytes(bytes)) : bytes;
+  return [...normalized, ...new Array(BLOCK_SIZE - normalized.length).fill(0)];
 }
 
-/**
- * XOR a string with a repeated byte value
- */
-function xorWithByte(str: string, byte: number): string {
-  return Array.from(str)
-    .map((ch) => String.fromCharCode(ch.charCodeAt(0) ^ byte))
-    .join('');
+function xorWithByte(bytes: number[], byte: number): number[] {
+  return bytes.map((value) => value ^ byte);
 }
 
-/**
- * Convert string to hex representation
- */
+function bytesToHex(bytes: number[]): string {
+  return bytes.map((byte) => byte.toString(16).padStart(2, '0')).join('');
+}
+
 function stringToHex(str: string): string {
-  return Array.from(str)
-    .map((ch) => ch.charCodeAt(0).toString(16).padStart(2, '0'))
-    .join('');
+  return bytesToHex(Array.from(new TextEncoder().encode(str)));
+}
+
+function hexToBytes(hex: string): number[] {
+  return hex.match(/../g)?.map((byte) => parseInt(byte, 16)) ?? [];
 }
 
 /**
@@ -53,8 +49,8 @@ export function hmac(key: string, message: string): string {
   const innerKey = xorWithByte(normalizedKey, 0x36); // key XOR ipad
   const outerKey = xorWithByte(normalizedKey, 0x5c); // key XOR opad
 
-  const innerHash = simpleHash(innerKey + message);
-  const finalHash = simpleHash(outerKey + innerHash);
+  const innerHash = simpleHashBytes([...innerKey, ...new TextEncoder().encode(message)]);
+  const finalHash = simpleHashBytes([...outerKey, ...hexToBytes(innerHash)]);
 
   return finalHash;
 }
@@ -114,14 +110,14 @@ export function hmacWithSteps(key: string, message: string): HMACStep[] {
     values: {
       key,
       message,
-      keyLength: `${key.length} bytes`,
-      messageLength: `${message.length} bytes`,
+      keyLength: `${new TextEncoder().encode(key).length} bytes`,
+      messageLength: `${new TextEncoder().encode(message).length} bytes`,
     },
   });
 
   // Step 2: Key padding
   const normalizedKey = normalizeKey(key);
-  const keyWasTruncated = key.length > BLOCK_SIZE;
+  const keyWasTruncated = new TextEncoder().encode(key).length > BLOCK_SIZE;
   steps.push({
     stepNumber: stepNumber++,
     type: 'key-padding',
@@ -132,7 +128,7 @@ export function hmacWithSteps(key: string, message: string): HMACStep[] {
     values: {
       originalKey: key,
       originalKeyHex: stringToHex(key),
-      normalizedKeyHex: stringToHex(normalizedKey),
+      normalizedKeyHex: bytesToHex(normalizedKey),
       blockSize: `${BLOCK_SIZE} bytes`,
       action: keyWasTruncated ? 'Hashed then padded' : 'Zero-padded',
     },
@@ -144,17 +140,17 @@ export function hmacWithSteps(key: string, message: string): HMACStep[] {
     stepNumber: stepNumber++,
     type: 'inner-hash',
     title: 'Create Inner Key (Key XOR ipad)',
-    description: 'XOR the padded key with ipad (0x36 repeated). The ipad value 0x36 was chosen to create maximum bit diffusion.',
+    description: 'XOR the padded key with ipad (0x36 repeated). This demo uses a 16-byte block and FNV-1a; it is not a secure HMAC.',
     values: {
-      normalizedKeyHex: stringToHex(normalizedKey),
+      normalizedKeyHex: bytesToHex(normalizedKey),
       ipad: '0x36 (repeated)',
-      innerKeyHex: stringToHex(innerKey),
+      innerKeyHex: bytesToHex(innerKey),
     },
   });
 
   // Step 4: Inner hash
-  const innerInput = innerKey + message;
-  const innerHash = simpleHash(innerInput);
+  const innerInput = [...innerKey, ...new TextEncoder().encode(message)];
+  const innerHash = simpleHashBytes(innerInput);
   steps.push({
     stepNumber: stepNumber++,
     type: 'inner-hash',
@@ -162,7 +158,7 @@ export function hmacWithSteps(key: string, message: string): HMACStep[] {
     description: 'Hash the concatenation of the inner key and the message. This is the first pass of the two-pass HMAC construction.',
     values: {
       operation: 'Hash(innerKey || message)',
-      innerKeyHex: stringToHex(innerKey).slice(0, 32) + '...',
+      innerKeyHex: bytesToHex(innerKey).slice(0, 32) + '...',
       message,
       innerHash,
     },
@@ -176,22 +172,22 @@ export function hmacWithSteps(key: string, message: string): HMACStep[] {
     title: 'Create Outer Key (Key XOR opad)',
     description: 'XOR the padded key with opad (0x5c repeated). Using different padding constants for inner and outer passes prevents related-key attacks.',
     values: {
-      normalizedKeyHex: stringToHex(normalizedKey),
+      normalizedKeyHex: bytesToHex(normalizedKey),
       opad: '0x5c (repeated)',
-      outerKeyHex: stringToHex(outerKey),
+      outerKeyHex: bytesToHex(outerKey),
     },
   });
 
   // Step 6: Outer hash (final HMAC)
-  const finalHash = simpleHash(outerKey + innerHash);
+  const finalHash = simpleHashBytes([...outerKey, ...hexToBytes(innerHash)]);
   steps.push({
     stepNumber: stepNumber++,
     type: 'outer-hash',
     title: 'Compute Outer Hash (Final HMAC)',
-    description: 'Hash the concatenation of the outer key and the inner hash. This second pass completes the HMAC and provides protection against length extension attacks.',
+    description: 'Hash the concatenation of the outer key and the inner hash. This second pass illustrates the HMAC construction; the toy FNV-1a tag does not provide cryptographic authentication.',
     values: {
       operation: 'Hash(outerKey || innerHash)',
-      outerKeyHex: stringToHex(outerKey).slice(0, 32) + '...',
+      outerKeyHex: bytesToHex(outerKey).slice(0, 32) + '...',
       innerHash,
       finalHmac: finalHash,
     },
@@ -217,11 +213,11 @@ export function hmacWithSteps(key: string, message: string): HMACStep[] {
     stepNumber: stepNumber,
     type: 'verify',
     title: 'Verification',
-    description: 'The recipient recomputes the HMAC with the shared secret key and compares it to the received tag. If they match, the message is authentic and unmodified.',
+    description: 'The recipient recomputes the HMAC with the shared secret key and compares it to the received tag. A match only confirms this toy tag matches; FNV-1a collisions can allow different messages to share a tag.',
     values: {
       receivedHmac: finalHash,
       computedHmac: finalHash,
-      match: isValid ? 'YES - Message is authentic' : 'NO - Message was tampered with',
+      match: isValid ? 'YES - Toy tag matches' : 'NO - Message was tampered with',
     },
   });
 

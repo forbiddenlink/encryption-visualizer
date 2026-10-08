@@ -125,13 +125,13 @@ describe('Block Modes', () => {
     });
 
     it('increments counter for each block', () => {
-      // 48 chars (3 blocks) + PKCS7 padding block = 4 blocks total
+      // Counter mode preserves three data blocks without padding.
       const longerText = 'A'.repeat(BLOCK_SIZE * 3);
       const steps = encryptGCMWithSteps(longerText, testKey);
       const encryptSteps = steps.filter(s => s.type === 'encrypt-block');
 
       const counters = encryptSteps.map(s => s.counter);
-      expect(counters).toEqual([1, 2, 3, 4]); // 3 data blocks + 1 padding block
+      expect(counters).toEqual([1, 2, 3]); // Counter mode does not pad
     });
   });
 
@@ -171,5 +171,27 @@ describe('Block Modes', () => {
       // Block should be 32 hex chars (16 bytes)
       expect(splitStep?.blocks?.[0].length).toBe(32);
     });
+  });
+});
+
+
+describe('Block mode byte regressions', () => {
+  it.each([encryptECBWithSteps, encryptCBCWithSteps, encryptGCMWithSteps])('uses UTF-8 bytes in every block', (encrypt) => {
+    const steps = encrypt('😀é', 'clé');
+    expect(steps[0].values?.plaintextHex).toBe('f09f9880c3a9');
+    expect(steps.at(-1)?.blocks?.every((block) => /^[0-9a-f]+$/.test(block) && block.length <= 32)).toBe(true);
+  });
+  it.each(['', 'a', 'é😀', 'A'.repeat(16), 'A'.repeat(17)])('does not pad GCM ciphertext for %s', (input) => {
+    const output = encryptGCMWithSteps(input, 'key').at(-1);
+    expect(String(output?.values?.ciphertext).length).toBe(new TextEncoder().encode(input).length * 2);
+  });
+  it('includes ciphertext suffixes in the toy tag', () => {
+    const first = encryptGCMWithSteps('same prefix text but A', 'key').at(-1)?.authTag;
+    const second = encryptGCMWithSteps('same prefix text but B', 'key').at(-1)?.authTag;
+    expect(first).not.toBe(second);
+  });
+  it.each([encryptECBWithSteps, encryptCBCWithSteps, encryptGCMWithSteps])('rejects oversized visualizations and keys', (encrypt) => {
+    expect(() => encrypt('a'.repeat(1025), 'key')).toThrow();
+    expect(() => encrypt('text', '😀'.repeat(5))).toThrow();
   });
 });

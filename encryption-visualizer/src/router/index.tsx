@@ -3,6 +3,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import App from '@/App';
 import { HomePage } from '@/pages/HomePage';
 import { ROUTES } from './routes';
+import { ErrorBoundary } from '@/components/ui/ErrorBoundary';
 
 const AESPage = lazy(() => import('@/pages/AESPage').then(m => ({ default: m.AESPage })));
 const RSAPage = lazy(() => import('@/pages/RSAPage').then(m => ({ default: m.RSAPage })));
@@ -23,9 +24,9 @@ const AboutPage = lazy(() => import('@/pages/AboutPage').then(m => ({ default: m
 
 function LazyPage({ children }: { children: React.ReactNode }) {
   return (
-    <Suspense fallback={<div role="status" className="flex flex-col gap-4 items-center justify-center lesson-loading"><div aria-hidden="true" className="w-8 h-8 border-2 border-cyber-cyan border-t-transparent rounded-full motion-safe:animate-spin" /><p className="eyebrow">Loading your lesson…</p></div>}>
+    <ErrorBoundary variant="lesson"><Suspense fallback={<div role="status" className="flex flex-col gap-4 items-center justify-center lesson-loading"><div aria-hidden="true" className="w-8 h-8 border-2 border-cyber-cyan border-t-transparent rounded-full motion-safe:animate-spin" /><p className="eyebrow">Loading your lesson…</p></div>}>
       {children}
-    </Suspense>
+    </Suspense></ErrorBoundary>
   );
 }
 

@@ -1,0 +1,27 @@
+import '@/test/disableNativeAnimation';
+import { afterEach, beforeEach, expect, it } from 'vitest';
+import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { LazyMotion, domAnimation } from 'framer-motion';
+import { QuizSystem } from './QuizSystem';
+import { useProgressStore } from '@/store/progressStore';
+import type { QuizQuestion } from '@/lib/types';
+const questions: QuizQuestion[] = [0, 1].map((id) => ({ id: `review-${id}`, question: `Question ${id}`, options: ['Correct answer', 'Wrong answer'], correct: 0, explanation: 'Explanation', difficulty: 'beginner' }));
+beforeEach(() => useProgressStore.getState().resetProgress());
+afterEach(cleanup);
+it('missed-question practice clears the miss without overwriting a failed full assessment', async () => {
+  render(<LazyMotion features={domAnimation}><QuizSystem questions={questions} algorithmId="hashing" /></LazyMotion>);
+  fireEvent.click(screen.getByRole('button', { name: 'Correct answer' }));
+  fireEvent.click(screen.getByRole('button', { name: /Next Question/ }));
+  await waitFor(() => expect(screen.getByRole('button', { name: 'Wrong answer' })).toBeEnabled());
+  fireEvent.click(screen.getByRole('button', { name: 'Wrong answer' }));
+  fireEvent.click(screen.getByRole('button', { name: /See Results/ }));
+  fireEvent.click(await screen.findByRole('button', { name: /Review Missed Questions/ }));
+  await waitFor(() => expect(screen.getByRole('button', { name: 'Correct answer' })).toBeEnabled());
+  fireEvent.click(screen.getByRole('button', { name: 'Correct answer' }));
+  fireEvent.click(screen.getByRole('button', { name: /See Results/ }));
+  await screen.findByRole('button', { name: 'Try Again' });
+  expect(useProgressStore.getState().quizScores.hashing).toMatchObject({ score: 1, total: 2 });
+  expect(useProgressStore.getState().completedAlgorithms).not.toContain('hashing');
+  expect(useProgressStore.getState().getMissedQuestions('hashing')).toEqual([]);
+  expect(screen.queryByText(/Achievement Unlocked/)).not.toBeInTheDocument();
+});

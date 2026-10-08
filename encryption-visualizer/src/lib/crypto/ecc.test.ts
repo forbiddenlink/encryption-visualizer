@@ -2,7 +2,7 @@
  * ECC Cryptographic Functions Test Suite
  * Tests for elliptic curve point operations, ECDH, and ECDSA
  */
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import {
   mod,
   modInverse,
@@ -441,5 +441,37 @@ describe('ECC Crypto Functions', () => {
       expect(steps.length).toBe(10);
       expect(keyPair.privateKey).toBeGreaterThanOrEqual(1);
     });
+  });
+});
+
+
+describe('bounded educational ECDSA regressions', () => {
+  it('reports an impossible signature instead of retrying forever', () => {
+    let calls = 0;
+    const random = vi.spyOn(Math, 'random').mockImplementation(() => {
+      if (++calls > 20) throw new Error('nonce retry sentinel');
+      return 0.6;
+    });
+    try {
+      expect(() => ecdsaSign(42, 3, SMALL_CURVE)).toThrow(/No valid ECDSA signature/);
+    } finally {
+      random.mockRestore();
+    }
+  });
+
+  it('explains unavailable signing in the small-curve walkthrough', () => {
+    let calls = 0;
+    const random = vi.spyOn(Math, 'random').mockImplementation(() => {
+      if (++calls > 20) throw new Error('nonce retry sentinel');
+      return 0.6;
+    });
+    try {
+      const { steps } = generateECCWithSteps('small');
+      expect(steps.find(step => step.type === 'signing')?.description).toMatch(/no valid signature/i);
+      expect(steps.find(step => step.type === 'verification')?.values?.valid).toBe('Not available');
+      expect(steps.at(-1)?.description).not.toContain('ECDSA signature verified');
+    } finally {
+      random.mockRestore();
+    }
   });
 });

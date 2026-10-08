@@ -5,16 +5,32 @@
  */
 
 import type { BlockModeStep } from '@/lib/types';
+import { hmac } from './hmac';
 
 // Block size in bytes (simulating 128-bit blocks like AES)
 const BLOCK_SIZE = 16;
+export const MAX_VISUALIZATION_BYTES = 1024;
+
+function byteString(text: string): string {
+  return Array.from(new TextEncoder().encode(text), (byte) => String.fromCharCode(byte)).join('');
+}
+
+export function validateBlockModeInput(plaintext: string, key: string): void {
+  if (new TextEncoder().encode(plaintext).length > MAX_VISUALIZATION_BYTES) {
+    throw new Error(`Message must be at most ${MAX_VISUALIZATION_BYTES} UTF-8 bytes for this visualization`);
+  }
+  const keyLength = new TextEncoder().encode(key).length;
+  if (keyLength < 1 || keyLength > BLOCK_SIZE) {
+    throw new Error('Key must contain 1 to 16 UTF-8 bytes; shorter keys are zero-padded');
+  }
+}
 
 /**
  * Simple XOR-based block encryption for visualization
  * NOT cryptographically secure - for educational purposes only
  */
 function simpleBlockEncrypt(block: string, key: string): string {
-  const keyBytes = key.padEnd(BLOCK_SIZE, '\0');
+  const keyBytes = byteString(key).padEnd(BLOCK_SIZE, '\0');
   let result = '';
   for (let i = 0; i < block.length; i++) {
     const encrypted = block.charCodeAt(i) ^ keyBytes.charCodeAt(i % keyBytes.length);
@@ -30,7 +46,7 @@ function xorHexStrings(a: string, b: string): string {
   const aBytes = hexToBytes(a);
   const bBytes = hexToBytes(b);
   let result = '';
-  for (let i = 0; i < Math.max(aBytes.length, bBytes.length); i++) {
+  for (let i = 0; i < aBytes.length; i++) {
     const xored = (aBytes[i] || 0) ^ (bBytes[i] || 0);
     result += xored.toString(16).padStart(2, '0');
   }
@@ -70,8 +86,9 @@ function padToBlockSize(plaintext: string): string {
 /**
  * Split plaintext into blocks
  */
-function splitIntoBlocks(plaintext: string): string[] {
-  const padded = padToBlockSize(plaintext);
+function splitIntoBlocks(plaintext: string, needsPadding = true): string[] {
+  const bytes = byteString(plaintext);
+  const padded = needsPadding ? padToBlockSize(bytes) : bytes;
   const blocks: string[] = [];
   for (let i = 0; i < padded.length; i += BLOCK_SIZE) {
     blocks.push(padded.slice(i, i + BLOCK_SIZE));
@@ -92,6 +109,7 @@ function generateIV(): string {
  * Each block encrypted independently (parallel, reveals patterns)
  */
 export function encryptECBWithSteps(plaintext: string, key: string): BlockModeStep[] {
+  validateBlockModeInput(plaintext, key);
   const steps: BlockModeStep[] = [];
   let stepNumber = 0;
 
@@ -104,7 +122,7 @@ export function encryptECBWithSteps(plaintext: string, key: string): BlockModeSt
     description: 'The original message to encrypt. ECB mode will encrypt each 16-byte block independently.',
     values: {
       plaintext: plaintext,
-      plaintextHex: stringToHex(plaintext),
+      plaintextHex: stringToHex(byteString(plaintext)),
     },
   });
 
@@ -167,6 +185,7 @@ export function encryptECBWithSteps(plaintext: string, key: string): BlockModeSt
  * Each block XORed with previous ciphertext before encryption
  */
 export function encryptCBCWithSteps(plaintext: string, key: string): BlockModeStep[] {
+  validateBlockModeInput(plaintext, key);
   const steps: BlockModeStep[] = [];
   let stepNumber = 0;
   const iv = generateIV();
@@ -181,7 +200,7 @@ export function encryptCBCWithSteps(plaintext: string, key: string): BlockModeSt
     iv: iv,
     values: {
       plaintext: plaintext,
-      plaintextHex: stringToHex(plaintext),
+      plaintextHex: stringToHex(byteString(plaintext)),
     },
   });
 
@@ -192,7 +211,7 @@ export function encryptCBCWithSteps(plaintext: string, key: string): BlockModeSt
     mode: 'cbc',
     stepNumber: stepNumber++,
     title: 'Split into Blocks + IV',
-    description: `Divide plaintext into ${blocks.length} blocks. Generate Initialization Vector (IV) for first block XOR.`,
+    description: `Divide plaintext into ${blocks.length} blocks. Use the fixed demonstration IV for first block XOR.`,
     blocks: blocks.map(b => stringToHex(b)),
     iv: iv,
     values: {
@@ -262,7 +281,7 @@ export function encryptCBCWithSteps(plaintext: string, key: string): BlockModeSt
     mode: 'cbc',
     stepNumber: stepNumber,
     title: 'CBC Ciphertext',
-    description: 'Final encrypted output. IV must be stored/transmitted with ciphertext. Identical plaintext blocks produce DIFFERENT ciphertext!',
+    description: 'Final encrypted output. IV must be stored/transmitted with ciphertext. This XOR-only simulation can repeat ciphertext blocks; real CBC requires a secure block cipher and an unpredictable IV.',
     blocks: encryptedBlocks,
     iv: iv,
     values: {
@@ -280,6 +299,7 @@ export function encryptCBCWithSteps(plaintext: string, key: string): BlockModeSt
  * Counter mode with authentication tag
  */
 export function encryptGCMWithSteps(plaintext: string, key: string): BlockModeStep[] {
+  validateBlockModeInput(plaintext, key);
   const steps: BlockModeStep[] = [];
   let stepNumber = 0;
   const iv = generateIV().slice(0, 24); // GCM typically uses 96-bit (12-byte) IV
@@ -291,16 +311,16 @@ export function encryptGCMWithSteps(plaintext: string, key: string): BlockModeSt
     mode: 'gcm',
     stepNumber: stepNumber++,
     title: 'Input Plaintext',
-    description: 'GCM (Galois/Counter Mode) provides both encryption AND authentication (integrity check).',
+    description: 'This toy counter-mode simulation illustrates GCM structure using XOR encryption and a keyed FNV-1a tag, not AES-GCM.',
     iv: iv,
     values: {
       plaintext: plaintext,
-      plaintextHex: stringToHex(plaintext),
+      plaintextHex: stringToHex(byteString(plaintext)),
     },
   });
 
   // Split into blocks
-  const blocks = splitIntoBlocks(plaintext);
+  const blocks = splitIntoBlocks(plaintext, false);
   steps.push({
     type: 'split-blocks',
     mode: 'gcm',
@@ -372,7 +392,7 @@ export function encryptGCMWithSteps(plaintext: string, key: string): BlockModeSt
   }
 
   // Generate authentication tag (simplified GHASH simulation)
-  const authTag = simpleBlockEncrypt(ghashInput.slice(0, BLOCK_SIZE), key).slice(0, 32);
+  const authTag = hmac(key, `${iv}:${ghashInput}:${new TextEncoder().encode(plaintext).length}`);
 
   // Final output with auth tag
   const ciphertext = encryptedBlocks.join('');
@@ -381,7 +401,7 @@ export function encryptGCMWithSteps(plaintext: string, key: string): BlockModeSt
     mode: 'gcm',
     stepNumber: stepNumber,
     title: 'GCM Ciphertext + Auth Tag',
-    description: 'Final output includes ciphertext AND authentication tag. Tag verifies integrity - any tampering is detected!',
+    description: 'Final output includes ciphertext AND authentication tag. The toy tag includes the full ciphertext, nonce, and length; collisions remain possible and it does not provide cryptographic integrity.',
     blocks: encryptedBlocks,
     iv: iv,
     authTag: authTag,
@@ -406,8 +426,12 @@ export function demonstrateECBPatternProblem(pattern: string, repetitions: numbe
   cbcCiphertext: string[];
   patternVisible: boolean;
 } {
+  if (!Number.isInteger(repetitions) || repetitions < 0 || new TextEncoder().encode(pattern).length * repetitions > MAX_VISUALIZATION_BYTES) {
+    throw new Error(`Repeated pattern must fit within ${MAX_VISUALIZATION_BYTES} UTF-8 bytes`);
+  }
   // Create repeated pattern
   const plaintext = pattern.repeat(repetitions);
+  validateBlockModeInput(plaintext, key);
   const blocks = splitIntoBlocks(plaintext);
 
   // ECB encryption (patterns preserved)

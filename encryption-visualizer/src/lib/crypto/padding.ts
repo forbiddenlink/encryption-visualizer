@@ -14,7 +14,7 @@ export type { PaddingScheme, PaddingStep };
  * Convert string to byte array
  */
 function stringToBytes(str: string): number[] {
-  return Array.from(str).map((ch) => ch.charCodeAt(0));
+  return Array.from(new TextEncoder().encode(str));
 }
 
 /**
@@ -31,6 +31,18 @@ function bytesToDisplay(bytes: number[]): string {
   return bytes.map((b) => (b >= 32 && b <= 126 ? String.fromCharCode(b) : '.')).join('');
 }
 
+function validateBytes(data: number[]): void {
+  if (data.some((byte) => !Number.isInteger(byte) || byte < 0 || byte > 255)) {
+    throw new Error('Data must contain bytes from 0 to 255');
+  }
+}
+
+function validateBlockSize(blockSize: number): void {
+  if (!Number.isInteger(blockSize) || blockSize < 1 || blockSize > 255) {
+    throw new Error('Block size must be an integer from 1 to 255 bytes');
+  }
+}
+
 /**
  * Apply PKCS#7 padding
  * Each padding byte equals the number of padding bytes added
@@ -38,6 +50,8 @@ function bytesToDisplay(bytes: number[]): string {
  * If input is already block-aligned, add a full block of padding
  */
 export function pkcs7Pad(data: number[], blockSize: number): number[] {
+  validateBytes(data);
+  validateBlockSize(blockSize);
   const paddingNeeded = blockSize - (data.length % blockSize);
   const padding = new Array(paddingNeeded).fill(paddingNeeded);
   return [...data, ...padding];
@@ -47,6 +61,7 @@ export function pkcs7Pad(data: number[], blockSize: number): number[] {
  * Remove PKCS#7 padding
  */
 export function pkcs7Unpad(data: number[]): number[] {
+  validateBytes(data);
   if (data.length === 0) return data;
   const lastByte = data[data.length - 1];
   if (lastByte < 1 || lastByte > data.length) {
@@ -67,6 +82,8 @@ export function pkcs7Unpad(data: number[]): number[] {
  * Note: ambiguous if original data ends with zeros
  */
 export function zeroPad(data: number[], blockSize: number): number[] {
+  validateBytes(data);
+  validateBlockSize(blockSize);
   const paddingNeeded = blockSize - (data.length % blockSize);
   if (paddingNeeded === blockSize && data.length > 0) return [...data];
   const padding = new Array(paddingNeeded === blockSize ? blockSize : paddingNeeded).fill(0);
@@ -77,6 +94,7 @@ export function zeroPad(data: number[], blockSize: number): number[] {
  * Remove zero padding (removes trailing zeros)
  */
 export function zeroUnpad(data: number[]): number[] {
+  validateBytes(data);
   let end = data.length;
   while (end > 0 && data[end - 1] === 0) {
     end--;
@@ -90,6 +108,8 @@ export function zeroUnpad(data: number[]): number[] {
  * e.g., if 3 bytes needed: [00, 00, 03]
  */
 export function ansiX923Pad(data: number[], blockSize: number): number[] {
+  validateBytes(data);
+  validateBlockSize(blockSize);
   const paddingNeeded = blockSize - (data.length % blockSize);
   const padding = new Array(paddingNeeded).fill(0);
   padding[padding.length - 1] = paddingNeeded;
@@ -100,9 +120,13 @@ export function ansiX923Pad(data: number[], blockSize: number): number[] {
  * Remove ANSI X.923 padding
  */
 export function ansiX923Unpad(data: number[]): number[] {
+  validateBytes(data);
   if (data.length === 0) return data;
   const lastByte = data[data.length - 1];
   if (lastByte < 1 || lastByte > data.length) {
+    throw new Error('Invalid ANSI X.923 padding');
+  }
+  if (data.slice(data.length - lastByte, -1).some((byte) => byte !== 0)) {
     throw new Error('Invalid ANSI X.923 padding');
   }
   return data.slice(0, data.length - lastByte);
@@ -171,6 +195,7 @@ export function padWithSteps(
 ): PaddingStep[] {
   const steps: PaddingStep[] = [];
   let stepNumber = 0;
+  validateBlockSize(blockSize);
   const inputBytes = stringToBytes(input);
 
   // Step 1: Input
@@ -191,12 +216,9 @@ export function padWithSteps(
 
   // Step 2: Measure
   const remainder = inputBytes.length % blockSize;
-  const paddingNeeded =
-    remainder === 0 && scheme === 'pkcs7'
-      ? blockSize
-      : remainder === 0 && inputBytes.length > 0
-        ? 0
-        : blockSize - remainder;
+  const paddingNeeded = scheme === 'zero' && remainder === 0 && inputBytes.length > 0
+    ? 0
+    : blockSize - remainder;
 
   steps.push({
     stepNumber: stepNumber++,
@@ -211,12 +233,12 @@ export function padWithSteps(
       inputLength: inputBytes.length,
       blockSize,
       remainder,
-      paddingNeeded: paddingNeeded === 0 ? blockSize : paddingNeeded,
+      paddingNeeded,
     },
   });
 
   // Step 3: Calculate padding bytes
-  const actualPaddingNeeded = paddingNeeded === 0 ? blockSize : paddingNeeded;
+  const actualPaddingNeeded = paddingNeeded;
   let paddingBytes: number[];
 
   switch (scheme) {
@@ -318,9 +340,9 @@ export function padWithSteps(
     values: {
       paddedHex: bytesToHex(padded),
       unpaddedHex: bytesToHex(unpadded),
-      recoveredText: bytesToDisplay(unpadded),
+      recoveredText: new TextDecoder().decode(new Uint8Array(unpadded)),
       originalText: input,
-      match: bytesToDisplay(unpadded) === input ? 'YES' : 'NO',
+      match: unpadded.length === inputBytes.length && unpadded.every((byte, index) => byte === inputBytes[index]) ? 'YES' : 'NO',
     },
   });
 
@@ -334,6 +356,7 @@ export function compareSchemes(
   input: string,
   blockSize: number
 ): Record<PaddingScheme, { padded: number[]; hex: string; blocks: string[] }> {
+  validateBlockSize(blockSize);
   const inputBytes = stringToBytes(input);
   const schemes: PaddingScheme[] = ['pkcs7', 'zero', 'ansi-x923'];
 

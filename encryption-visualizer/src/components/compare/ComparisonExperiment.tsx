@@ -14,12 +14,12 @@ interface Playback { left: number; right: number; leftPlaying: boolean; rightPla
 
 function experiment(algorithm: ComparableAlgorithm): Step[] {
   switch (algorithm) {
-    case 'aes': return encryptAESWithSteps('Hello, CryptoViz!', 'CryptoVizKey12345');
+    case 'aes': return encryptAESWithSteps('Hello CryptoViz!', 'CryptoVizKey1234');
     case 'rsa': return generateRSAKeyPairWithSteps('small').steps;
-    case 'hashing': return hashWithSteps('Hello, CryptoViz!');
-    case 'signatures': return signMessageWithSteps('Hello, CryptoViz!', generateRSAKeyPairWithSteps('small').keyPair).steps;
+    case 'hashing': return hashWithSteps('Hello CryptoViz!');
+    case 'signatures': return signMessageWithSteps('Hello CryptoViz!', generateRSAKeyPairWithSteps('small').keyPair).steps;
     case 'diffie-hellman': return generateDHKeyExchangeWithSteps('small').steps;
-    case 'block-modes': return encryptCBCWithSteps('Hello, CryptoViz!', 'CryptoVizKey12345');
+    case 'block-modes': return encryptCBCWithSteps('Hello CryptoViz!', 'CryptoVizKey1234');
   }
 }
 

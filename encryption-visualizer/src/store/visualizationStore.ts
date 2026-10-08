@@ -25,6 +25,10 @@ interface VisualizationStore extends VisualizationState {
   setSteps: (steps: VisualizationSteps) => void;
 }
 
+function boundedStep(step: number, total: number): number {
+  return Number.isFinite(step) ? Math.max(0, Math.min(Math.trunc(step), Math.max(0, total - 1))) : 0;
+}
+
 export const useVisualizationStore = create<VisualizationStore>((set) => ({
   sessionPath: null,
   algorithm: 'AES',
@@ -34,9 +38,9 @@ export const useVisualizationStore = create<VisualizationStore>((set) => ({
   speed: 1,
   steps: [],
 
-  setAlgorithm: (algorithm) => set({ algorithm, currentStep: 0, steps: [] }),
+  setAlgorithm: (algorithm) => set({ algorithm, currentStep: 0, steps: [], totalSteps: 0, isPlaying: false }),
 
-  play: () => set({ isPlaying: true }),
+  play: () => set((state) => ({ isPlaying: state.totalSteps > 0 })),
 
   pause: () => set({ isPlaying: false }),
 
@@ -44,7 +48,7 @@ export const useVisualizationStore = create<VisualizationStore>((set) => ({
 
   nextStep: () =>
     set((state) => ({
-      currentStep: Math.min(state.currentStep + 1, state.totalSteps - 1),
+      currentStep: boundedStep(state.currentStep + 1, state.totalSteps),
     })),
 
   previousStep: () =>
@@ -54,11 +58,14 @@ export const useVisualizationStore = create<VisualizationStore>((set) => ({
 
   setSpeed: (speed) => set({ speed }),
 
-  goToStep: (step) => set({ currentStep: step }),
+  goToStep: (step) => set((state) => ({ currentStep: boundedStep(step, state.totalSteps) })),
 
-  setCurrentStep: (step) => set({ currentStep: step }),
+  setCurrentStep: (step) => set((state) => ({ currentStep: boundedStep(step, state.totalSteps) })),
 
-  setTotalSteps: (total) => set({ totalSteps: total }),
+  setTotalSteps: (total) => set((state) => {
+    const totalSteps = Number.isFinite(total) ? Math.max(0, Math.trunc(total)) : 0;
+    return { totalSteps, currentStep: boundedStep(state.currentStep, totalSteps), isPlaying: totalSteps > 0 && state.isPlaying };
+  }),
 
-  setSteps: (steps) => set({ steps, totalSteps: steps.length }),
+  setSteps: (steps) => set({ steps, totalSteps: steps.length, currentStep: 0, isPlaying: false }),
 }));

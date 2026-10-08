@@ -1,9 +1,11 @@
 import { Component, type ErrorInfo, type ReactNode } from 'react';
 import { AlertTriangle, RefreshCw } from 'lucide-react';
+import { useVisualizationStore } from '@/store/visualizationStore';
 
 interface Props {
   children: ReactNode;
   fallback?: ReactNode;
+  variant?: 'visualization' | 'lesson';
 }
 
 interface State {
@@ -26,6 +28,9 @@ export class ErrorBoundary extends Component<Props, State> {
   }
 
   private handleReset = () => {
+    const store = useVisualizationStore.getState();
+    store.reset();
+    store.setSteps([]);
     this.setState({ hasError: false, error: null });
   };
 
@@ -43,18 +48,19 @@ export class ErrorBoundary extends Component<Props, State> {
             </div>
             <div>
               <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
-                Something went wrong
+                {this.props.variant === 'lesson' ? 'This lesson could not load' : 'Something went wrong'}
               </h3>
               <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">
-                The visualization encountered an error. This might happen with unusual input values.
+                {this.props.variant === 'lesson' ? 'Check your connection and reload the page to download the lesson again.' : 'The visualization encountered an error. Try again to clear this run and generate a fresh visualization.'}
               </p>
               <button
-                onClick={this.handleReset}
+                onClick={this.props.variant === 'lesson' ? () => window.location.reload() : this.handleReset}
                 className="btn-primary inline-flex items-center gap-2"
               >
                 <RefreshCw className="w-4 h-4" />
-                Try Again
+                {this.props.variant === 'lesson' ? 'Reload lesson' : 'Try Again'}
               </button>
+              {this.props.variant === 'lesson' && <a href="/" className="btn-secondary inline-flex ml-3">Return home</a>}
             </div>
           </div>
         </div>

@@ -14,12 +14,13 @@ export function useKeyboardShortcuts(config: ShortcutConfig = {}) {
 
   const handleKeyDown = useCallback(
     (event: KeyboardEvent) => {
-      // Don't trigger shortcuts when typing in input fields
-      const target = event.target as HTMLElement;
+      const target = event.target;
       if (
-        target.tagName === 'INPUT' ||
-        target.tagName === 'TEXTAREA' ||
-        target.isContentEditable
+        event.defaultPrevented || event.metaKey || event.ctrlKey || event.altKey ||
+        (target instanceof HTMLElement && (
+          target.closest('input, textarea, select, button, a, summary, [role="button"], [role="radio"]') ||
+          target.isContentEditable
+        )) || store.totalSteps === 0
       ) {
         return;
       }

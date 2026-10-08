@@ -17,20 +17,20 @@ function isValidAlgorithm(value: string | null): value is ComparableAlgorithm {
 
 export const ComparePage = () => {
   const [searchParams] = useSearchParams();
-  const { leftAlgorithm, rightAlgorithm, setLeftAlgorithm, setRightAlgorithm } = useCompareStore();
+  const { leftAlgorithm, rightAlgorithm } = useCompareStore();
 
   // Initialize from URL params
   useEffect(() => {
     const left = searchParams.get('left');
     const right = searchParams.get('right');
 
-    if (isValidAlgorithm(left) && left !== rightAlgorithm) {
-      setLeftAlgorithm(left);
+    const current = useCompareStore.getState();
+    const nextLeft = isValidAlgorithm(left) ? left : current.leftAlgorithm;
+    const nextRight = isValidAlgorithm(right) ? right : current.rightAlgorithm;
+    if (nextLeft !== nextRight) {
+      useCompareStore.setState({ leftAlgorithm: nextLeft, rightAlgorithm: nextRight });
     }
-    if (isValidAlgorithm(right) && right !== leftAlgorithm) {
-      setRightAlgorithm(right);
-    }
-  }, [searchParams, leftAlgorithm, rightAlgorithm, setLeftAlgorithm, setRightAlgorithm]);
+  }, [searchParams]);
 
   return (
     <div className="space-y-6 sm:space-y-8">
@@ -108,8 +108,8 @@ export const ComparePage = () => {
             </tr>
             <tr>
               <td className="py-3 pr-4 text-slate-600 dark:text-slate-400 font-medium">Reversible</td>
-              <td className="py-3 px-4 text-slate-900 dark:text-white">{leftAlgorithm === 'hashing' ? 'No' : 'Yes'}</td>
-              <td className="py-3 pl-4 text-slate-900 dark:text-white">{rightAlgorithm === 'hashing' ? 'No' : 'Yes'}</td>
+              <td className="py-3 px-4 text-slate-900 dark:text-white">{['aes', 'rsa', 'block-modes'].includes(leftAlgorithm) ? 'Yes' : 'No'}</td>
+              <td className="py-3 pl-4 text-slate-900 dark:text-white">{['aes', 'rsa', 'block-modes'].includes(rightAlgorithm) ? 'Yes' : 'No'}</td>
             </tr>
           </tbody>
         </table>

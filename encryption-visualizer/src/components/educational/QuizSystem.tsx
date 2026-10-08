@@ -104,10 +104,10 @@ export const QuizSystem: React.FC<QuizSystemProps> = ({
 
     // Save score when quiz is completed
     useEffect(() => {
-        if (isCompleted && algorithmId) {
+        if (isCompleted && algorithmId && !isReviewMode) {
             saveQuizScore(algorithmId, score, shuffledQuestions.length);
         }
-    }, [isCompleted, algorithmId, score, shuffledQuestions.length, saveQuizScore]);
+    }, [isCompleted, algorithmId, score, shuffledQuestions.length, saveQuizScore, isReviewMode]);
 
     const resetQuiz = useCallback(() => {
         setQuizKey((prev) => prev + 1);
@@ -235,6 +235,7 @@ export const QuizSystem: React.FC<QuizSystemProps> = ({
                             answeredQuestions={answeredQuestions}
                             onReviewMissed={startReviewQuiz}
                             algorithmId={algorithmId}
+                            isReviewMode={isReviewMode}
                         />
                     )}
                 </AnimatePresence>

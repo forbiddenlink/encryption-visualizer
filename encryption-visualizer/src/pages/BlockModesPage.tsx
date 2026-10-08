@@ -11,6 +11,8 @@ import {
   encryptCBCWithSteps,
   encryptGCMWithSteps,
   demonstrateECBPatternProblem,
+  validateBlockModeInput,
+  MAX_VISUALIZATION_BYTES,
 } from '@/lib/crypto/block-modes';
 import { useVisualizationStore } from '@/store/visualizationStore';
 import type { BlockModeStep } from '@/lib/types';
@@ -59,6 +61,7 @@ export const BlockModesPage = () => {
   const [activeMode, setActiveMode] = useState<BlockMode>('ecb');
   const [plaintext, setPlaintext] = useState('Hello World! This is a test message for block cipher modes.');
   const [key, setKey] = useState('mysecretkey12345');
+  const [inputError, setInputError] = useState('');
   const { expandedSections, toggleSection } = useExpandedSections(['whatAreBlockModes', 'ecbPenguin']);
 
   // Pattern demo state
@@ -71,6 +74,13 @@ export const BlockModesPage = () => {
   const blockModeSteps = steps as BlockModeStep[];
 
   const handleEncrypt = () => {
+    try {
+      validateBlockModeInput(plaintext, key);
+    } catch (error) {
+      setInputError(error instanceof Error ? error.message : 'Invalid message or key');
+      return;
+    }
+    setInputError('');
     let newSteps: BlockModeStep[];
 
     switch (activeMode) {
@@ -91,6 +101,13 @@ export const BlockModesPage = () => {
   };
 
   const handleDemoPattern = () => {
+    try {
+      validateBlockModeInput('', key);
+    } catch (error) {
+      setInputError(error instanceof Error ? error.message : 'Invalid key');
+      return;
+    }
+    setInputError('');
     const result = demonstrateECBPatternProblem('AAAAAAAAAAAAAAAA', 4, key);
     setPatternDemo(result);
   };
@@ -106,6 +123,8 @@ export const BlockModesPage = () => {
     <div className="space-y-6 sm:space-y-8">
       <LessonHeader slug="block-modes" title="Block Cipher Modes" description="Compare ECB, CBC, and GCM encryption modes" />
 
+      <p className="text-sm text-slate-600 dark:text-slate-400">Lab scope: XOR-only blocks, a fixed demonstration IV, and a keyed FNV-1a tag illustrate mode structure. This is not AES or secure AES-GCM; the CBC simulation can repeat blocks and the toy tag can collide.</p>
+
       {/* Main Content Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
         {/* Left Column: Input & Visualization */}
@@ -116,7 +135,7 @@ export const BlockModesPage = () => {
               {(['ecb', 'cbc', 'gcm'] as const).map((mode) => (
                 <button
                   key={mode}
-                  onClick={() => setActiveMode(mode)}
+                  onClick={() => { setActiveMode(mode); reset(); setSteps([]); }}
                   className={`px-4 py-2 rounded-lg font-bold text-sm transition-all ${
                     activeMode === mode
                       ? mode === 'ecb'
@@ -145,27 +164,32 @@ export const BlockModesPage = () => {
                 <textarea
                   id="plaintext-input"
                   value={plaintext}
-                  onChange={(e) => setPlaintext(e.target.value)}
+                  onChange={(e) => { setPlaintext(e.target.value); setInputError(''); }}
+                  maxLength={MAX_VISUALIZATION_BYTES}
                   className="w-full px-4 py-3 bg-slate-50 dark:bg-cyber-dark border border-slate-200 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white font-mono text-sm resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
                   rows={3}
                   placeholder="Enter message to encrypt..."
                 />
               </div>
 
+              <p className="text-xs text-slate-600 dark:text-slate-400">{new TextEncoder().encode(plaintext).length} / {MAX_VISUALIZATION_BYTES} UTF-8 bytes. Longer messages exceed the visualization limit.</p>
+
               <div>
                 <label htmlFor="key-input" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
-                  Encryption Key (16 characters)
+                  Encryption Key (1–16 UTF-8 bytes)
                 </label>
                 <input
                   id="key-input"
                   type="text"
                   value={key}
-                  onChange={(e) => setKey(e.target.value)}
+                  onChange={(e) => { setKey(e.target.value); setInputError(''); setPatternDemo(null); }}
                   maxLength={16}
                   className="w-full px-4 py-3 bg-slate-50 dark:bg-cyber-dark border border-slate-200 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white font-mono text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Enter 16-character key..."
+                  placeholder="Shorter keys are zero-padded..."
                 />
               </div>
+
+              {inputError && <p role="alert" className="text-sm text-red-600 dark:text-red-400">{inputError}</p>}
 
               <div className="flex gap-3">
                 <button
@@ -184,6 +208,7 @@ export const BlockModesPage = () => {
                   onClick={handleDemoPattern}
                   className="px-4 py-3 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-xl font-bold hover:bg-slate-300 dark:hover:bg-slate-600 transition-all"
                   title="Demonstrate ECB pattern problem"
+                  aria-label="Demonstrate ECB pattern problem"
                 >
                   <AlertTriangle className="w-5 h-5" />
                 </button>
@@ -316,8 +341,7 @@ export const BlockModesPage = () => {
                 ECB Pattern Problem Demonstration
               </h3>
               <p className="text-sm text-slate-600 dark:text-slate-400">
-                Same plaintext block encrypted 4 times. Notice how ECB produces identical
-                ciphertexts while CBC produces all unique ones.
+                Four identical data blocks and one PKCS#7 padding block. ECB repeats the data ciphertext. This XOR-only CBC simulation also repeats blocks; it illustrates chaining, not secure pattern hiding.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -334,13 +358,13 @@ export const BlockModesPage = () => {
                     </div>
                   ))}
                   <div className="mt-2 text-xs text-red-600 dark:text-red-400 font-bold">
-                    All blocks are IDENTICAL!
+                    The four data blocks match; the final padding block differs.
                   </div>
                 </div>
 
                 <div className="p-4 bg-blue-50 dark:bg-blue-500/10 rounded-xl border border-blue-200 dark:border-blue-500/30">
                   <div className="text-sm font-bold text-blue-600 dark:text-blue-400 mb-2">
-                    CBC (Patterns Hidden)
+                    CBC (Toy XOR Chaining)
                   </div>
                   {patternDemo.cbcCiphertext.map((block, idx) => (
                     <div
@@ -351,7 +375,7 @@ export const BlockModesPage = () => {
                     </div>
                   ))}
                   <div className="mt-2 text-xs text-blue-600 dark:text-blue-400 font-bold">
-                    All blocks are DIFFERENT!
+                    Distinct ciphertext blocks: {new Set(patternDemo.cbcCiphertext).size} of {patternDemo.cbcCiphertext.length}.
                   </div>
                 </div>
               </div>

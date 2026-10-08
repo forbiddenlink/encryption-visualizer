@@ -90,11 +90,6 @@ for (const width of [1440, 390]) {
     });
     await expect(page.getByRole('heading', { name: 'Something went wrong', exact: true })).toBeVisible();
     await capture(page, 'visualization-error', width);
-    await page.evaluate(async () => {
-      const modulePath = performance.getEntriesByType('resource').map((entry) => entry.name).filter((name) => name.includes('/src/store/visualizationStore.ts')).at(-1)!;
-      const { useVisualizationStore } = await import(modulePath);
-      useVisualizationStore.setState({ steps: [], currentStep: 0 });
-    });
     await page.getByRole('button', { name: 'Try Again', exact: true }).click();
     await expect(page.getByRole('heading', { name: 'Something went wrong', exact: true })).toHaveCount(0);
     await expect(page.getByText('Watch a block become ciphertext.', { exact: true })).toBeVisible();

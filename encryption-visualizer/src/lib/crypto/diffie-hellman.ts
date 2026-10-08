@@ -11,37 +11,28 @@
  */
 
 import type { DHStep, DHParams } from '../types/index.js';
-import { modPow, generatePrime } from './rsa.js';
+import { modPow, generatePrime, isPrime } from './rsa.js';
 
 /**
  * Find a primitive root (generator) for a given prime p
  * For simplicity in educational context, we use small generators
  */
 export function findGenerator(p: number): number {
-  const commonGenerators = [2, 3, 5, 7];
-
-  for (const g of commonGenerators) {
-    if (g < p - 1) {
-      // Simplified check: g should generate a large subgroup
-      // For small primes in educational context, this is sufficient
-      const order = p - 1;
-      let current = g;
-      let count = 1;
-
-      while (current !== 1 && count < order) {
-        current = (current * g) % p;
-        count++;
-      }
-
-      // If the generator produces a cycle of length p-1, it's primitive
-      if (count === order - 1 || count >= Math.floor(order / 2)) {
-        return g;
-      }
-    }
+  if (!Number.isSafeInteger(p) || !isPrime(p)) {
+    throw new Error('Generator requires a prime integer.');
   }
+  if (p === 2) return 1;
 
-  // Fallback to 2 if no better generator found
-  return 2;
+  for (let g = 2; g < p; g++) {
+    let current = 1;
+    let count = 0;
+    do {
+      current = (current * g) % p;
+      count++;
+    } while (current !== 1 && count < p - 1);
+    if (count === p - 1) return g;
+  }
+  throw new Error('No primitive generator found.');
 }
 
 /**
