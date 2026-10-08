@@ -1,0 +1,33 @@
+# Live design references
+
+Captured 2026-10-08 in real Playwright Chromium at 1440×1000. All 15 candidate live sites below were loaded; not gallery-thumbnail screenshots. Gallery entry loads and raw live DOM/status evidence are saved in `research-*.json`. We use current live designs, which can differ from the originally awarded version.
+
+| Reference | Verified discovery source | Actual live screenshot | Transferable lesson / limits |
+|---|---|---|---|
+| [SuperHi](https://www.superhi.com/) | [Siteinspire](https://www.siteinspire.com/website/9821-superhi) | [Live](screenshots/references/www-superhi-com-.png) | Approachable large typography, decisive primary learning CTA, actual learning catalog. Geometric decorations secondary to teaching. |
+| [MIT](https://web.mit.edu/) | [Siteinspire](https://www.siteinspire.com/website/8559-massachusetts-institute-of-technology) | [Live](screenshots/references/mit-edu-.png) | Utility sidebar, search-led resource access, clear editorial grid. Dense institution navigation does not fit our smaller app. |
+| [Simons Foundation](https://www.simonsfoundation.org/) | [Siteinspire](https://www.siteinspire.com/website/7675-simons-foundation) | [Live](screenshots/references/www-simonsfoundation-org-.png) | Science itself as imagery; concise copy block provides context for complex visuals. No stock science image needed for CryptoViz. |
+| [Yale Architecture](https://www.architecture.yale.edu/) | [Siteinspire](https://www.siteinspire.com/website/8069-yale-architecture) | [Live](screenshots/references/www-architecture-yale-edu-.png) | Editorial scale, asymmetry, open space and simple ruled actions. Strongest layout reference. |
+| [XQ](https://xqsuperschool.org/) | [Siteinspire](https://www.siteinspire.com/website/11843-xq) | [Live](screenshots/references/xqsuperschool-org-.png) | Education can have a distinctive type system. Keep lab content legible; do not copy experimental letterforms or large marketing overlays. |
+| [Una Europa](https://www.una-europa.eu/) | [Siteinspire](https://www.siteinspire.com/website/9604-una-europa) | [Live](screenshots/references/www-una-europa-eu-.png) | Clear ruled navigation and human editorial typography. Oversized decorative shapes should not interfere with controls. |
+| [Education Week](https://www.edweek.org/) | [Siteinspire](https://www.siteinspire.com/website/10485-education-week) | [Live](screenshots/references/www-edweek-org-.png) | Useful topic taxonomy and column rhythm. Screenshot has an advertising modal; limited visual reference, no claim of unobstructed review. |
+| [Aevion / LiDAR](https://drone.riotters.com/) — outside industry | [Awwwards SOTD](https://www.awwwards.com/sites/lidar-drone-scanning) | [Live](screenshots/references/drone-riotters-com-.png) | Interactive technical object as explanation. Initial capture was a loader; recapture waits 15 seconds. If loader persists, treat as blocked/limited, never evidence of the main design. |
+| [Cerebrium](https://cerebrium.ai/) — outside industry | [Awwwards SOTD](https://www.awwwards.com/sites/cerebrium) | [Live](screenshots/references/cerebrium-ai-.png) | Technical mono navigation and restrained controls against an expressive main canvas. Motion-heavy typography is not appropriate for reading lessons. |
+| [Pierre Computer Company](https://pierre.computer/) — outside industry | [Siteinspire](https://www.siteinspire.com/website/12987-pierre) | [Live](screenshots/references/pierre-co-.png) | Current live site redirects and uses a sparse monospace document. Precise metadata; not the older gallery design. |
+| [VoidZero](https://voidzero.dev/) — outside industry | [Siteinspire](https://www.siteinspire.com/website/12743-voidzero) | [Live](screenshots/references/voidzero-dev-.png) | Open-source tooling presented with whitespace, fine borders and a simple explanatory object. |
+| [And And And Studio](https://andandand.studio/) — outside industry | [Siteinspire](https://www.siteinspire.com/website/13409-and-and-and-studio) | [Live](screenshots/references/andandand-studio-.png) | Controlled asymmetry, rhythm and restraint. Translate to lesson structure rather than overlapping content/control surfaces. |
+| [Grafik](https://grafik.co.nz/) — outside industry | [Siteinspire](https://www.siteinspire.com/website/8074-grafik) | [Live](screenshots/references/grafik-co-nz-.png) | Single assertive accent and strong scale; avoid all-caps display typography in long learning text. |
+| [Biotic](https://biotic.org/) — outside industry | [Land-book entry](https://land-book.com/websites/100676-one-moment-please), loaded through web reader; browser gallery blocked | [Live](screenshots/references/www-biotic-org-.png) | Sparse scientific composition, one visual object, small utility navigation. Live site loaded successfully despite blocked gallery. |
+| [Exemplar](https://exemplarfromsweden.com/) — outside industry | [Land-book entry](https://land-book.com/websites/100501-exemplar-a-new-typeface-by-letters-from-sweden), loaded through web reader; browser gallery blocked. Live URL verified via foundry page. | [Live](screenshots/references/exemplarfromsweden-com-.png) | Confident editorial serif and fine supporting type; use an existing/free font, never buy a typeface without approval. |
+
+## Blocked and limited sources
+
+- Godly homepage and legacy entry `https://godly.website/website/644-user-interface-gallery` both redirect to Recent. Recent loaded, but the legacy site provenance cannot be recovered from that redirect. No old Godly thumbnail was cited as a live reference. [Redirect capture](screenshots/references/godly-website-website-644-user-interface-gallery.png).
+- Land-book browser homepage and inspected entries return Cloudflare verification (403). The web reader loaded the real entries for Biotic and Exemplar, and their live sites were independently loaded/screenshotted. [Blocked browser capture](screenshots/references/land-book-com-.png).
+- An attempted Bruno Simon Awwwards slug returned 404. Excluded from reference count and design reasoning.
+- Education Week loaded with a promotion overlay. Kept as a limited taxonomy reference, not treated as fully visually reviewed.
+- Aevion initial loader and Cerebrium entrance animation were explicitly recaptured; status below must reflect the final browser evidence.
+
+## Chosen synthesis
+
+Use an editorial field-guide layout (Yale, Una Europa) with approachable learning actions (SuperHi), technical metadata and fine boundaries (VoidZero, Pierre), restrained scientific imagery (Simons/Biotic), and a single assertive accent (Grafik). CryptoViz supplies its own imagery through actual byte transformations. We do not copy anyone's layouts, imagery, illustrations or claims of adoption.

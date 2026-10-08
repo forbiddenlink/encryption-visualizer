@@ -11,9 +11,15 @@ Branch: `design/upgrade`. Started 2026-10-08. Goal: complete the seven requested
 - Dependencies installed frozen using Node 22.23.1 and pnpm 9.15.9; global pnpm 12.6 was incompatible with current override placement. No dependency/config changes.
 - Existing untracked root `CLAUDE.md` is user-owned and excluded from commits.
 
-## Phase 2 — in progress
+## Phase 2 — complete
 
-Load design galleries and live sites, capture screenshots, inventory competitor features with explicit evidence and blocked status.
+- 15 live reference candidates captured; all four requested galleries attempted with explicit blocked/redirect evidence. Animation-loader recaptures pending final inspection before using those references.
+- Ten peer key pages loaded and screenshotted; visible/offered feature inventory in `features.md`. Authenticated capabilities were not independently tested.
+- `references.md` links gallery provenance and actual live screenshots; blockers and limited captures are explicit.
+
+## Phase 3 — next
+
+Write the field-guide direction and page-by-page plan, then build the foundation.
 
 ## Remaining
 

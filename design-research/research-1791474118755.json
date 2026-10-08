@@ -1,0 +1,1152 @@
+[
+  {
+    "url": "https://drone.riotters.com/",
+    "finalUrl": "https://drone.riotters.com/",
+    "status": 200,
+    "title": "Aevion — autonomous LiDAR inspection drone",
+    "text": "9\n6\naevion\n\nLidar Drone Scanning\n\nTech Demo By \nRiotters\n\nGMT 3:41 pm\n\nmenu\n\nAutonomous LIDAR inspection systems. Precision that secures critical infrastructure.\n\nScroll Down\nDetecting cracks, deformations and structural risks before they become failures.\nDetecting\ncracks,\ndeformations\nand\nstructural risks\nbefore\nthey\nbecome\nfailures.\nGear\nGear\n3\nPAYLOAD\nEngineered around the DJI Zenmuse L2 LiDAR payload. Our system delivers frame-based point cloud acquisition with up to 240,000 pts/s and five simultaneous returns per pulse.\nEngineered around the DJI Zenmuse L2 LiDAR payload.\nOur system delivers frame-based point cloud acquisition with up to 240,000 pts/s and five simultaneous returns per pulse.\n[ \nTECH\n ]\n\n5 returns\n\n[ \nMAX RETURNS\n ]\n\n±2 cm\n\n[ \nDETECTION ACCURACY\n ]\n\n450 m\n\n[ \nMAX RANGE\n ]\nSolutions\nSolutions\n4\nEnergy\nInfrastructure\nIndustry\nGeospatial\nPower grids, wind turbines, and solar arrays span thousands of acres of terrain that ground crews can no longer monitor at scale. LiDAR-equipped UAVs eliminate access risk while cutting inspection cycles from weeks to hours.\nPower grids, wind turbines, and solar arrays span thousands of acres of terrain that ground crews can no longer monitor at scale.\nLiDAR-equipped UAVs eliminate access risk while cutting inspection cycles from weeks to hours.\nWIND TURBINES\nSOLAR FARMS\nPOWER LINES\nSUBSTATIONS\nCapabilities\nCapabilities\n5\n[ TECH ]\nScan\nConnection\nCompactness\n[ TECH ]\n[ STATS ]\n360°\n360°\nFull-hemisphere LiDAR capture at 240,000 points per second across terrain, structures and vegetation in a single pass.\nFull-hemisphere LiDAR capture at 240,000 points per second across terrain, structures and vegetation in a single pass.\n[ STATS ]\nSoftware\nSoftware\n6\nPLATFORM\nOur processing pipeline integrates directly with DJI Terra for automated point cloud generation, quality reporting, and georeferenced output — from raw flight data to deliverable in under 20 minutes.\nOur processing pipeline integrates directly with DJI Terra for automated point cloud generation, quality reporting, and georeferenced output — from raw flight data to deliverable in under 20 minutes.\n01\nStructural Fault Zone\nStructural Fault Zone\n\nSurface\n \ndeformation\n \ndetected\n \nacross\n \na\n \n42\n \nm²\n \nsector.\n \nConfidence\n \nthreshold\n \nexceeded\n \nat\n \n87%.\n\nrisk level:\nmoderate\n02\nSediment Drift\nSediment Drift\n\nGradual\n \ndisplacement\n \nof\n \nloose\n \nmaterial\n \nalong\n \nthe\n \ndrainage\n \nchannel.\n \nWithin\n \nexpected\n \nseasonal\n \nrange.\n\nrisk level:\nlow\n03\nErosion Scarp\nErosion Scarp\n\nExposed\n \ncut\n \nface\n \nretreating\n \nalong\n \nthe\n \nupper\n \nridge.\n \nMaterial\n \nloss\n \ntracked\n \nat\n \n3\n \ncm\n \nper\n \nweek.\n\nrisk level:\nmoderate\n\n[ aevion ]\n\n[ D:02 M:CIF ]\n\n[ aevion ]\n\n[ D:02 M:CIF ]\n\nThis website is a tech demo. Want something similar?\nThis website is a tech demo. Want something similar?\nUse our imagination to accelerate your brand, product or technology.\nUse our imagination to accelerate your brand, product or technology.\nContact Us\n\nTech Stack\n\nNext.js\nThree.js\nWebGL\nTailwind CSS\nPayload CMS\nVercel\n\nRiotters Services\n\n3D Design\nMotion Design\nBranding\nMarketing Design\nProduct Design\nCreative Development\n\n\"DJI\" and \"Mavic 2 Pro\" are trademarks of SZ DJI Technology Co., Ltd. This is a non-commercial technology demo, not affiliated with or endorsed by DJI.\n\n© Riotters 2026. All rights reserved",
+    "links": [
+      {
+        "text": "aevion",
+        "url": "https://drone.riotters.com/#hero"
+      },
+      {
+        "text": "RiottersRiotters",
+        "url": "https://riotters.com/"
+      },
+      {
+        "text": "Contact UsContact Us",
+        "url": "https://riotters.com/contact"
+      }
+    ]
+  },
+  {
+    "url": "https://cerebrium.ai/",
+    "finalUrl": "https://cerebrium.ai/",
+    "status": 200,
+    "title": "Serverless GPU Infrastructure for Real-Time AI | Cerebrium",
+    "text": "Cerebrium\nUSE CASES\nPRICING\nDOCS\nBLOG\nCOMPANY\nOpen menu\nLOG IN\nSIGN UP\nQuickly\nScale\nGlobally\nCLICK AND HOLD\nReal-time AI infrastructure that scales with you\n\nDeploy voice agents, video models, LLMs, and any AI workload with sub-second cold starts and instant autoscaling. Built for teams that need reliability at scale.\n\nTRY IT NOW\nBOOK A DEMO\n\nProduction speed without the production complexity\n\nBuilt for teams,\npushing boundaries\n\nWHY CEREBRIUM\n2–4s Cold Starts\nElastic GPU Scaling\nYour Code, Your Way\nObservability\nvLLM Qwen\nStable Diffusion XL\nCEREBRIUM (WITH SNAPSHOTS)\n\n3.8s\n\nCEREBRIUM\n\n42s\n\nPROVIDER A\n\n71s\n\nEKS/GKE\n\n156s\n\nLow-latency from the first request.\n\nLaunch containers in seconds with memory and GPU snapshotting for fast restores. Cerebrium handles sudden bursts and scale-outs automatically, without compromising performance or user experience.\n\nCAPACITY : 2500+\nREGIONS : US-EAST-1, EU-WEST-2, EU-NORTH-1, AP-SOUTH-1\nNo reservations, no lock-ins.\n\nInstant access to thousands of GPUs across multiple clouds and regions. Cerebrium scales your workloads in real time - no capacity planning, no reservations, no infrastructure management required.\n\nTERMINAL\nmichaels@MacBookPro llama-training % cerebrium run training_script.py::train --hardware HOPPER_100:8\n \n✓ Prepared 2 files\n✓ Created run app: 3-cpu-only (Compute: 8xHOPPER_H100)\n✓ Created archive (5.0 KB)\n✓ Uploaded successfully\n \nLogs \nEpoch 1/3 [████████░░░░░░░░░░░░░░░░░░░░]  \n28% loss=1.42 lr=3e-4 00:12\n \nEpoch 1/3 [██████████████░░░░░░░░░░░░░░]\n54% loss=1.11 lr=3e-4 00:24\n \nEpoch 1/3 [██████████████████████░░░░░░]\n83% loss=0.92 lr=3e-4 00:37\n \nEpoch 1/3 [████████████████████████████]\n100% loss=0.88 lr=3e-4 00:44\n \n✓ Checkpoint saved: /persistent-storage/ckpt-epoch1.pt\nBring your own code. We’ll run it.\n\nNo rewrites, no decorators, no custom SDKs. Point us to your entry point or Dockerfile and we’ll run your application exactly as is - versioned, reproducible, and ready to scale.\n\nGPU\nCPU\nStartup Time\nMAX MEMORY (GB)\nTIME\nP50\nP90\nMAX\nEnd-to-end Observability for every workload.\n\nGet full visibility into every request. Logs, metrics, scaling events, and system performance, all in real time. Native support for OpenTelemetry makes it easy to plug into your existing monitoring stack.\n\nSECURITY\n\nStable, secure and compliant\n\nSTATUS PAGE\nSECURITY DOCS\n\nSOC 2, HIPAA, GDPR, ISO\n\nBuilt to meet strict security and privacy standards, including giving you a compliant foundation for sensitive and regulated workloads.\n\nData Residency\n\nDeploy workloads in specific regions to meet regulatory or contractual data privacy requirements. Cerebrium ensures your data stays exactly where it needs to be.\n\nIsolation\n\nWe run each workload on top of gVisor in a hardened, isolated environment to provide strong container isolation without compromising performance.\n\n99.999% Uptime\n\nWe have multi-region failovers so if one region or cloud goes down, we will route traffic to the next best alternative within your constraints\n\nBuilt with Cerebrium\nVoice\nLLMS\nOther\n500ms Low Latency Voice Agent\n\nCreate a voice agent that can respond in 500ms\n\nTRY NOW\n500ms Low Latency Voice Agent\nTwilio voice agent with Pipecat\n\nLearn how to build a voice agent with Pipecat on Cerebrium\n\nTRY NOW\nTwilio voice agent with Pipecat\nOutbound agent with LiveKit\n\nBuild a outbound calling agent with Livekit\n\nTRY NOW\nOutbound agent with LiveKit\nTranscribe a 1 hour podcast\n\nLearn how to transcribe a 1 hour podcast in < 2 minutes\n\nTRY NOW\nTranscribe a 1 hour podcast\nINDUSTRIES\n\nPowering real-time AI\nacross industries\n\n \nHow Linkup Scales AI-Native Web Search with Cerebrium\nRead Case Study\nHow Linkup Scales AI-Native Web Search with Cerebrium\nScaling Resemble AI’s Real-Time Deepfake Detection Models with Cerebrium\nRead Case Study\nScaling Resemble AI’s Real-Time Deepfake Detection Models with Cerebrium\nVIDEO\nGENERATIVE AI\nHow DistilLabs is Delivering 50% Lower Inference Costs with Production-Grade Autoscaling on Cerebrium\nRead Case Study\nHow DistilLabs is Delivering 50% Lower Inference Costs with Production-Grade Autoscaling on Cerebrium\nLLMS\nGENERATIVE AI\nLelapa AI uses Cerebrium to Break Language Barriers\nRead Case Study\nLelapa AI uses Cerebrium to Break Language Barriers\nDIGITAL AVATARS\nVIRTUAL ASSISTANTS\nHow bitHuman Scaled Digital Humans 10x Faster with Cerebrium\nRead Case Study\nHow bitHuman Scaled Digital Humans 10x Faster with Cerebrium\nVIDEO\nDIGITAL AVATARS\nHow Tavus Scaled Human-like AI Experiences with Cerebrium\nRead Case Study\nHow Tavus Scaled Human-like AI Experiences with Cerebrium\nVIDEO\nGENERATIVE AI\nScaling AI Tutors: How Creatium Achieved 18x Faster Cold Starts with Cerebrium\nRead Case Study\nScaling AI Tutors: How Creatium Achieved 18x Faster Cold Starts with Cerebrium\nFEATURES\nWebSocket endpoints\nOpenTelemetry Integration\nUsing Private Docker Images\nConcurrency & Batching\nAsynchronous jobs\nDistributed storage\nMulti-region deployments\n12+ GPU types\nStreaming endpoints\nREST API endpoints\nAuto-scaling\nCustom Dockerfiles\nCI/CD & gradual rollouts\nSecrets management\nLatest from our blog\nSEE ALL\nJULY 15, 2026\nTUTORIAL\nA Low-Latency Architecture for Voice Agents with Real-time Web Search\nA Low-Latency Architecture for Voice Agents with Real-time Web Search\nJULY 13, 2026\nANNOUCEMENT\n2026 GPU Buyer’s Guide\n2026 GPU Buyer’s Guide\nJULY 8, 2026\nPRODUCT UPDATE\nANNOUCEMENT\nCerebrium Achieves SOC 2 Type II Compliance for Secure Production AI Infrastructure\nCerebrium Achieves SOC 2 Type II Compliance for Secure Production AI Infrastructure\nTwitter\nGitHub\nDiscord\nLinkedIn\nUse Cases\nLarge Language Models\nVoice\nImage & Video\nCerebrium\nPricing\nCompany\nDocs\nBlog\nContact\nStatus\nResources\n\nStart serving LLMs in production today or talk to us about your workload.\n\nGET STARTED\nBOOK A DEMO\nBRAND ASSETS\nPRIVACY POLICY\nTERMS OF SERVICE\nCOOKIE PREFERENCES\n2026 © Cerebrium",
+    "links": [
+      {
+        "text": "Cerebrium",
+        "url": "https://cerebrium.ai/"
+      },
+      {
+        "text": "Large Language Models",
+        "url": "https://cerebrium.ai/use-cases/large-language-models"
+      },
+      {
+        "text": "Voice",
+        "url": "https://cerebrium.ai/use-cases/voice"
+      },
+      {
+        "text": "Image & Video",
+        "url": "https://cerebrium.ai/use-cases/image-and-video"
+      },
+      {
+        "text": "More examples",
+        "url": "https://docs.cerebrium.ai/docs/v4/examples/featured"
+      },
+      {
+        "text": "Pricing",
+        "url": "https://cerebrium.ai/pricing"
+      },
+      {
+        "text": "Docs",
+        "url": "https://docs.cerebrium.ai/"
+      },
+      {
+        "text": "Blog",
+        "url": "https://cerebrium.ai/blog"
+      },
+      {
+        "text": "Company",
+        "url": "https://cerebrium.ai/about"
+      },
+      {
+        "text": "Book a demo",
+        "url": "https://cerebrium.ai/book-demo"
+      },
+      {
+        "text": "Contact us",
+        "url": "https://cerebrium.ai/contact"
+      },
+      {
+        "text": "Twitter",
+        "url": "https://x.com/cerebriumai"
+      },
+      {
+        "text": "GitHub",
+        "url": "https://github.com/CerebriumAI"
+      },
+      {
+        "text": "Discord",
+        "url": "https://discord.gg/ATj6USmeE2"
+      },
+      {
+        "text": "LinkedIn",
+        "url": "https://www.linkedin.com/company/cerebrium/"
+      },
+      {
+        "text": "Log in",
+        "url": "https://dashboard.cerebrium.ai/login"
+      },
+      {
+        "text": "Sign up",
+        "url": "https://dashboard.cerebrium.ai/signup"
+      },
+      {
+        "text": "Log in",
+        "url": "https://dashboard.cerebrium.ai/login"
+      },
+      {
+        "text": "Large Language Models",
+        "url": "https://cerebrium.ai/use-cases/large-language-models"
+      },
+      {
+        "text": "Voice",
+        "url": "https://cerebrium.ai/use-cases/voice"
+      },
+      {
+        "text": "Image & Video",
+        "url": "https://cerebrium.ai/use-cases/image-and-video"
+      },
+      {
+        "text": "More Examples",
+        "url": "https://docs.cerebrium.ai/docs/v4/examples/featured"
+      },
+      {
+        "text": "Pricing",
+        "url": "https://cerebrium.ai/pricing"
+      },
+      {
+        "text": "Docs",
+        "url": "https://docs.cerebrium.ai/"
+      },
+      {
+        "text": "Blog",
+        "url": "https://cerebrium.ai/blog"
+      },
+      {
+        "text": "Company",
+        "url": "https://cerebrium.ai/about"
+      },
+      {
+        "text": "Contact Us",
+        "url": "https://cerebrium.ai/contact"
+      },
+      {
+        "text": "Try it now",
+        "url": "https://dashboard.cerebrium.ai/signup"
+      },
+      {
+        "text": "Book a demo",
+        "url": "https://cerebrium.ai/book-demo"
+      },
+      {
+        "text": "Log in",
+        "url": "https://dashboard.cerebrium.ai/login"
+      },
+      {
+        "text": "Cerebrium",
+        "url": "https://cerebrium.ai/"
+      },
+      {
+        "text": "Large Language Models",
+        "url": "https://cerebrium.ai/use-cases/large-language-models"
+      },
+      {
+        "text": "Voice",
+        "url": "https://cerebrium.ai/use-cases/voice"
+      },
+      {
+        "text": "Image & Video",
+        "url": "https://cerebrium.ai/use-cases/image-and-video"
+      },
+      {
+        "text": "More examples",
+        "url": "https://docs.cerebrium.ai/docs/v4/examples/featured"
+      },
+      {
+        "text": "Pricing",
+        "url": "https://cerebrium.ai/pricing"
+      },
+      {
+        "text": "Docs",
+        "url": "https://docs.cerebrium.ai/"
+      },
+      {
+        "text": "Blog",
+        "url": "https://cerebrium.ai/blog"
+      },
+      {
+        "text": "Company",
+        "url": "https://cerebrium.ai/about"
+      },
+      {
+        "text": "Book a demo",
+        "url": "https://cerebrium.ai/book-demo"
+      },
+      {
+        "text": "Contact us",
+        "url": "https://cerebrium.ai/contact"
+      },
+      {
+        "text": "Twitter",
+        "url": "https://x.com/cerebriumai"
+      },
+      {
+        "text": "GitHub",
+        "url": "https://github.com/CerebriumAI"
+      },
+      {
+        "text": "Discord",
+        "url": "https://discord.gg/ATj6USmeE2"
+      },
+      {
+        "text": "LinkedIn",
+        "url": "https://www.linkedin.com/company/cerebrium/"
+      },
+      {
+        "text": "Log in",
+        "url": "https://dashboard.cerebrium.ai/login"
+      },
+      {
+        "text": "Sign up",
+        "url": "https://dashboard.cerebrium.ai/signup"
+      },
+      {
+        "text": "Log in",
+        "url": "https://dashboard.cerebrium.ai/login"
+      },
+      {
+        "text": "Large Language Models",
+        "url": "https://cerebrium.ai/use-cases/large-language-models"
+      },
+      {
+        "text": "Voice",
+        "url": "https://cerebrium.ai/use-cases/voice"
+      },
+      {
+        "text": "Image & Video",
+        "url": "https://cerebrium.ai/use-cases/image-and-video"
+      },
+      {
+        "text": "More Examples",
+        "url": "https://docs.cerebrium.ai/docs/v4/examples/featured"
+      },
+      {
+        "text": "Pricing",
+        "url": "https://cerebrium.ai/pricing"
+      },
+      {
+        "text": "Docs",
+        "url": "https://docs.cerebrium.ai/"
+      },
+      {
+        "text": "Blog",
+        "url": "https://cerebrium.ai/blog"
+      },
+      {
+        "text": "Company",
+        "url": "https://cerebrium.ai/about"
+      },
+      {
+        "text": "Contact Us",
+        "url": "https://cerebrium.ai/contact"
+      },
+      {
+        "text": "Try it now",
+        "url": "https://dashboard.cerebrium.ai/signup"
+      },
+      {
+        "text": "Book a demo",
+        "url": "https://cerebrium.ai/book-demo"
+      },
+      {
+        "text": "Log in",
+        "url": "https://dashboard.cerebrium.ai/login"
+      },
+      {
+        "text": "Try it now",
+        "url": "https://dashboard.cerebrium.ai/signup"
+      },
+      {
+        "text": "Book a demo",
+        "url": "https://cerebrium.ai/book-demo"
+      },
+      {
+        "text": "",
+        "url": "https://livekit.io/"
+      },
+      {
+        "text": "",
+        "url": "https://www.tavus.io/"
+      },
+      {
+        "text": "",
+        "url": "https://vapi.ai/"
+      },
+      {
+        "text": "",
+        "url": "https://deepgram.com/"
+      },
+      {
+        "text": "",
+        "url": "https://www.telli.com/"
+      },
+      {
+        "text": "",
+        "url": "https://www.camb.ai/"
+      },
+      {
+        "text": "",
+        "url": "https://www.creatium.com/"
+      },
+      {
+        "text": "",
+        "url": "https://amiralearning.com/"
+      },
+      {
+        "text": "",
+        "url": "https://www.invofox.com/en"
+      },
+      {
+        "text": "",
+        "url": "https://www.resemble.ai/"
+      },
+      {
+        "text": "",
+        "url": "https://lelapa.ai/"
+      },
+      {
+        "text": "",
+        "url": "https://www.bithuman.ai/"
+      },
+      {
+        "text": "",
+        "url": "https://livekit.io/"
+      },
+      {
+        "text": "",
+        "url": "https://www.tavus.io/"
+      },
+      {
+        "text": "",
+        "url": "https://vapi.ai/"
+      },
+      {
+        "text": "",
+        "url": "https://deepgram.com/"
+      },
+      {
+        "text": "",
+        "url": "https://www.telli.com/"
+      },
+      {
+        "text": "",
+        "url": "https://www.camb.ai/"
+      },
+      {
+        "text": "",
+        "url": "https://www.creatium.com/"
+      },
+      {
+        "text": "",
+        "url": "https://amiralearning.com/"
+      },
+      {
+        "text": "",
+        "url": "https://www.invofox.com/en"
+      },
+      {
+        "text": "",
+        "url": "https://www.resemble.ai/"
+      },
+      {
+        "text": "",
+        "url": "https://lelapa.ai/"
+      },
+      {
+        "text": "",
+        "url": "https://www.bithuman.ai/"
+      },
+      {
+        "text": "2–4s Cold Starts",
+        "url": "https://cerebrium.ai/#id-24s-cold-starts"
+      },
+      {
+        "text": "Elastic GPU Scaling",
+        "url": "https://cerebrium.ai/#elastic-gpu-scaling"
+      },
+      {
+        "text": "Your Code, Your Way",
+        "url": "https://cerebrium.ai/#your-code-your-way"
+      },
+      {
+        "text": "Observability",
+        "url": "https://cerebrium.ai/#observability"
+      },
+      {
+        "text": "Status Page",
+        "url": "https://status.cerebrium.ai/"
+      },
+      {
+        "text": "Security Docs",
+        "url": "https://docs.cerebrium.ai/docs/security"
+      },
+      {
+        "text": "500ms Low Latency Voice Agent",
+        "url": "https://docs.cerebrium.ai/docs/v4/examples/realtime-voice-agents"
+      },
+      {
+        "text": "Twilio voice agent with Pipecat",
+        "url": "https://docs.cerebrium.ai/docs/v4/examples/twilio-voice-agent"
+      },
+      {
+        "text": "Outbound agent with LiveKit",
+        "url": "https://docs.cerebrium.ai/docs/v4/examples/livekit-outbound-agent"
+      },
+      {
+        "text": "Transcribe a 1 hour podcast",
+        "url": "https://docs.cerebrium.ai/docs/v4/examples/transcribe-whisper"
+      },
+      {
+        "text": "Serving GPT-OSS with vLLM",
+        "url": "https://docs.cerebrium.ai/docs/v4/examples/gpt-oss"
+      },
+      {
+        "text": "Deploy a VLM with SGLang",
+        "url": "https://docs.cerebrium.ai/docs/v4/examples/deploy-a-vision-language-model-with-sglang"
+      },
+      {
+        "text": "Deploy Triton Inference server with TensorRT-LLM",
+        "url": "https://docs.cerebrium.ai/docs/v4/examples/deploy-an-llm-with-tensorrtllm-tritonserver"
+      },
+      {
+        "text": "Hyperparameter Sweep training Llama 3.2 with WandB",
+        "url": "https://docs.cerebrium.ai/docs/v4/examples/wandb-sweep"
+      },
+      {
+        "text": "Deploy a Gradio Chat Interface",
+        "url": "https://docs.cerebrium.ai/docs/v4/examples/asgi-gradio-interface"
+      },
+      {
+        "text": "Generate Images using SDXL",
+        "url": "https://docs.cerebrium.ai/docs/v4/examples/sdxl"
+      },
+      {
+        "text": "High Throughput Server for Embeddings and Reranking",
+        "url": "https://docs.cerebrium.ai/docs/v4/examples/high-throughput-embeddings"
+      },
+      {
+        "text": "How Linkup Scales AI-Native Web Search with Cerebrium",
+        "url": "https://cerebrium.ai/blog/how-linkup-scales-ai-native-web-search-with-cerebrium"
+      },
+      {
+        "text": "Scaling Resemble AI’s Real-Time Deepfake Detection Models with Cerebrium",
+        "url": "https://cerebrium.ai/blog/scaling-resemble-ais-real-time-deepfake-models-with-cerebrium"
+      },
+      {
+        "text": "How DistilLabs is Delivering 50% Lower Inference Costs with Production-Grade Autoscaling on Cerebriu",
+        "url": "https://cerebrium.ai/blog/how-distillabs-is-delivering-50percent-lower-inference-costs-with-production-grad"
+      },
+      {
+        "text": "Lelapa AI uses Cerebrium to Break Language Barriers",
+        "url": "https://cerebrium.ai/blog/lelapa-ai-uses-cerebrium-to-break-language-barriers"
+      },
+      {
+        "text": "How bitHuman Scaled Digital Humans 10x Faster with Cerebrium",
+        "url": "https://cerebrium.ai/blog/how-bithuman-scaled-digital-humans-10x-faster-with-cerebrium"
+      },
+      {
+        "text": "How Tavus Scaled Human-like AI Experiences with Cerebrium",
+        "url": "https://cerebrium.ai/blog/how-tavus-scaled-human-like-ai-experiences-with-cerebrium"
+      },
+      {
+        "text": "Scaling AI Tutors: How Creatium Achieved 18x Faster Cold Starts with Cerebrium",
+        "url": "https://cerebrium.ai/blog/scaling-ai-tutors-how-creatium-achieved-18x-faster-cold-starts-with-cerebrium"
+      },
+      {
+        "text": "WebSocket endpoints",
+        "url": "https://docs.cerebrium.ai/docs/endpoints/websockets"
+      },
+      {
+        "text": "OpenTelemetry Integration",
+        "url": "https://docs.cerebrium.ai/docs/integrations/metrics-export"
+      },
+      {
+        "text": "Using Private Docker Images",
+        "url": "https://docs.cerebrium.ai/docs/container-images/private-docker-registry"
+      },
+      {
+        "text": "Concurrency & Batching",
+        "url": "https://docs.cerebrium.ai/docs/scaling/batching-concurrency"
+      },
+      {
+        "text": "Asynchronous jobs",
+        "url": "https://docs.cerebrium.ai/docs/endpoints/async"
+      },
+      {
+        "text": "Distributed storage",
+        "url": "https://docs.cerebrium.ai/docs/storage/managing-files"
+      },
+      {
+        "text": "Multi-region deployments",
+        "url": "https://docs.cerebrium.ai/docs/deployments/multi-region-deployment"
+      },
+      {
+        "text": "12+ GPU types",
+        "url": "https://docs.cerebrium.ai/docs/hardware/using-gpus"
+      },
+      {
+        "text": "Streaming endpoints",
+        "url": "https://docs.cerebrium.ai/docs/endpoints/streaming"
+      },
+      {
+        "text": "REST API endpoints",
+        "url": "https://docs.cerebrium.ai/docs/endpoints/inference-api"
+      },
+      {
+        "text": "Auto-scaling",
+        "url": "https://docs.cerebrium.ai/docs/scaling/scaling-apps"
+      },
+      {
+        "text": "Custom Dockerfiles",
+        "url": "https://docs.cerebrium.ai/docs/container-images/custom-dockerfiles"
+      },
+      {
+        "text": "CI/CD & gradual rollouts",
+        "url": "https://docs.cerebrium.ai/docs/deployments/gradual-roll-out"
+      },
+      {
+        "text": "Secrets management",
+        "url": "https://docs.cerebrium.ai/docs/other-topics/using-secrets"
+      },
+      {
+        "text": "See all",
+        "url": "https://cerebrium.ai/blog"
+      },
+      {
+        "text": "A Low-Latency Architecture for Voice Agents with Real-time Web Search",
+        "url": "https://cerebrium.ai/blog/a-low-latency-architecture-for-voice-agents-with-real-time-web-search"
+      },
+      {
+        "text": "2026 GPU Buyer’s Guide",
+        "url": "https://cerebrium.ai/blog/2026-gpu-buyers-guide"
+      },
+      {
+        "text": "Cerebrium Achieves SOC 2 Type II Compliance for Secure Production AI Infrastructure",
+        "url": "https://cerebrium.ai/blog/cerebrium-achieves-soc-2-type-ii-compliance-for-secure-production-ai-infrastructure"
+      },
+      {
+        "text": "Twitter",
+        "url": "https://x.com/cerebriumai"
+      },
+      {
+        "text": "GitHub",
+        "url": "https://github.com/CerebriumAI"
+      },
+      {
+        "text": "Discord",
+        "url": "https://discord.gg/ATj6USmeE2"
+      },
+      {
+        "text": "LinkedIn",
+        "url": "https://www.linkedin.com/company/cerebrium/"
+      },
+      {
+        "text": "Large Language Models",
+        "url": "https://cerebrium.ai/use-cases/large-language-models"
+      },
+      {
+        "text": "Voice",
+        "url": "https://cerebrium.ai/use-cases/voice"
+      },
+      {
+        "text": "Image & Video",
+        "url": "https://cerebrium.ai/use-cases/image-and-video"
+      },
+      {
+        "text": "Pricing",
+        "url": "https://cerebrium.ai/pricing"
+      },
+      {
+        "text": "Company",
+        "url": "https://cerebrium.ai/about"
+      },
+      {
+        "text": "Docs",
+        "url": "https://docs.cerebrium.ai/docs/getting-started/introduction"
+      },
+      {
+        "text": "Blog",
+        "url": "https://cerebrium.ai/blog"
+      },
+      {
+        "text": "Contact",
+        "url": "https://cerebrium.ai/contact"
+      },
+      {
+        "text": "Status",
+        "url": "https://status.cerebrium.ai/"
+      },
+      {
+        "text": "Resources",
+        "url": "https://cerebrium.ai/resources"
+      },
+      {
+        "text": "Get started",
+        "url": "https://dashboard.cerebrium.ai/signup"
+      },
+      {
+        "text": "Book a demo",
+        "url": "https://cerebrium.ai/book-demo"
+      },
+      {
+        "text": "Brand Assets",
+        "url": "https://cerebrium.ai/brand-assets"
+      },
+      {
+        "text": "Privacy Policy",
+        "url": "https://cerebrium.ai/privacy"
+      },
+      {
+        "text": "Terms of service",
+        "url": "https://cerebrium.ai/terms-of-service"
+      }
+    ]
+  },
+  {
+    "url": "https://pierre.co/",
+    "finalUrl": "https://pierre.computer/",
+    "status": 200,
+    "title": "Pierre Computer Company",
+    "text": "PIERRE COMPUTER COMPANY █\nCORPORATE WEBSITE\n2026\n\n~*~ © The Pierre Computer Company, Inc. ~*~\n\nABOUT THE PIERRE COMPUTER COMPANY, INC.\n\nPierre Computer Company, Inc. is a software company that produces low level, composable product infrastructure for machine work.\n\nWe're building [code.storage](https://code.storage).\n\nReach out at [pierre](mailto:pierre@pierre.co) or follow us [@pierrecomputer](https://x.com/pierrecomputer).\n\nPRODUCTS\n\n- [Code Storage](https://code.storage)\n\nOPENSOURCE\n\n- [Diffs](https://diffs.com)\n- [Trees](https://trees.software)\n- [DiffsHub](https://diffshub.com)\n\nWRITING\n\n- [On Rendering Diffs](/writing/on-rendering-diffs)\n\nOPENINGS\n\n- [Distributed Systems](/careers/distributed-systems)\n- [Infrastructure Engineer](/careers/infrastructure-engineer)\n\n\t\t",
+    "links": [
+      {
+        "text": "https://code.storage",
+        "url": "https://code.storage/"
+      },
+      {
+        "text": "mailto:pierre@pierre.co",
+        "url": "mailto:pierre@pierre.co"
+      },
+      {
+        "text": "https://x.com/pierrecomputer",
+        "url": "https://x.com/pierrecomputer"
+      },
+      {
+        "text": "https://code.storage",
+        "url": "https://code.storage/"
+      },
+      {
+        "text": "https://diffs.com",
+        "url": "https://diffs.com/"
+      },
+      {
+        "text": "https://trees.software",
+        "url": "https://trees.software/"
+      },
+      {
+        "text": "https://diffshub.com",
+        "url": "https://diffshub.com/"
+      },
+      {
+        "text": "/writing/on-rendering-diffs",
+        "url": "https://pierre.computer/writing/on-rendering-diffs"
+      },
+      {
+        "text": "/careers/distributed-systems",
+        "url": "https://pierre.computer/careers/distributed-systems"
+      },
+      {
+        "text": "/careers/infrastructure-engineer",
+        "url": "https://pierre.computer/careers/infrastructure-engineer"
+      }
+    ]
+  },
+  {
+    "url": "https://voidzero.dev/",
+    "finalUrl": "https://voidzero.dev/",
+    "status": 200,
+    "title": "VoidZero | The Javascript Tooling company",
+    "text": "VOIDZERO IS JOINING CLOUDFLARE\nOpen Source \nBlog\nAbout\nVoid \nprod server\n/\nrunning\nThe JavaScriptTooling Company\n\nMaking JavaScript developers more productive than ever before.\n\nTrusted by the world's best software teams\n\nOSS\nOpen Source\n\nWe are the creators, maintainers, and contributors of some of the most critical infrastructure projects in the JavaScript ecosystem.\n\nVite+\nVite\nVitest\nRolldown\nOxc\nVITE+\nThe unified toolchain for the web\n\nVite+ is the entry point to web application development that manages your runtime, package manager, and frontend toolchain.\n\nExplore Vite+\nnew\nVITE\nThe build tool for the web\n\nVite is the default choice for single-page web applications and the foundation for fullstack frameworks like TanStack Start, Nuxt, SvelteKit and more.\n\nExplore Vite\n83.0k\nstars\n1,351\ncontributors\nVITEST\nThe next-generation test runner\n\nVitest is a feature-rich test runner that understands your Vite config, is Jest-compatible, and works out-of-the-box with TypeScript & ESM.\n\nExplore Vitest\n17.2k\nstars\n822\ncontributors\nROLLDOWN\nThe blazing fast JavaScript bundler\n\nRolldown is a Rust-based bundler with Rollup-compatible API, and esbuild-equivalent performance & feature set. It also powers Vite version 8 and above.\n\nExplore Rolldown\n14.0k\nstars\n217\ncontributors\nOXC\nThe fastest JavaScript language toolchain\n\nOxc is the foundation of our unified toolchain. It includes linter (oxlint), formatter (oxfmt), parser, resolver, transformer, and minifier, all with state-of-the-art performance.\n\nExplore Oxc\n22.9k\nstars\n452\ncontributors\nTrusted by millions of developers around the world\nTotal downloads\n0\nVite Downloads\n\nMarch 2020\n\nToday\n\n0+\n\nWeekly NPM downloads\n\n0+\n\nGitHub Stars\n\n0+\n\nContributors\n\nOur mission is to make the next generation of JavaScript developers more productive than ever before.\nLearn more\n\nBacked by the very best in the dev tools space.\n\nFeatured resources & updates\nAll Resources\njs\nresources\n.filter(i => i.collection === \"featured\")\n.filter(i => i.postedBy === \"VoidZero\")\n.filter(i => i.articles.length === 8)\n// UPDATES\nTales from the Void: September 2026 Recap\n// ANNOUNCEMENTS\nAnnouncing Vite+ 1.0\n// UPDATES\nTales from the Void: August 2026 Recap\n// UPDATES\nTales from the Void: July 2026 Recap\n// UPDATES\nTales from the Void: June 2026 Recap\n// ANNOUNCEMENTS\nAnnouncing Vite+ Beta\n// UPDATES\nTales from the Void: May 2026 Recap\n// ANNOUNCEMENTS\nVoidZero is Joining Cloudflare\n// UPDATES\nTales from the Void: September 2026 Recap\n// ANNOUNCEMENTS\nAnnouncing Vite+ 1.0\n// UPDATES\nTales from the Void: August 2026 Recap\n// UPDATES\nTales from the Void: July 2026 Recap\n// UPDATES\nTales from the Void: June 2026 Recap\n// ANNOUNCEMENTS\nAnnouncing Vite+ Beta\n// UPDATES\nTales from the Void: May 2026 Recap\n// ANNOUNCEMENTS\nVoidZero is Joining Cloudflare\n// UPDATES\nTales from the Void: September 2026 Recap\n// ANNOUNCEMENTS\nAnnouncing Vite+ 1.0\n// UPDATES\nTales from the Void: August 2026 Recap\n// UPDATES\nTales from the Void: July 2026 Recap\n// UPDATES\nTales from the Void: June 2026 Recap\n// ANNOUNCEMENTS\nAnnouncing Vite+ Beta\n// UPDATES\nTales from the Void: May 2026 Recap\n// ANNOUNCEMENTS\nVoidZero is Joining Cloudflare\nItem 1 of 8\nInterested in the future of Javascript tooling?\nSubscribe to our monthly newsletter\nSubscribe\n\nPRODUCT\n\nVoid\n\nOSS\n\nVite+\nVite\nVitest\nRolldown\nOxc\n\nCOMPANY\n\nBlog\nAbout\nBranding\nTerms of Service\nPrivacy Policy\nAcceptable Use Policy\n\nSOCIAL\n\nGitHub\nX.com\nDiscord\nYouTube\nBluesky\n\n© 2026 VoidZero Inc. All Rights Reserved.",
+    "links": [
+      {
+        "text": "VoidZero is joining Cloudflare",
+        "url": "https://voidzero.dev/posts/voidzero-cloudflare"
+      },
+      {
+        "text": "",
+        "url": "https://voidzero.dev/"
+      },
+      {
+        "text": "Open Source",
+        "url": "https://voidzero.dev/#"
+      },
+      {
+        "text": "Blog",
+        "url": "https://voidzero.dev/blog"
+      },
+      {
+        "text": "About",
+        "url": "https://voidzero.dev/about"
+      },
+      {
+        "text": "Void",
+        "url": "https://void.cloud/"
+      },
+      {
+        "text": "",
+        "url": "https://github.com/voidzero-dev"
+      },
+      {
+        "text": "",
+        "url": "https://x.com/voidzerodev"
+      },
+      {
+        "text": "",
+        "url": "https://discord.gg/cC6TEVFKSx"
+      },
+      {
+        "text": "",
+        "url": "https://bsky.app/profile/voidzero.dev"
+      },
+      {
+        "text": "Explore Vite+",
+        "url": "https://viteplus.dev/"
+      },
+      {
+        "text": "",
+        "url": "https://github.com/voidzero-dev/vite-plus"
+      },
+      {
+        "text": "Explore Vite",
+        "url": "https://vite.dev/"
+      },
+      {
+        "text": "",
+        "url": "https://github.com/vitejs/vite"
+      },
+      {
+        "text": "Explore Vitest",
+        "url": "https://vitest.dev/"
+      },
+      {
+        "text": "",
+        "url": "https://github.com/vitest-dev/vitest"
+      },
+      {
+        "text": "Explore Rolldown",
+        "url": "https://rolldown.rs/"
+      },
+      {
+        "text": "",
+        "url": "https://github.com/rolldown/rolldown"
+      },
+      {
+        "text": "Explore Oxc",
+        "url": "https://oxc.rs/"
+      },
+      {
+        "text": "",
+        "url": "https://github.com/oxc-project/oxc"
+      },
+      {
+        "text": "Learn more",
+        "url": "https://voidzero.dev/about"
+      },
+      {
+        "text": "All Resources",
+        "url": "https://voidzero.dev/blog"
+      },
+      {
+        "text": "// updatesTales from the Void: September 2026 Recap",
+        "url": "https://voidzero.dev/posts/whats-new-sep-2026"
+      },
+      {
+        "text": "// announcementsAnnouncing Vite+ 1.0",
+        "url": "https://voidzero.dev/posts/announcing-vite-plus-1-0"
+      },
+      {
+        "text": "// updatesTales from the Void: August 2026 Recap",
+        "url": "https://voidzero.dev/posts/whats-new-aug-2026"
+      },
+      {
+        "text": "// updatesTales from the Void: July 2026 Recap",
+        "url": "https://voidzero.dev/posts/whats-new-jul-2026"
+      },
+      {
+        "text": "// updatesTales from the Void: June 2026 Recap",
+        "url": "https://voidzero.dev/posts/whats-new-jun-2026"
+      },
+      {
+        "text": "// announcementsAnnouncing Vite+ Beta",
+        "url": "https://voidzero.dev/posts/announcing-vite-plus-beta"
+      },
+      {
+        "text": "// updatesTales from the Void: May 2026 Recap",
+        "url": "https://voidzero.dev/posts/whats-new-may-2026"
+      },
+      {
+        "text": "// announcementsVoidZero is Joining Cloudflare",
+        "url": "https://voidzero.dev/posts/voidzero-cloudflare"
+      },
+      {
+        "text": "// updatesTales from the Void: September 2026 Recap",
+        "url": "https://voidzero.dev/posts/whats-new-sep-2026"
+      },
+      {
+        "text": "// announcementsAnnouncing Vite+ 1.0",
+        "url": "https://voidzero.dev/posts/announcing-vite-plus-1-0"
+      },
+      {
+        "text": "// updatesTales from the Void: August 2026 Recap",
+        "url": "https://voidzero.dev/posts/whats-new-aug-2026"
+      },
+      {
+        "text": "// updatesTales from the Void: July 2026 Recap",
+        "url": "https://voidzero.dev/posts/whats-new-jul-2026"
+      },
+      {
+        "text": "// updatesTales from the Void: June 2026 Recap",
+        "url": "https://voidzero.dev/posts/whats-new-jun-2026"
+      },
+      {
+        "text": "// announcementsAnnouncing Vite+ Beta",
+        "url": "https://voidzero.dev/posts/announcing-vite-plus-beta"
+      },
+      {
+        "text": "// updatesTales from the Void: May 2026 Recap",
+        "url": "https://voidzero.dev/posts/whats-new-may-2026"
+      },
+      {
+        "text": "// announcementsVoidZero is Joining Cloudflare",
+        "url": "https://voidzero.dev/posts/voidzero-cloudflare"
+      },
+      {
+        "text": "// updatesTales from the Void: September 2026 Recap",
+        "url": "https://voidzero.dev/posts/whats-new-sep-2026"
+      },
+      {
+        "text": "// announcementsAnnouncing Vite+ 1.0",
+        "url": "https://voidzero.dev/posts/announcing-vite-plus-1-0"
+      },
+      {
+        "text": "// updatesTales from the Void: August 2026 Recap",
+        "url": "https://voidzero.dev/posts/whats-new-aug-2026"
+      },
+      {
+        "text": "// updatesTales from the Void: July 2026 Recap",
+        "url": "https://voidzero.dev/posts/whats-new-jul-2026"
+      },
+      {
+        "text": "// updatesTales from the Void: June 2026 Recap",
+        "url": "https://voidzero.dev/posts/whats-new-jun-2026"
+      },
+      {
+        "text": "// announcementsAnnouncing Vite+ Beta",
+        "url": "https://voidzero.dev/posts/announcing-vite-plus-beta"
+      },
+      {
+        "text": "// updatesTales from the Void: May 2026 Recap",
+        "url": "https://voidzero.dev/posts/whats-new-may-2026"
+      },
+      {
+        "text": "// announcementsVoidZero is Joining Cloudflare",
+        "url": "https://voidzero.dev/posts/voidzero-cloudflare"
+      },
+      {
+        "text": "Void",
+        "url": "https://void.cloud/"
+      },
+      {
+        "text": "Vite+",
+        "url": "https://viteplus.dev/"
+      },
+      {
+        "text": "Vite",
+        "url": "https://vite.dev/"
+      },
+      {
+        "text": "Vitest",
+        "url": "https://vitest.dev/"
+      },
+      {
+        "text": "Rolldown",
+        "url": "https://rolldown.rs/"
+      },
+      {
+        "text": "Oxc",
+        "url": "https://oxc.rs/"
+      },
+      {
+        "text": "Blog",
+        "url": "https://voidzero.dev/blog"
+      },
+      {
+        "text": "About",
+        "url": "https://voidzero.dev/about"
+      },
+      {
+        "text": "Branding",
+        "url": "https://github.com/voidzero-dev/community-design-resources/tree/main/brand-assets"
+      },
+      {
+        "text": "Terms of Service",
+        "url": "https://voidzero.dev/legal/terms"
+      },
+      {
+        "text": "Privacy Policy",
+        "url": "https://voidzero.dev/legal/privacy"
+      },
+      {
+        "text": "Acceptable Use Policy",
+        "url": "https://voidzero.dev/legal/acceptable-use"
+      },
+      {
+        "text": "GitHub",
+        "url": "https://github.com/voidzero-dev"
+      },
+      {
+        "text": "X.com",
+        "url": "https://x.com/voidzerodev"
+      },
+      {
+        "text": "Discord",
+        "url": "https://discord.gg/cC6TEVFKSx"
+      },
+      {
+        "text": "YouTube",
+        "url": "https://www.youtube.com/@voidzerodev"
+      },
+      {
+        "text": "Bluesky",
+        "url": "https://bsky.app/profile/voidzero.dev"
+      }
+    ]
+  },
+  {
+    "url": "https://andandand.studio/",
+    "finalUrl": "https://andandand.studio/",
+    "status": 200,
+    "title": "Home | And And And Studio",
+    "text": "Gallery\nIndex\nAbout\nInquire",
+    "links": [
+      {
+        "text": "Gallery",
+        "url": "https://andandand.studio/"
+      },
+      {
+        "text": "Index",
+        "url": "https://andandand.studio/index"
+      },
+      {
+        "text": "About",
+        "url": "https://andandand.studio/about"
+      },
+      {
+        "text": "Inquire",
+        "url": "https://andandand.studio/start-a-project"
+      }
+    ]
+  },
+  {
+    "url": "https://grafik.co.nz/",
+    "finalUrl": "https://grafik.co.nz/",
+    "status": 200,
+    "title": "Grafik® — Digital Brand Studio | Award-Winning Websites Made in NZ",
+    "text": "GRAFIK®\nMENU\nImpossible Toronto\nBeings\nJhana Millers\nTom Gould\nToday Design\nMotion Sickness\nVictoria Spicer\nAgnes Lloyd-Platt\nBen Pearce\nGlasfurd & Walker\nPilot\nMichael McManus\nMiles Calder\nPorter Packaging\nMarx Design\nMatch Artists\nPatchwork\n\nWork\n\nAbout Grafik\n\nDraw Something\n\nDrawing Gallery\n\nGuestbook\n\nInstagram\n\n1 Online.\n\nGrafik is a studio making websites that define brands. It's run by solo designer and developer Nick de Jardine.\n\nLevel 1, 85 Victoria Street, Te Aro,\nWellington, 6011, New Zealand\n\nnick@grafik.co.nz\n\nHello Visitor 25,593.\n\nTom Gould\n\nGRAFIK, DESIGN & DEVELOPMENT\n\nWELLINGTON, NEW ZEALAND\n\nIMPOSSIBLE TORONTO\n\nImpossible Toronto is an initiative of the Neptis Foundation, imagining the housing a city needs but doesn't yet allow itself to build. The first investigation: On the Courtyard, Learning from European Blocks.\n\nA yearlong study is a dense thing to hand a city. The site turns it into one continuous scroll, the whole argument unfolding section by section as you move. Research you read the way you'd walk a courtyard.\n\nDigital design,\nDigital development\n\n2025—\n\nBEINGS\n\nWhat we put on stage and screen matters. Yet, despite the wealth of talent available, identities are often misrepresented because roles are given to those without lived experience.  \n\nBEINGS is an online directory to represent, explore, discover, and cast Aotearoa’s POC, Rainbow, and Disabled talent. \n\nDigital design,\nDigital development,\nIdentity design\n\n2025—\n\nJHANA MILLERS\n\nJhana Millers is a contemporary art gallery in Te Whanganui-a-Tara, Wellington, representing artists from across Aotearoa and Australia. A gallery identity has one job: never compete with the art.\n\nThis one is bilingual at its core. The wordmark reads Jhana Millers Whare Toi Te Whanganui-a-Tara, te reo set into the name itself rather than translated beneath it. The reo isn't an accommodation in the system; it's the system.\n\nDigital design,\nDigital development,\nIdentity design\n\n2024—\n\nTOM GOULD\n\nIn 2023 New Zealand film director and photographer Tom Gould engaged me to create his digital brand.\n\nThis website uses a brutalist, mainframe-inspired interface to create a stark, high-impact digital presence that showcases his work with clarity and attitude.\n\nDigital design,\nDigital development,\nIdentity design\n\n2023—\n\nTODAY DESIGN\n\nA UX agency that refused to look like one. Today.design hired me to translate their updated identity into a website that competes on craft rather than process. I designed an editorial-inspired system where typography and rhythm do the work that wireframes can't.\n\nDigital design\n\n2022—\n\nMOTION SICKNESS\n\nMotion Sickness are an advertising agency based in Auckland, New Zealand. They came to me for a new website, with a re-developed identity to go with it.\n\nThe result is a web experience designed to stupefy, relax, and disorientate. True to the name.\n\nDigital design,\nDigital development,\nIdentity design\n\n2023—\n\nVICTORIA SPICER\n\nVictoria Spicer was a set designer based in London. Off the back of a rebrand, she needed a website for an image-led, changeable body of work.\n\nThe site was designed entirely in the browser, no desktop design tools: drawn and built in the same place. It exhibited Spicer in her best colours.\n\nDigital design,\nDigital development,\nAnimation\n\n2017—2022\n\nAGNES LLOYD-PLATT\n\nAgnes Lloyd-Platt is a fashion and beauty photographer and filmmaker based in London.\n\nHer signature is colour, so the website is built around nothing else: an exhibition of it, and a shot of optimism in a field that often takes itself too seriously.\n\nDigital design,\nDigital development,\nAnimation\n\n2018—2025\n\nBEN PEARCE\n\nBen Pearce is a New Zealand sculptor working with wood, found objects and bronze. His art explores memory through the one past we all share: childhood.\n\nThe website follows Pearce's practice from the inside, making visible the quirks and tragedies of a mind and its recording machinery. It is Pearce the artist, rendered as Pearce the website.\n\nDigital design,\nDigital development,\nAnimation\n\n2017—2022\n\nGLASFURD & WALKER\n\nGlasfurd & Walker are a brand and design agency in Vancouver, Canada, founded by a strategist and a designer. They call what they do building brand worlds, mostly for restaurants, hotels, and the things people eat and drink in them.\n\nThe website takes them at their word. Each project is entered as its own world, led by a single line of story rather than a client name, with the frame kept deliberately quiet so every world holds its own atmosphere.\n\nDigital design,\nDigital development,\nIdentity design\n\n2022—\n\nPILOT\n\nPilot are a strategic digital marketing agency based in Auckland. Following a rebrand, they needed a website that could carry the new name and win the next tier of clients.\n\nThe name set the concept. The site takes the bird's eye view: calm, ordered, everything laid out below you. A restrained typographic treatment does the persuading, signalling trust without ever saying the word.\n\nDigital design,\nDigital development\n\n2021—\n\nMICHAEL MCMANUS\n\nMichael McManus Architects work across Victoria from their studio in North Melbourne. In 2020 they pledged to take the practice carbon neutral, a commitment that shapes how they think about the built environment.\n\nThe website answers with an unexpected, earthy palette, a deliberate counterpoint to the polish of the architecture. Every hue is drawn from their projects: deep green for landscape, yellow for sunlight, grey as breathing space, and burnt orange for brick.\n\nDigital design,\nDigital development,\nIdentity design\n\n2020—\n\nMILES CALDER\n\nMiles Calder & The Rumours were a five-piece alt-country and Americana band from New Zealand. The website opens at the summit of an American national park and descends from there. The deeper you go, the closer you get to the band.\n\nDigital design,\nDigital development,\nIdentity design\n\n2014—2019\n\nPORTER PACKAGING\n\nPorter Packaging are a creative production house based in Auckland, manufacturing high-end packaging for the design industry. A market repositioning called for a new identity and website with one unforgiving audience: the designers who commission them.\n\nA brand for people who judge brands for a living has nowhere to hide. The relaunch passed: a flood of new business, and writeups across the design press.\n\nDigital design,\nDigital development,\nIdentity design\n\n2020—2024\n\nMARX DESIGN\n\nMarx are a branding and packaging design agency based in Auckland, known for idea-led work with no house formula. They came to me for a new website, and a re-developed identity along the way.\n\nAn agency without a formula shouldn't get a formulaic site. The answer was interaction: rich, playful, a little mischievous, every moment its own small idea, the way every Marx project is.\n\nDigital design,\nDigital development,\nIdentity design\n\n2021—\n\nMATCH ARTISTS\n\nFor twenty years Match were New Zealand's leading photographic agency. Then their photographers stopped being only photographers: motion work grew until the old name no longer fit.\n\nMatch Photographers relaunched as Match Artists, with an identity and website built to carry the wider brief. The design stays deliberately out of the way: simple, precise, and executed to the standard of the work it represents.\n\nDigital design,\nDigital development,\nIdentity design\n\n2022—\n\nPATCHWORK\n\nPatchwork Architecture are an architectural duo based in Wellington, New Zealand, pairing functional spaces with a utilitarian material palette.\n\nTheir website was built by their own discipline's creed: form follows function. No desktop design tools, just a working skeleton of the real content, copy and images made to work hard together until they became the design. A website built by the rules of architecture rather than the rules of the web.\n\nDigital design,\nDigital development,\nIdentity design\n\n2017—2024\n\nDIANE, IT’S LATE AT NIGHT HERE, TWELVE°C, BUT FEELS COLDISH OUT. CLEAR, BUT THERE’S A BREEZE ON.\nPlaying ↘\nSprawl II (Mountains Beyond Mountains) by Arcade Fire\nSprawl II (Mountains Beyond Mountains) by Arcade Fire\nSprawl II (Mountains Beyond Mountains) by Arcade Fire\nSprawl II (Mountains Beyond Mountains) by Arcade Fire\n\nGrafik affirms Te Tiriti o Waitangi as the cornerstone of Aotearoa, New Zealand.\n\nnick@grafik.co.nz\n\nInstagram\n\n© All Rights Reserved",
+    "links": [
+      {
+        "text": "Grafik®",
+        "url": "https://grafik.co.nz/"
+      },
+      {
+        "text": "Impossible Toronto",
+        "url": "https://grafik.co.nz/project/impossible-toronto/"
+      },
+      {
+        "text": "Beings",
+        "url": "https://grafik.co.nz/project/beings/"
+      },
+      {
+        "text": "Jhana Millers",
+        "url": "https://grafik.co.nz/project/jhana-millers-gallery/"
+      },
+      {
+        "text": "Tom Gould",
+        "url": "https://grafik.co.nz/project/tom-gould/"
+      },
+      {
+        "text": "Today Design",
+        "url": "https://grafik.co.nz/project/today/"
+      },
+      {
+        "text": "Motion Sickness",
+        "url": "https://grafik.co.nz/project/motion-sickness/"
+      },
+      {
+        "text": "Victoria Spicer",
+        "url": "https://grafik.co.nz/project/victoria-spicer/"
+      },
+      {
+        "text": "Agnes Lloyd-Platt",
+        "url": "https://grafik.co.nz/project/agnes-lloyd-platt/"
+      },
+      {
+        "text": "Ben Pearce",
+        "url": "https://grafik.co.nz/project/ben-pearce/"
+      },
+      {
+        "text": "Glasfurd & Walker",
+        "url": "https://grafik.co.nz/project/glasfurd-and-walker/"
+      },
+      {
+        "text": "Pilot",
+        "url": "https://grafik.co.nz/project/pilot/"
+      },
+      {
+        "text": "Michael McManus",
+        "url": "https://grafik.co.nz/project/michael-mcmanus/"
+      },
+      {
+        "text": "Miles Calder",
+        "url": "https://grafik.co.nz/project/miles-calder/"
+      },
+      {
+        "text": "Porter Packaging",
+        "url": "https://grafik.co.nz/project/porter/"
+      },
+      {
+        "text": "Marx Design",
+        "url": "https://grafik.co.nz/project/marx/"
+      },
+      {
+        "text": "Match Artists",
+        "url": "https://grafik.co.nz/project/match/"
+      },
+      {
+        "text": "Patchwork",
+        "url": "https://grafik.co.nz/project/patchwork/"
+      },
+      {
+        "text": "Work",
+        "url": "https://grafik.co.nz/"
+      },
+      {
+        "text": "About Grafik",
+        "url": "https://grafik.co.nz/about/"
+      },
+      {
+        "text": "Drawing Gallery",
+        "url": "https://grafik.co.nz/gallery/"
+      },
+      {
+        "text": "Guestbook",
+        "url": "https://grafik.co.nz/guestbook/"
+      },
+      {
+        "text": "Instagram",
+        "url": "https://www.instagram.com/grafik.nz/"
+      },
+      {
+        "text": "nick@grafik.co.nz",
+        "url": "mailto:nick@grafik.co.nz"
+      },
+      {
+        "text": "Impossible TorontoImpossible Toronto is an initiative of the Neptis Foundation, imagining the housin",
+        "url": "https://grafik.co.nz/project/impossible-toronto/"
+      },
+      {
+        "text": "Beings What we put on stage and screen matters. Yet, despite the wealth of talent available, identit",
+        "url": "https://grafik.co.nz/project/beings/"
+      },
+      {
+        "text": "Jhana MillersJhana Millers is a contemporary art gallery in Te Whanganui-a-Tara, Wellington, represe",
+        "url": "https://grafik.co.nz/project/jhana-millers-gallery/"
+      },
+      {
+        "text": "Tom GouldIn 2023 New Zealand film director and photographer Tom Gould engaged me to create his digit",
+        "url": "https://grafik.co.nz/project/tom-gould/"
+      },
+      {
+        "text": "Today DesignA UX agency that refused to look like one. Today.design hired me to translate their upda",
+        "url": "https://grafik.co.nz/project/today/"
+      },
+      {
+        "text": "Motion SicknessMotion Sickness are an advertising agency based in Auckland, New Zealand. They came t",
+        "url": "https://grafik.co.nz/project/motion-sickness/"
+      },
+      {
+        "text": "Victoria SpicerVictoria Spicer was a set designer based in London. Off the back of a rebrand, she ne",
+        "url": "https://grafik.co.nz/project/victoria-spicer/"
+      },
+      {
+        "text": "Agnes Lloyd-PlattAgnes Lloyd-Platt is a fashion and beauty photographer and filmmaker based in Londo",
+        "url": "https://grafik.co.nz/project/agnes-lloyd-platt/"
+      },
+      {
+        "text": "Ben PearceBen Pearce is a New Zealand sculptor working with wood, found objects and bronze. His art ",
+        "url": "https://grafik.co.nz/project/ben-pearce/"
+      },
+      {
+        "text": "Glasfurd & WalkerGlasfurd & Walker are a brand and design agency in Vancouver, Canada, founded by a ",
+        "url": "https://grafik.co.nz/project/glasfurd-and-walker/"
+      },
+      {
+        "text": "PilotPilot are a strategic digital marketing agency based in Auckland. Following a rebrand, they nee",
+        "url": "https://grafik.co.nz/project/pilot/"
+      },
+      {
+        "text": "Michael McManusMichael McManus Architects work across Victoria from their studio in North Melbourne.",
+        "url": "https://grafik.co.nz/project/michael-mcmanus/"
+      },
+      {
+        "text": "Miles CalderMiles Calder & The Rumours were a five-piece alt-country and Americana band from New Zea",
+        "url": "https://grafik.co.nz/project/miles-calder/"
+      },
+      {
+        "text": "Porter PackagingPorter Packaging are a creative production house based in Auckland, manufacturing hi",
+        "url": "https://grafik.co.nz/project/porter/"
+      },
+      {
+        "text": "Marx DesignMarx are a branding and packaging design agency based in Auckland, known for idea-led wor",
+        "url": "https://grafik.co.nz/project/marx/"
+      },
+      {
+        "text": "Match ArtistsFor twenty years Match were New Zealand's leading photographic agency. Then their photo",
+        "url": "https://grafik.co.nz/project/match/"
+      },
+      {
+        "text": "Patchwork Patchwork Architecture are an architectural duo based in Wellington, New Zealand, pairing ",
+        "url": "https://grafik.co.nz/project/patchwork/"
+      },
+      {
+        "text": "Sprawl II (Mountains Beyond Mountains) by Arcade Fire",
+        "url": "https://open.spotify.com/track/0epAG0WWRlDMsMFJiE5c6I"
+      },
+      {
+        "text": "Sprawl II (Mountains Beyond Mountains) by Arcade Fire",
+        "url": "https://open.spotify.com/track/0epAG0WWRlDMsMFJiE5c6I"
+      },
+      {
+        "text": "Sprawl II (Mountains Beyond Mountains) by Arcade Fire",
+        "url": "https://open.spotify.com/track/0epAG0WWRlDMsMFJiE5c6I"
+      },
+      {
+        "text": "Sprawl II (Mountains Beyond Mountains) by Arcade Fire",
+        "url": "https://open.spotify.com/track/0epAG0WWRlDMsMFJiE5c6I"
+      },
+      {
+        "text": "nick@grafik.co.nz",
+        "url": "mailto:nick@grafik.co.nz"
+      },
+      {
+        "text": "Instagram",
+        "url": "https://instagram.com/grafik.nz"
+      }
+    ]
+  }
+]
