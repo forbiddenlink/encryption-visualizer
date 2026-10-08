@@ -1,6 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 @config "../tailwind.config.js";
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300 900;
+  font-display: optional;
+  src: url('/fonts/inter-latin.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: optional;
+  src: url('/fonts/jetbrains-mono.woff2') format('woff2');
+}
 
 @layer base {
   body {
@@ -429,3 +443,24 @@ summary::-webkit-details-marker { display: none; }
 /* Solid lab actions share the guide accent; diagrams retain their semantic colors. */
 .site-main button[class*="bg-"][class~="text-white"], .site-main .btn-primary { background-color: var(--action); color: white; background-image: none; }
 .site-main button[class*="bg-"][class~="text-white"]:hover, .site-main .btn-primary:hover { background-color: var(--action-hover); }
+/* Keep the footer below the initial viewport while a lazy lesson mounts. */
+.site-main { min-height: calc(100svh - 80px); }
+@media (max-width: 1023px) { .site-main { min-height: calc(100svh - 72px); } }
+/* Measured WCAG contrast corrections for helper text and diagram labels. */
+.site-main :is(.text-slate-300, .text-slate-400, .text-slate-500) { color: var(--muted); }
+.dark .site-main :is(.dark\:text-slate-400, .dark\:text-slate-500, .dark\:text-slate-600) { color: var(--muted); }
+:root:not(.dark) .site-main :is(.text-green-600, .text-emerald-600, .text-emerald-400) { color: #047857; }
+:root:not(.dark) .site-main :is(.text-amber-600, .text-orange-600) { color: #9a3412; }
+:root:not(.dark) .site-main :is(.text-red-400, .text-red-500) { color: #b91c1c; }
+:root:not(.dark) .site-main :is(.text-blue-400, .text-blue-600) { color: #1d4ed8; }
+:root:not(.dark) .site-main .text-purple-400 { color: #7e22ce; }
+:root:not(.dark) .site-main :is(h3.text-white, h4.text-white, span.text-sm.font-bold.text-white) { color: var(--ink); }
+.site-main [class~="text-white/90"] { color: white; background: #0c1517; border-radius: 3px; padding: 2px 4px; }
+.dark .site-main .dark\:text-indigo-400 { color: #b9bbff; }
+:root:not(.dark) .site-main .text-red-600 { color: #b91c1c; }
+:root:not(.dark) .site-main :is(.text-pink-400, .text-pink-600) { color: #be185d; }
+:root:not(.dark) .site-main :is(.text-indigo-400, .text-indigo-500) { color: #4338ca; }
+:root:not(.dark) .site-main .text-violet-400 { color: #6d28d9; }
+.site-main span.bg-green-600.text-white { background-color: #047857; font-size: .75rem; }
+.lesson-loading { min-height: calc(100svh - 80px); }
+@media (max-width: 1023px) { .lesson-loading { min-height: calc(100svh - 72px); } }

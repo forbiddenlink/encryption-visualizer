@@ -46,19 +46,19 @@ export const CryptanalysisPage = () => {
 
   const cryptSteps = steps as unknown as CryptanalysisStep[];
 
-  const handleLaunchAttack = (attack: AttackType) => {
+  const onLaunchAttack = (attack: AttackType) => {
     setActiveAttack(attack);
     let newSteps: CryptanalysisStep[];
 
     switch (attack) {
       case 'frequency-analysis': {
-        const shift = Math.floor(Math.random() * 25) + 1;
+        const shift = (crypto.getRandomValues(new Uint32Array(1))[0] % 25) + 1;
         const ciphertext = caesarEncrypt(plaintext, shift);
         newSteps = frequencyAnalysisAttack(ciphertext);
         break;
       }
       case 'brute-force': {
-        const shift = Math.floor(Math.random() * 25) + 1;
+        const shift = (crypto.getRandomValues(new Uint32Array(1))[0] % 25) + 1;
         const ciphertext = caesarEncrypt(plaintext, shift);
         newSteps = bruteForceAttack(ciphertext, plaintext);
         break;
@@ -71,7 +71,7 @@ export const CryptanalysisPage = () => {
         break;
     }
 
-    setSteps(newSteps as any);
+    setSteps(newSteps);
     reset();
     play();
   };
@@ -122,7 +122,7 @@ export const CryptanalysisPage = () => {
                 {attackButtons.map(({ type, label, icon, color }) => (
                   <button
                     key={type}
-                    onClick={() => handleLaunchAttack(type)}
+                    onClick={() => onLaunchAttack(type)}
                     className={`p-3 rounded-xl border-2 transition-all hover:scale-105 active:scale-95 flex flex-col items-center gap-2 ${
                       activeAttack === type && steps.length > 0
                         ? `border-amber-500 bg-amber-50 dark:bg-amber-500/10`

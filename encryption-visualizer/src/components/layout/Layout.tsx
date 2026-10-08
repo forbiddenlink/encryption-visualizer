@@ -39,7 +39,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
         role="main"
         className="site-main"
       >
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait" initial={false}>
           <m.div
             key={location.pathname}
             initial={shouldReduceMotion ? false : { opacity: 0, y: 8 }}

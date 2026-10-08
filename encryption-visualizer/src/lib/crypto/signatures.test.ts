@@ -10,10 +10,15 @@ import {
   verifySignature,
 } from './signatures';
 import { generateRSAKeyPairWithSteps } from './rsa';
+import type { RSAKeyPair } from '../types/index';
 
 describe('Digital Signatures', () => {
-  // Generate a key pair for testing
-  const { keyPair } = generateRSAKeyPairWithSteps('small');
+  // Fixed RSA fixture keeps verification assertions independent of random toy hash collisions.
+  const keyPair: RSAKeyPair = {
+    publicKey: { n: 3233, e: 17 },
+    privateKey: { n: 3233, d: 2753 },
+    p: 61, q: 53, phi: 3120,
+  };
 
   describe('signMessage', () => {
     it('signs a message and returns a number', () => {

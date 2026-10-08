@@ -508,7 +508,7 @@ export function generateECCWithSteps(curveChoice: 'tiny' | 'small' | 'medium' = 
 
   // Step 10: Complete
   steps.push({
-    stepNumber: stepNumber++,
+    stepNumber: stepNumber,
     type: 'complete',
     title: 'ECC Operations Complete!',
     description: `Key pair generated, ECDH shared secret established, and ECDSA signature verified. ECC achieves the same security as RSA with much smaller keys: a 256-bit ECC key provides comparable security to a 3072-bit RSA key.`,

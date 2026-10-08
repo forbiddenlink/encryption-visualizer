@@ -70,7 +70,7 @@ export const Header = () => {
     <header ref={headerRef} className="site-header">
       <div className="site-header-inner">
         <Link to={ROUTES.HOME} className="brand" aria-label="CryptoViz home">
-          <span className="brand-mark"><img src="/logo.png" alt="" className="w-6 h-6 object-contain" /></span>
+          <span className="brand-mark"><img src="/logo-small.png" width="24" height="24" alt="" className="w-6 h-6 object-contain" /></span>
           <span><span className="brand-name">CryptoViz</span><span className="brand-caption">Interactive learning</span></span>
         </Link>
         <nav className="desktop-nav" aria-label="Main navigation" key={`desktop-${location.pathname}`}>

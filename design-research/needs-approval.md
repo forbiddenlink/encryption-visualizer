@@ -8,3 +8,4 @@ Deferred possibilities (not part of the safe build):
 - Public challenge submissions, leaderboards or classrooms: database, abuse moderation and learner-data handling.
 - Changing routes, deleting content/pages or replacing educational algorithms: explicit approval and separate review required.
 - Deployment, production configuration changes and merging: outside this task; do not perform.
+- Replacing the educational FNV/truncated-hash signature model with standards-compliant signing: changes algorithm behavior and lesson content; requires a separate accuracy/security review. The existing model remains, with a visible collision warning.

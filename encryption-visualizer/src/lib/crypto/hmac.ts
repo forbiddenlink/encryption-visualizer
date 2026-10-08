@@ -214,7 +214,7 @@ export function hmacWithSteps(key: string, message: string): HMACStep[] {
   // Step 8: Verification demo
   const isValid = verifyHmac(key, message, finalHash);
   steps.push({
-    stepNumber: stepNumber++,
+    stepNumber: stepNumber,
     type: 'verify',
     title: 'Verification',
     description: 'The recipient recomputes the HMAC with the shared secret key and compares it to the received tag. If they match, the message is authentic and unmodified.',

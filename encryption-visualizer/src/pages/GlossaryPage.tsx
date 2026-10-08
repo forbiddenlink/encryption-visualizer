@@ -80,7 +80,7 @@ export const GlossaryPage = () => {
                             className="glass-card-hover p-5 border-l-4 border-l-cyber-blue"
                         >
                             <div className="flex justify-between items-start mb-2">
-                                <h3 className="text-xl font-bold text-slate-900 dark:text-white">{term.term}</h3>
+                                <h2 className="text-xl font-bold text-slate-900 dark:text-white">{term.term}</h2>
                                 <span className="text-xs px-2 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400">
                                     {term.category}
                                 </span>

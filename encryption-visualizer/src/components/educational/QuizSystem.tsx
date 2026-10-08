@@ -90,13 +90,6 @@ export const QuizSystem: React.FC<QuizSystemProps> = ({
     const removeMissedQuestion = useProgressStore((state) => state.removeMissedQuestion);
     const getMissedQuestions = useProgressStore((state) => state.getMissedQuestions);
 
-    // Save score when quiz is completed
-    useEffect(() => {
-        if (isCompleted && algorithmId) {
-            saveQuizScore(algorithmId, score, shuffledQuestions.length);
-        }
-    }, [isCompleted, algorithmId, score]);
-
     // Shuffle questions on mount or when quizKey changes (for retry)
     const shuffledQuestions = useMemo(() => {
         void quizKey;
@@ -107,7 +100,14 @@ export const QuizSystem: React.FC<QuizSystemProps> = ({
             }
         }
         return buildQuiz(questions, QUIZ_SIZE);
-    }, [questions, quizKey, isReviewMode, algorithmId]);
+    }, [questions, quizKey, isReviewMode, algorithmId, getMissedQuestions]);
+
+    // Save score when quiz is completed
+    useEffect(() => {
+        if (isCompleted && algorithmId) {
+            saveQuizScore(algorithmId, score, shuffledQuestions.length);
+        }
+    }, [isCompleted, algorithmId, score, shuffledQuestions.length, saveQuizScore]);
 
     const resetQuiz = useCallback(() => {
         setQuizKey((prev) => prev + 1);

@@ -233,7 +233,7 @@ export function passwordHashWithSteps(
   // Step 7: Verification
   const isValid = verifyPassword(password, salt, finalHash, iterations);
   steps.push({
-    stepNumber: stepNumber++,
+    stepNumber: stepNumber,
     type: 'verify',
     title: 'Password Verification',
     description: 'To verify a login, the system re-hashes the entered password with the stored salt and cost factor. If the result matches the stored hash, the password is correct.',

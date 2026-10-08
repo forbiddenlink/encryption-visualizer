@@ -27,4 +27,6 @@ export default defineConfig([
       globals: globals.browser,
     },
   },
+  // Router configuration exports a router instance, not a component refresh boundary.
+  { files: ['src/router/index.tsx'], rules: { 'react-refresh/only-export-components': 'off' } },
 ])

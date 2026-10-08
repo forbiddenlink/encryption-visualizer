@@ -215,9 +215,9 @@ export const LearningPathsPage = () => {
                       </span>
                     </div>
 
-                    <h3 className="section-title text-2xl mb-3">
+                    <h2 className="section-title text-2xl mb-3">
                       {path.title}
-                    </h3>
+                    </h2>
                     <p className="text-xs text-slate-600 dark:text-slate-400 mb-4 line-clamp-2">
                       {path.description}
                     </p>

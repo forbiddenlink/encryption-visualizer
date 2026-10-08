@@ -135,7 +135,7 @@ export function hashWithSteps(input: string): HashStep[] {
   
   const finalHash = simpleHash(input);
   steps.push({
-    stepNumber: stepNumber++,
+    stepNumber: stepNumber,
     type: 'output',
     title: 'Final Hash Output',
     description: `The final 32-bit hash (8 hexadecimal characters): ${finalHash}. Note: This is a simplified FNV-1a hash for educational purposes. Production systems use SHA-256 (256-bit) or similar.`,

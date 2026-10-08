@@ -91,7 +91,7 @@ export function signMessageWithSteps(
 
   // Step 4: Signature complete
   steps.push({
-    stepNumber: stepNumber++,
+    stepNumber: stepNumber,
     type: 'signature-complete',
     title: 'Signature Created!',
     description: `Your digital signature is: ${signature}. Send this along with your message. Anyone with your public key can verify it came from you.`,
@@ -183,7 +183,7 @@ export function verifySignatureWithSteps(
 
   // Step 5: Final result
   steps.push({
-    stepNumber: stepNumber++,
+    stepNumber: stepNumber,
     type: 'verify-result',
     title: isValid ? 'Signature Valid!' : 'Signature Invalid!',
     description: isValid

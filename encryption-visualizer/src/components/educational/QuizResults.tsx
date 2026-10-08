@@ -33,8 +33,8 @@ export const QuizResults: React.FC<QuizResultsProps> = ({
         ? getMissedQuestions(algorithmId).length > 0
         : false;
 
-    let message = "";
-    let color = "";
+    let message: string;
+    let color: string;
 
     if (percentage === 100) {
         message = "Flawless! You've mastered this topic completely.";

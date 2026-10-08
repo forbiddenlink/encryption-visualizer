@@ -2,6 +2,7 @@ const { chromium } = require('/Users/elizabethstein/.cache/codex-runtimes/codex-
 const fs = require('node:fs');
 const path = require('node:path');
 const root = __dirname;
+const baseUrl = process.env.CRYPTOVIZ_BASE_URL || 'http://127.0.0.1:3002';
 (async () => {
  const browser = await chromium.launch({channel:'chrome'});
  const mode = process.argv[2] || 'before';
@@ -10,10 +11,10 @@ const root = __dirname;
  for (const viewport of [{width:1440,height:1000},{width:390,height:844}]) {
   const context = await browser.newContext({viewport, reducedMotion:'reduce'});
   const page = await context.newPage();
-  if (process.argv[3] === 'light') { await page.goto('http://127.0.0.1:3002', {waitUntil:'networkidle'}); await page.getByRole('radio', {name:'Light mode', exact:true}).first().click(); }
+  if (process.argv[3] === 'light') { await page.goto(baseUrl, {waitUntil:'networkidle'}); await page.getByRole('radio', {name:'Light mode', exact:true}).first().click(); }
   for(const route of routes) {
    const errors=[]; const listener=e=>errors.push(e.message); page.on('pageerror',listener);
-   await page.goto('http://127.0.0.1:3002'+route, {waitUntil:'networkidle'});
+   await page.goto(baseUrl+route, {waitUntil:'networkidle'});
    await page.locator('h1').waitFor();
    await page.waitForTimeout(600);
    await page.screenshot({path:path.join(root,'screenshots',mode,`${route.slice(1)||'home'}-${viewport.width}.png`),fullPage:true});

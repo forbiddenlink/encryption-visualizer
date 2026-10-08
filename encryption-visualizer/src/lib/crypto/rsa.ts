@@ -181,7 +181,7 @@ export function generateRSAKeyPairWithSteps(bitSize: 'small' | 'medium' | 'large
   
   // Final step: Key pair generated
   steps.push({
-    stepNumber: stepNumber++,
+    stepNumber: stepNumber,
     type: 'complete',
     title: 'RSA Key Pair Generated!',
     description: `Public Key: (e=${e}, n=${n}) - Share this openly. Private Key: (d=${d}, n=${n}) - Keep this secret!`,
@@ -235,7 +235,7 @@ export function encryptRSAWithSteps(
   const encrypted = encryptRSA(message, publicKey);
   
   steps.push({
-    stepNumber: stepNumber++,
+    stepNumber: stepNumber,
     type: 'encryption',
     title: 'Encryption Complete',
     description: `Ciphertext = (${message}^${publicKey.e}) mod ${publicKey.n} = ${encrypted}`,
@@ -268,7 +268,7 @@ export function decryptRSAWithSteps(
   const decrypted = decryptRSA(ciphertext, privateKey);
   
   steps.push({
-    stepNumber: stepNumber++,
+    stepNumber: stepNumber,
     type: 'decryption',
     title: 'Decryption Complete',
     description: `Original message = (${ciphertext}^${privateKey.d}) mod ${privateKey.n} = ${decrypted}`,

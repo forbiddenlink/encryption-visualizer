@@ -195,7 +195,7 @@ export const PaddingPage = () => {
 
   const handleApply = () => {
     const newSteps = padWithSteps(input, blockSize, scheme);
-    setSteps(newSteps as any);
+    setSteps(newSteps);
     reset();
     play();
   };

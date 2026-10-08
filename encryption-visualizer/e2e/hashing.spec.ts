@@ -3,7 +3,9 @@ import { test, expect } from '@playwright/test';
 test.describe('Hashing Visualization', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
-    await page.getByRole('button', { name: 'Hashing' }).click();
+    const nav = page.getByRole('navigation', { name: 'Main navigation', exact: true });
+    await nav.locator('summary').click();
+    await nav.getByRole('link', { name: 'Hash Functions', exact: true }).click();
   });
 
   test('should display hash input panel', async ({ page }) => {
@@ -36,6 +38,6 @@ test.describe('Hashing Visualization', () => {
 
   test('should have quiz section', async ({ page }) => {
     // Check for quiz
-    await expect(page.getByText(/Knowledge Check/i)).toBeVisible();
+    await expect(page.locator('#lesson-quiz').getByRole('heading', { name: /Knowledge Check/i })).toBeVisible();
   });
 });

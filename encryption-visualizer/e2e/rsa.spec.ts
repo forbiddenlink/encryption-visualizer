@@ -3,7 +3,9 @@ import { test, expect } from '@playwright/test';
 test.describe('RSA Visualization', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
-    await page.getByRole('navigation').getByRole('button', { name: 'RSA', exact: true }).click();
+    const nav = page.getByRole('navigation', { name: 'Main navigation', exact: true });
+    await nav.locator('summary').click();
+    await nav.getByRole('link', { name: 'RSA Encryption', exact: true }).click();
   });
 
   test('should display RSA key generation panel', async ({ page }) => {
@@ -31,6 +33,6 @@ test.describe('RSA Visualization', () => {
 
   test('should have quiz section', async ({ page }) => {
     // Check for quiz
-    await expect(page.getByText(/Knowledge Check/i)).toBeVisible();
+    await expect(page.locator('#lesson-quiz').getByRole('heading', { name: /Knowledge Check/i })).toBeVisible();
   });
 });

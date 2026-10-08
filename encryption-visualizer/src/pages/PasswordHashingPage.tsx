@@ -178,7 +178,7 @@ export const PasswordHashingPage = () => {
 
   const handleHash = () => {
     const newSteps = passwordHashWithSteps(password, costFactor);
-    setSteps(newSteps as any);
+    setSteps(newSteps);
     reset();
     play();
   };

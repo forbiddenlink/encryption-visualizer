@@ -3,7 +3,9 @@ import { test, expect } from '@playwright/test';
 test.describe('AES Visualization', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
-    await page.getByRole('navigation').getByRole('button', { name: 'AES', exact: true }).click();
+    const nav = page.getByRole('navigation', { name: 'Main navigation', exact: true });
+    await nav.locator('summary').click();
+    await nav.getByRole('link', { name: 'AES Encryption', exact: true }).click();
   });
 
   test('should display AES input panel', async ({ page }) => {
@@ -22,7 +24,7 @@ test.describe('AES Visualization', () => {
     await page.getByRole('button', { name: /Start Encryption/i }).click();
 
     // Wait for visualization to show step info
-    await expect(page.getByText(/Step 1 of/i)).toBeVisible({ timeout: 5000 });
+    await expect(page.getByText(/Step 1 of/i).first()).toBeVisible({ timeout: 5000 });
   });
 
   test('should display educational content', async ({ page }) => {
@@ -33,6 +35,6 @@ test.describe('AES Visualization', () => {
 
   test('should have quiz section', async ({ page }) => {
     // Check for quiz
-    await expect(page.getByText(/Knowledge Check/i)).toBeVisible();
+    await expect(page.locator('#lesson-quiz').getByRole('heading', { name: /Knowledge Check/i })).toBeVisible();
   });
 });

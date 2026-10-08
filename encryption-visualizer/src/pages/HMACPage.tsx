@@ -167,7 +167,7 @@ export const HMACPage = () => {
 
   const handleCompute = () => {
     const newSteps = hmacWithSteps(key, message);
-    setSteps(newSteps as any);
+    setSteps(newSteps);
     reset();
     play();
   };

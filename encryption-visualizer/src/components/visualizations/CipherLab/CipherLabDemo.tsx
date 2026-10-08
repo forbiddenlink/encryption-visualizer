@@ -50,7 +50,7 @@ const ByteCell = ({ char, hex, state, variant, reduced }: ByteCellProps) => {
       <span className="text-base sm:text-lg font-semibold leading-none">
         {char === ' ' ? '␣' : char}
       </span>
-      <span className="text-[9px] sm:text-[10px] leading-none mt-1 opacity-70">{hex}</span>
+      <span className="text-xs leading-none mt-1">{hex}</span>
     </m.div>
   );
 };
@@ -186,7 +186,7 @@ export const CipherLabDemo = () => {
               {a.label}
               <span
                 className={`hidden sm:inline text-[10px] font-mono px-1.5 py-0.5 rounded ${
-                  selected ? 'bg-white/20' : 'bg-white dark:bg-cyber-surface text-slate-400'
+                  selected ? 'bg-black/20' : 'bg-white dark:bg-cyber-surface text-slate-400'
                 }`}
               >
                 {a.tag}

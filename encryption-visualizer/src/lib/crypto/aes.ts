@@ -289,7 +289,7 @@ export function encryptAESWithSteps(plaintext: string, key: string): AESStep[] {
   
   state = addRoundKey(state, roundKeys[10]);
   steps.push({
-    stepNumber: stepNumber++,
+    stepNumber: stepNumber,
     type: 'final',
     title: 'Final Ciphertext',
     description: 'XOR with the final round key (Round 10) to produce the encrypted ciphertext. Encryption complete!',

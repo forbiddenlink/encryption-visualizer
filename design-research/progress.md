@@ -59,14 +59,17 @@ Branch: `design/upgrade`. Started 2026-10-08. Goal: complete the seven requested
 | Glossary `/glossary` | done | Desktop/mobile review and applicable states; evidence in rollout-review.md |
 | About `/about` | done | Desktop/mobile review and applicable states; evidence in rollout-review.md |
 
-## Remaining
+## Phase 6 — complete
 
-6. Complete full build/typecheck/lint/tests, Lighthouse and production/browser journey verification; fix measured regressions and commit.
-7. Write final report with every before/after pair, features, scores, blockers and complete approval backlog; commit and stop without merge/deploy.
+- Full build/typecheck and full lint pass (0 errors/warnings); 371 unit tests pass. JSX accessibility rules remain enabled with a minimal minimatch compatibility patch; dependency versions/security overrides/platform metadata retained.
+- All 94 browser tests pass; fresh 22 startup/signature/recovery tests and a final eight-test recovery pass also pass. Random toy signature collisions now have a deterministic test fixture and a visible educational scope warning; algorithms retained.
+- Production audits: all 68 page/theme/width initial states and 24 completed lab states have zero detected WCAG A/AA violations. All 17 routes pass heading-order checks. Actual controlled offline navigation and both offline fonts pass.
+- Final both-theme desktop/mobile captures for every route: zero page exceptions/overflow. Added local licensed fonts and a small logo rendition; deferred analytics and precache; reserved loading geometry and corrected result-label contrast.
+- Lighthouse key pages: mobile performance 78–81, desktop homepage 99; accessibility/best-practices/SEO 100 throughout. CLS zero throughout. Mobile LCP under throttling remains 4.7–5.1s; do not describe this as perfect mobile performance. Evidence and limitations: verification.md.
 
-## Resume checkpoint
+## Remaining / resume checkpoint
 
-Context grew long; stopped at the completed Phase 5 boundary as requested. Resume Phase 6 from this checkpoint. Do not repeat research or initial template rollout. Read `rollout-review.md` for evidence and outstanding limits. Fix the existing minimatch override / jsx-a11y crash without disabling accessibility rules, run the complete original plus added browser suites (some original selectors may need updating for the upgraded navigation), audit production Lighthouse/accessibility, and test offline navigation against the production service worker. Existing large initial bundle warning and future Vite native-config warning remain to assess. Production deployments/main must remain untouched. No risky backlog work has been performed. Phase 7 report has not been written because full verification remains unfinished.
+Phase 7 only: write report.md with every before/after pair, added features, eight-dimension scores, blockers/untested work and full needs-approval list. Commit and stop without merging/deploying. Do not repeat completed research/rollout/verification. User-owned root CLAUDE.md stays untouched/untracked. Temporary third-party patch scratch in design-research/lint-plugin-patch stays untracked; the minimal persistent patch is in the nested app's patches/ directory.
 
 ## Reproduction
 

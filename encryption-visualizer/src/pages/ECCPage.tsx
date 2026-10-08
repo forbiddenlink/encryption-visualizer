@@ -47,7 +47,7 @@ export const ECCPage = () => {
   const handleGenerate = (size: 'tiny' | 'small' | 'medium') => {
     setCurveSize(size);
     const { steps: newSteps } = generateECCWithSteps(size);
-    setSteps(newSteps as any);
+    setSteps(newSteps);
     reset();
     play();
   };

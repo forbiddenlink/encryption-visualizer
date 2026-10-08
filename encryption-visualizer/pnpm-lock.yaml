@@ -13,6 +13,11 @@ overrides:
   esbuild: '>=0.28.1 <1'
   fast-uri: '>=3.1.6 <4.0.0'
 
+patchedDependencies:
+  eslint-plugin-jsx-a11y@6.10.2:
+    hash: dtwzjrn5bum2nukoxkr5nmu5h4
+    path: patches/eslint-plugin-jsx-a11y@6.10.2.patch
+
 importers:
 
   .:
@@ -74,7 +79,7 @@ importers:
         version: 10.9.1(jiti@2.7.0)
       eslint-plugin-jsx-a11y:
         specifier: ^6.10.2
-        version: 6.10.2(eslint@10.9.1(jiti@2.7.0))
+        version: 6.10.2(patch_hash=dtwzjrn5bum2nukoxkr5nmu5h4)(eslint@10.9.1(jiti@2.7.0))
       eslint-plugin-react-hooks:
         specifier: ^7.1.1
         version: 7.1.1(eslint@10.9.1(jiti@2.7.0))
@@ -4789,7 +4794,7 @@ snapshots:
 
   escape-string-regexp@4.0.0: {}
 
-  eslint-plugin-jsx-a11y@6.10.2(eslint@10.9.1(jiti@2.7.0)):
+  eslint-plugin-jsx-a11y@6.10.2(patch_hash=dtwzjrn5bum2nukoxkr5nmu5h4)(eslint@10.9.1(jiti@2.7.0)):
     dependencies:
       aria-query: 5.3.2
       array-includes: 3.1.9

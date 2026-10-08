@@ -186,7 +186,7 @@ export function generateDHKeyExchangeWithSteps(keySize: 'small' | 'medium' | 'la
   const secretsMatch = aliceSharedSecret === bobSharedSecret;
 
   steps.push({
-    stepNumber: stepNumber++,
+    stepNumber: stepNumber,
     type: 'complete',
     title: 'Key Exchange Complete!',
     description: secretsMatch

@@ -1,0 +1,1098 @@
+[
+  {
+    "route": "/",
+    "width": 1440,
+    "theme": "Dark",
+    "violations": []
+  },
+  {
+    "route": "/aes",
+    "width": 1440,
+    "theme": "Dark",
+    "violations": []
+  },
+  {
+    "route": "/rsa",
+    "width": 1440,
+    "theme": "Dark",
+    "violations": []
+  },
+  {
+    "route": "/ecc",
+    "width": 1440,
+    "theme": "Dark",
+    "violations": []
+  },
+  {
+    "route": "/block-modes",
+    "width": 1440,
+    "theme": "Dark",
+    "violations": []
+  },
+  {
+    "route": "/diffie-hellman",
+    "width": 1440,
+    "theme": "Dark",
+    "violations": []
+  },
+  {
+    "route": "/hashing",
+    "width": 1440,
+    "theme": "Dark",
+    "violations": []
+  },
+  {
+    "route": "/hmac",
+    "width": 1440,
+    "theme": "Dark",
+    "violations": []
+  },
+  {
+    "route": "/signatures",
+    "width": 1440,
+    "theme": "Dark",
+    "violations": []
+  },
+  {
+    "route": "/padding",
+    "width": 1440,
+    "theme": "Dark",
+    "violations": []
+  },
+  {
+    "route": "/password-hashing",
+    "width": 1440,
+    "theme": "Dark",
+    "violations": []
+  },
+  {
+    "route": "/tls",
+    "width": 1440,
+    "theme": "Dark",
+    "violations": []
+  },
+  {
+    "route": "/cryptanalysis",
+    "width": 1440,
+    "theme": "Dark",
+    "violations": []
+  },
+  {
+    "route": "/compare",
+    "width": 1440,
+    "theme": "Dark",
+    "violations": []
+  },
+  {
+    "route": "/learn",
+    "width": 1440,
+    "theme": "Dark",
+    "violations": []
+  },
+  {
+    "route": "/glossary",
+    "width": 1440,
+    "theme": "Dark",
+    "violations": []
+  },
+  {
+    "route": "/about",
+    "width": 1440,
+    "theme": "Dark",
+    "violations": []
+  },
+  {
+    "route": "/",
+    "width": 1440,
+    "theme": "Light",
+    "violations": []
+  },
+  {
+    "route": "/aes",
+    "width": 1440,
+    "theme": "Light",
+    "violations": []
+  },
+  {
+    "route": "/rsa",
+    "width": 1440,
+    "theme": "Light",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "cat.color",
+          "wcag2aa",
+          "wcag143",
+          "TTv5",
+          "TT13.c",
+          "EN-301-549",
+          "EN-9.1.4.3",
+          "ACT",
+          "RGAAv4",
+          "RGAA-3.2.1"
+        ],
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#172421",
+                  "bgColor": "#155dfc",
+                  "contrastRatio": 3.05,
+                  "fontSize": "7.5pt (10px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<div class=\"absolute -top-2 -right-2 px-2 py-0.5 bg-blue-600 rounded-full text-[10px] font-bold text-white\">RECOMMENDED</div>",
+                    "target": [
+                      ".absolute"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element has insufficient color contrast of 3.05 (foreground color: #172421, background color: #155dfc, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<div class=\"absolute -top-2 -right-2 px-2 py-0.5 bg-blue-600 rounded-full text-[10px] font-bold text-white\">RECOMMENDED</div>",
+            "target": [
+              ".absolute"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #172421, background color: #155dfc, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/ecc",
+    "width": 1440,
+    "theme": "Light",
+    "violations": []
+  },
+  {
+    "route": "/block-modes",
+    "width": 1440,
+    "theme": "Light",
+    "violations": []
+  },
+  {
+    "route": "/diffie-hellman",
+    "width": 1440,
+    "theme": "Light",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "cat.color",
+          "wcag2aa",
+          "wcag143",
+          "TTv5",
+          "TT13.c",
+          "EN-301-549",
+          "EN-9.1.4.3",
+          "ACT",
+          "RGAAv4",
+          "RGAA-3.2.1"
+        ],
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#172421",
+                  "bgColor": "#155dfc",
+                  "contrastRatio": 3.05,
+                  "fontSize": "7.5pt (10px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<div class=\"absolute -top-2 -right-2 px-2 py-0.5 bg-blue-600 rounded-full text-[10px] font-bold text-white\">RECOMMENDED</div>",
+                    "target": [
+                      ".absolute"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element has insufficient color contrast of 3.05 (foreground color: #172421, background color: #155dfc, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<div class=\"absolute -top-2 -right-2 px-2 py-0.5 bg-blue-600 rounded-full text-[10px] font-bold text-white\">RECOMMENDED</div>",
+            "target": [
+              ".absolute"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #172421, background color: #155dfc, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/hashing",
+    "width": 1440,
+    "theme": "Light",
+    "violations": []
+  },
+  {
+    "route": "/hmac",
+    "width": 1440,
+    "theme": "Light",
+    "violations": []
+  },
+  {
+    "route": "/signatures",
+    "width": 1440,
+    "theme": "Light",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "cat.color",
+          "wcag2aa",
+          "wcag143",
+          "TTv5",
+          "TT13.c",
+          "EN-301-549",
+          "EN-9.1.4.3",
+          "ACT",
+          "RGAAv4",
+          "RGAA-3.2.1"
+        ],
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#172421",
+                  "bgColor": "#155dfc",
+                  "contrastRatio": 3.05,
+                  "fontSize": "7.5pt (10px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<div class=\"absolute -top-2 -right-2 px-2 py-0.5 bg-blue-600 rounded-full text-[10px] font-bold text-white\">RECOMMENDED</div>",
+                    "target": [
+                      ".absolute"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element has insufficient color contrast of 3.05 (foreground color: #172421, background color: #155dfc, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<div class=\"absolute -top-2 -right-2 px-2 py-0.5 bg-blue-600 rounded-full text-[10px] font-bold text-white\">RECOMMENDED</div>",
+            "target": [
+              ".absolute"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #172421, background color: #155dfc, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/padding",
+    "width": 1440,
+    "theme": "Light",
+    "violations": []
+  },
+  {
+    "route": "/password-hashing",
+    "width": 1440,
+    "theme": "Light",
+    "violations": []
+  },
+  {
+    "route": "/tls",
+    "width": 1440,
+    "theme": "Light",
+    "violations": []
+  },
+  {
+    "route": "/cryptanalysis",
+    "width": 1440,
+    "theme": "Light",
+    "violations": []
+  },
+  {
+    "route": "/compare",
+    "width": 1440,
+    "theme": "Light",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "cat.color",
+          "wcag2aa",
+          "wcag143",
+          "TTv5",
+          "TT13.c",
+          "EN-301-549",
+          "EN-9.1.4.3",
+          "ACT",
+          "RGAAv4",
+          "RGAA-3.2.1"
+        ],
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#155dfc",
+                  "bgColor": "#dbeafe",
+                  "contrastRatio": 4.29,
+                  "fontSize": "12.0pt (16px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<div class=\"p-3 rounded-xl bg-blue-100 dark:bg-blue-500/20\"><div class=\"text-[10px] font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1\">Key Feature</div><div class=\"font-bold text-blue-600 dark:text-blue-400\">128/192/256-bit keys</div></div>",
+                    "target": [
+                      ".bg-blue-100.dark\\:bg-blue-500\\/20.rounded-xl"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element has insufficient color contrast of 4.29 (foreground color: #155dfc, background color: #dbeafe, font size: 12.0pt (16px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<div class=\"font-bold text-blue-600 dark:text-blue-400\">128/192/256-bit keys</div>",
+            "target": [
+              ".dark\\:text-blue-400.text-blue-600.font-bold"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.29 (foreground color: #155dfc, background color: #dbeafe, font size: 12.0pt (16px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#53635e",
+                  "bgColor": "#8e949e",
+                  "contrastRatio": 2.07,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<div class=\"p-4 rounded-xl border bg-slate-800/50 border-white/5\" style=\"opacity: 1; transform: none;\">",
+                    "target": [
+                      ".p-4.rounded-xl.border-white\\/5"
+                    ]
+                  },
+                  {
+                    "html": "<div class=\"glass-card p-4 sm:p-6\">",
+                    "target": [
+                      ".glass-card.sm\\:p-6.p-4:nth-child(7)"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element has insufficient color contrast of 2.07 (foreground color: #53635e, background color: #8e949e, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span class=\"text-xs text-slate-400 font-mono w-24 flex-shrink-0 text-right\">RSA-1024</span>",
+            "target": [
+              ".p-4.rounded-xl.border-white\\/5 > .space-y-2 > .gap-3.flex.items-center:nth-child(1) > .w-24.flex-shrink-0.text-right"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.07 (foreground color: #53635e, background color: #8e949e, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#53635e",
+                  "bgColor": "#8e949e",
+                  "contrastRatio": 2.07,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<div class=\"p-4 rounded-xl border bg-slate-800/50 border-white/5\" style=\"opacity: 1; transform: none;\">",
+                    "target": [
+                      ".p-4.rounded-xl.border-white\\/5"
+                    ]
+                  },
+                  {
+                    "html": "<div class=\"glass-card p-4 sm:p-6\">",
+                    "target": [
+                      ".glass-card.sm\\:p-6.p-4:nth-child(7)"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element has insufficient color contrast of 2.07 (foreground color: #53635e, background color: #8e949e, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span class=\"text-xs text-slate-400 font-mono w-24 flex-shrink-0 text-right\">ECC-160</span>",
+            "target": [
+              ".p-4.rounded-xl.border-white\\/5 > .space-y-2 > .gap-3.flex.items-center:nth-child(2) > .w-24.flex-shrink-0.text-right"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.07 (foreground color: #53635e, background color: #8e949e, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#53635e",
+                  "bgColor": "#8e949e",
+                  "contrastRatio": 2.07,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<div class=\"p-4 rounded-xl border bg-slate-800/50 border-white/5\" style=\"opacity: 1; transform: none;\">",
+                    "target": [
+                      ".p-4.rounded-xl.border-white\\/5"
+                    ]
+                  },
+                  {
+                    "html": "<div class=\"glass-card p-4 sm:p-6\">",
+                    "target": [
+                      ".glass-card.sm\\:p-6.p-4:nth-child(7)"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element has insufficient color contrast of 2.07 (foreground color: #53635e, background color: #8e949e, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span class=\"text-xs text-slate-400 font-mono w-24 flex-shrink-0 text-right\">2-Key 3DES</span>",
+            "target": [
+              ".p-4.rounded-xl.border-white\\/5 > .space-y-2 > .gap-3.flex.items-center:nth-child(3) > .w-24.flex-shrink-0.text-right"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.07 (foreground color: #53635e, background color: #8e949e, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/learn",
+    "width": 1440,
+    "theme": "Light",
+    "violations": []
+  },
+  {
+    "route": "/glossary",
+    "width": 1440,
+    "theme": "Light",
+    "violations": []
+  },
+  {
+    "route": "/about",
+    "width": 1440,
+    "theme": "Light",
+    "violations": []
+  },
+  {
+    "route": "/",
+    "width": 390,
+    "theme": "Dark",
+    "violations": []
+  },
+  {
+    "route": "/aes",
+    "width": 390,
+    "theme": "Dark",
+    "violations": []
+  },
+  {
+    "route": "/rsa",
+    "width": 390,
+    "theme": "Dark",
+    "violations": []
+  },
+  {
+    "route": "/ecc",
+    "width": 390,
+    "theme": "Dark",
+    "violations": []
+  },
+  {
+    "route": "/block-modes",
+    "width": 390,
+    "theme": "Dark",
+    "violations": []
+  },
+  {
+    "route": "/diffie-hellman",
+    "width": 390,
+    "theme": "Dark",
+    "violations": []
+  },
+  {
+    "route": "/hashing",
+    "width": 390,
+    "theme": "Dark",
+    "violations": []
+  },
+  {
+    "route": "/hmac",
+    "width": 390,
+    "theme": "Dark",
+    "violations": []
+  },
+  {
+    "route": "/signatures",
+    "width": 390,
+    "theme": "Dark",
+    "violations": []
+  },
+  {
+    "route": "/padding",
+    "width": 390,
+    "theme": "Dark",
+    "violations": []
+  },
+  {
+    "route": "/password-hashing",
+    "width": 390,
+    "theme": "Dark",
+    "violations": []
+  },
+  {
+    "route": "/tls",
+    "width": 390,
+    "theme": "Dark",
+    "violations": []
+  },
+  {
+    "route": "/cryptanalysis",
+    "width": 390,
+    "theme": "Dark",
+    "violations": []
+  },
+  {
+    "route": "/compare",
+    "width": 390,
+    "theme": "Dark",
+    "violations": []
+  },
+  {
+    "route": "/learn",
+    "width": 390,
+    "theme": "Dark",
+    "violations": []
+  },
+  {
+    "route": "/glossary",
+    "width": 390,
+    "theme": "Dark",
+    "violations": []
+  },
+  {
+    "route": "/about",
+    "width": 390,
+    "theme": "Dark",
+    "violations": []
+  },
+  {
+    "route": "/",
+    "width": 390,
+    "theme": "Light",
+    "violations": []
+  },
+  {
+    "route": "/aes",
+    "width": 390,
+    "theme": "Light",
+    "violations": []
+  },
+  {
+    "route": "/rsa",
+    "width": 390,
+    "theme": "Light",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "cat.color",
+          "wcag2aa",
+          "wcag143",
+          "TTv5",
+          "TT13.c",
+          "EN-301-549",
+          "EN-9.1.4.3",
+          "ACT",
+          "RGAAv4",
+          "RGAA-3.2.1"
+        ],
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#172421",
+                  "bgColor": "#155dfc",
+                  "contrastRatio": 3.05,
+                  "fontSize": "7.5pt (10px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<div class=\"absolute -top-2 -right-2 px-2 py-0.5 bg-blue-600 rounded-full text-[10px] font-bold text-white\">RECOMMENDED</div>",
+                    "target": [
+                      ".absolute"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element has insufficient color contrast of 3.05 (foreground color: #172421, background color: #155dfc, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<div class=\"absolute -top-2 -right-2 px-2 py-0.5 bg-blue-600 rounded-full text-[10px] font-bold text-white\">RECOMMENDED</div>",
+            "target": [
+              ".absolute"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #172421, background color: #155dfc, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/ecc",
+    "width": 390,
+    "theme": "Light",
+    "violations": []
+  },
+  {
+    "route": "/block-modes",
+    "width": 390,
+    "theme": "Light",
+    "violations": []
+  },
+  {
+    "route": "/diffie-hellman",
+    "width": 390,
+    "theme": "Light",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "cat.color",
+          "wcag2aa",
+          "wcag143",
+          "TTv5",
+          "TT13.c",
+          "EN-301-549",
+          "EN-9.1.4.3",
+          "ACT",
+          "RGAAv4",
+          "RGAA-3.2.1"
+        ],
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#172421",
+                  "bgColor": "#155dfc",
+                  "contrastRatio": 3.05,
+                  "fontSize": "7.5pt (10px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<div class=\"absolute -top-2 -right-2 px-2 py-0.5 bg-blue-600 rounded-full text-[10px] font-bold text-white\">RECOMMENDED</div>",
+                    "target": [
+                      ".absolute"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element has insufficient color contrast of 3.05 (foreground color: #172421, background color: #155dfc, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<div class=\"absolute -top-2 -right-2 px-2 py-0.5 bg-blue-600 rounded-full text-[10px] font-bold text-white\">RECOMMENDED</div>",
+            "target": [
+              ".absolute"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #172421, background color: #155dfc, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/hashing",
+    "width": 390,
+    "theme": "Light",
+    "violations": []
+  },
+  {
+    "route": "/hmac",
+    "width": 390,
+    "theme": "Light",
+    "violations": []
+  },
+  {
+    "route": "/signatures",
+    "width": 390,
+    "theme": "Light",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "cat.color",
+          "wcag2aa",
+          "wcag143",
+          "TTv5",
+          "TT13.c",
+          "EN-301-549",
+          "EN-9.1.4.3",
+          "ACT",
+          "RGAAv4",
+          "RGAA-3.2.1"
+        ],
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#172421",
+                  "bgColor": "#155dfc",
+                  "contrastRatio": 3.05,
+                  "fontSize": "7.5pt (10px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<div class=\"absolute -top-2 -right-2 px-2 py-0.5 bg-blue-600 rounded-full text-[10px] font-bold text-white\">RECOMMENDED</div>",
+                    "target": [
+                      ".absolute"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element has insufficient color contrast of 3.05 (foreground color: #172421, background color: #155dfc, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<div class=\"absolute -top-2 -right-2 px-2 py-0.5 bg-blue-600 rounded-full text-[10px] font-bold text-white\">RECOMMENDED</div>",
+            "target": [
+              ".absolute"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #172421, background color: #155dfc, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/padding",
+    "width": 390,
+    "theme": "Light",
+    "violations": []
+  },
+  {
+    "route": "/password-hashing",
+    "width": 390,
+    "theme": "Light",
+    "violations": []
+  },
+  {
+    "route": "/tls",
+    "width": 390,
+    "theme": "Light",
+    "violations": []
+  },
+  {
+    "route": "/cryptanalysis",
+    "width": 390,
+    "theme": "Light",
+    "violations": []
+  },
+  {
+    "route": "/compare",
+    "width": 390,
+    "theme": "Light",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "cat.color",
+          "wcag2aa",
+          "wcag143",
+          "TTv5",
+          "TT13.c",
+          "EN-301-549",
+          "EN-9.1.4.3",
+          "ACT",
+          "RGAAv4",
+          "RGAA-3.2.1"
+        ],
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#155dfc",
+                  "bgColor": "#dbeafe",
+                  "contrastRatio": 4.29,
+                  "fontSize": "12.0pt (16px)",
+                  "fontWeight": "bold",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<div class=\"p-3 rounded-xl bg-blue-100 dark:bg-blue-500/20\"><div class=\"text-[10px] font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1\">Key Feature</div><div class=\"font-bold text-blue-600 dark:text-blue-400\">128/192/256-bit keys</div></div>",
+                    "target": [
+                      ".bg-blue-100.dark\\:bg-blue-500\\/20.rounded-xl"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element has insufficient color contrast of 4.29 (foreground color: #155dfc, background color: #dbeafe, font size: 12.0pt (16px), font weight: bold). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<div class=\"font-bold text-blue-600 dark:text-blue-400\">128/192/256-bit keys</div>",
+            "target": [
+              ".dark\\:text-blue-400.text-blue-600.font-bold"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 4.29 (foreground color: #155dfc, background color: #dbeafe, font size: 12.0pt (16px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#53635e",
+                  "bgColor": "#8e949e",
+                  "contrastRatio": 2.07,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<div class=\"p-4 rounded-xl border bg-slate-800/50 border-white/5\" style=\"opacity: 1; transform: none;\">",
+                    "target": [
+                      ".p-4.rounded-xl.border-white\\/5"
+                    ]
+                  },
+                  {
+                    "html": "<div class=\"glass-card p-4 sm:p-6\">",
+                    "target": [
+                      ".glass-card.sm\\:p-6.p-4:nth-child(7)"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element has insufficient color contrast of 2.07 (foreground color: #53635e, background color: #8e949e, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span class=\"text-xs text-slate-400 font-mono w-24 flex-shrink-0 text-right\">RSA-1024</span>",
+            "target": [
+              ".p-4.rounded-xl.border-white\\/5 > .space-y-2 > .gap-3.flex.items-center:nth-child(1) > .w-24.flex-shrink-0.text-right"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.07 (foreground color: #53635e, background color: #8e949e, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#53635e",
+                  "bgColor": "#8e949e",
+                  "contrastRatio": 2.07,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<div class=\"p-4 rounded-xl border bg-slate-800/50 border-white/5\" style=\"opacity: 1; transform: none;\">",
+                    "target": [
+                      ".p-4.rounded-xl.border-white\\/5"
+                    ]
+                  },
+                  {
+                    "html": "<div class=\"glass-card p-4 sm:p-6\">",
+                    "target": [
+                      ".glass-card.sm\\:p-6.p-4:nth-child(7)"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element has insufficient color contrast of 2.07 (foreground color: #53635e, background color: #8e949e, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span class=\"text-xs text-slate-400 font-mono w-24 flex-shrink-0 text-right\">ECC-160</span>",
+            "target": [
+              ".p-4.rounded-xl.border-white\\/5 > .space-y-2 > .gap-3.flex.items-center:nth-child(2) > .w-24.flex-shrink-0.text-right"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.07 (foreground color: #53635e, background color: #8e949e, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#53635e",
+                  "bgColor": "#8e949e",
+                  "contrastRatio": 2.07,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "messageKey": null,
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<div class=\"p-4 rounded-xl border bg-slate-800/50 border-white/5\" style=\"opacity: 1; transform: none;\">",
+                    "target": [
+                      ".p-4.rounded-xl.border-white\\/5"
+                    ]
+                  },
+                  {
+                    "html": "<div class=\"glass-card p-4 sm:p-6\">",
+                    "target": [
+                      ".glass-card.sm\\:p-6.p-4:nth-child(7)"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element has insufficient color contrast of 2.07 (foreground color: #53635e, background color: #8e949e, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span class=\"text-xs text-slate-400 font-mono w-24 flex-shrink-0 text-right\">2-Key 3DES</span>",
+            "target": [
+              ".p-4.rounded-xl.border-white\\/5 > .space-y-2 > .gap-3.flex.items-center:nth-child(3) > .w-24.flex-shrink-0.text-right"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 2.07 (foreground color: #53635e, background color: #8e949e, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/learn",
+    "width": 390,
+    "theme": "Light",
+    "violations": []
+  },
+  {
+    "route": "/glossary",
+    "width": 390,
+    "theme": "Light",
+    "violations": []
+  },
+  {
+    "route": "/about",
+    "width": 390,
+    "theme": "Light",
+    "violations": []
+  }
+]

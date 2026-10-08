@@ -310,7 +310,7 @@ export function padWithSteps(
   // Step 6: Verify (unpad)
   const unpadded = unpad(padded, scheme);
   steps.push({
-    stepNumber: stepNumber++,
+    stepNumber: stepNumber,
     type: 'verify',
     title: 'Verify: Remove Padding',
     description: `After decryption, the padding is removed to recover the original data. The ${schemeName(scheme)} scheme ${scheme === 'zero' ? 'removes trailing zeros (ambiguous)' : 'reads the last byte to determine padding length (unambiguous)'}.`,

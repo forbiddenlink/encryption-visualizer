@@ -149,7 +149,7 @@ export function encryptECBWithSteps(plaintext: string, key: string): BlockModeSt
   steps.push({
     type: 'output',
     mode: 'ecb',
-    stepNumber: stepNumber++,
+    stepNumber: stepNumber,
     title: 'ECB Ciphertext',
     description: 'Final encrypted output. WARNING: Identical plaintext blocks produce identical ciphertext blocks, revealing patterns!',
     blocks: encryptedBlocks,
@@ -260,7 +260,7 @@ export function encryptCBCWithSteps(plaintext: string, key: string): BlockModeSt
   steps.push({
     type: 'output',
     mode: 'cbc',
-    stepNumber: stepNumber++,
+    stepNumber: stepNumber,
     title: 'CBC Ciphertext',
     description: 'Final encrypted output. IV must be stored/transmitted with ciphertext. Identical plaintext blocks produce DIFFERENT ciphertext!',
     blocks: encryptedBlocks,
@@ -379,7 +379,7 @@ export function encryptGCMWithSteps(plaintext: string, key: string): BlockModeSt
   steps.push({
     type: 'output',
     mode: 'gcm',
-    stepNumber: stepNumber++,
+    stepNumber: stepNumber,
     title: 'GCM Ciphertext + Auth Tag',
     description: 'Final output includes ciphertext AND authentication tag. Tag verifies integrity - any tampering is detected!',
     blocks: encryptedBlocks,

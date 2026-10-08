@@ -40,8 +40,6 @@ export const BruteForceDemo: React.FC<BruteForceDemoProps> = ({
       intervalRef.current = setInterval(() => {
         setCounter((prev) => (prev + Math.floor(Math.random() * 3) + 1) % 26);
       }, 50);
-    } else {
-      setCounter(0);
     }
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
@@ -72,7 +70,7 @@ export const BruteForceDemo: React.FC<BruteForceDemoProps> = ({
                 Current Attempt
               </div>
               <div className="text-2xl font-mono font-bold text-slate-900 dark:text-white">
-                Shift = {counter}
+                Shift = {isActive && !prefersReducedMotion ? counter : 0}
               </div>
             </div>
           </div>
