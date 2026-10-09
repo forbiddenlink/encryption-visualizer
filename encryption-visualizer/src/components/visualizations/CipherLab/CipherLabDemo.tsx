@@ -22,24 +22,11 @@ interface ByteCellProps {
 }
 
 const ByteCell = ({ char, hex, state, variant, reduced }: ByteCellProps) => {
-  const base =
-    'relative flex flex-col items-center justify-center rounded-md border w-11 h-12 sm:w-12 sm:h-14 font-mono transition-colors duration-200 select-none';
-  const tone =
-    variant === 'in'
-      ? {
-          pending: 'bg-slate-100 dark:bg-cyber-dark border-slate-200 dark:border-white/5 text-slate-400 dark:text-slate-600',
-          active: 'bg-cyber-blue/10 border-cyber-blue text-cyber-blue',
-          done: 'bg-slate-100 dark:bg-cyber-dark border-slate-200 dark:border-white/10 text-slate-500 dark:text-slate-500',
-        }
-      : {
-          pending: 'bg-slate-100 dark:bg-cyber-dark border-slate-200 dark:border-white/5 text-slate-300 dark:text-slate-700',
-          active: 'bg-cyber-cyan/15 border-cyber-cyan text-cyber-cyan shadow-[0_0_16px_rgba(6,182,212,0.35)]',
-          done: 'bg-emerald-500/10 dark:bg-cyber-cyan/5 border-emerald-500/30 dark:border-cyber-cyan/25 text-emerald-600 dark:text-cyber-cyan',
-        };
-
   return (
     <m.div
-      className={`${base} ${tone[state]}`}
+      className="cipher-byte"
+      data-state={state}
+      data-variant={variant}
       animate={
         reduced
           ? undefined
@@ -47,10 +34,10 @@ const ByteCell = ({ char, hex, state, variant, reduced }: ByteCellProps) => {
       }
       transition={{ type: 'spring', stiffness: 420, damping: 26 }}
     >
-      <span className="text-base sm:text-lg font-semibold leading-none">
+      <span className="cipher-byte-character">
         {char === ' ' ? '␣' : char}
       </span>
-      <span className="text-[9px] sm:text-[10px] leading-none mt-1 opacity-70">{hex}</span>
+      <span className="cipher-byte-hex">{hex}</span>
     </m.div>
   );
 };
@@ -78,7 +65,7 @@ export const CipherLabDemo = () => {
   const revealed = step;
   const activeIndex = revealed > 0 ? revealed - 1 : -1;
   const activeFrame = activeIndex >= 0 ? frames[activeIndex] : null;
-  const atEnd = revealed >= total;
+  const atEnd = total > 0 && revealed >= total;
 
   const clearTimer = () => {
     if (timerRef.current !== null) {
@@ -148,59 +135,35 @@ export const CipherLabDemo = () => {
   return (
     <section
       aria-label="Interactive cipher lab"
-      className="glass-card p-5 sm:p-7 space-y-6 relative overflow-hidden"
+      className="cipher-instrument"
     >
-      {/* Header */}
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <div className="flex items-center gap-2.5">
-          <span className="relative flex h-2.5 w-2.5" aria-hidden="true">
-            {!reduced && (
-              <span className="absolute inline-flex h-full w-full rounded-full bg-cyber-cyan opacity-75 animate-ping" />
-            )}
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyber-cyan" />
-          </span>
-          <h2 className="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-            Cipher Lab
-          </h2>
-        </div>
-        <p className="text-xs font-mono text-slate-400 dark:text-slate-500">
-          live byte-by-byte transform
-        </p>
+      <div className="instrument-header">
+        <div><p className="eyebrow">Experiment 01 / Live specimen</p><h2>Cipher Lab</h2></div>
+        <span className="instrument-serial">BYTE → BYTE</span>
       </div>
 
       {/* Algorithm selector */}
-      <div className="flex flex-wrap gap-2" role="tablist" aria-label="Cipher algorithm">
+      <div className="instrument-tabs" role="group" aria-label="Cipher algorithm">
         {CIPHER_ALGOS.map((a) => {
           const selected = a.id === algo;
           return (
             <button
               key={a.id}
-              role="tab"
-              aria-selected={selected}
+              aria-pressed={selected}
               onClick={() => selectAlgo(a.id)}
-              className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-sm font-semibold transition-all duration-150 active:scale-[0.98] border ${
-                selected
-                  ? 'bg-cyber-blue text-white border-cyber-blue shadow-[0_0_14px_rgba(59,130,246,0.3)]'
-                  : 'bg-slate-100 dark:bg-cyber-dark text-slate-600 dark:text-slate-300 border-slate-200 dark:border-white/5 hover:border-cyber-blue/40'
-              }`}
+              className="instrument-tab"
             >
               {a.label}
-              <span
-                className={`text-[10px] font-mono px-1.5 py-0.5 rounded ${
-                  selected ? 'bg-white/20' : 'bg-white dark:bg-cyber-surface text-slate-400'
-                }`}
-              >
-                {a.tag}
-              </span>
+              <span className="instrument-tab-tag">{a.tag}</span>
             </button>
           );
         })}
       </div>
 
       {/* Inputs */}
-      <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-3">
+      <div className="instrument-inputs">
         <label className="block">
-          <span className="text-xs font-medium text-slate-500 dark:text-slate-400 mb-1 block">
+          <span className="instrument-input-label">
             Plaintext
           </span>
           <input
@@ -213,8 +176,8 @@ export const CipherLabDemo = () => {
           />
         </label>
         {meta.usesKey && (
-          <label className="block sm:w-32">
-            <span className="text-xs font-medium text-slate-500 dark:text-slate-400 mb-1 block">
+          <label className="instrument-key">
+            <span className="instrument-input-label">
               {meta.keyLabel}
             </span>
             <input
@@ -230,13 +193,13 @@ export const CipherLabDemo = () => {
       </div>
 
       {/* Flow: plaintext -> core -> ciphertext */}
-      <div className="space-y-4">
+      <div className="instrument-flow">
         {/* Plaintext row */}
         <div>
-          <div className="text-[11px] font-mono uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2">
+          <div className="byte-label">
             Input
           </div>
-          <div className="flex flex-wrap gap-1.5">
+          <div className="byte-cells">
             {frames.map((f, i) => (
               <ByteCell
                 key={`in-${i}`}
@@ -250,27 +213,22 @@ export const CipherLabDemo = () => {
           </div>
         </div>
 
-        {/* Core */}
-        <div className="flex items-center justify-center gap-3 py-1">
-          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-slate-200 dark:via-white/10 to-slate-200 dark:to-white/10" />
-          <m.div
-            className="flex items-center gap-2 px-4 py-2 rounded-full bg-cyber-blue/10 border border-cyber-blue/30 text-cyber-blue font-mono text-sm font-semibold"
-            animate={reduced || !playing ? undefined : { scale: [1, 1.04, 1] }}
-            transition={{ duration: 0.6, repeat: Infinity }}
-          >
+        <div className="cipher-operation">
+          <span aria-hidden="true" className="cipher-operation-line" />
+          <div className="cipher-operation-value">
             <span aria-hidden="true">↓</span>
-            {activeFrame ? activeFrame.operand : meta.tag}
+            <span>{activeFrame ? activeFrame.operand : meta.tag}</span>
             <ArrowRight className="w-4 h-4" aria-hidden="true" />
-          </m.div>
-          <div className="h-px flex-1 bg-gradient-to-l from-transparent via-slate-200 dark:via-white/10 to-slate-200 dark:to-white/10" />
+          </div>
+          <span aria-hidden="true" className="cipher-operation-line" />
         </div>
 
         {/* Ciphertext row */}
         <div>
-          <div className="text-[11px] font-mono uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2">
+          <div className="byte-label">
             Ciphertext
           </div>
-          <div className="flex flex-wrap gap-1.5">
+          <div className="byte-cells">
             {frames.map((f, i) => (
               <ByteCell
                 key={`out-${i}`}
@@ -285,48 +243,51 @@ export const CipherLabDemo = () => {
         </div>
       </div>
 
+      {total === 0 && <p role="status" className="text-sm text-slate-600 dark:text-slate-300">Enter a message to see its bytes and begin the transformation.</p>}
+
       {/* Step note */}
       <div
-        className="min-h-[2.5rem] flex items-center gap-2 px-3.5 py-2.5 rounded-lg bg-slate-100/70 dark:bg-cyber-dark/60 border border-slate-200 dark:border-white/5"
+        className="instrument-note"
         aria-live="polite"
       >
-        <span className="text-xs font-mono text-slate-400 dark:text-slate-500 shrink-0">
+        <span className="instrument-step-number">
           {activeFrame ? `[${activeIndex + 1}/${total}]` : `[0/${total}]`}
         </span>
-        <span className="text-sm text-slate-600 dark:text-slate-300 font-medium">
+        <span className="instrument-step-note">
           {activeFrame ? activeFrame.note : meta.rule}
         </span>
       </div>
 
       {/* Controls */}
-      <div className="flex flex-wrap items-center justify-between gap-4">
-        <div className="flex items-center gap-2">
+      <div className="instrument-controls">
+        <div className="control-group">
           <button
             onClick={reset}
-            className="min-w-[44px] min-h-[44px] p-2.5 bg-slate-100 dark:bg-cyber-surface hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-200 dark:border-white/5 rounded-lg transition-all duration-150 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-cyber-blue flex items-center justify-center"
+            className="control-button"
             title="Reset"
             aria-label="Reset cipher lab"
           >
-            <RotateCcw className="w-5 h-5 text-slate-600 dark:text-slate-400" />
+            <RotateCcw className="w-4 h-4" />
           </button>
           <button
             onClick={back}
             disabled={revealed === 0}
-            className="min-w-[44px] min-h-[44px] p-2.5 bg-slate-100 dark:bg-cyber-surface hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-200 dark:border-white/5 rounded-lg transition-all duration-150 active:scale-[0.98] disabled:opacity-40 disabled:active:scale-100 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-cyber-blue flex items-center justify-center"
+            className="control-button"
             title="Step back"
             aria-label="Previous step"
           >
-            <SkipBack className="w-5 h-5 text-slate-600 dark:text-slate-400" />
+            <SkipBack className="w-4 h-4" />
           </button>
           <button
             onClick={togglePlay}
-            className="min-h-[44px] px-6 py-3 bg-cyber-blue hover:bg-cyber-cyan hover:text-cyber-dark text-white rounded-lg transition-all duration-150 active:scale-[0.98] flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-cyber-cyan"
+            disabled={total === 0}
+            className="control-button control-play"
             aria-label={playing ? 'Pause' : atEnd ? 'Replay' : 'Play'}
           >
             {playing ? (
-              <Pause className="w-5 h-5 fill-current" />
+              <Pause className="w-4 h-4 fill-current" />
             ) : (
-              <Play className="w-5 h-5 fill-current" />
+              <Play className="w-4 h-4 fill-current" />
             )}
             <span className="font-semibold text-sm">
               {playing ? 'Pause' : atEnd ? 'Replay' : 'Play'}
@@ -334,27 +295,23 @@ export const CipherLabDemo = () => {
           </button>
           <button
             onClick={forward}
-            disabled={atEnd}
-            className="min-w-[44px] min-h-[44px] p-2.5 bg-slate-100 dark:bg-cyber-surface hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-200 dark:border-white/5 rounded-lg transition-all duration-150 active:scale-[0.98] disabled:opacity-40 disabled:active:scale-100 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-cyber-blue flex items-center justify-center"
+            disabled={atEnd || total === 0}
+            className="control-button"
             title="Step forward"
             aria-label="Next step"
           >
-            <SkipForward className="w-5 h-5 text-slate-600 dark:text-slate-400" />
+            <SkipForward className="w-4 h-4" />
           </button>
         </div>
 
         {/* Speed */}
-        <div className="flex items-center gap-2 px-3 py-2 bg-slate-100 dark:bg-cyber-surface border border-slate-200 dark:border-white/5 rounded-lg">
+        <div className="instrument-speed">
           <Gauge className="w-4 h-4 text-slate-500 dark:text-slate-400" aria-hidden="true" />
           {SPEEDS.map((s) => (
             <button
               key={s}
               onClick={() => setSpeed(s)}
-              className={`px-2 py-1 rounded-md text-xs font-semibold transition-all duration-150 active:scale-95 ${
-                speed === s
-                  ? 'bg-cyber-blue text-white'
-                  : 'bg-white dark:bg-cyber-dark text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-white/5'
-              }`}
+              className="instrument-speed-button"
               aria-label={`Speed ${s}x`}
               aria-pressed={speed === s}
             >
@@ -365,7 +322,7 @@ export const CipherLabDemo = () => {
       </div>
 
       {/* Scrubber */}
-      <div className="space-y-1.5">
+      <div className="instrument-scrubber">
         <input
           type="range"
           min={0}
@@ -375,13 +332,13 @@ export const CipherLabDemo = () => {
             setPlaying(false);
             setStep(Number(e.target.value));
           }}
-          className="w-full accent-cyber-blue cursor-pointer"
+          className="instrument-range"
           aria-label="Scrub through cipher steps"
           aria-valuetext={`Step ${revealed} of ${total}`}
         />
-        <div className="h-1 rounded-full bg-slate-200 dark:bg-cyber-dark overflow-hidden">
+        <div className="instrument-progress">
           <div
-            className="h-full bg-cyber-cyan transition-all duration-200 ease-out"
+            className="instrument-progress-value"
             style={{ width: `${progress}%` }}
           />
         </div>

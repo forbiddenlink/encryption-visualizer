@@ -3,6 +3,7 @@ import { m, AnimatePresence } from 'framer-motion';
 import { AESStateMatrix } from './AESStateMatrix';
 import type { AESStep } from '@/lib/types';
 import { useVisualizationStore, type VisualizationSteps } from '@/store/visualizationStore';
+import { useAutoAdvance } from '@/hooks/useAutoAdvance';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { ArrowRight, Info, Cpu } from 'lucide-react';
 
@@ -15,7 +16,7 @@ interface AESVisualizerProps {
 }
 
 export const AESVisualizer: React.FC<AESVisualizerProps> = ({ steps: propSteps }) => {
-  const { currentStep, totalSteps, isPlaying, speed, setTotalSteps, setCurrentStep, pause, steps: storeSteps } = useVisualizationStore();
+  const { currentStep, totalSteps, setTotalSteps, steps: storeSteps } = useVisualizationStore();
   const steps = propSteps || (isAESSteps(storeSteps) ? storeSteps : []);
   const prefersReducedMotion = useReducedMotion();
 
@@ -30,22 +31,14 @@ export const AESVisualizer: React.FC<AESVisualizerProps> = ({ steps: propSteps }
     setTotalSteps(steps.length);
   }, [steps.length, setTotalSteps]);
 
-  useEffect(() => {
-    if (isPlaying && currentStep < steps.length - 1) {
-      const timer = setTimeout(() => {
-        setCurrentStep(currentStep + 1);
-      }, 2000 / speed);
-
-      return () => clearTimeout(timer);
-    } else if (currentStep >= steps.length - 1) {
-      pause();
-    }
-  }, [isPlaying, currentStep, steps.length, speed, setCurrentStep, pause]);
+  useAutoAdvance(steps.length);
 
   if (steps.length === 0 || currentStep >= steps.length) {
     return (
       <div className="glass-card p-12 text-center text-slate-500 dark:text-slate-400">
         <p>No visualization data available</p>
+        <h2 className="section-title text-2xl mt-4 text-slate-900 dark:text-white">Watch a block become ciphertext.</h2>
+        <p className="text-sm mt-4 max-w-md mx-auto">Use the example above, then start encryption. Pause at any round to inspect the state matrix and each transformation.</p>
       </div>
     );
   }

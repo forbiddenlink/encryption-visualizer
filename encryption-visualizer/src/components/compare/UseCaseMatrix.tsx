@@ -178,6 +178,7 @@ export const UseCaseMatrix: React.FC = () => {
                         } ${config.border} ${
                           isActive ? 'ring-2 ring-cyber-cyan ring-offset-1 ring-offset-slate-900' : ''
                         }`}
+                        aria-pressed={isActive}
                         title={`${alg} for ${useCase}: ${config.label}`}
                       >
                         <Icon className={`w-4 h-4 ${config.text}`} />
@@ -195,6 +196,8 @@ export const UseCaseMatrix: React.FC = () => {
       <AnimatePresence>
         {activeCell && (
           <motion.div
+            role="region"
+            aria-label="Use case explanation"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
@@ -226,6 +229,7 @@ export const UseCaseMatrix: React.FC = () => {
                   </p>
                 </div>
                 <button
+                  aria-label="Close use case explanation"
                   onClick={() => setActiveCell(null)}
                   className="p-1 rounded hover:bg-white/10 transition-colors"
                 >

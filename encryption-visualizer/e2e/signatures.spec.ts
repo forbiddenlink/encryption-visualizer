@@ -3,8 +3,10 @@ import { test, expect } from '@playwright/test';
 test.describe('Digital Signatures Visualization', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
-    // Use exact match to select the nav button, not the homepage card
-    await page.getByRole('button', { name: 'Signatures', exact: true }).click();
+    // Open the topic menu and follow the lesson link.
+    const nav = page.getByRole('navigation', { name: 'Main navigation', exact: true });
+    await nav.locator('summary').click();
+    await nav.getByRole('link', { name: 'Digital Signatures', exact: true }).click();
   });
 
   test('should display signature input panel', async ({ page }) => {
@@ -165,7 +167,7 @@ test.describe('Digital Signatures Visualization', () => {
     await page.goto('/');
 
     // Find and click the Signatures card
-    await page.getByRole('button', { name: /Learn Digital Signatures/i }).click();
+    await page.getByRole('link', { name: /Digital Signatures/i }).click();
 
     // Should be on signatures page
     await expect(page.getByRole('heading', { name: /Digital Signatures Visualizer/i })).toBeVisible();

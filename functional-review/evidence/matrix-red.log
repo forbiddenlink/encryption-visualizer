@@ -1,0 +1,831 @@
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - ESM syntax in a file loaded as CommonJS (functional-review/vitest.config.ts:1:1). Use a `.mjs` extension or set `"type": "module"` in the closest package.json
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+
+ RUN  v4.1.11 /Volumes/LizsDisk/encryption-visualizer/encryption-visualizer
+
+ ❯ src/components/compare/UseCaseMatrix.test.tsx (1 test | 1 failed) 90ms
+   × offers an accessible close action for the selected use-case explanation 88ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/components/compare/UseCaseMatrix.test.tsx > offers an accessible close action for the selected use-case explanation
+TestingLibraryElementError: Unable to find an accessible element with the role "button" and name `/Close use case explanation/i`
+
+Here are the accessible roles:
+
+  heading:
+
+  Name "Use Case Matrix":
+  [36m<h3[39m
+    [33mclass[39m=[32m"text-lg font-bold text-slate-900 dark:text-white"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  paragraph:
+
+  Name "":
+  [36m<p[39m
+    [33mclass[39m=[32m"text-sm text-slate-600 dark:text-slate-400"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<p[39m
+    [33mclass[39m=[32m"text-xs text-slate-400"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  table:
+
+  Name "":
+  [36m<table[39m
+    [33mclass[39m=[32m"w-full text-sm"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  rowgroup:
+
+  Name "":
+  [36m<thead />[39m
+
+  Name "":
+  [36m<tbody[39m
+    [33mclass[39m=[32m"divide-y divide-slate-800"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  row:
+
+  Name "Use Case AES RSA SHA-256 HMAC DH Signatures":
+  [36m<tr[39m
+    [33mclass[39m=[32m"border-b border-slate-700"[39m
+  [36m/>[39m
+
+  Name "Encrypt bulk data":
+  [36m<tr[39m
+    [33mclass[39m=[32m"hover:bg-white/[0.02]"[39m
+  [36m/>[39m
+
+  Name "Sign documents":
+  [36m<tr[39m
+    [33mclass[39m=[32m"hover:bg-white/[0.02]"[39m
+  [36m/>[39m
+
+  Name "Exchange keys":
+  [36m<tr[39m
+    [33mclass[39m=[32m"hover:bg-white/[0.02]"[39m
+  [36m/>[39m
+
+  Name "Hash passwords":
+  [36m<tr[39m
+    [33mclass[39m=[32m"hover:bg-white/[0.02]"[39m
+  [36m/>[39m
+
+  Name "Authenticate messages":
+  [36m<tr[39m
+    [33mclass[39m=[32m"hover:bg-white/[0.02]"[39m
+  [36m/>[39m
+
+  Name "Store secrets":
+  [36m<tr[39m
+    [33mclass[39m=[32m"hover:bg-white/[0.02]"[39m
+  [36m/>[39m
+
+  Name "TLS/HTTPS":
+  [36m<tr[39m
+    [33mclass[39m=[32m"hover:bg-white/[0.02]"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  columnheader:
+
+  Name "Use Case":
+  [36m<th[39m
+    [33mclass[39m=[32m"text-left py-3 pr-4 text-slate-500 font-semibold text-xs"[39m
+  [36m/>[39m
+
+  Name "AES":
+  [36m<th[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center text-xs font-bold text-slate-300 whitespace-nowrap"[39m
+  [36m/>[39m
+
+  Name "RSA":
+  [36m<th[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center text-xs font-bold text-slate-300 whitespace-nowrap"[39m
+  [36m/>[39m
+
+  Name "SHA-256":
+  [36m<th[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center text-xs font-bold text-slate-300 whitespace-nowrap"[39m
+  [36m/>[39m
+
+  Name "HMAC":
+  [36m<th[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center text-xs font-bold text-slate-300 whitespace-nowrap"[39m
+  [36m/>[39m
+
+  Name "DH":
+  [36m<th[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center text-xs font-bold text-slate-300 whitespace-nowrap"[39m
+  [36m/>[39m
+
+  Name "Signatures":
+  [36m<th[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center text-xs font-bold text-slate-300 whitespace-nowrap"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  cell:
+
+  Name "Encrypt bulk data":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 pr-4 text-xs font-medium text-slate-400 whitespace-nowrap"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center"[39m
+  [36m/>[39m
+
+  Name "Sign documents":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 pr-4 text-xs font-medium text-slate-400 whitespace-nowrap"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center"[39m
+  [36m/>[39m
+
+  Name "Exchange keys":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 pr-4 text-xs font-medium text-slate-400 whitespace-nowrap"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center"[39m
+  [36m/>[39m
+
+  Name "Hash passwords":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 pr-4 text-xs font-medium text-slate-400 whitespace-nowrap"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center"[39m
+  [36m/>[39m
+
+  Name "Authenticate messages":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 pr-4 text-xs font-medium text-slate-400 whitespace-nowrap"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center"[39m
+  [36m/>[39m
+
+  Name "Store secrets":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 pr-4 text-xs font-medium text-slate-400 whitespace-nowrap"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center"[39m
+  [36m/>[39m
+
+  Name "TLS/HTTPS":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 pr-4 text-xs font-medium text-slate-400 whitespace-nowrap"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<td[39m
+    [33mclass[39m=[32m"py-3 px-2 text-center"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  button:
+
+  Name "AES for Encrypt bulk data: Recommended":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all hover:scale-110 bg-emerald-500/20 border-emerald-500/30 ring-2 ring-cyber-cyan ring-offset-1 ring-offset-slate-900"[39m
+    [33mtitle[39m=[32m"AES for Encrypt bulk data: Recommended"[39m
+  [36m/>[39m
+
+  Name "RSA for Encrypt bulk data: Not Suitable":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all hover:scale-110 bg-slate-800/50 border-white/5 "[39m
+    [33mtitle[39m=[32m"RSA for Encrypt bulk data: Not Suitable"[39m
+  [36m/>[39m
+
+  Name "SHA-256 for Encrypt bulk data: Not Suitable":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all hover:scale-110 bg-slate-800/50 border-white/5 "[39m
+    [33mtitle[39m=[32m"SHA-256 for Encrypt bulk data: Not Suitable"[39m
+  [36m/>[39m
+
+  Name "HMAC for Encrypt bulk data: Not Suitable":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all hover:scale-110 bg-slate-800/50 border-white/5 "[39m
+    [33mtitle[39m=[32m"HMAC for Encrypt bulk data: Not Suitable"[39m
+  [36m/>[39m
+
+  Name "DH for Encrypt bulk data: Not Suitable":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all hover:scale-110 bg-slate-800/50 border-white/5 "[39m
+    [33mtitle[39m=[32m"DH for Encrypt bulk data: Not Suitable"[39m
+  [36m/>[39m
+
+  Name "Signatures for Encrypt bulk data: Not Suitable":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all hover:scale-110 bg-slate-800/50 border-white/5 "[39m
+    [33mtitle[39m=[32m"Signatures for Encrypt bulk data: Not Suitable"[39m
+  [36m/>[39m
+
+  Name "AES for Sign documents: Not Suitable":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all hover:scale-110 bg-slate-800/50 border-white/5 "[39m
+    [33mtitle[39m=[32m"AES for Sign documents: Not Suitable"[39m
+  [36m/>[39m
+
+  Name "RSA for Sign documents: Recommended":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all hover:scale-110 bg-emerald-500/20 border-emerald-500/30 "[39m
+    [33mtitle[39m=[32m"RSA for Sign documents: Recommended"[39m
+  [36m/>[39m
+
+  Name "SHA-256 for Sign documents: Not Suitable":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all hover:scale-110 bg-slate-800/50 border-white/5 "[39m
+    [33mtitle[39m=[32m"SHA-256 for Sign documents: Not Suitable"[39m
+  [36m/>[39m
+
+  Name "HMAC for Sign documents: Possible":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all hover:scale-110 bg-amber-500/20 border-amber-500/30 "[39m
+    [33mtitle[39m=[32m"HMAC for Sign documents: Possible"[39m
+  [36m/>[39m
+
+  Name "DH for Sign documents: Not Suitable":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all hover:scale-110 bg-slate-800/50 border-white/5 "[39m
+    [33mtitle[39m=[32m"DH for Sign documents: Not Suitable"[39m
+  [36m/>[39m
+
+  Name "Signatures for Sign documents: Recommended":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all hover:scale-110 bg-emerald-500/20 border-emerald-500/30 "[39m
+    [33mtitle[39m=[32m"Signatures for Sign documents: Recommended"[39m
+  [36m/>[39m
+
+  Name "AES for Exchange keys: Not Suitable":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all hover:scale-110 bg-slate-800/50 border-white/5 "[39m
+    [33mtitle[39m=[32m"AES for Exchange keys: Not Suitable"[39m
+  [36m/>[39m
+
+  Name "RSA for Exchange keys: Possible":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all hover:scale-110 bg-amber-500/20 border-amber-500/30 "[39m
+    [33mtitle[39m=[32m"RSA for Exchange keys: Possible"[39m
+  [36m/>[39m
+
+  Name "SHA-256 for Exchange keys: Not Suitable":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all hover:scale-110 bg-slate-800/50 border-white/5 "[39m
+    [33mtitle[39m=[32m"SHA-256 for Exchange keys: Not Suitable"[39m
+  [36m/>[39m
+
+  Name "HMAC for Exchange keys: Not Suitable":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all hover:scale-110 bg-slate-800/50 border-white/5 "[39m
+    [33mtitle[39m=[32m"HMAC for Exchange keys: Not Suitable"[39m
+  [36m/>[39m
+
+  Name "DH for Exchange keys: Recommended":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all hover:scale-110 bg-emerald-500/20 border-emerald-500/30 "[39m
+    [33mtitle[39m=[32m"DH for Exchange keys: Recommended"[39m
+  [36m/>[39m
+
+  Name "Signatures for Exchange keys: Not Suitable":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all hover:scale-110 bg-slate-800/50 border-white/5 "[39m
+    [33mtitle[39m=[32m"Signatures for Exchange keys: Not Suitable"[39m
+  [36m/>[39m
+
+  Name "AES for Hash passwords: Not Suitable":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all hover:scale-110 bg-slate-800/50 border-white/5 "[39m
+    [33mtitle[39m=[32m"AES for Hash passwords: Not Suitable"[39m
+  [36m/>[39m
+
+  Name "RSA for Hash passwords: Not Suitable":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all hover:scale-110 bg-slate-800/50 border-white/5 "[39m
+    [33mtitle[39m=[32m"RSA for Hash passwords: Not Suitable"[39m
+  [36m/>[39m
+
+  Name "SHA-256 for Hash passwords: Possible":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all hover:scale-110 bg-amber-500/20 border-amber-500/30 "[39m
+    [33mtitle[39m=[32m"SHA-256 for Hash passwords: Possible"[39m
+  [36m/>[39m
+
+  Name "HMAC for Hash passwords: Not Suitable":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all hover:scale-110 bg-slate-800/50 border-white/5 "[39m
+    [33mtitle[39m=[32m"HMAC for Hash passwords: Not Suitable"[39m
+  [36m/>[39m
+
+  Name "DH for Hash passwords: Not Suitable":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all hover:scale-110 bg-slate-800/50 border-white/5 "[39m
+    [33mtitle[39m=[32m"DH for Hash passwords: Not Suitable"[39m
+  [36m/>[39m
+
+  Name "Signatures for Hash passwords: Not Suitable":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all hover:scale-110 bg-slate-800/50 border-white/5 "[39m
+    [33mtitle[39m=[32m"Signatures for Hash passwords: Not Suitable"[39m
+  [36m/>[39m
+
+  Name "AES for Authenticate messages: Possible":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all hover:scale-110 bg-amber-500/20 border-amber-500/30 "[39m
+    [33mtitle[39m=[32m"AES for Authenticate messages: Possible"[39m
+  [36m/>[39m
+
+  Name "RSA for Authenticate messages: Possible":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all hover:scale-110 bg-amber-500/20 border-amber-500/30 "[39m
+    [33mtitle[39m=[32m"RSA for Authenticate messages: Possible"[39m
+  [36m/>[39m
+
+  Name "SHA-256 for Authenticate messages: Not Suitable":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all hover:scale-110 bg-slate-800/50 border-white/5 "[39m
+    [33mtitle[39m=[32m"SHA-256 for Authenticate messages: Not Suitable"[39m
+  [36m/>[39m
+
+  Name "HMAC for Authenticate messages: Recommended":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all hover:scale-110 bg-emerald-500/20 border-emerald-500/30 "[39m
+    [33mtitle[39m=[32m"HMAC for Authenticate messages: Recommended"[39m
+  [36m/>[39m
+
+  Name "DH for Authenticate messages: Not Suitable":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all hover:scale-110 bg-slate-800/50 border-white/5 "[39m
+    [33mtitle[39m=[32m"DH for Authenticate messages: Not Suitable"[39m
+  [36m/>[39m
+
+  Name "Signatures for Authenticate messages: Recommended":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all hover:scale-110 bg-emerald-500/20 border-emerald-500/30 "[39m
+    [33mtitle[39m=[32m"Signatures for Authenticate messages: Recommended"[39m
+  [36m/>[39m
+
+  Name "AES for Store secrets: Recommended":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all hover:scale-110 bg-emerald-500/20 border-emerald-500/30 "[39m
+    [33mtitle[39m=[32m"AES for Store secrets: Recommended"[39m
+  [36m/>[39m
+
+  Name "RSA for Store secrets: Possible":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all hover:scale-110 bg-amber-500/20 border-amber-500/30 "[39m
+    [33mtitle[39m=[32m"RSA for Store secrets: Possible"[39m
+  [36m/>[39m
+
+  Name "SHA-256 for Store secrets: Not Suitable":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all hover:scale-110 bg-slate-800/50 border-white/5 "[39m
+    [33mtitle[39m=[32m"SHA-256 for Store secrets: Not Suitable"[39m
+  [36m/>[39m
+
+  Name "HMAC for Store secrets: Not Suitable":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all hover:scale-110 bg-slate-800/50 border-white/5 "[39m
+    [33mtitle[39m=[32m"HMAC for Store secrets: Not Suitable"[39m
+  [36m/>[39m
+
+  Name "DH for Store secrets: Not Suitable":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all hover:scale-110 bg-slate-800/50 border-white/5 "[39m
+    [33mtitle[39m=[32m"DH for Store secrets: Not Suitable"[39m
+  [36m/>[39m
+
+  Name "Signatures for Store secrets: Not Suitable":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all hover:scale-110 bg-slate-800/50 border-white/5 "[39m
+    [33mtitle[39m=[32m"Signatures for Store secrets: Not Suitable"[39m
+  [36m/>[39m
+
+  Name "AES for TLS/HTTPS: Recommended":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all hover:scale-110 bg-emerald-500/20 border-emerald-500/30 "[39m
+    [33mtitle[39m=[32m"AES for TLS/HTTPS: Recommended"[39m
+  [36m/>[39m
+
+  Name "RSA for TLS/HTTPS: Possible":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all hover:scale-110 bg-amber-500/20 border-amber-500/30 "[39m
+    [33mtitle[39m=[32m"RSA for TLS/HTTPS: Possible"[39m
+  [36m/>[39m
+
+  Name "SHA-256 for TLS/HTTPS: Recommended":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all hover:scale-110 bg-emerald-500/20 border-emerald-500/30 "[39m
+    [33mtitle[39m=[32m"SHA-256 for TLS/HTTPS: Recommended"[39m
+  [36m/>[39m
+
+  Name "HMAC for TLS/HTTPS: Recommended":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all hover:scale-110 bg-emerald-500/20 border-emerald-500/30 "[39m
+    [33mtitle[39m=[32m"HMAC for TLS/HTTPS: Recommended"[39m
+  [36m/>[39m
+
+  Name "DH for TLS/HTTPS: Recommended":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all hover:scale-110 bg-emerald-500/20 border-emerald-500/30 "[39m
+    [33mtitle[39m=[32m"DH for TLS/HTTPS: Recommended"[39m
+  [36m/>[39m
+
+  Name "Signatures for TLS/HTTPS: Recommended":
+  [36m<button[39m
+    [33mclass[39m=[32m"inline-flex items-center justify-center w-8 h-8 rounded-lg border transition-all hover:scale-110 bg-emerald-500/20 border-emerald-500/30 "[39m
+    [33mtitle[39m=[32m"Signatures for TLS/HTTPS: Recommended"[39m
+  [36m/>[39m
+
+  Name "":
+  [36m<button[39m
+    [33mclass[39m=[32m"p-1 rounded hover:bg-white/10 transition-colors"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"space-y-6"[39m
+    [36m>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"flex items-center gap-3 mb-2"[39m
+      [36m>[39m
+        [36m<svg[39m
+          [33maria-hidden[39m=[32m"true"[39m
+          [33mclass[39m=[32m"lucide lucide-grid3x3 lucide-grid-3x3 w-5 h-5 text-cyber-cyan"[39m
+          [33mfill[39m=[32m"none"[39m
+          [33mheight[39m=[32m"24"[39m
+          [33mstroke[39m=[32m"currentColor"[39m
+          [33mstroke-linecap[39m=[32m"round"[39m
+          [33mstroke-linejoin[39m=[32m"round"[39m
+          [33mstroke-width[39m=[32m"2"[39m
+          [33mviewBox[39m=[32m"0 0 24 24"[39m
+          [33mwidth[39m=[32m"24"[39m
+          [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+        [36m>[39m
+          [36m<rect[39m
+            [33mheight[39m=[32m"18"[39m
+            [33mrx[39m=[32m"2"[39m
+            [33mwidth[39m=[32m"18"[39m
+            [33mx[39m=[32m"3"[39m
+            [33my[39m=[32m"3"[39m
+          [36m/>[39m
+          [36m<path[39m
+            [33md[39m=[32m"M3 9h18"[39m
+          [36m/>[39m
+          [36m<path[39m
+            [33md[39m=[32m"M3 15h18"[39m
+          [36m/>[39m
+          [36m<path[39m
+            [33md[39m=[32m"M9 3v18"[39m
+          [36m/>[39m
+          [36m<path[39m
+            [33md[39m=[32m"M15 3v18"[39m
+          [36m/>[39m
+        [36m</svg>[39m
+        [36m<h3[39m
+          [33mclass[39m=[32m"text-lg font-bold text-slate-900 dark:text-white"[39m
+        [36m>[39m
+          [0mUse Case Matrix[0m
+        [36m</h3>[39m
+      [36m</div>[39m
+      [36m<p[39m
+        [33mclass[39m=[32m"text-sm text-slate-600 dark:text-slate-400"[39m
+      [36m>[39m
+        [0mWhich algorithm for which purpose? Click any cell for a detailed explanation.[0m
+      [36m</p>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"flex flex-wrap gap-4 text-xs"[39m
+      [36m>[39m
+        [36m<span[39m
+          [33mclass[39m=[32m"flex items-center gap-1.5"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"flex items-center justify-center w-5 h-5 rounded bg-emerald-500/20"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-star w-3 h-3 text-emerald-400"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mheight[39m=[32m"24"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"24"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+          [36m</span>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"text-slate-400"[39m
+          [36m>[39m
+            [0mRecommended[0m
+          [36m</span>[39m
+        [36m</span>[39m
+        [36m<span[39m
+          [33mclass[39m=[32m"flex items-center gap-1.5"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"flex items-center justify-center w-5 h-5 rounded bg-amber-500/20"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-check w-3 h-3 text-amber-400"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mheight[39m=[32m"24"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"24"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M20 6 9 17l-5-5"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+          [36m</span>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"text-slate-400"[39m
+          [36m>[39m
+            [0mPossible[0m
+          [36m</span>[39m
+        [36m</span>[39m
+        [36m<span[39m
+          [33mclass[39m=[32m"flex items-center gap-1.5"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"flex items-center justify-center w-5 h-5 rounded bg-slate-800/50"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-minus w-3 h-3 text-slate-600"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mheight[39m=[32m"24"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"24"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M5 12h14"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+          [36m</span>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"text-slate-400"[39m
+          [36m>[39m
+            [0mNot Suitable[0m
+          [36m</span>[39m
+        [36m</span>[39m
+      [36m</div>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"overflow-x-auto"[39m
+      [36m>[39m
+        [36m<table[39m
+          [33mclass[39m=[32m"w-full text-sm"[39m
+        [36m>[39m
+          [36m<thead>[39m
+            [36m<tr[39m
+              [33mclass[39m=[32m"border-b border-slate-700"[39m
+            [36m>[39m
+              [36m<th[39m
+                [33mclass[39m=[32m"text-left py-3 pr-4 text-slate-500 font-semibold text-xs"[39m
+              [36m>[39m
+                [0mUse Case[0m
+              [36m</th>[39m
+              [36m<th[39m
+                [33mclass[39m=[32m"py-3 px-2 text-center text-xs font-bold text-slate-300 whitespace-nowrap"[39m
+            ...
+ ❯ Object.getElementError node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/.pnpm/@testing-library+dom@10.4.1/node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ src/components/compare/UseCaseMatrix.test.tsx:10:26
+      8|   fireEvent.click(screen.getByRole('button', { name: 'AES for Encrypt …
+      9|   await waitFor(() => expect(screen.getByText('AES is the standard for…
+     10|   fireEvent.click(screen.getByRole('button', { name: /Close use case e…
+       |                          ^
+     11|   await waitFor(() => expect(screen.queryByText('AES is the standard f…
+     12| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed (1)
+   Start at  14:34:11
+   Duration  47.54s (transform 1.89s, setup 10.81s, import 16.32s, tests 90ms, environment 17.71s)
+

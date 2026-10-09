@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { AnimatePresence, m, useReducedMotion } from 'framer-motion';
 import { Header } from './Header';
+import { Footer } from './Footer';
 import { ScrollToTop } from './ScrollToTop';
 import { ToastContainer } from '@/components/ui/Toast';
+import { lessons } from '@/data/lessonCatalog';
+import { LessonNext } from '@/components/learning/LessonNext';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -12,9 +15,15 @@ interface LayoutProps {
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   const location = useLocation();
   const shouldReduceMotion = useReducedMotion();
+  const lesson = lessons.find((item) => `/${item.slug}` === location.pathname);
+
+  useEffect(() => {
+    const titles: Record<string, string> = { '/': 'Interactive cryptography field guide', '/learn': 'Learning Paths', '/glossary': 'Crypto Glossary', '/compare': 'Algorithm Comparison', '/about': 'About CryptoViz' };
+    document.title = `${lesson?.title ?? titles[location.pathname] ?? 'Cryptography'} | CryptoViz`;
+  }, [location.pathname, lesson?.title]);
 
   return (
-    <div className="min-h-screen">
+    <div className="site-shell" data-page={lesson ? 'lesson' : location.pathname.slice(1) || 'home'} data-lesson={lesson?.slug}>
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded-lg focus:outline-none"
@@ -28,9 +37,9 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
       <main
         id="main-content"
         role="main"
-        className="pt-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-6 sm:py-12"
+        className="site-main"
       >
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait" initial={false}>
           <m.div
             key={location.pathname}
             initial={shouldReduceMotion ? false : { opacity: 0, y: 8 }}
@@ -38,11 +47,19 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
             exit={shouldReduceMotion ? undefined : { opacity: 0 }}
             transition={{ duration: 0.2, ease: 'easeOut' }}
           >
+            {lesson && (
+              <div className="lesson-running-head" aria-label="Lesson index">
+                <span>Study {String(lessons.indexOf(lesson) + 1).padStart(2, '0')} / {String(lessons.length).padStart(2, '0')}</span>
+                <span>{lesson.category}</span>
+              </div>
+            )}
             {children}
+            {lesson && <LessonNext slug={lesson.slug} />}
           </m.div>
         </AnimatePresence>
       </main>
 
+      <Footer />
       <ToastContainer />
     </div>
   );

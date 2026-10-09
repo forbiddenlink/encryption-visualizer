@@ -97,7 +97,7 @@ export const AESStateMatrix: React.FC<AESStateMatrixProps> = ({
                     {/* Tooltip on hover */}
                     <div
                       className={`
-                        absolute z-50 px-3 py-2.5 rounded-lg text-xs font-medium whitespace-nowrap pointer-events-none
+                        byte-tooltip absolute z-50 px-3 py-2.5 rounded-lg text-xs font-medium whitespace-nowrap pointer-events-none
                         opacity-0 group-hover/cell:opacity-100 transition-opacity duration-150
                         bg-slate-900 dark:bg-slate-800 text-white border border-slate-700
                         shadow-lg

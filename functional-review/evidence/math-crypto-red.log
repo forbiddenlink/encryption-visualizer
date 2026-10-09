@@ -1,0 +1,262 @@
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - `__dirname` (vite.config.ts:83:25). Use `import.meta.dirname` instead
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+
+ RUN  v4.1.11 /Volumes/LizsDisk/encryption-visualizer/encryption-visualizer
+
+ ❯ src/lib/crypto/ecc.test.ts (58 tests | 2 failed) 24ms
+     × reports an impossible signature instead of retrying forever 8ms
+     × explains unavailable signing in the small-curve walkthrough 1ms
+ ❯ src/lib/crypto/aes.test.ts (44 tests | 10 failed) 53ms
+     × matches the FIPS 197 AES-128 known-answer ciphertext 16ms
+     × matches the AES-128 all-zero block/key vector 1ms
+     × reduces high-bit MixColumns products to bytes 16ms
+     × keeps every example frame renderable as 16 bytes 1ms
+     × rejects unsupported plaintext without truncating: 😀 1ms
+     × rejects unsupported plaintext without truncating: 漢 1ms
+     × rejects unsupported plaintext without truncating: aaaaaaaaaaaaaaaaa 1ms
+     × rejects unsupported keys without truncating: 😀 1ms
+     × rejects unsupported keys without truncating: 漢 1ms
+     × rejects unsupported keys without truncating: kkkkkkkkkkkkkkkkk 0ms
+ ❯ src/lib/crypto/diffie-hellman.test.ts (27 tests | 4 failed) 25ms
+     × generates every nonzero residue for prime 23 7ms
+     × generates every nonzero residue for prime 41 1ms
+     × generates every nonzero residue for prime 97 0ms
+     × generates every nonzero residue for prime 499 1ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 16 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/lib/crypto/aes.test.ts > AES byte arithmetic regressions > matches the FIPS 197 AES-128 known-answer ciphertext
+AssertionError: expected '13111dc4e3949879f895838bc32b3004' to be '69c4e0d86a7b0430d8cdb78070b4c55a' // Object.is equality
+
+Expected: "69c4e0d86a7b0430d8cdb78070b4c55a"
+Received: "13111dc4e3949879f895838bc32b3004"
+
+ ❯ src/lib/crypto/aes.test.ts:478:94
+    476|
+    477|   it('matches the FIPS 197 AES-128 known-answer ciphertext', () => {
+    478|     expect(finalHex('00112233445566778899aabbccddeeff', '0001020304050…
+       |                                                                                              ^
+    479|   });
+    480|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/16]⎯
+
+ FAIL  src/lib/crypto/aes.test.ts > AES byte arithmetic regressions > matches the AES-128 all-zero block/key vector
+AssertionError: expected 'b4ef5b5b3e92f89c669851a37c28addb' to be '66e94bd4ef8a2c3b884cfa59ca342b2e' // Object.is equality
+
+Expected: "66e94bd4ef8a2c3b884cfa59ca342b2e"
+Received: "b4ef5b5b3e92f89c669851a37c28addb"
+
+ ❯ src/lib/crypto/aes.test.ts:482:94
+    480|
+    481|   it('matches the AES-128 all-zero block/key vector', () => {
+    482|     expect(finalHex('00000000000000000000000000000000', '0000000000000…
+       |                                                                                              ^
+    483|   });
+    484|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/16]⎯
+
+ FAIL  src/lib/crypto/aes.test.ts > AES byte arithmetic regressions > reduces high-bit MixColumns products to bytes
+AssertionError: expected [ 283, 128, 128, 411 ] to deeply equal [ 27, 128, 128, 155 ]
+
+- Expected
++ Received
+
+  [
+-   27,
++   283,
+    128,
+    128,
+-   155,
++   411,
+  ]
+
+ ❯ src/lib/crypto/aes.test.ts:487:39
+    485|   it('reduces high-bit MixColumns products to bytes', () => {
+    486|     const result = mixColumns([[128, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0,…
+    487|     expect(result.map(row => row[0])).toEqual([27, 128, 128, 155]);
+       |                                       ^
+    488|   });
+    489|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/16]⎯
+
+ FAIL  src/lib/crypto/aes.test.ts > AES byte arithmetic regressions > keeps every example frame renderable as 16 bytes
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/lib/crypto/aes.test.ts:492:99
+    490|   it('keeps every example frame renderable as 16 bytes', () => {
+    491|     for (const step of encryptAESWithSteps('Hello AES!', 'SecretKey123…
+    492|       expect(step.state.flat().every(byte => Number.isInteger(byte) &&…
+       |                                                                                                   ^
+    493|       expect(() => stateToHex(step.state)).not.toThrow();
+    494|     }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/16]⎯
+
+ FAIL  src/lib/crypto/aes.test.ts > AES byte arithmetic regressions > rejects unsupported plaintext without truncating: 😀
+ FAIL  src/lib/crypto/aes.test.ts > AES byte arithmetic regressions > rejects unsupported plaintext without truncating: 漢
+ FAIL  src/lib/crypto/aes.test.ts > AES byte arithmetic regressions > rejects unsupported plaintext without truncating: aaaaaaaaaaaaaaaaa
+AssertionError: expected [Function] to throw an error
+
+- Expected:
+null
+
++ Received:
+undefined
+
+ ❯ src/lib/crypto/aes.test.ts:498:53
+    496|
+    497|   it.each(['😀', '漢', 'a'.repeat(17)])('rejects unsupported plaintext …
+    498|     expect(() => encryptAESWithSteps(input, 'key')).toThrow(/Latin-1|1…
+       |                                                     ^
+    499|   });
+    500|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/16]⎯
+
+ FAIL  src/lib/crypto/aes.test.ts > AES byte arithmetic regressions > rejects unsupported keys without truncating: 😀
+ FAIL  src/lib/crypto/aes.test.ts > AES byte arithmetic regressions > rejects unsupported keys without truncating: 漢
+ FAIL  src/lib/crypto/aes.test.ts > AES byte arithmetic regressions > rejects unsupported keys without truncating: kkkkkkkkkkkkkkkkk
+AssertionError: expected [Function] to throw an error
+
+- Expected:
+null
+
++ Received:
+undefined
+
+ ❯ src/lib/crypto/aes.test.ts:502:55
+    500|
+    501|   it.each(['😀', '漢', 'k'.repeat(17)])('rejects unsupported keys witho…
+    502|     expect(() => encryptAESWithSteps('message', key)).toThrow(/Latin-1…
+       |                                                       ^
+    503|   });
+    504| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/16]⎯
+
+ FAIL  src/lib/crypto/diffie-hellman.test.ts > primitive generator regression > generates every nonzero residue for prime 23
+AssertionError: expected 11 to be 22 // Object.is equality
+
+- Expected
++ Received
+
+- 22
++ 11
+
+ ❯ src/lib/crypto/diffie-hellman.test.ts:297:27
+    295|     const generator = findGenerator(p);
+    296|     const residues = new Set(Array.from({ length: p - 1 }, (_, i) => c…
+    297|     expect(residues.size).toBe(p - 1);
+       |                           ^
+    298|   });
+    299| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/16]⎯
+
+ FAIL  src/lib/crypto/diffie-hellman.test.ts > primitive generator regression > generates every nonzero residue for prime 41
+AssertionError: expected 20 to be 40 // Object.is equality
+
+- Expected
++ Received
+
+- 40
++ 20
+
+ ❯ src/lib/crypto/diffie-hellman.test.ts:297:27
+    295|     const generator = findGenerator(p);
+    296|     const residues = new Set(Array.from({ length: p - 1 }, (_, i) => c…
+    297|     expect(residues.size).toBe(p - 1);
+       |                           ^
+    298|   });
+    299| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/16]⎯
+
+ FAIL  src/lib/crypto/diffie-hellman.test.ts > primitive generator regression > generates every nonzero residue for prime 97
+AssertionError: expected 48 to be 96 // Object.is equality
+
+- Expected
++ Received
+
+- 96
++ 48
+
+ ❯ src/lib/crypto/diffie-hellman.test.ts:297:27
+    295|     const generator = findGenerator(p);
+    296|     const residues = new Set(Array.from({ length: p - 1 }, (_, i) => c…
+    297|     expect(residues.size).toBe(p - 1);
+       |                           ^
+    298|   });
+    299| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/16]⎯
+
+ FAIL  src/lib/crypto/diffie-hellman.test.ts > primitive generator regression > generates every nonzero residue for prime 499
+AssertionError: expected 249 to be 498 // Object.is equality
+
+- Expected
++ Received
+
+- 498
++ 249
+
+ ❯ src/lib/crypto/diffie-hellman.test.ts:297:27
+    295|     const generator = findGenerator(p);
+    296|     const residues = new Set(Array.from({ length: p - 1 }, (_, i) => c…
+    297|     expect(residues.size).toBe(p - 1);
+       |                           ^
+    298|   });
+    299| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/16]⎯
+
+ FAIL  src/lib/crypto/ecc.test.ts > bounded educational ECDSA regressions > reports an impossible signature instead of retrying forever
+AssertionError: expected [Function] to throw error matching /No valid ECDSA signature/ but got 'nonce retry sentinel'
+
+- Expected:
+/No valid ECDSA signature/
+
++ Received:
+"nonce retry sentinel"
+
+ ❯ src/lib/crypto/ecc.test.ts:456:51
+    454|     });
+    455|     try {
+    456|       expect(() => ecdsaSign(42, 3, SMALL_CURVE)).toThrow(/No valid EC…
+       |                                                   ^
+    457|     } finally {
+    458|       random.mockRestore();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/16]⎯
+
+ FAIL  src/lib/crypto/ecc.test.ts > bounded educational ECDSA regressions > explains unavailable signing in the small-curve walkthrough
+Error: nonce retry sentinel
+ ❯ Math.<anonymous> src/lib/crypto/ecc.test.ts:465:31
+    463|     let calls = 0;
+    464|     const random = vi.spyOn(Math, 'random').mockImplementation(() => {
+    465|       if (++calls > 20) throw new Error('nonce retry sentinel');
+       |                               ^
+    466|       return 0.6;
+    467|     });
+ ❯ ecdsaSign src/lib/crypto/ecc.ts:317:31
+ ❯ generateECCWithSteps src/lib/crypto/ecc.ts:479:21
+ ❯ src/lib/crypto/ecc.test.ts:469:25
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/16]⎯
+
+
+ Test Files  3 failed (3)
+      Tests  16 failed | 113 passed (129)
+   Start at  14:02:10
+   Duration  3.69s (transform 1.33s, setup 3.23s, import 1.47s, tests 103ms, environment 3.87s)
+

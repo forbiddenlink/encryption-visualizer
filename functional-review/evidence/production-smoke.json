@@ -1,0 +1,9 @@
+{
+  "origin": "http://127.0.0.1:4173",
+  "worker": "http://127.0.0.1:4173/sw.js",
+  "themeReload": "passed",
+  "offlineNavigation": "passed",
+  "offlineAES": "passed",
+  "offlineReload": "passed",
+  "errors": []
+}

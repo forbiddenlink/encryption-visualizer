@@ -1,0 +1,18 @@
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - `__dirname` (vite.config.ts:83:25). Use `import.meta.dirname` instead
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+
+ RUN  v4.1.11 /Volumes/LizsDisk/encryption-visualizer/encryption-visualizer
+
+ ✓ src/components/ui/IntegrationRecovery.test.tsx > integration recovery > offers honest reload and home recovery for a rejected lazy lesson 610ms
+ ✓ src/components/ui/IntegrationRecovery.test.tsx > integration recovery > removes the install action after dismissing the native prompt 337ms
+ ✓ src/components/ui/IntegrationRecovery.test.tsx > integration recovery > clears failed temporary frames through Try Again and allows a fresh run 18ms
+ ✓ src/components/ui/IntegrationRecovery.test.tsx > integration recovery > supports radio arrow navigation, wrapping and one tab stop 535ms
+ ✓ src/components/ui/IntegrationRecovery.test.tsx > integration recovery > closes mobile navigation when selecting the current lesson 635ms
+ ✓ src/components/ui/IntegrationRecovery.test.tsx > integration recovery > lands on a hash target without animation when reduced motion is requested 10ms
+
+ Test Files  1 passed (1)
+      Tests  6 passed (6)
+   Start at  14:18:08
+   Duration  32.95s (transform 2.24s, setup 6.82s, import 6.89s, tests 2.15s, environment 15.10s)
+

@@ -1,8 +1,17 @@
 import React, { useState } from 'react';
 import { Hash, Zap, Sparkles } from 'lucide-react';
+import { MAX_SHA256_TRACE_BYTES } from '@/lib/crypto/sha256';
 
 export const HashInputPanel: React.FC<{ onHash: (input: string) => void }> = ({ onHash }) => {
   const [input, setInput] = useState('Hello, World!');
+  const byteLength = new TextEncoder().encode(input).length;
+  const error = byteLength > MAX_SHA256_TRACE_BYTES
+    ? `Use at most ${MAX_SHA256_TRACE_BYTES} UTF-8 bytes for the step-by-step trace.`
+    : '';
+
+  const submit = (message: string): void => {
+    if (new TextEncoder().encode(message).length <= MAX_SHA256_TRACE_BYTES) onHash(message);
+  };
 
   const examples = [
     'Hello, World!',
@@ -27,23 +36,27 @@ export const HashInputPanel: React.FC<{ onHash: (input: string) => void }> = ({ 
           <label htmlFor="hash-input" className="text-sm font-semibold text-slate-600 dark:text-slate-400 mb-2 block">
             Enter text to hash:
           </label>
-          <div className="flex gap-3">
+          <div className="flex flex-col sm:flex-row gap-3">
             <input
               id="hash-input"
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              className="flex-1 px-4 py-3 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all"
+              className="min-w-0 flex-1 px-4 py-3 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all"
+              aria-invalid={Boolean(error)}
+              aria-describedby="hash-input-hint hash-input-error"
               placeholder="Enter any text..."
             />
             <button
-              onClick={() => onHash(input)}
+              onClick={() => submit(input)}
               className="btn-primary px-6"
             >
               <Zap className="w-4 h-4" />
               Hash It!
             </button>
           </div>
+          <p id="hash-input-hint" className="text-xs text-slate-500 dark:text-slate-400 mt-2">SHA-256 · {byteLength} / {MAX_SHA256_TRACE_BYTES} UTF-8 bytes. Empty input is supported.</p>
+          <p id="hash-input-error" role="alert" className="text-sm text-red-600 dark:text-red-400">{error}</p>
         </div>
 
         <div className="flex flex-wrap gap-2">
@@ -53,7 +66,7 @@ export const HashInputPanel: React.FC<{ onHash: (input: string) => void }> = ({ 
               key={example}
               onClick={() => {
                 setInput(example);
-                onHash(example);
+                submit(example);
               }}
               className="px-3 py-1 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 hover:border-emerald-500/30 rounded-lg text-xs font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all"
             >

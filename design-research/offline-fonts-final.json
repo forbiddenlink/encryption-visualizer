@@ -1,0 +1,14 @@
+{
+  "results": [
+    {
+      "offlineNavigation": true,
+      "serviceWorkerControlled": true,
+      "offlineFonts": {
+        "inter": true,
+        "mono": true
+      },
+      "heading": "TLS 1.3 Handshake"
+    }
+  ],
+  "errors": []
+}

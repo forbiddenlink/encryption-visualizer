@@ -1,3 +1,5 @@
+import { LessonHeader } from '@/components/learning/LessonHeader';
+import { SpeedControl } from '@/components/controls/SpeedControl';
 import { useLocation } from 'react-router-dom';
 import { useExpandedSections } from '@/hooks/useExpandedSections';
 import { useAutoAdvance } from '@/hooks/useAutoAdvance';
@@ -9,8 +11,9 @@ import { AvalancheEffectDemo } from '@/components/visualizations/Hash/AvalancheE
 import { HashPlayground } from '@/components/visualizations/Hash/HashPlayground';
 import { ErrorBoundary } from '@/components/ui/ErrorBoundary';
 import { useVisualizationStore } from '@/store/visualizationStore';
-import { hashWithSteps, type HashStep } from '@/lib/crypto/hash';
-import { BookOpen } from 'lucide-react';
+import { sha256WithSteps, MAX_SHA256_TRACE_BYTES } from '@/lib/crypto/sha256';
+import type { HashStep } from '@/lib/types';
+import { } from 'lucide-react';
 import { QuizSystem } from '@/components/educational/QuizSystem';
 import { hashingQuizQuestions } from '@/data/quizzes/hashingQuiz';
 import { EducationalCard } from '@/components/educational/EducationalCard';
@@ -46,7 +49,8 @@ export const HashingPage = () => {
   const { expandedSections, toggleSection } = useExpandedSections(['whatIsHashing', 'properties']);
 
   const handleHash = (input: string) => {
-    const newSteps = hashWithSteps(input);
+    if (new TextEncoder().encode(input).length > MAX_SHA256_TRACE_BYTES) return;
+    const newSteps = sha256WithSteps(input);
     setSteps(newSteps);
     reset();
     play();
@@ -62,23 +66,7 @@ export const HashingPage = () => {
       url={`https://cryptoviz.app${location.pathname}`}
     />
     <div className="space-y-8">
-      {/* Page Header */}
-      <div className="glass-card p-6">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <div>
-            <h1 className="text-4xl font-black text-slate-900 dark:text-white mb-2">
-              Hash Functions Visualizer
-            </h1>
-            <p className="text-slate-600 dark:text-slate-400">
-              Explore one-way functions and the avalanche effect
-            </p>
-          </div>
-          <button className="btn-secondary text-sm">
-            <BookOpen className="w-4 h-4" />
-            Learn More
-          </button>
-        </div>
-      </div>
+      <LessonHeader slug="hashing" title="Hash Functions Visualizer" description="Explore one-way functions and the avalanche effect" />
 
       {/* Main Content Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -97,7 +85,7 @@ export const HashingPage = () => {
             />
           </div>
 
-          <div className="flex items-center justify-between">
+          <div className="flex flex-wrap gap-4 items-center justify-between">
             <div className="flex items-center gap-3">
               <button
                 onClick={reset}
@@ -135,6 +123,23 @@ export const HashingPage = () => {
               Step {currentStep + 1} / {hashSteps.length}
             </div>
           </div>
+          <label htmlFor="hash-step" className="text-sm font-semibold text-slate-600 dark:text-slate-400 block">
+            Jump to step
+          </label>
+          <select
+            id="hash-step"
+            value={currentStep}
+            onChange={(event) => {
+              pause();
+              setCurrentStep(Number(event.target.value));
+            }}
+            className="w-full px-4 py-3 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white"
+          >
+            {hashSteps.map((step, index) => (
+              <option key={index} value={index}>{index + 1}. {step.title}</option>
+            ))}
+          </select>
+          <SpeedControl />
         </div>
       )}
 
@@ -151,7 +156,7 @@ export const HashingPage = () => {
         </div>
 
         {/* Right Column: Educational Content */}
-        <div className="lg:col-span-1 space-y-4">
+        <div id="lesson-notes" className="lesson-notes lg:col-span-1 space-y-4" tabIndex={-1}>
           {/* What is Hashing? */}
           <EducationalCard
             title={hashingEducationalContent.whatIsHashing.title}

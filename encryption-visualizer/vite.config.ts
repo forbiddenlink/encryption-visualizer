@@ -10,7 +10,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.png', 'favicon.svg', 'apple-touch-icon.png', 'logo.png'],
+      includeAssets: ['favicon.png', 'favicon.svg', 'apple-touch-icon.png', 'logo.png', 'logo-small.png', 'fonts/*.woff2'],
       manifest: {
         name: 'CryptoViz - Encryption Visualizer',
         short_name: 'CryptoViz',
@@ -89,6 +89,8 @@ export default defineConfig({
   },
   test: {
     globals: true,
+    // Let happy-dom provide browser storage instead of Node's file-backed API.
+    execArgv: ['--no-experimental-webstorage'],
     environment: 'happy-dom',
     setupFiles: './src/test/setup.ts',
     exclude: ['**/node_modules/**', '**/dist/**', '**/.pnpm-store/**', '**/e2e/**'],

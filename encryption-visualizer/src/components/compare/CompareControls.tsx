@@ -30,6 +30,7 @@ export const CompareControls: React.FC = () => {
 
         <button
           onClick={toggleSyncPlayback}
+          aria-pressed={syncPlayback}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl font-semibold text-sm transition-all ${
             syncPlayback
               ? 'bg-cyber-blue text-white'
@@ -61,6 +62,7 @@ export const CompareControls: React.FC = () => {
               <button
                 key={`left-${alg.id}`}
                 onClick={() => setLeftAlgorithm(alg.id)}
+                aria-pressed={leftAlgorithm === alg.id}
                 disabled={alg.id === rightAlgorithm}
                 className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
                   leftAlgorithm === alg.id
@@ -86,6 +88,7 @@ export const CompareControls: React.FC = () => {
               <button
                 key={`right-${alg.id}`}
                 onClick={() => setRightAlgorithm(alg.id)}
+                aria-pressed={rightAlgorithm === alg.id}
                 disabled={alg.id === leftAlgorithm}
                 className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
                   rightAlgorithm === alg.id

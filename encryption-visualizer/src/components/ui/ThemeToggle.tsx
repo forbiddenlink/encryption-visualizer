@@ -32,6 +32,16 @@ export const ThemeToggle: React.FC = () => {
           `}
           role="radio"
           aria-checked={theme === value}
+          tabIndex={theme === value ? 0 : -1}
+          onKeyDown={(event) => {
+            const direction = ['ArrowRight', 'ArrowDown'].includes(event.key) ? 1 : ['ArrowLeft', 'ArrowUp'].includes(event.key) ? -1 : 0;
+            if (!direction) return;
+            event.preventDefault();
+            const index = themes.findIndex((item) => item.value === value);
+            const next = themes[(index + direction + themes.length) % themes.length];
+            setTheme(next.value);
+            event.currentTarget.parentElement?.querySelector<HTMLButtonElement>(`button[aria-label="${next.label}"]`)?.focus();
+          }}
           aria-label={label}
           title={label}
         >

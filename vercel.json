@@ -1,5 +1,6 @@
 {
-  "buildCommand": "cd encryption-visualizer && npm install --legacy-peer-deps && npm run build",
+  "installCommand": "cd encryption-visualizer && npx --yes pnpm@12.6.0 install --frozen-lockfile",
+  "buildCommand": "cd encryption-visualizer && npx --yes pnpm@12.6.0 run build",
   "outputDirectory": "encryption-visualizer/dist",
   "framework": "vite"
 }

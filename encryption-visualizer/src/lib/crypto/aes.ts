@@ -32,12 +32,27 @@ const RCON = [
 import type { AESStep } from '@/lib/types';
 export type { AESStep };
 
+/** Validate the one-block Latin-1 byte input used by this visualizer. */
+export function validateAESInput(input: string): string | null {
+  if (input.length > 16) return 'AES input must contain at most 16 bytes.';
+  if (Array.from(input).some(character => character.charCodeAt(0) > 255)) {
+    return 'AES input supports Latin-1 characters only (one byte per character).';
+  }
+  return null;
+}
+
+function assertAESInput(input: string): void {
+  const error = validateAESInput(input);
+  if (error) throw new Error(error);
+}
+
 /**
  * Convert a string to a 4x4 state matrix (COLUMN-MAJOR ORDER)
  * AES state is filled column by column
  */
 export function stringToState(input: string): number[][] {
   const state: number[][] = [[], [], [], []];
+  assertAESInput(input);
   const paddedInput = input.padEnd(16, '\0');
   
   for (let col = 0; col < 4; col++) {
@@ -98,7 +113,7 @@ function gmul(a: number, b: number): number {
       p ^= a;
     }
     hiBitSet = a & 0x80;
-    a <<= 1;
+    a = (a << 1) & 0xff;
     if (hiBitSet) {
       a ^= 0x1b; // AES irreducible polynomial x^8 + x^4 + x^3 + x + 1
     }
@@ -139,6 +154,7 @@ export function addRoundKey(state: number[][], roundKey: number[][]): number[][]
  * Generates 11 round keys (44 words) from the initial 128-bit key
  */
 export function generateRoundKeys(key: string): number[][][] {
+  assertAESInput(key);
   const paddedKey = key.padEnd(16, '\0');
   
   const w: number[][] = [];
@@ -289,7 +305,7 @@ export function encryptAESWithSteps(plaintext: string, key: string): AESStep[] {
   
   state = addRoundKey(state, roundKeys[10]);
   steps.push({
-    stepNumber: stepNumber++,
+    stepNumber: stepNumber,
     type: 'final',
     title: 'Final Ciphertext',
     description: 'XOR with the final round key (Round 10) to produce the encrypted ciphertext. Encryption complete!',

@@ -12,8 +12,11 @@ export const InstallPrompt: React.FC = () => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const dismissed = localStorage.getItem('pwa-install-dismissed');
-    if (dismissed) return;
+    try {
+      if (localStorage.getItem('pwa-install-dismissed')) return;
+    } catch {
+      // Installation remains available when browser storage is blocked.
+    }
 
     const handler = (e: Event) => {
       e.preventDefault();
@@ -28,16 +31,18 @@ export const InstallPrompt: React.FC = () => {
   const handleInstall = async () => {
     if (!deferredPrompt) return;
     await deferredPrompt.prompt();
-    const { outcome } = await deferredPrompt.userChoice;
-    if (outcome === 'accepted') {
-      setVisible(false);
-    }
+    await deferredPrompt.userChoice;
+    setVisible(false);
     setDeferredPrompt(null);
   };
 
   const handleDismiss = () => {
     setVisible(false);
-    localStorage.setItem('pwa-install-dismissed', 'true');
+    try {
+      localStorage.setItem('pwa-install-dismissed', 'true');
+    } catch {
+      // The prompt is still dismissed for this visit when saving is unavailable.
+    }
   };
 
   return (

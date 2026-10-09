@@ -260,3 +260,12 @@ describe('Cryptanalysis Functions', () => {
     });
   });
 });
+
+
+describe('Frequency analysis uncertainty', () => {
+  it.each(['', '12345!', 'X'])('does not claim successful recovery for %s', (text) => {
+    const result = frequencyAnalysisAttack(text).at(-1);
+    expect(result?.description).not.toMatch(/successfully identified/);
+    expect(result?.values?.['recovered key']).toBeUndefined();
+  });
+});

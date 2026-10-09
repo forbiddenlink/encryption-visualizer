@@ -288,3 +288,12 @@ describe('Diffie-Hellman Key Exchange', () => {
     });
   });
 });
+
+
+describe('primitive generator regression', () => {
+  it.each([23, 31, 41, 97, 101, 499, 997])('generates every nonzero residue for prime %i', p => {
+    const generator = findGenerator(p);
+    const residues = new Set(Array.from({ length: p - 1 }, (_, i) => computePublicKey(generator, i + 1, p)));
+    expect(residues.size).toBe(p - 1);
+  });
+});

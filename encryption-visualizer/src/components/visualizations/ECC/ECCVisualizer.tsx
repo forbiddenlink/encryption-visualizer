@@ -76,7 +76,7 @@ export const ECCVisualizer: React.FC<ECCVisualizerProps> = ({ steps, currentStep
   };
 
   // Build highlight points for the curve graph based on current step
-  const highlightPoints = useMemo(() => {
+  const highlightPoints = (() => {
     const points: { point: { x: number; y: number }; label: string; color: string }[] = [];
 
     if (step.curve) {
@@ -99,7 +99,7 @@ export const ECCVisualizer: React.FC<ECCVisualizerProps> = ({ steps, currentStep
     }
 
     return points;
-  }, [step]);
+  })();
 
   return (
     <div className="space-y-6">

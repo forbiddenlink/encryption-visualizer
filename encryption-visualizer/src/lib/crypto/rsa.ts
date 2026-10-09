@@ -1,11 +1,11 @@
+import { randomInteger } from './random';
 /**
  * RSA Cryptography Implementation for Educational Visualization
  *
  * IMPORTANT SECURITY NOTICE:
  * This is an EDUCATIONAL implementation only. DO NOT use in production.
- * - Uses Math.random() which is NOT cryptographically secure
  * - Uses small prime numbers for visualization clarity
- * - Production systems must use crypto.getRandomValues() and 2048+ bit keys
+ * - Production systems must use established cryptographic libraries and 2048+ bit keys
  *
  * Implements RSA key generation, encryption, and decryption with visualization steps.
  */
@@ -25,10 +25,10 @@ export function isPrime(num: number): boolean {
 }
 
 export function generatePrime(min: number, max: number): number {
-  let prime = Math.floor(Math.random() * (max - min + 1)) + min;
+  let prime = randomInteger(min, max);
   
   while (!isPrime(prime)) {
-    prime = Math.floor(Math.random() * (max - min + 1)) + min;
+    prime = randomInteger(min, max);
   }
   
   return prime;
@@ -181,7 +181,7 @@ export function generateRSAKeyPairWithSteps(bitSize: 'small' | 'medium' | 'large
   
   // Final step: Key pair generated
   steps.push({
-    stepNumber: stepNumber++,
+    stepNumber: stepNumber,
     type: 'complete',
     title: 'RSA Key Pair Generated!',
     description: `Public Key: (e=${e}, n=${n}) - Share this openly. Private Key: (d=${d}, n=${n}) - Keep this secret!`,
@@ -235,7 +235,7 @@ export function encryptRSAWithSteps(
   const encrypted = encryptRSA(message, publicKey);
   
   steps.push({
-    stepNumber: stepNumber++,
+    stepNumber: stepNumber,
     type: 'encryption',
     title: 'Encryption Complete',
     description: `Ciphertext = (${message}^${publicKey.e}) mod ${publicKey.n} = ${encrypted}`,
@@ -268,7 +268,7 @@ export function decryptRSAWithSteps(
   const decrypted = decryptRSA(ciphertext, privateKey);
   
   steps.push({
-    stepNumber: stepNumber++,
+    stepNumber: stepNumber,
     type: 'decryption',
     title: 'Decryption Complete',
     description: `Original message = (${ciphertext}^${privateKey.d}) mod ${privateKey.n} = ${decrypted}`,

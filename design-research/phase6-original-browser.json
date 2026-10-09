@@ -1,0 +1,1143 @@
+{
+  "config": {
+    "argv": [
+      "/Users/elizabethstein/.local/share/mise/installs/node/22.23.1/bin/node",
+      "/Volumes/LizsDisk/encryption-visualizer/encryption-visualizer/node_modules/@playwright/test/cli.js",
+      "test",
+      "--config",
+      "../design-research/playwright.config.ts",
+      "e2e/aes.spec.ts",
+      "e2e/rsa.spec.ts",
+      "e2e/hashing.spec.ts",
+      "e2e/signatures.spec.ts",
+      "e2e/quiz.spec.ts",
+      "--workers=1",
+      "--reporter=line,json"
+    ],
+    "configFile": "/Volumes/LizsDisk/encryption-visualizer/design-research/playwright.config.ts",
+    "rootDir": "/Volumes/LizsDisk/encryption-visualizer/encryption-visualizer/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Volumes/LizsDisk/encryption-visualizer/design-research/browser-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Volumes/LizsDisk/encryption-visualizer/encryption-visualizer/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "line"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.1",
+    "workers": 1,
+    "webServer": {
+      "command": "pnpm run dev -- --port 3002",
+      "url": "http://localhost:3002",
+      "reuseExistingServer": true,
+      "timeout": 120000,
+      "cwd": "../encryption-visualizer"
+    }
+  },
+  "suites": [
+    {
+      "title": "aes.spec.ts",
+      "file": "aes.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "AES Visualization",
+          "file": "aes.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should display AES input panel",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1509,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-08T17:05:18.883Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c4599a01857037f1468e-284595c32a33dafb40a5",
+              "file": "aes.spec.ts",
+              "line": 11,
+              "column": 3
+            },
+            {
+              "title": "should encrypt text when button is clicked",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 1333,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/Step 1 of/i)\nExpected: visible\nError: strict mode violation: getByText(/Step 1 of/i) resolved to 2 elements:\n    1) <span class=\"text-slate-600 dark:text-slate-400\">…</span> aka getByText('Step 1 of 41', { exact: true })\n    2) <p class=\"text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-semibold mt-1 sm:mt-1.5\">…</p> aka getByText('Step 1 of 41 • Round')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/Step 1 of/i)\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/Step 1 of/i)\nExpected: visible\nError: strict mode violation: getByText(/Step 1 of/i) resolved to 2 elements:\n    1) <span class=\"text-slate-600 dark:text-slate-400\">…</span> aka getByText('Step 1 of 41', { exact: true })\n    2) <p class=\"text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-semibold mt-1 sm:mt-1.5\">…</p> aka getByText('Step 1 of 41 • Round')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/Step 1 of/i)\u001b[22m\n\n    at /Volumes/LizsDisk/encryption-visualizer/encryption-visualizer/e2e/aes.spec.ts:27:48",
+                        "location": {
+                          "file": "/Volumes/LizsDisk/encryption-visualizer/encryption-visualizer/e2e/aes.spec.ts",
+                          "column": 48,
+                          "line": 27
+                        },
+                        "snippet": "  25 |\n  26 |     // Wait for visualization to show step info\n> 27 |     await expect(page.getByText(/Step 1 of/i)).toBeVisible({ timeout: 5000 });\n     |                                                ^\n  28 |   });\n  29 |\n  30 |   test('should display educational content', async ({ page }) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Volumes/LizsDisk/encryption-visualizer/encryption-visualizer/e2e/aes.spec.ts",
+                            "column": 48,
+                            "line": 27
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/Step 1 of/i)\nExpected: visible\nError: strict mode violation: getByText(/Step 1 of/i) resolved to 2 elements:\n    1) <span class=\"text-slate-600 dark:text-slate-400\">…</span> aka getByText('Step 1 of 41', { exact: true })\n    2) <p class=\"text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-semibold mt-1 sm:mt-1.5\">…</p> aka getByText('Step 1 of 41 • Round')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/Step 1 of/i)\u001b[22m\n\n\n  25 |\n  26 |     // Wait for visualization to show step info\n> 27 |     await expect(page.getByText(/Step 1 of/i)).toBeVisible({ timeout: 5000 });\n     |                                                ^\n  28 |   });\n  29 |\n  30 |   test('should display educational content', async ({ page }) => {\n    at /Volumes/LizsDisk/encryption-visualizer/encryption-visualizer/e2e/aes.spec.ts:27:48"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-08T17:05:21.087Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Volumes/LizsDisk/encryption-visualizer/design-research/browser-results/aes-AES-Visualization-shou-61aa4-text-when-button-is-clicked-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Volumes/LizsDisk/encryption-visualizer/encryption-visualizer/e2e/aes.spec.ts",
+                        "column": 48,
+                        "line": 27
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "c4599a01857037f1468e-9dbc4d64f8869ef044bc",
+              "file": "aes.spec.ts",
+              "line": 22,
+              "column": 3
+            },
+            {
+              "title": "should display educational content",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1223,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-08T17:05:23.020Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c4599a01857037f1468e-27d83359ba23d13a1fa1",
+              "file": "aes.spec.ts",
+              "line": 30,
+              "column": 3
+            },
+            {
+              "title": "should have quiz section",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 976,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-08T17:05:24.612Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c4599a01857037f1468e-31127d4391fbfa5d54e5",
+              "file": "aes.spec.ts",
+              "line": 36,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "hashing.spec.ts",
+      "file": "hashing.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Hashing Visualization",
+          "file": "hashing.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should display hash input panel",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 888,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-08T17:05:25.605Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "05dbae261b92c9513eb8-d2ab88c3c7eac2bcdc4d",
+              "file": "hashing.spec.ts",
+              "line": 11,
+              "column": 3
+            },
+            {
+              "title": "should compute hash when button clicked",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1175,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-08T17:05:26.502Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "05dbae261b92c9513eb8-bec7afa292e45ecb28ed",
+              "file": "hashing.spec.ts",
+              "line": 19,
+              "column": 3
+            },
+            {
+              "title": "should have avalanche effect demo",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 853,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-08T17:05:27.688Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "05dbae261b92c9513eb8-246bcbdcdcf71818f9b0",
+              "file": "hashing.spec.ts",
+              "line": 27,
+              "column": 3
+            },
+            {
+              "title": "should display educational content",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 873,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-08T17:05:28.552Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "05dbae261b92c9513eb8-61efd0eb12075fe60d4c",
+              "file": "hashing.spec.ts",
+              "line": 32,
+              "column": 3
+            },
+            {
+              "title": "should have quiz section",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1086,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-08T17:05:29.433Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "05dbae261b92c9513eb8-b7b2993a959d518c5054",
+              "file": "hashing.spec.ts",
+              "line": 39,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "quiz.spec.ts",
+      "file": "quiz.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Quiz System",
+          "file": "quiz.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should display quiz on AES page",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 872,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-08T17:05:30.533Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b28a81d7079595d0160f-41ed32519f0ac87660af",
+              "file": "quiz.spec.ts",
+              "line": 4,
+              "column": 3
+            },
+            {
+              "title": "should allow answering quiz questions on AES page",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 653,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-08T17:05:31.412Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b28a81d7079595d0160f-ffd2957022a2e1313f8c",
+              "file": "quiz.spec.ts",
+              "line": 15,
+              "column": 3
+            },
+            {
+              "title": "should display quiz on RSA page",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 962,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-08T17:05:32.073Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b28a81d7079595d0160f-c75cc86f9d47528f1409",
+              "file": "quiz.spec.ts",
+              "line": 31,
+              "column": 3
+            },
+            {
+              "title": "should display quiz on Hashing page",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1148,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-08T17:05:33.040Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b28a81d7079595d0160f-80c448818be4d4bca238",
+              "file": "quiz.spec.ts",
+              "line": 41,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "rsa.spec.ts",
+      "file": "rsa.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "RSA Visualization",
+          "file": "rsa.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should display RSA key generation panel",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1045,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-08T17:05:34.203Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8d8f75480191d3621711-190522f70e29d8fd8900",
+              "file": "rsa.spec.ts",
+              "line": 11,
+              "column": 3
+            },
+            {
+              "title": "should generate RSA key pair",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1128,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-08T17:05:35.254Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8d8f75480191d3621711-a40868b5f164cffdc94a",
+              "file": "rsa.spec.ts",
+              "line": 19,
+              "column": 3
+            },
+            {
+              "title": "should display educational content",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 977,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-08T17:05:36.390Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8d8f75480191d3621711-0d318cf1c5b1d0f01b5f",
+              "file": "rsa.spec.ts",
+              "line": 27,
+              "column": 3
+            },
+            {
+              "title": "should have quiz section",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 844,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-08T17:05:37.378Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8d8f75480191d3621711-9072ba46a6eeed3661e7",
+              "file": "rsa.spec.ts",
+              "line": 34,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "signatures.spec.ts",
+      "file": "signatures.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Digital Signatures Visualization",
+          "file": "signatures.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should display signature input panel",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 947,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-08T17:05:38.233Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5df4bcca6e772909ce79-76bcf7aa4bb17a05ef40",
+              "file": "signatures.spec.ts",
+              "line": 12,
+              "column": 3
+            },
+            {
+              "title": "should sign a message and show steps",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1267,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-08T17:05:39.185Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5df4bcca6e772909ce79-a1e81055e231a95a11da",
+              "file": "signatures.spec.ts",
+              "line": 23,
+              "column": 3
+            },
+            {
+              "title": "should complete signing process and show signature",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1549,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-08T17:05:40.457Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5df4bcca6e772909ce79-ec20edccf3ca7c03b985",
+              "file": "signatures.spec.ts",
+              "line": 38,
+              "column": 3
+            },
+            {
+              "title": "should have interactive sign/verify panel after signing",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1680,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-08T17:05:42.014Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5df4bcca6e772909ce79-9253cab696833dfb5046",
+              "file": "signatures.spec.ts",
+              "line": 62,
+              "column": 3
+            },
+            {
+              "title": "should verify a valid signature",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2295,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-08T17:05:43.700Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5df4bcca6e772909ce79-3cdaeb0330af84b6d92c",
+              "file": "signatures.spec.ts",
+              "line": 80,
+              "column": 3
+            },
+            {
+              "title": "should detect invalid signature when message is tampered",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2222,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-08T17:05:46.006Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5df4bcca6e772909ce79-5a9ed7bdab991801988c",
+              "file": "signatures.spec.ts",
+              "line": 113,
+              "column": 3
+            },
+            {
+              "title": "should display educational content",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 860,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-08T17:05:48.233Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5df4bcca6e772909ce79-98c93fb70a5d0f9cab87",
+              "file": "signatures.spec.ts",
+              "line": 148,
+              "column": 3
+            },
+            {
+              "title": "should have signing vs encrypting comparison",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 838,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-08T17:05:49.101Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5df4bcca6e772909ce79-1e111494f80213c5c367",
+              "file": "signatures.spec.ts",
+              "line": 155,
+              "column": 3
+            },
+            {
+              "title": "should have quiz section",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 917,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-08T17:05:49.946Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5df4bcca6e772909ce79-19b32a82cc38c47f240e",
+              "file": "signatures.spec.ts",
+              "line": 160,
+              "column": 3
+            },
+            {
+              "title": "should navigate from homepage",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 30069,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/Volumes/LizsDisk/encryption-visualizer/encryption-visualizer/e2e/signatures.spec.ts",
+                            "column": 85,
+                            "line": 170
+                          },
+                          "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('link', { name: /Digital Signatures.*Learn this topic/i })\u001b[22m\n\n\n  168 |\n  169 |     // Find and click the Signatures card\n> 170 |     await page.getByRole('link', { name: /Digital Signatures.*Learn this topic/i }).click();\n      |                                                                                     ^\n  171 |\n  172 |     // Should be on signatures page\n  173 |     await expect(page.getByRole('heading', { name: /Digital Signatures Visualizer/i })).toBeVisible();\n    at /Volumes/LizsDisk/encryption-visualizer/encryption-visualizer/e2e/signatures.spec.ts:170:85"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-08T17:05:50.875Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Volumes/LizsDisk/encryption-visualizer/design-research/browser-results/signatures-Digital-Signatu-9ae51-ould-navigate-from-homepage-chromium/error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "5df4bcca6e772909ce79-66e8ea4f654628928372",
+              "file": "signatures.spec.ts",
+              "line": 165,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-08T17:05:18.228Z",
+    "duration": 63245.06800000001,
+    "expected": 25,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

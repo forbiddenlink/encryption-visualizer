@@ -12,6 +12,7 @@ export const RSAEncryptDecryptPanel: React.FC<RSAEncryptDecryptPanelProps> = ({ 
   const [message, setMessage] = useState('42');
   const [encrypted, setEncrypted] = useState<number | null>(null);
   const [decrypted, setDecrypted] = useState<number | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   if (!keyPair) {
     return (
@@ -23,11 +24,12 @@ export const RSAEncryptDecryptPanel: React.FC<RSAEncryptDecryptPanelProps> = ({ 
   }
 
   const handleEncrypt = () => {
-    const messageNum = parseInt(message);
-    if (isNaN(messageNum) || messageNum < 0 || messageNum >= keyPair.publicKey.n) {
-      alert(`Message must be a number between 0 and ${keyPair.publicKey.n - 1}`);
+    const messageNum = Number(message);
+    if (!message.trim() || !Number.isInteger(messageNum) || messageNum < 0 || messageNum >= keyPair.publicKey.n) {
+      setError(`Message must be a whole number between 0 and ${keyPair.publicKey.n - 1}`);
       return;
     }
+    setError(null);
     const ciphertext = encryptRSA(messageNum, keyPair.publicKey);
     setEncrypted(ciphertext);
     setDecrypted(null);
@@ -51,11 +53,14 @@ export const RSAEncryptDecryptPanel: React.FC<RSAEncryptDecryptPanelProps> = ({ 
 
         {/* Message Input */}
         <div className="space-y-2">
-          <label className="text-sm font-semibold text-slate-600 dark:text-slate-400">
+          <label htmlFor="rsa-message" className="text-sm font-semibold text-slate-600 dark:text-slate-400">
             Enter a number to encrypt (0 to {keyPair.publicKey.n - 1}):
           </label>
-          <div className="flex gap-3">
+          <div className="flex flex-col sm:flex-row gap-3">
             <input
+              id="rsa-message"
+              aria-invalid={error !== null}
+              aria-describedby={error ? 'rsa-message-error' : undefined}
               type="number"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
@@ -72,6 +77,7 @@ export const RSAEncryptDecryptPanel: React.FC<RSAEncryptDecryptPanelProps> = ({ 
               Encrypt
             </button>
           </div>
+          {error && <p id="rsa-message-error" role="alert" className="text-sm text-red-700 dark:text-red-300">{error}</p>}
         </div>
 
         {/* Encryption Flow */}

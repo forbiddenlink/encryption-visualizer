@@ -90,13 +90,6 @@ export const QuizSystem: React.FC<QuizSystemProps> = ({
     const removeMissedQuestion = useProgressStore((state) => state.removeMissedQuestion);
     const getMissedQuestions = useProgressStore((state) => state.getMissedQuestions);
 
-    // Save score when quiz is completed
-    useEffect(() => {
-        if (isCompleted && algorithmId) {
-            saveQuizScore(algorithmId, score, shuffledQuestions.length);
-        }
-    }, [isCompleted, algorithmId, score]);
-
     // Shuffle questions on mount or when quizKey changes (for retry)
     const shuffledQuestions = useMemo(() => {
         void quizKey;
@@ -107,7 +100,14 @@ export const QuizSystem: React.FC<QuizSystemProps> = ({
             }
         }
         return buildQuiz(questions, QUIZ_SIZE);
-    }, [questions, quizKey, isReviewMode, algorithmId]);
+    }, [questions, quizKey, isReviewMode, algorithmId, getMissedQuestions]);
+
+    // Save score when quiz is completed
+    useEffect(() => {
+        if (isCompleted && algorithmId && !isReviewMode) {
+            saveQuizScore(algorithmId, score, shuffledQuestions.length);
+        }
+    }, [isCompleted, algorithmId, score, shuffledQuestions.length, saveQuizScore, isReviewMode]);
 
     const resetQuiz = useCallback(() => {
         setQuizKey((prev) => prev + 1);
@@ -173,7 +173,7 @@ export const QuizSystem: React.FC<QuizSystemProps> = ({
     }
 
     return (
-        <div className="glass-card overflow-hidden">
+        <div id="lesson-quiz" className="glass-card overflow-hidden" tabIndex={-1}>
             {/* Quiz Header */}
             <div className="p-4 border-b border-slate-200 dark:border-slate-700 flex items-center justify-between">
                 <h3 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
@@ -235,6 +235,7 @@ export const QuizSystem: React.FC<QuizSystemProps> = ({
                             answeredQuestions={answeredQuestions}
                             onReviewMissed={startReviewQuiz}
                             algorithmId={algorithmId}
+                            isReviewMode={isReviewMode}
                         />
                     )}
                 </AnimatePresence>

@@ -157,3 +157,24 @@ describe('HMAC Functions', () => {
     });
   });
 });
+
+
+describe('HMAC UTF-8 regressions', () => {
+  it('counts UTF-8 bytes and normalizes multibyte keys by byte length', () => {
+    const steps = hmacWithSteps('😀'.repeat(5), 'é😀');
+    expect(steps[0].values?.keyLength).toBe('20 bytes');
+    expect(steps[0].values?.messageLength).toBe('6 bytes');
+    expect(steps[1].values?.action).toBe('Hashed then padded');
+    expect(steps[1].values?.normalizedKeyHex).toMatch(/^[0-9a-f]{32}$/);
+  });
+  it('keeps distinct emoji key bytes', () => {
+    expect(hmac('😀', 'message')).not.toBe(hmac('😁', 'message'));
+  });
+});
+
+
+describe('Independent toy HMAC byte vectors', () => {
+  it.each([['key', 'message', '4fadf9db'], ['😀', 'é😀', '28998039']])('matches the independently computed FNV byte construction', (key, message, expected) => {
+    expect(hmac(key, message)).toBe(expected);
+  });
+});

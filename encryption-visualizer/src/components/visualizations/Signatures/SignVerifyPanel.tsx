@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { signMessage, verifySignature } from '@/lib/crypto/signatures';
+import { signMessage, verifySignature, parseSignature } from '@/lib/crypto/signatures';
 import type { RSAKeyPair } from '@/lib/types';
 import { FileSignature, Shield, CheckCircle, XCircle, ArrowRight, Sparkles } from 'lucide-react';
 import { m } from 'framer-motion';
@@ -19,6 +19,15 @@ export const SignVerifyPanel: React.FC<SignVerifyPanelProps> = ({ keyPair }) => 
   const [verifyMessage, setVerifyMessage] = useState('');
   const [verifySignature_input, setVerifySignature_input] = useState('');
   const [verificationResult, setVerificationResult] = useState<boolean | null>(null);
+  const [verificationError, setVerificationError] = useState('');
+
+  const [previousKeyPair, setPreviousKeyPair] = useState(keyPair);
+  if (previousKeyPair !== keyPair) {
+    setPreviousKeyPair(keyPair);
+    setGeneratedSignature(null);
+    setVerificationResult(null);
+    setVerificationError('');
+  }
 
   if (!keyPair) {
     return (
@@ -38,11 +47,15 @@ export const SignVerifyPanel: React.FC<SignVerifyPanelProps> = ({ keyPair }) => 
 
   const handleVerify = () => {
     if (verifyMessage.trim() && verifySignature_input.trim()) {
-      const sig = parseInt(verifySignature_input);
-      if (!isNaN(sig)) {
-        const isValid = verifySignature(verifyMessage, sig, keyPair.publicKey);
-        setVerificationResult(isValid);
+      const sig = parseSignature(verifySignature_input, keyPair.publicKey.n);
+      if (sig === null) {
+        setVerificationResult(null);
+        setVerificationError(`Enter a whole decimal signature from 0 to ${keyPair.publicKey.n - 1}.`);
+        return;
       }
+      setVerificationError('');
+      const isValid = verifySignature(verifyMessage, sig, keyPair.publicKey);
+      setVerificationResult(isValid);
     }
   };
 
@@ -180,6 +193,7 @@ export const SignVerifyPanel: React.FC<SignVerifyPanelProps> = ({ keyPair }) => 
                 onChange={(e) => {
                   setVerifyMessage(e.target.value);
                   setVerificationResult(null);
+                  setVerificationError('');
                 }}
                 className="w-full px-4 py-3 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all resize-none"
                 placeholder="Enter the message..."
@@ -198,6 +212,7 @@ export const SignVerifyPanel: React.FC<SignVerifyPanelProps> = ({ keyPair }) => 
                 onChange={(e) => {
                   setVerifySignature_input(e.target.value);
                   setVerificationResult(null);
+                  setVerificationError('');
                 }}
                 className="w-full px-4 py-3 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all font-mono"
                 placeholder="Enter the signature number..."
@@ -212,6 +227,8 @@ export const SignVerifyPanel: React.FC<SignVerifyPanelProps> = ({ keyPair }) => 
               <CheckCircle className="w-4 h-4" />
               Verify Signature
             </button>
+
+            {verificationError && <p role="alert" className="text-sm text-red-600 dark:text-red-400">{verificationError}</p>}
 
             {verificationResult !== null && (
               <m.div
@@ -251,7 +268,7 @@ export const SignVerifyPanel: React.FC<SignVerifyPanelProps> = ({ keyPair }) => 
                     {verificationResult ? (
                       <>
                         <Sparkles className="w-4 h-4 inline mr-1" />
-                        This message is authentic and has not been tampered with.
+                        The toy signature matches. Hash collisions and small keys mean this does not prove authenticity.
                       </>
                     ) : (
                       <>
@@ -266,7 +283,7 @@ export const SignVerifyPanel: React.FC<SignVerifyPanelProps> = ({ keyPair }) => 
                 {verificationResult && (
                   <div className="mt-4 p-3 bg-slate-100 dark:bg-slate-800 rounded-lg">
                     <p className="text-xs text-slate-600 dark:text-slate-400">
-                      <strong>Try this:</strong> Change a single character in the message above and verify again to see how signatures detect tampering!
+                      <strong>Try this:</strong> Change the message and verify again. Most changes fail, but this toy hash can collide.
                     </p>
                   </div>
                 )}
@@ -284,7 +301,7 @@ export const SignVerifyPanel: React.FC<SignVerifyPanelProps> = ({ keyPair }) => 
             <span className="font-semibold text-amber-600 dark:text-amber-400">Key Insight:</span>{' '}
             {activeTab === 'sign'
               ? 'Anyone can verify your signature with your public key, but only you (with the private key) can create it. This is opposite to encryption!'
-              : 'Even a tiny change to the message will cause verification to fail. This ensures message integrity - no one can alter a signed message without detection.'}
+              : 'Verification compares truncated FNV-1a hashes with small RSA keys. Different messages can collide, so this demonstration does not provide message integrity.'}
           </div>
         </div>
       </div>

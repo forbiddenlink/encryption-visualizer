@@ -9,12 +9,12 @@ export default {
     extend: {
       colors: {
         cyber: {
-          cyan: '#06b6d4',
-          blue: '#3b82f6',
+          cyan: 'var(--accent)',
+          blue: 'var(--action)',
           purple: '#8b5cf6',
-          dark: '#020617',     // slate-950
-          surface: '#0f172a',  // slate-900
-          border: 'rgba(255, 255, 255, 0.05)',
+          dark: 'var(--canvas)',
+          surface: 'var(--surface)',
+          border: 'var(--line)',
         }
       },
       borderRadius: {
@@ -28,7 +28,7 @@ export default {
         'surface-hover': 'inset 0 1px 0 0 rgba(255, 255, 255, 0.15)',
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['DM Sans', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'monospace'],
       },
       animation: {

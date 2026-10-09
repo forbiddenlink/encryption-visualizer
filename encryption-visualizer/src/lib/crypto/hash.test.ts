@@ -396,3 +396,21 @@ describe('Hash Crypto Functions', () => {
     });
   });
 });
+
+
+describe('FNV-1a byte regressions', () => {
+  it.each([['', '811c9dc5'], ['a', 'e40c292c'], ['hello', '4f9f2cab'], ['foobar', 'bf9cf968']])('matches the independent vector for %s', (input, expected) => {
+    expect(simpleHash(input)).toBe(expected);
+  });
+  it('encodes all UTF-8 bytes in the binary view', () => {
+    expect(stringToBinary('😀')).toBe('11110000 10011111 10011000 10000000');
+    expect(simpleHash('😀')).not.toBe(simpleHash('😁'));
+  });
+});
+
+
+describe('Hash UTF-8 preview', () => {
+  it('previews bytes without replacing a truncated surrogate pair', () => {
+    expect(hashWithSteps('a'.repeat(15) + '😀')[1].data?.binary?.split(' ').at(-1)).toBe('11110000');
+  });
+});

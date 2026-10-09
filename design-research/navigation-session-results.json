@@ -1,0 +1,150 @@
+{
+  "config": {
+    "argv": [
+      "/Users/elizabethstein/.local/share/mise/installs/node/22.23.1/bin/node",
+      "/Volumes/LizsDisk/encryption-visualizer/encryption-visualizer/node_modules/@playwright/test/cli.js",
+      "test",
+      "--config",
+      "../design-research/playwright.config.ts",
+      "e2e/learning-journeys.spec.ts",
+      "--grep",
+      "client-side lesson",
+      "--workers=1",
+      "--reporter=line,json"
+    ],
+    "configFile": "/Volumes/LizsDisk/encryption-visualizer/design-research/playwright.config.ts",
+    "rootDir": "/Volumes/LizsDisk/encryption-visualizer/encryption-visualizer/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Volumes/LizsDisk/encryption-visualizer/design-research/browser-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Volumes/LizsDisk/encryption-visualizer/encryption-visualizer/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "line"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.1",
+    "workers": 1,
+    "webServer": {
+      "command": "pnpm run dev -- --port 3002",
+      "url": "http://localhost:3002",
+      "reuseExistingServer": true,
+      "timeout": 120000,
+      "cwd": "../encryption-visualizer"
+    }
+  },
+  "suites": [
+    {
+      "title": "learning-journeys.spec.ts",
+      "file": "learning-journeys.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "client-side lesson switching clears incompatible visualization frames",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 30030,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/Volumes/LizsDisk/encryption-visualizer/encryption-visualizer/e2e/learning-journeys.spec.ts",
+                        "column": 80,
+                        "line": 87
+                      },
+                      "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Pause visualization', exact: true })\u001b[22m\n\n\n  85 |   await page.goto('/aes');\n  86 |   await page.getByRole('button', { name: 'Start Encryption Visualization', exact: true }).click();\n> 87 |   await page.getByRole('button', { name: 'Pause visualization', exact: true }).click();\n     |                                                                                ^\n  88 |   await page.getByRole('link', { name: 'Next: Hash Functions', exact: true }).click();\n  89 |   await expect(page.getByRole('heading', { name: 'Hash Functions Visualizer', exact: true })).toBeVisible();\n  90 |   await page.getByRole('button', { name: 'Hash It!', exact: true }).click();\n    at /Volumes/LizsDisk/encryption-visualizer/encryption-visualizer/e2e/learning-journeys.spec.ts:87:80"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-08T16:54:01.420Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Volumes/LizsDisk/encryption-visualizer/design-research/browser-results/learning-journeys-client-s-c2fb3-atible-visualization-frames-chromium/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "a8ca10ebc182377ab94f-d15068151ea11d646c71",
+          "file": "learning-journeys.spec.ts",
+          "line": 82,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-08T16:54:00.854Z",
+    "duration": 31186.173,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

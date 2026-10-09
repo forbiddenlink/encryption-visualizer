@@ -306,27 +306,31 @@ export function ecdsaSign(
   privateKey: number,
   curve: ECCCurve
 ): ECDSASignature {
+  const signature = findECDSASignature(message, privateKey, curve);
+  if (!signature) throw new Error('No valid ECDSA signature exists for this message and private key on the educational curve.');
+  return signature;
+}
+
+function findECDSASignature(
+  message: number,
+  privateKey: number,
+  curve: ECCCurve
+): ECDSASignature | null {
   const { n, G } = curve;
   const z = simpleHash(message, n);
+  const firstNonce = Math.floor(Math.random() * (n - 1)) + 1;
 
-  let r = 0;
-  let s = 0;
-
-  // Keep trying until we get valid r and s
-  while (r === 0 || s === 0) {
-    const k = Math.floor(Math.random() * (n - 1)) + 1;
+  // Exhaust the tiny subgroup once: some teaching curves cannot sign every input.
+  for (let attempt = 0; attempt < n - 1; attempt++) {
+    const k = ((firstNonce - 1 + attempt) % (n - 1)) + 1;
     const kG = scalarMultiply(k, G, curve);
-
     if (isInfinity(kG)) continue;
-
-    r = mod(kG.x, n);
+    const r = mod(kG.x, n);
     if (r === 0) continue;
-
-    const kInv = modInverse(k, n);
-    s = mod(kInv * (z + r * privateKey), n);
+    const s = mod(modInverse(k, n) * (z + r * privateKey), n);
+    if (s !== 0) return { r, s };
   }
-
-  return { r, s };
+  return null;
 }
 
 /**
@@ -476,42 +480,43 @@ export function generateECCWithSteps(curveChoice: 'tiny' | 'small' | 'medium' = 
 
   // Step 8: ECDSA signing
   const testMessage = 42;
-  const signature = ecdsaSign(testMessage, alice.privateKey, curve);
+  const signature = findECDSASignature(testMessage, alice.privateKey, curve);
   steps.push({
     stepNumber: stepNumber++,
     type: 'signing',
     title: 'ECDSA: Sign a Message',
-    description: `Alice signs message m = ${testMessage}. She picks a random k, computes kG, and derives signature (r, s) = (${signature.r}, ${signature.s}). The signature proves Alice authored the message without revealing her private key.`,
-    values: { message: testMessage, r: signature.r, s: signature.s },
+    description: signature ? `Alice signs message m = ${testMessage}. She picks a random k, computes kG, and derives signature (r, s) = (${signature.r}, ${signature.s}). The signature proves Alice authored the message without revealing her private key.`
+      : `This tiny educational curve has no valid signature for message ${testMessage} and Alice's private key. Every possible nonce gives r = 0 or s = 0. Key generation and ECDH still work.`,
+    values: signature ? { message: testMessage, r: signature.r, s: signature.s } : { message: testMessage, status: 'Not available' },
     formula: 'r = (kG).x mod n, s = k⁻¹(z + r·d_A) mod n',
-    calculation: `Sign(${testMessage}) = (r=${signature.r}, s=${signature.s})`,
+    calculation: signature ? `Sign(${testMessage}) = (r=${signature.r}, s=${signature.s})` : 'No valid nonce in this subgroup',
     curve,
   });
 
   // Step 9: ECDSA verification
-  const isValid = ecdsaVerify(testMessage, signature, alice.publicKey, curve);
+  const isValid = signature !== null && ecdsaVerify(testMessage, signature, alice.publicKey, curve);
   steps.push({
     stepNumber: stepNumber++,
     type: 'verification',
     title: 'ECDSA: Verify Signature',
-    description: `Bob verifies the signature using Alice's public key Q_A. He computes u1*G + u2*Q_A and checks if the x-coordinate equals r. Result: ${isValid ? 'VALID -- the signature is authentic!' : 'INVALID -- something went wrong.'}`,
-    values: {
+    description: signature ? `Bob verifies the signature using Alice's public key Q_A. He computes u1*G + u2*Q_A and checks if the x-coordinate equals r. Result: ${isValid ? 'VALID -- the signature is authentic!' : 'INVALID -- something went wrong.'}` : 'Verification is not available because this message and key have no valid signature on the tiny educational curve.',
+    values: signature ? {
       message: testMessage,
       r: signature.r,
       s: signature.s,
       valid: isValid ? 'YES' : 'NO',
-    },
+    } : { message: testMessage, valid: 'Not available' },
     formula: 'u1 = z·s⁻¹ mod n, u2 = r·s⁻¹ mod n, verify (u1·G + u2·Q_A).x = r',
-    calculation: `Verify(${testMessage}, (${signature.r}, ${signature.s})) = ${isValid}`,
+    calculation: signature ? `Verify(${testMessage}, (${signature.r}, ${signature.s})) = ${isValid}` : 'No signature to verify',
     curve,
   });
 
   // Step 10: Complete
   steps.push({
-    stepNumber: stepNumber++,
+    stepNumber: stepNumber,
     type: 'complete',
     title: 'ECC Operations Complete!',
-    description: `Key pair generated, ECDH shared secret established, and ECDSA signature verified. ECC achieves the same security as RSA with much smaller keys: a 256-bit ECC key provides comparable security to a 3072-bit RSA key.`,
+    description: `Key pair generated and ECDH shared secret established. ${isValid ? 'ECDSA signature verified.' : 'ECDSA signing is not available for this message and key on this tiny curve.'} ECC achieves the same security as RSA with much smaller keys: a 256-bit ECC key provides comparable security to a 3072-bit RSA key.`,
     values: {
       curve: `y² = x³ + ${curve.a}x + ${curve.b} (mod ${curve.p})`,
       privateKey: alice.privateKey,

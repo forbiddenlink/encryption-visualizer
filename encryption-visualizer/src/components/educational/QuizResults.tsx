@@ -17,6 +17,7 @@ interface QuizResultsProps {
     answeredQuestions?: AnsweredQuestion[];
     onReviewMissed?: () => void;
     algorithmId?: string;
+    isReviewMode?: boolean;
 }
 
 export const QuizResults: React.FC<QuizResultsProps> = ({
@@ -26,6 +27,7 @@ export const QuizResults: React.FC<QuizResultsProps> = ({
     answeredQuestions = [],
     onReviewMissed,
     algorithmId,
+    isReviewMode = false,
 }) => {
     const percentage = Math.round((score / totalQuestions) * 100);
     const getMissedQuestions = useProgressStore((state) => state.getMissedQuestions);
@@ -33,8 +35,8 @@ export const QuizResults: React.FC<QuizResultsProps> = ({
         ? getMissedQuestions(algorithmId).length > 0
         : false;
 
-    let message = "";
-    let color = "";
+    let message: string;
+    let color: string;
 
     if (percentage === 100) {
         message = "Flawless! You've mastered this topic completely.";
@@ -57,6 +59,10 @@ export const QuizResults: React.FC<QuizResultsProps> = ({
     } else {
         message = "Don't give up! Start with the beginner sections and work your way up.";
         color = "text-cyber-blue";
+    }
+
+    if (isReviewMode) {
+        message = 'Practice results do not replace your full quiz score. Retake the full quiz to update your assessment.';
     }
 
     // Difficulty breakdown
@@ -85,7 +91,7 @@ export const QuizResults: React.FC<QuizResultsProps> = ({
                 </m.div>
 
                 <div className="space-y-2">
-                    <h3 className="text-2xl font-black text-slate-900 dark:text-white">Quiz Complete!</h3>
+                    <h3 className="text-2xl font-black text-slate-900 dark:text-white">{isReviewMode ? 'Review Complete!' : 'Quiz Complete!'}</h3>
                     <p className={`text-sm ${color} font-medium`}>{message}</p>
                 </div>
 
@@ -191,7 +197,7 @@ export const QuizResults: React.FC<QuizResultsProps> = ({
                 )}
             </div>
 
-            {percentage === 100 && (
+            {!isReviewMode && algorithmId === 'hashing' && percentage === 100 && (
                 <m.div
                     initial={{ opacity: 0, y: 10, scale: 0.9 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -199,7 +205,7 @@ export const QuizResults: React.FC<QuizResultsProps> = ({
                     className="glass-card p-3 rounded-xl border-yellow-500/30 bg-yellow-100 dark:bg-yellow-500/5 mt-4 flex items-center justify-center gap-3"
                 >
                     <Award className="w-5 h-5 text-yellow-500 dark:text-yellow-400" />
-                    <span className="text-sm text-yellow-700 dark:text-yellow-200">Perfect Score Achievement Unlocked!</span>
+                    <span className="text-sm text-yellow-700 dark:text-yellow-200">Hash Master Achievement Unlocked!</span>
                 </m.div>
             )}
         </div>

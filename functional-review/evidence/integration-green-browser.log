@@ -1,0 +1,14 @@
+
+Running 6 tests using 1 worker
+
+(node:55466) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/6] [chromium] › ../../../encryption-visualizer/e2e/integration-regressions.spec.ts:4:3 › navigation and theme keyboard recovery at 1440
+[2/6] [chromium] › ../../../encryption-visualizer/e2e/integration-regressions.spec.ts:32:3 › native install dismissal consumes the visible action at 1440
+[3/6] [chromium] › ../../../encryption-visualizer/e2e/integration-regressions.spec.ts:44:3 › rejected lesson download retains navigation and reload recovery at 1440
+[4/6] [chromium] › ../../../encryption-visualizer/e2e/integration-regressions.spec.ts:4:3 › navigation and theme keyboard recovery at 390
+[5/6] [chromium] › ../../../encryption-visualizer/e2e/integration-regressions.spec.ts:32:3 › native install dismissal consumes the visible action at 390
+[6/6] [chromium] › ../../../encryption-visualizer/e2e/integration-regressions.spec.ts:44:3 › rejected lesson download retains navigation and reload recovery at 390
+  6 passed (18.7s)

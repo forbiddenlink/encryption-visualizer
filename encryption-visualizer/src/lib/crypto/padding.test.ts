@@ -198,3 +198,30 @@ describe('Padding Schemes', () => {
     });
   });
 });
+
+
+describe('Padding byte regressions', () => {
+  it.each(['pkcs7', 'ansi-x923'] as const)('recovers Unicode and control characters with %s', (scheme) => {
+    const input = 'é😀\n';
+    const steps = padWithSteps(input, 8, scheme);
+    expect(steps.at(-1)?.values?.recoveredText).toBe(input);
+    expect(steps.at(-1)?.values?.match).toBe('YES');
+    expect(compareSchemes(input, 8)[scheme].padded.every((byte) => byte >= 0 && byte <= 255)).toBe(true);
+  });
+  it('shows no padding for aligned zero padding', () => {
+    const steps = padWithSteps('12345678', 8, 'zero');
+    expect(steps.find((step) => step.type === 'measure')?.values?.paddingNeeded).toBe(0);
+    expect(steps.find((step) => step.type === 'calculate-padding')?.paddingBytes).toEqual([]);
+  });
+  it('rejects nonzero ANSI fill bytes', () => {
+    expect(() => ansiX923Unpad([65, 9, 2])).toThrow();
+  });
+  it.each([0, -1, 1.5, 256, NaN])('rejects invalid block size %s', (size) => {
+    expect(() => pad([65], size, 'pkcs7')).toThrow();
+    expect(() => compareSchemes('a', size)).toThrow();
+  });
+  it('rejects values outside a byte', () => {
+    expect(() => pkcs7Pad([256], 8)).toThrow();
+    expect(() => ansiX923Unpad([65, 1.5])).toThrow();
+  });
+});

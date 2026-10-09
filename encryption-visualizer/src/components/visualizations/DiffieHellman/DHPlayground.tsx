@@ -4,6 +4,10 @@ import { generatePrime } from '@/lib/crypto/rsa';
 import { Eye, EyeOff, RefreshCw, Users } from 'lucide-react';
 import { m } from 'framer-motion';
 
+function normalizePrivateKey(value: number, prime: number): number {
+  return Number.isFinite(value) ? Math.max(2, Math.min(prime - 2, Math.trunc(value))) : 2;
+}
+
 export const DHPlayground: React.FC = () => {
   const [p, setP] = useState(() => generatePrime(23, 97));
   const g = useMemo(() => findGenerator(p), [p]);
@@ -17,7 +21,10 @@ export const DHPlayground: React.FC = () => {
   const secretsMatch = aliceSecret === bobSecret;
 
   const regeneratePrime = () => {
-    setP(generatePrime(23, 97));
+    const newPrime = generatePrime(23, 97);
+    setP(newPrime);
+    setAlicePrivate(value => normalizePrivateKey(value, newPrime));
+    setBobPrivate(value => normalizePrivateKey(value, newPrime));
   };
 
   return (
@@ -65,26 +72,28 @@ export const DHPlayground: React.FC = () => {
           <h4 className="font-bold text-blue-700 dark:text-blue-300 text-sm">Alice</h4>
 
           <div>
-            <label className="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1.5 mb-1">
+            <p className="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1.5 mb-1">
               <EyeOff className="w-3 h-3" /> Private Key (a)
-            </label>
+            </p>
             <input
               type="range"
+              aria-label="Alice private key slider"
               min={2}
               max={p - 2}
               value={alicePrivate}
-              onChange={(e) => setAlicePrivate(Number(e.target.value))}
+              onChange={(e) => setAlicePrivate(normalizePrivateKey(Number(e.target.value), p))}
               className="w-full accent-blue-600"
             />
             <div className="flex items-center justify-between mt-1">
               <span className="font-mono text-sm font-bold text-blue-700 dark:text-blue-300">{alicePrivate}</span>
               <input
                 type="number"
+                aria-label="Alice private key"
                 min={2}
                 max={p - 2}
                 value={alicePrivate}
                 onChange={(e) => {
-                  const v = Math.max(2, Math.min(p - 2, Number(e.target.value)));
+                  const v = normalizePrivateKey(Number(e.target.value), p);
                   setAlicePrivate(v);
                 }}
                 className="w-16 px-2 py-1 text-xs font-mono bg-white dark:bg-slate-800 border border-blue-200 dark:border-blue-500/30 rounded text-right"
@@ -135,26 +144,28 @@ export const DHPlayground: React.FC = () => {
           <h4 className="font-bold text-purple-700 dark:text-purple-300 text-sm">Bob</h4>
 
           <div>
-            <label className="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1.5 mb-1">
+            <p className="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1.5 mb-1">
               <EyeOff className="w-3 h-3" /> Private Key (b)
-            </label>
+            </p>
             <input
               type="range"
+              aria-label="Bob private key slider"
               min={2}
               max={p - 2}
               value={bobPrivate}
-              onChange={(e) => setBobPrivate(Number(e.target.value))}
+              onChange={(e) => setBobPrivate(normalizePrivateKey(Number(e.target.value), p))}
               className="w-full accent-purple-600"
             />
             <div className="flex items-center justify-between mt-1">
               <span className="font-mono text-sm font-bold text-purple-700 dark:text-purple-300">{bobPrivate}</span>
               <input
                 type="number"
+                aria-label="Bob private key"
                 min={2}
                 max={p - 2}
                 value={bobPrivate}
                 onChange={(e) => {
-                  const v = Math.max(2, Math.min(p - 2, Number(e.target.value)));
+                  const v = normalizePrivateKey(Number(e.target.value), p);
                   setBobPrivate(v);
                 }}
                 className="w-16 px-2 py-1 text-xs font-mono bg-white dark:bg-slate-800 border border-purple-200 dark:border-purple-500/30 rounded text-right"

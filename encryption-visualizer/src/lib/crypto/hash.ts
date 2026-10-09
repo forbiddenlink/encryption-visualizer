@@ -9,21 +9,21 @@
 import type { HashStep } from '@/lib/types';
 export type { HashStep };
 
-export function simpleHash(input: string): string {
-  let hash = 0x811c9dc5; // FNV offset basis
-  
-  for (let i = 0; i < input.length; i++) {
-    hash ^= input.charCodeAt(i);
-    hash *= 0x01000193; // FNV prime
-    hash = hash >>> 0; // Convert to 32-bit unsigned
+export function simpleHashBytes(input: readonly number[] | Uint8Array): string {
+  let hash = 0x811c9dc5;
+  for (const byte of input) {
+    hash = Math.imul(hash ^ byte, 0x01000193) >>> 0;
   }
-  
   return hash.toString(16).padStart(8, '0');
 }
 
+export function simpleHash(input: string): string {
+  return simpleHashBytes(new TextEncoder().encode(input));
+}
+
 export function stringToBinary(str: string): string {
-  return Array.from(str)
-    .map(char => char.charCodeAt(0).toString(2).padStart(8, '0'))
+  return Array.from(new TextEncoder().encode(str))
+    .map(byte => byte.toString(2).padStart(8, '0'))
     .join(' ');
 }
 
@@ -98,12 +98,14 @@ export function hashWithSteps(input: string): HashStep[] {
     },
   });
   
-  const binary = stringToBinary(input.slice(0, 16)); // Limit for display
+  const binary = Array.from(new TextEncoder().encode(input).slice(0, 16))
+    .map(byte => byte.toString(2).padStart(8, '0'))
+    .join(' '); // Preview the first 16 UTF-8 bytes
   steps.push({
     stepNumber: stepNumber++,
     type: 'preprocessing',
     title: 'Convert to Binary',
-    description: 'The message is converted to binary (8 bits per character) for processing.',
+    description: 'The message is converted to UTF-8 bytes (8 bits per byte) for processing. This preview shows the first 16 bytes.',
     data: {
       input,
       binary,
@@ -121,7 +123,7 @@ export function hashWithSteps(input: string): HashStep[] {
     },
   });
   
-  const chunks = input.match(/.{1,4}/g) || [input];
+  const chunks = input.match(/[\s\S]{1,4}/g) || [input];
   steps.push({
     stepNumber: stepNumber++,
     type: 'compression',
@@ -135,7 +137,7 @@ export function hashWithSteps(input: string): HashStep[] {
   
   const finalHash = simpleHash(input);
   steps.push({
-    stepNumber: stepNumber++,
+    stepNumber: stepNumber,
     type: 'output',
     title: 'Final Hash Output',
     description: `The final 32-bit hash (8 hexadecimal characters): ${finalHash}. Note: This is a simplified FNV-1a hash for educational purposes. Production systems use SHA-256 (256-bit) or similar.`,

@@ -1,0 +1,8 @@
+const {chromium}=require('/Users/elizabethstein/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const fs=require('node:fs');
+(async()=>{const b=await chromium.launch({channel:'chrome'});const p=await b.newPage();const out=[];
+for(const [slug,button] of [['aes','Start Encryption Visualization'],['rsa','Generate RSA Key Pair'],['ecc','Tiny (p=23)'],['block-modes','Encrypt with ECB'],['diffie-hellman','Start Key Exchange'],['hashing','Hash It!'],['hmac','Compute HMAC'],['signatures','Generate Keys & Sign'],['padding','Apply Padding'],['password-hashing','Hash Password'],['tls','Start Handshake'],['cryptanalysis','Brute Force']]){
+await p.goto('http://127.0.0.1:3002/'+slug,{waitUntil:'networkidle'});await p.getByRole('button',{name:button,exact:slug!=='ecc'}).first().click();await p.waitForTimeout(500);
+const pause=p.getByRole('button',{name:'Pause',exact:true});if(await pause.count())await pause.first().click();
+const v=await p.evaluate(()=>({inputs:[...document.querySelectorAll('input,textarea,select')].map(e=>({tag:e.tagName,type:e.type,id:e.id,name:e.getAttribute('aria-label'),labels:[...e.labels||[]].map(l=>l.innerText),placeholder:e.placeholder,value:e.value})),buttons:[...document.querySelectorAll('main button')].map(e=>({text:e.innerText,name:e.getAttribute('aria-label'),disabled:e.disabled})),headings:[...document.querySelectorAll('main h2,main h3')].map(e=>e.innerText)}));out.push({slug,...v});console.log(slug,JSON.stringify(v.inputs));}
+fs.writeFileSync(__dirname+'/lab-inventory.json',JSON.stringify(out,null,2));await b.close();})();

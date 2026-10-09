@@ -1,0 +1,982 @@
+[
+  {
+    "route": "/",
+    "width": 1440,
+    "title": "Interactive cryptography field guide | CryptoViz",
+    "heading": [
+      "See how encryption actually works."
+    ],
+    "overflow": false,
+    "errors": [],
+    "buttons": [
+      "Caesar Shiftshift",
+      "XOR Streamp ⊕ k",
+      "AES S-BoxSubBytes",
+      "",
+      "",
+      "Play",
+      "",
+      "0.5x",
+      "1x",
+      "2x",
+      "4x",
+      "All",
+      "Symmetric",
+      "Asymmetric",
+      "Hashing",
+      "Protocols",
+      "Attacks"
+    ]
+  },
+  {
+    "route": "/aes",
+    "width": 1440,
+    "title": "AES Encryption | CryptoViz",
+    "heading": [
+      "AES Encryption Visualizer"
+    ],
+    "overflow": false,
+    "errors": [],
+    "buttons": [
+      "Load Example",
+      "Start Encryption Visualization",
+      "What is AES?",
+      "The Four Operations",
+      "Key Sizes",
+      "Security Considerations",
+      "Real-World Applications",
+      "Common Mistakes to Avoid",
+      "Want to Learn More?",
+      "AES-128",
+      "AES-192",
+      "AES-256",
+      "All are equally secure"
+    ]
+  },
+  {
+    "route": "/rsa",
+    "width": 1440,
+    "title": "RSA Encryption | CryptoViz",
+    "heading": [
+      "RSA Encryption Visualizer"
+    ],
+    "overflow": false,
+    "errors": [],
+    "buttons": [
+      "RECOMMENDEDSmall (Educational)Prime range: 10-50Fast generation, easy to understand",
+      "MediumPrime range: 50-200Balanced speed and complexity",
+      "LargePrime range: 200-500Slower, more realistic numbers",
+      "Generate RSA Key Pair",
+      "What is RSA?",
+      "Key Generation Steps",
+      "Security & Math",
+      "Where is RSA Used?",
+      "Common Mistakes to Avoid",
+      "Want to Learn More?",
+      "Symmetric",
+      "Asymmetric",
+      "Hashing",
+      "Linear"
+    ]
+  },
+  {
+    "route": "/ecc",
+    "width": 1440,
+    "title": "Elliptic Curve Cryptography | CryptoViz",
+    "heading": [
+      "Elliptic Curve Cryptography"
+    ],
+    "overflow": false,
+    "errors": [],
+    "buttons": [
+      "Tiny (p=23)y² = x³ + x + 1",
+      "Small (p=97)y² = x³ + 2x + 3",
+      "Medium (p=263)y² = x³ + 2x + 3",
+      "What is Elliptic Curve Cryptography?",
+      "How Point Addition Works",
+      "ECDH Key Exchange",
+      "ECDSA Digital Signatures",
+      "ECC vs RSA: Key Size Comparison",
+      "Security Considerations",
+      "Where is ECC Used?",
+      "Common Mistakes to Avoid",
+      "Want to Learn More?",
+      "Symmetric encryption",
+      "Asymmetric (public-key) encryption",
+      "Hashing",
+      "Stream cipher"
+    ]
+  },
+  {
+    "route": "/block-modes",
+    "width": 1440,
+    "title": "Block Cipher Modes | CryptoViz",
+    "heading": [
+      "Block Cipher Modes"
+    ],
+    "overflow": false,
+    "errors": [],
+    "buttons": [
+      "ECB",
+      "CBC",
+      "GCM",
+      "Encrypt with ECB",
+      "",
+      "What are Block Cipher Modes?",
+      "The ECB Penguin Problem",
+      "Mode Comparison",
+      "Security Considerations",
+      "Real-World Applications",
+      "Common Mistakes to Avoid",
+      "Want to Learn More?",
+      "To make encryption faster",
+      "To encrypt messages longer than one block",
+      "To reduce key size",
+      "To replace the encryption algorithm"
+    ]
+  },
+  {
+    "route": "/diffie-hellman",
+    "width": 1440,
+    "title": "Diffie–Hellman | CryptoViz",
+    "heading": [
+      "Diffie-Hellman Key Exchange"
+    ],
+    "overflow": false,
+    "errors": [],
+    "buttons": [
+      "RECOMMENDEDSmall (Educational)Prime range: 23-97Fast generation, easy to follow",
+      "MediumPrime range: 101-499Balanced complexity",
+      "LargePrime range: 503-997More realistic numbers",
+      "Start Key Exchange",
+      "New Prime",
+      "What is Diffie-Hellman?",
+      "Key Exchange Steps",
+      "Security & Math",
+      "Where is Diffie-Hellman Used?",
+      "Common Mistakes to Avoid",
+      "Want to Learn More?",
+      "Encrypting messages directly",
+      "Establishing a shared secret key",
+      "Creating digital signatures",
+      "Hashing data"
+    ]
+  },
+  {
+    "route": "/hashing",
+    "width": 1440,
+    "title": "Hash Functions | CryptoViz",
+    "heading": [
+      "Hash Functions Visualizer"
+    ],
+    "overflow": false,
+    "errors": [],
+    "buttons": [
+      "Hash It!",
+      "Hello, World!",
+      "Cryptography",
+      "SHA-256",
+      "Blockchain",
+      "Demonstrate",
+      "Single",
+      "Compare",
+      "Hex",
+      "Binary",
+      "Blocks",
+      "What is Hashing?",
+      "Key Properties",
+      "Common Algorithms",
+      "Applications",
+      "Common Mistakes to Avoid",
+      "Want to Learn More?",
+      "Reversible",
+      "One-way usually",
+      "Two-way",
+      "Random output always"
+    ]
+  },
+  {
+    "route": "/hmac",
+    "width": 1440,
+    "title": "HMAC | CryptoViz",
+    "heading": [
+      "HMAC Visualizer"
+    ],
+    "overflow": false,
+    "errors": [],
+    "buttons": [
+      "Compute HMAC",
+      "What is HMAC?",
+      "Why Not Just Hash(key + message)?",
+      "Inner and Outer Hash",
+      "HMAC vs Digital Signatures",
+      "Real-World Applications",
+      "Common Mistakes",
+      "Further Learning",
+      "Hash Message Access Control",
+      "Hash-based Message Authentication Code",
+      "Hashed MAC Address Code",
+      "High-security Message Authentication Cipher"
+    ]
+  },
+  {
+    "route": "/signatures",
+    "width": 1440,
+    "title": "Digital Signatures | CryptoViz",
+    "heading": [
+      "Digital Signatures Visualizer"
+    ],
+    "overflow": false,
+    "errors": [],
+    "buttons": [
+      "RECOMMENDEDSmall (Educational)Prime range: 10-50Fast generation, easy to understand",
+      "MediumPrime range: 50-200Balanced speed and complexity",
+      "LargePrime range: 200-500Slower, more realistic numbers",
+      "Generate Keys & Sign",
+      "What is a Digital Signature?",
+      "How Signing Works",
+      "How Verification Works",
+      "Signing vs Encrypting",
+      "Security Properties",
+      "Real-World Uses",
+      "Common Mistakes to Avoid",
+      "Want to Learn More?",
+      "Private Key",
+      "Public Key",
+      "The same key used to sign",
+      "A new key pair"
+    ]
+  },
+  {
+    "route": "/padding",
+    "width": 1440,
+    "title": "Padding Schemes | CryptoViz",
+    "heading": [
+      "Padding Schemes Visualizer"
+    ],
+    "overflow": false,
+    "errors": [],
+    "buttons": [
+      "8 bytes",
+      "16 bytes",
+      "Apply Padding",
+      "Why Padding Matters",
+      "PKCS#7 Padding",
+      "Zero Padding",
+      "ANSI X.923 Padding",
+      "Padding Oracle Attacks",
+      "When NOT to Pad",
+      "Common Mistakes",
+      "Further Learning",
+      "00 00 00 04",
+      "04 04 04 04",
+      "01 02 03 04",
+      "FF FF FF FF"
+    ]
+  },
+  {
+    "route": "/password-hashing",
+    "width": 1440,
+    "title": "Password Hashing | CryptoViz",
+    "heading": [
+      "Password Hashing Visualizer"
+    ],
+    "overflow": false,
+    "errors": [],
+    "buttons": [
+      "Hash Password",
+      "Benchmark",
+      "Why Not SHA-256 for Passwords?",
+      "What is a Salt?",
+      "Work Factor / Cost Parameter",
+      "Password Hashing Algorithms",
+      "Rainbow Tables",
+      "Real-World Applications",
+      "Common Mistakes",
+      "Further Learning",
+      "To encrypt the password before hashing",
+      "To ensure identical passwords produce different hashes",
+      "To make the hash output longer",
+      "To keep the hash function secret"
+    ]
+  },
+  {
+    "route": "/tls",
+    "width": 1440,
+    "title": "TLS Handshake | CryptoViz",
+    "heading": [
+      "TLS 1.3 Handshake"
+    ],
+    "overflow": false,
+    "errors": [],
+    "buttons": [
+      "Start Handshake",
+      "What is TLS/SSL?",
+      "The TLS 1.3 Handshake",
+      "How TLS Uses Other Algorithms",
+      "Cipher Suites Explained",
+      "Certificate Verification & PKI",
+      "Forward Secrecy",
+      "TLS 1.2 vs 1.3 Differences",
+      "Security Considerations",
+      "Real-World Applications",
+      "Common Mistakes",
+      "Further Learning",
+      "Nothing, expired certificates still work fine",
+      "Do not submit sensitive data; the connection may not be trustworthy",
+      "Refresh the page to renew the certificate",
+      "Switch to a different browser"
+    ]
+  },
+  {
+    "route": "/cryptanalysis",
+    "width": 1440,
+    "title": "Cryptanalysis | CryptoViz",
+    "heading": [
+      "Cryptanalysis Visualizer"
+    ],
+    "overflow": false,
+    "errors": [],
+    "buttons": [
+      "Frequency Analysis",
+      "Brute Force",
+      "Padding Oracle",
+      "Timing Attack",
+      "What is Cryptanalysis?",
+      "Frequency Analysis",
+      "Classical Ciphers",
+      "Side-Channel Attacks",
+      "Why Modern Ciphers Are Secure",
+      "Security Considerations",
+      "Real-World Attacks",
+      "Want to Learn More?",
+      "Encryption algorithms should be kept secret",
+      "A system should be secure even if everything except the key is public",
+      "Only government agencies should have access to encryption",
+      "The key must be longer than the message"
+    ]
+  },
+  {
+    "route": "/compare",
+    "width": 1440,
+    "title": "Algorithm Comparison | CryptoViz",
+    "heading": [
+      "Algorithm Comparison"
+    ],
+    "overflow": false,
+    "errors": [],
+    "buttons": [
+      "Sync On",
+      "AES",
+      "RSA",
+      "Hashing",
+      "Signatures",
+      "Diffie-Hellman",
+      "Block Modes",
+      "AES",
+      "RSA",
+      "Hashing",
+      "Signatures",
+      "Diffie-Hellman",
+      "Block Modes",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "route": "/learn",
+    "width": 1440,
+    "title": "Learning Paths | CryptoViz",
+    "heading": [
+      "Learning Paths"
+    ],
+    "overflow": false,
+    "errors": [],
+    "buttons": [
+      "beginnerCryptography FundamentalsBuild a solid foundation by understanding hashing, symmetric encryption, block cipher modes, and asymmetric encryption.2 hours4 modules0% completeNext: Hash Functions",
+      "intermediateKey Exchange & AuthenticationLearn how parties establish shared secrets and prove identity through Diffie-Hellman, digital signatures, and TLS.1.5 hours3 modules0% completeNext: Diffie-Hellman Key Exchange",
+      "advancedAdvanced SecurityDive deeper into cryptanalysis concepts, elliptic curve cryptography, password hashing, and message authentication.2.5 hours4 modules0% completeNext: Cryptanalysis Concepts"
+    ]
+  },
+  {
+    "route": "/glossary",
+    "width": 1440,
+    "title": "Crypto Glossary | CryptoViz",
+    "heading": [
+      "Crypto Glossary"
+    ],
+    "overflow": false,
+    "errors": [],
+    "buttons": [
+      "All",
+      "Symmetric",
+      "Asymmetric",
+      "Hashing",
+      "General",
+      "Security",
+      "Block Cipher",
+      "Symmetric Encryption",
+      "RSA",
+      "Public Key",
+      "Diffusion",
+      "AES",
+      "Plaintext",
+      "Encryption",
+      "Hash Function",
+      "SHA-256",
+      "Avalanche Effect",
+      "AES",
+      "SHA-256",
+      "Collision",
+      "AES",
+      "Ciphertext",
+      "RSA",
+      "Asymmetric Encryption",
+      "Hash Function",
+      "Avalanche Effect",
+      "AES",
+      "Asymmetric Encryption"
+    ]
+  },
+  {
+    "route": "/about",
+    "width": 1440,
+    "title": "About CryptoViz | CryptoViz",
+    "heading": [
+      "About CryptoViz"
+    ],
+    "overflow": false,
+    "errors": [],
+    "buttons": []
+  },
+  {
+    "route": "/",
+    "width": 390,
+    "title": "Interactive cryptography field guide | CryptoViz",
+    "heading": [
+      "See how encryption actually works."
+    ],
+    "overflow": false,
+    "errors": [],
+    "buttons": [
+      "Caesar Shiftshift",
+      "XOR Streamp ⊕ k",
+      "AES S-BoxSubBytes",
+      "",
+      "",
+      "Play",
+      "",
+      "0.5x",
+      "1x",
+      "2x",
+      "4x",
+      "All",
+      "Symmetric",
+      "Asymmetric",
+      "Hashing",
+      "Protocols",
+      "Attacks"
+    ]
+  },
+  {
+    "route": "/aes",
+    "width": 390,
+    "title": "AES Encryption | CryptoViz",
+    "heading": [
+      "AES Encryption Visualizer"
+    ],
+    "overflow": false,
+    "errors": [],
+    "buttons": [
+      "Load Example",
+      "Start Encryption Visualization",
+      "What is AES?",
+      "The Four Operations",
+      "Key Sizes",
+      "Security Considerations",
+      "Real-World Applications",
+      "Common Mistakes to Avoid",
+      "Want to Learn More?",
+      "AES-128",
+      "AES-192",
+      "AES-256",
+      "All are equally secure"
+    ]
+  },
+  {
+    "route": "/rsa",
+    "width": 390,
+    "title": "RSA Encryption | CryptoViz",
+    "heading": [
+      "RSA Encryption Visualizer"
+    ],
+    "overflow": false,
+    "errors": [],
+    "buttons": [
+      "RECOMMENDEDSmall (Educational)Prime range: 10-50Fast generation, easy to understand",
+      "MediumPrime range: 50-200Balanced speed and complexity",
+      "LargePrime range: 200-500Slower, more realistic numbers",
+      "Generate RSA Key Pair",
+      "What is RSA?",
+      "Key Generation Steps",
+      "Security & Math",
+      "Where is RSA Used?",
+      "Common Mistakes to Avoid",
+      "Want to Learn More?",
+      "Private Key",
+      "Public Key",
+      "Both Keys",
+      "Neither Key"
+    ]
+  },
+  {
+    "route": "/ecc",
+    "width": 390,
+    "title": "Elliptic Curve Cryptography | CryptoViz",
+    "heading": [
+      "Elliptic Curve Cryptography"
+    ],
+    "overflow": false,
+    "errors": [],
+    "buttons": [
+      "Tiny (p=23)y² = x³ + x + 1",
+      "Small (p=97)y² = x³ + 2x + 3",
+      "Medium (p=263)y² = x³ + 2x + 3",
+      "What is Elliptic Curve Cryptography?",
+      "How Point Addition Works",
+      "ECDH Key Exchange",
+      "ECDSA Digital Signatures",
+      "ECC vs RSA: Key Size Comparison",
+      "Security Considerations",
+      "Where is ECC Used?",
+      "Common Mistakes to Avoid",
+      "Want to Learn More?",
+      "y = mx + b",
+      "y² = x³ + ax + b",
+      "y² = x² + ax + b",
+      "y³ = x³ + ax + b"
+    ]
+  },
+  {
+    "route": "/block-modes",
+    "width": 390,
+    "title": "Block Cipher Modes | CryptoViz",
+    "heading": [
+      "Block Cipher Modes"
+    ],
+    "overflow": false,
+    "errors": [],
+    "buttons": [
+      "ECB",
+      "CBC",
+      "GCM",
+      "Encrypt with ECB",
+      "",
+      "What are Block Cipher Modes?",
+      "The ECB Penguin Problem",
+      "Mode Comparison",
+      "Security Considerations",
+      "Real-World Applications",
+      "Common Mistakes to Avoid",
+      "Want to Learn More?",
+      "To make encryption faster",
+      "To encrypt messages longer than one block",
+      "To reduce key size",
+      "To replace the encryption algorithm"
+    ]
+  },
+  {
+    "route": "/diffie-hellman",
+    "width": 390,
+    "title": "Diffie–Hellman | CryptoViz",
+    "heading": [
+      "Diffie-Hellman Key Exchange"
+    ],
+    "overflow": false,
+    "errors": [],
+    "buttons": [
+      "RECOMMENDEDSmall (Educational)Prime range: 23-97Fast generation, easy to follow",
+      "MediumPrime range: 101-499Balanced complexity",
+      "LargePrime range: 503-997More realistic numbers",
+      "Start Key Exchange",
+      "New Prime",
+      "What is Diffie-Hellman?",
+      "Key Exchange Steps",
+      "Security & Math",
+      "Where is Diffie-Hellman Used?",
+      "Common Mistakes to Avoid",
+      "Want to Learn More?",
+      "Encrypting messages directly",
+      "Establishing a shared secret key",
+      "Creating digital signatures",
+      "Hashing data"
+    ]
+  },
+  {
+    "route": "/hashing",
+    "width": 390,
+    "title": "Hash Functions | CryptoViz",
+    "heading": [
+      "Hash Functions Visualizer"
+    ],
+    "overflow": false,
+    "errors": [],
+    "buttons": [
+      "Hash It!",
+      "Hello, World!",
+      "Cryptography",
+      "SHA-256",
+      "Blockchain",
+      "Demonstrate",
+      "Single",
+      "Compare",
+      "Hex",
+      "Binary",
+      "Blocks",
+      "What is Hashing?",
+      "Key Properties",
+      "Common Algorithms",
+      "Applications",
+      "Common Mistakes to Avoid",
+      "Want to Learn More?",
+      "Encrypting emails",
+      "Storing passwords securely",
+      "Compressing files",
+      "Speeding up internet"
+    ]
+  },
+  {
+    "route": "/hmac",
+    "width": 390,
+    "title": "HMAC | CryptoViz",
+    "heading": [
+      "HMAC Visualizer"
+    ],
+    "overflow": false,
+    "errors": [],
+    "buttons": [
+      "Compute HMAC",
+      "What is HMAC?",
+      "Why Not Just Hash(key + message)?",
+      "Inner and Outer Hash",
+      "HMAC vs Digital Signatures",
+      "Real-World Applications",
+      "Common Mistakes",
+      "Further Learning",
+      "Hash Message Access Control",
+      "Hash-based Message Authentication Code",
+      "Hashed MAC Address Code",
+      "High-security Message Authentication Cipher"
+    ]
+  },
+  {
+    "route": "/signatures",
+    "width": 390,
+    "title": "Digital Signatures | CryptoViz",
+    "heading": [
+      "Digital Signatures Visualizer"
+    ],
+    "overflow": false,
+    "errors": [],
+    "buttons": [
+      "RECOMMENDEDSmall (Educational)Prime range: 10-50Fast generation, easy to understand",
+      "MediumPrime range: 50-200Balanced speed and complexity",
+      "LargePrime range: 200-500Slower, more realistic numbers",
+      "Generate Keys & Sign",
+      "What is a Digital Signature?",
+      "How Signing Works",
+      "How Verification Works",
+      "Signing vs Encrypting",
+      "Security Properties",
+      "Real-World Uses",
+      "Common Mistakes to Avoid",
+      "Want to Learn More?",
+      "Public Key",
+      "Private Key",
+      "Symmetric Key",
+      "Session Key"
+    ]
+  },
+  {
+    "route": "/padding",
+    "width": 390,
+    "title": "Padding Schemes | CryptoViz",
+    "heading": [
+      "Padding Schemes Visualizer"
+    ],
+    "overflow": false,
+    "errors": [],
+    "buttons": [
+      "8 bytes",
+      "16 bytes",
+      "Apply Padding",
+      "Why Padding Matters",
+      "PKCS#7 Padding",
+      "Zero Padding",
+      "ANSI X.923 Padding",
+      "Padding Oracle Attacks",
+      "When NOT to Pad",
+      "Common Mistakes",
+      "Further Learning",
+      "00 00 00 04",
+      "04 04 04 04",
+      "01 02 03 04",
+      "FF FF FF FF"
+    ]
+  },
+  {
+    "route": "/password-hashing",
+    "width": 390,
+    "title": "Password Hashing | CryptoViz",
+    "heading": [
+      "Password Hashing Visualizer"
+    ],
+    "overflow": false,
+    "errors": [],
+    "buttons": [
+      "Hash Password",
+      "Benchmark",
+      "Why Not SHA-256 for Passwords?",
+      "What is a Salt?",
+      "Work Factor / Cost Parameter",
+      "Password Hashing Algorithms",
+      "Rainbow Tables",
+      "Real-World Applications",
+      "Common Mistakes",
+      "Further Learning",
+      "To encrypt the password before hashing",
+      "To ensure identical passwords produce different hashes",
+      "To make the hash output longer",
+      "To keep the hash function secret"
+    ]
+  },
+  {
+    "route": "/tls",
+    "width": 390,
+    "title": "TLS Handshake | CryptoViz",
+    "heading": [
+      "TLS 1.3 Handshake"
+    ],
+    "overflow": false,
+    "errors": [],
+    "buttons": [
+      "Start Handshake",
+      "What is TLS/SSL?",
+      "The TLS 1.3 Handshake",
+      "How TLS Uses Other Algorithms",
+      "Cipher Suites Explained",
+      "Certificate Verification & PKI",
+      "Forward Secrecy",
+      "TLS 1.2 vs 1.3 Differences",
+      "Security Considerations",
+      "Real-World Applications",
+      "Common Mistakes",
+      "Further Learning",
+      "To compress data for faster transmission",
+      "To establish encryption keys and verify server identity",
+      "To route packets to the correct server",
+      "To check if the server is online"
+    ]
+  },
+  {
+    "route": "/cryptanalysis",
+    "width": 390,
+    "title": "Cryptanalysis | CryptoViz",
+    "heading": [
+      "Cryptanalysis Visualizer"
+    ],
+    "overflow": false,
+    "errors": [],
+    "buttons": [
+      "Frequency Analysis",
+      "Brute Force",
+      "Padding Oracle",
+      "Timing Attack",
+      "What is Cryptanalysis?",
+      "Frequency Analysis",
+      "Classical Ciphers",
+      "Side-Channel Attacks",
+      "Why Modern Ciphers Are Secure",
+      "Security Considerations",
+      "Real-World Attacks",
+      "Want to Learn More?",
+      "10",
+      "26",
+      "256",
+      "2^128"
+    ]
+  },
+  {
+    "route": "/compare",
+    "width": 390,
+    "title": "Algorithm Comparison | CryptoViz",
+    "heading": [
+      "Algorithm Comparison"
+    ],
+    "overflow": false,
+    "errors": [],
+    "buttons": [
+      "Sync On",
+      "AES",
+      "RSA",
+      "Hashing",
+      "Signatures",
+      "Diffie-Hellman",
+      "Block Modes",
+      "AES",
+      "RSA",
+      "Hashing",
+      "Signatures",
+      "Diffie-Hellman",
+      "Block Modes",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  {
+    "route": "/learn",
+    "width": 390,
+    "title": "Learning Paths | CryptoViz",
+    "heading": [
+      "Learning Paths"
+    ],
+    "overflow": false,
+    "errors": [],
+    "buttons": [
+      "beginnerCryptography FundamentalsBuild a solid foundation by understanding hashing, symmetric encryption, block cipher modes, and asymmetric encryption.2 hours4 modules0% completeNext: Hash Functions",
+      "intermediateKey Exchange & AuthenticationLearn how parties establish shared secrets and prove identity through Diffie-Hellman, digital signatures, and TLS.1.5 hours3 modules0% completeNext: Diffie-Hellman Key Exchange",
+      "advancedAdvanced SecurityDive deeper into cryptanalysis concepts, elliptic curve cryptography, password hashing, and message authentication.2.5 hours4 modules0% completeNext: Cryptanalysis Concepts"
+    ]
+  },
+  {
+    "route": "/glossary",
+    "width": 390,
+    "title": "Crypto Glossary | CryptoViz",
+    "heading": [
+      "Crypto Glossary"
+    ],
+    "overflow": false,
+    "errors": [],
+    "buttons": [
+      "All",
+      "Symmetric",
+      "Asymmetric",
+      "Hashing",
+      "General",
+      "Security",
+      "Block Cipher",
+      "Symmetric Encryption",
+      "RSA",
+      "Public Key",
+      "Diffusion",
+      "AES",
+      "Plaintext",
+      "Encryption",
+      "Hash Function",
+      "SHA-256",
+      "Avalanche Effect",
+      "AES",
+      "SHA-256",
+      "Collision",
+      "AES",
+      "Ciphertext",
+      "RSA",
+      "Asymmetric Encryption",
+      "Hash Function",
+      "Avalanche Effect",
+      "AES",
+      "Asymmetric Encryption"
+    ]
+  },
+  {
+    "route": "/about",
+    "width": 390,
+    "title": "About CryptoViz | CryptoViz",
+    "heading": [
+      "About CryptoViz"
+    ],
+    "overflow": false,
+    "errors": [],
+    "buttons": []
+  }
+]

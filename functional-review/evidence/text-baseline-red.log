@@ -1,0 +1,138 @@
+PASS independent FNV-1a vector ""
+PASS independent FNV-1a vector "a"
+FAIL independent FNV-1a vector "hello": Expected values to be strictly equal:
++ actual - expected
+
++ 'a82fb4a1'
+- '4f9f2cab'
+
+FAIL independent FNV-1a vector "foobar": Expected values to be strictly equal:
++ actual - expected
+
++ '0ee3c7f0'
+- 'bf9cf968'
+
+FAIL emoji binary encodes all four UTF-8 bytes: Expected values to be strictly equal:
++ actual - expected
+
++ '1101100000111101'
+- '11110000 10011111 10011000 10000000'
+     ^
+
+FAIL independent toy byte-HMAC ASCII vector: Expected values to be strictly equal:
++ actual - expected
+
++ 'd3c64ad0'
+- '4fadf9db'
+
+FAIL independent toy byte-HMAC Unicode vector: Expected values to be strictly equal:
++ actual - expected
+
++ '2e8ba09c'
+- '28998039'
+
+FAIL distinct emoji keys stay distinct: Expected "actual" to be strictly unequal to:
+
+'10d1df74'
+FAIL HMAC key normalization measures UTF-8 bytes: Expected values to be strictly equal:
++ actual - expected
+
++ 'Zero-padded'
+- 'Hashed then padded'
+
+FAIL pkcs7 Unicode/control roundtrip: Expected values to be strictly equal:
+
+'...' !== 'é😀\n'
+
+FAIL ansi-x923 Unicode/control roundtrip: Expected values to be strictly equal:
+
+'...' !== 'é😀\n'
+
+FAIL aligned zero padding has no fabricated bytes: Expected values to be strictly equal:
+
+8 !== 0
+
+FAIL ANSI fill corruption is rejected: Missing expected exception.
+PASS invalid block size 0
+PASS invalid block size -1
+PASS invalid block size 1.5
+FAIL invalid block size 256: Missing expected exception.
+PASS invalid block size NaN
+FAIL out-of-range bytes rejected: Missing expected exception.
+FAIL encryptECBWithSteps encodes Unicode as bytes: Expected values to be strictly equal:
++ actual - expected
+
++ 'd83dde00e9'
+- 'f09f9880c3a9'
+
+FAIL encryptECBWithSteps caps visualization work: Missing expected exception.
+FAIL encryptECBWithSteps rejects oversized UTF-8 key: Missing expected exception.
+FAIL encryptCBCWithSteps encodes Unicode as bytes: Expected values to be strictly equal:
++ actual - expected
+
++ 'd83dde00e9'
+- 'f09f9880c3a9'
+
+FAIL encryptCBCWithSteps caps visualization work: Missing expected exception.
+FAIL encryptCBCWithSteps rejects oversized UTF-8 key: Missing expected exception.
+FAIL encryptGCMWithSteps encodes Unicode as bytes: Expected values to be strictly equal:
++ actual - expected
+
++ 'd83dde00e9'
+- 'f09f9880c3a9'
+
+FAIL encryptGCMWithSteps caps visualization work: Missing expected exception.
+FAIL encryptGCMWithSteps rejects oversized UTF-8 key: Missing expected exception.
+FAIL GCM stream length "": Expected values to be strictly equal:
+
+32 !== 0
+
+FAIL GCM stream length "a": Expected values to be strictly equal:
+
+32 !== 2
+
+FAIL GCM stream length "é😀": Expected values to be strictly equal:
+
+36 !== 12
+
+FAIL GCM stream length "AAAAAAAAAAAAAAAA": Expected values to be strictly equal:
+
+64 !== 32
+
+FAIL GCM stream length "AAAAAAAAAAAAAAAAA": Expected values to be strictly equal:
+
+64 !== 34
+
+FAIL toy tag includes changed suffix: Expected "actual" to be strictly unequal to:
+
+'095c1b36643762316335383630616635'
+PASS malformed signature -1
+PASS malformed signature 1.5
+PASS malformed signature NaN
+PASS malformed signature Infinity
+PASS malformed signature 3233
+PASS malformed signature 9007199254740992
+FAIL congruent out-of-range signature rejected: Expected values to be strictly equal:
+
+true !== false
+
+FAIL strict signature parse 123junk: s.parseSignature is not a function
+FAIL strict signature parse 12.5: s.parseSignature is not a function
+FAIL strict signature parse 1e2: s.parseSignature is not a function
+FAIL strict signature parse -1: s.parseSignature is not a function
+FAIL strict signature parse 3233: s.parseSignature is not a function
+FAIL frequency analysis uncertainty "": The input was expected to not match the regular expression /successfully identified/. Input:
+
+'Frequency analysis successfully identified the shift key as 0. This attack works because Caesar cipher preserves the frequency distribution of letters -- it just shifts them. Any substitution cipher that maps one-to-one is vulnerable.'
+
+FAIL frequency analysis uncertainty "12345!": The input was expected to not match the regular expression /successfully identified/. Input:
+
+'Frequency analysis successfully identified the shift key as 0. This attack works because Caesar cipher preserves the frequency distribution of letters -- it just shifts them. Any substitution cipher that maps one-to-one is vulnerable.'
+
+FAIL frequency analysis uncertainty "X": The input was expected to not match the regular expression /successfully identified/. Input:
+
+'Frequency analysis successfully identified the shift key as 19. This attack works because Caesar cipher preserves the frequency distribution of letters -- it just shifts them. Any substitution cipher that maps one-to-one is vulnerable.'
+
+BASELINE: 12/49 passed; 37 failed
+(node:50529) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)

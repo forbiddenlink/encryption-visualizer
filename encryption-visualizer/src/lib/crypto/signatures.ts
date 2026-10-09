@@ -14,6 +14,17 @@ import type { SignatureStep, RSAKeyPair } from '../types/index.js';
 import { modPow } from './rsa.js';
 import { simpleHash } from './hash.js';
 
+export function parseSignature(input: string, modulus: number): number | null {
+  const text = input.trim();
+  if (!/^\d+$/.test(text)) return null;
+  const signature = Number(text);
+  return Number.isSafeInteger(signature) && signature >= 0 && signature < modulus ? signature : null;
+}
+
+function validSignature(signature: number, publicKey: { n: number; e: number }): boolean {
+  return Number.isSafeInteger(signature) && signature >= 0 && signature < publicKey.n;
+}
+
 /**
  * Convert a hex hash string to a number for signing
  * Uses only part of the hash to keep numbers manageable for visualization
@@ -62,7 +73,7 @@ export function signMessageWithSteps(
     stepNumber: stepNumber++,
     type: 'hash-generation',
     title: 'Generate Message Hash',
-    description: `Hash the message using a cryptographic hash function. This creates a fixed-size "fingerprint" of the message. Hash = ${messageHash}`,
+    description: `Hash the UTF-8 message using the simplified FNV-1a function. This creates a fixed-size "fingerprint" of the message. Hash = ${messageHash}`,
     values: {
       message,
       messageHash,
@@ -91,10 +102,10 @@ export function signMessageWithSteps(
 
   // Step 4: Signature complete
   steps.push({
-    stepNumber: stepNumber++,
+    stepNumber: stepNumber,
     type: 'signature-complete',
     title: 'Signature Created!',
-    description: `Your digital signature is: ${signature}. Send this along with your message. Anyone with your public key can verify it came from you.`,
+    description: `Your digital signature is: ${signature}. Send this along with your message. The public key checks this toy signature; collisions can make different messages verify.`,
     values: {
       message,
       messageHash,
@@ -113,6 +124,18 @@ export function verifySignatureWithSteps(
   signature: number,
   publicKey: { n: number; e: number }
 ): { isValid: boolean; steps: SignatureStep[] } {
+  if (!validSignature(signature, publicKey)) {
+    return {
+      isValid: false,
+      steps: [{
+        stepNumber: 0,
+        type: 'verify-result',
+        title: 'Invalid Signature Input',
+        description: `The signature must be a whole number from 0 to ${publicKey.n - 1}.`,
+        values: { isValid: false },
+      }],
+    };
+  }
   const steps: SignatureStep[] = [];
   let stepNumber = 0;
 
@@ -183,11 +206,11 @@ export function verifySignatureWithSteps(
 
   // Step 5: Final result
   steps.push({
-    stepNumber: stepNumber++,
+    stepNumber: stepNumber,
     type: 'verify-result',
     title: isValid ? 'Signature Valid!' : 'Signature Invalid!',
     description: isValid
-      ? 'The hashes match! This proves: (1) The message was signed by the private key holder, (2) The message has not been tampered with.'
+      ? 'The truncated toy hashes match. This illustrates verification, but small RSA keys and FNV-1a collisions prevent it from proving authenticity or integrity.'
       : 'The hashes do NOT match! Either the message was altered, or it was not signed by the claimed sender.',
     values: {
       isValid,
@@ -214,6 +237,7 @@ export function verifySignature(
   signature: number,
   publicKey: { n: number; e: number }
 ): boolean {
+  if (!validSignature(signature, publicKey)) return false;
   const messageHash = simpleHash(message);
   const expectedHashNum = hashToNumber(messageHash, publicKey.n);
   const decryptedHashNum = modPow(signature, publicKey.e, publicKey.n);

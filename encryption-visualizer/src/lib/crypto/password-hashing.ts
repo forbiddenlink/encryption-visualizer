@@ -150,7 +150,7 @@ export function passwordHashWithSteps(
     stepNumber: stepNumber++,
     type: 'generate-salt',
     title: 'Generate Random Salt',
-    description: `A unique salt is generated for this password. The salt ensures that even identical passwords produce different hashes, defeating rainbow table attacks.`,
+    description: `This lab derives a deterministic salt from the password and cost so repeated runs are reproducible. Real password storage generates a fresh random salt for each record; this demo does not.`,
     values: {
       salt,
       saltLength: `${salt.length} characters`,
@@ -203,7 +203,7 @@ export function passwordHashWithSteps(
           ? 'First iteration: hash the combined password+salt. Each subsequent iteration feeds the previous hash back in.'
           : i === sampleIterations - 1 && iterations > sampleIterations
             ? `Showing iteration ${i + 1}. The remaining ${(iterations - sampleIterations).toLocaleString()} iterations continue the same process...`
-            : `Iteration ${i + 1}: the previous hash is combined with the salt and re-hashed. This key stretching makes brute-force exponentially harder.`,
+            : `Iteration ${i + 1}: the previous hash is combined with the salt and re-hashed. Additional iterations increase the work per guess; this FNV-1a simulation is not a secure password hash.`,
       values: {
         intermediateHash: current,
         iteration: i + 1,
@@ -233,7 +233,7 @@ export function passwordHashWithSteps(
   // Step 7: Verification
   const isValid = verifyPassword(password, salt, finalHash, iterations);
   steps.push({
-    stepNumber: stepNumber++,
+    stepNumber: stepNumber,
     type: 'verify',
     title: 'Password Verification',
     description: 'To verify a login, the system re-hashes the entered password with the stored salt and cost factor. If the result matches the stored hash, the password is correct.',

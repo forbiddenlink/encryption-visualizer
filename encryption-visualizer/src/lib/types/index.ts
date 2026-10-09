@@ -65,6 +65,16 @@ export interface HashStep {
     chunks?: string[];
     hash?: string;
     roundValues?: string[];
+    algorithm?: 'SHA-256' | 'FNV-1a';
+    sha256?: {
+      blockIndex: number;
+      blockCount: number;
+      round?: number;
+      word?: string;
+      constant?: string;
+      temp1?: string;
+      temp2?: string;
+    };
   };
 }
 

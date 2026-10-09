@@ -1,0 +1,56 @@
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - `__dirname` (vite.config.ts:83:25). Use `import.meta.dirname` instead
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+
+ RUN  v4.1.11 /Volumes/LizsDisk/encryption-visualizer/encryption-visualizer
+
+ ❯ src/hooks/useKeyboardShortcuts.test.tsx (2 tests | 2 failed) 33ms
+     × preserves native keyboard actions on buttons, selects and links 28ms
+     × plays from the background but leaves browser modifier shortcuts alone 4ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/hooks/useKeyboardShortcuts.test.tsx > Playback keyboard scope > preserves native keyboard actions on buttons, selects and links
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/hooks/useKeyboardShortcuts.test.tsx:15:70
+     13|     const view = render(<Controls />);
+     14|     for (const target of view.container.querySelectorAll('button,selec…
+     15|       expect(fireEvent.keyDown(target, { code: 'Space', key: ' ' })).t…
+       |                                                                      ^
+     16|       expect(useVisualizationStore.getState().isPlaying).toBe(false);
+     17|     }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  src/hooks/useKeyboardShortcuts.test.tsx > Playback keyboard scope > plays from the background but leaves browser modifier shortcuts alone
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/hooks/useKeyboardShortcuts.test.tsx:22:56
+     20|     render(<Controls />);
+     21|     fireEvent.keyDown(document.body, { code: 'Space', key: ' ', ctrlKe…
+     22|     expect(useVisualizationStore.getState().isPlaying).toBe(false);
+       |                                                        ^
+     23|     fireEvent.keyDown(document.body, { code: 'Space', key: ' ' });
+     24|     expect(useVisualizationStore.getState().isPlaying).toBe(true);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed (2)
+   Start at  14:06:23
+   Duration  3.97s (transform 85ms, setup 888ms, import 326ms, tests 33ms, environment 2.07s)
+

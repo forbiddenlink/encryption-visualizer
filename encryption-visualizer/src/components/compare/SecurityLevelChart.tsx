@@ -99,7 +99,7 @@ export const SecurityLevelChart: React.FC = () => {
             className={`p-4 rounded-xl border ${
               level.nistRecommended
                 ? 'bg-emerald-500/5 border-emerald-500/20'
-                : 'bg-slate-800/50 border-white/5'
+                : 'bg-slate-100 dark:bg-slate-800/50 border-slate-200 dark:border-white/5'
             }`}
           >
             <div className="flex items-center gap-2 mb-3">

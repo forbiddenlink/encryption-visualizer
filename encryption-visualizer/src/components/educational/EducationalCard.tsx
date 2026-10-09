@@ -1,6 +1,5 @@
-import React from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
-import { m, AnimatePresence } from 'framer-motion';
+import React, { useId } from 'react';
+import { Plus, Minus } from 'lucide-react';
 
 interface EducationalCardProps {
   title: React.ReactNode;
@@ -15,38 +14,35 @@ export const EducationalCard: React.FC<EducationalCardProps> = ({
   onToggle,
   children,
 }) => {
+  const panelId = useId();
+  const headingId = useId();
   return (
-    <div className="glass-card overflow-hidden">
-      <button
-        onClick={onToggle}
-        className="w-full p-4 flex items-center justify-between hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"
+    <section className="lesson-note">
+      <h3>
+        <button
+          type="button"
+          id={headingId}
+          onClick={onToggle}
+          aria-expanded={isExpanded}
+          aria-controls={panelId}
+          className="lesson-note-toggle"
+        >
+          <span>{title}</span>
+          {isExpanded ? (
+            <Minus size={18} aria-hidden="true" />
+          ) : (
+            <Plus size={18} aria-hidden="true" />
+          )}
+        </button>
+      </h3>
+      <div
+        id={panelId}
+        aria-labelledby={headingId}
+        hidden={!isExpanded}
+        className="lesson-note-body"
       >
-        <h3 className="text-sm font-semibold text-slate-900 dark:text-white flex items-center gap-2">
-          <div className="w-1.5 h-1.5 bg-cyber-cyan rounded-full" />
-          {title}
-        </h3>
-        {isExpanded ? (
-          <ChevronUp className="w-4 h-4 text-slate-400 dark:text-slate-500" />
-        ) : (
-          <ChevronDown className="w-4 h-4 text-slate-400 dark:text-slate-500" />
-        )}
-      </button>
-
-      <AnimatePresence>
-        {isExpanded && (
-          <m.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="overflow-hidden"
-          >
-            <div className="p-4 pt-0 border-t border-slate-200 dark:border-slate-700">
-              {children}
-            </div>
-          </m.div>
-        )}
-      </AnimatePresence>
-    </div>
+        {children}
+      </div>
+    </section>
   );
 };

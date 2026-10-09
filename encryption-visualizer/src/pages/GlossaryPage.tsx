@@ -12,8 +12,9 @@ export const GlossaryPage = () => {
     const categories = ['All', 'Symmetric', 'Asymmetric', 'Hashing', 'General', 'Security'];
 
     const filteredTerms = glossaryTerms.filter((term) => {
-        const matchesSearch = term.term.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            term.definition.toLowerCase().includes(searchTerm.toLowerCase());
+        const query = searchTerm.trim().toLowerCase();
+        const matchesSearch = term.term.toLowerCase().includes(query) ||
+            term.definition.toLowerCase().includes(query);
         const matchesCategory = selectedCategory === 'All' || term.category === selectedCategory;
         return matchesSearch && matchesCategory;
     });
@@ -22,9 +23,10 @@ export const GlossaryPage = () => {
         <>
         <FAQPageSchema items={glossaryFAQItems} />
         <div className="space-y-8 max-w-4xl mx-auto">
-            <div className="glass-card p-6 sm:p-8 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6">
+            <p className="eyebrow">The reference shelf / {glossaryTerms.length} terms</p>
+            <div className="lesson-header">
                 <div>
-                    <h1 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white mb-2 flex items-center justify-center sm:justify-start gap-3">
+                    <h1 className="section-title mb-4 flex items-center gap-3">
                         <Book className="w-8 h-8 sm:w-10 sm:h-10 text-blue-600 dark:text-cyber-cyan" />
                         Crypto Glossary
                     </h1>
@@ -38,7 +40,8 @@ export const GlossaryPage = () => {
                         <Search className="h-5 w-5 text-slate-400 dark:text-slate-500" />
                     </div>
                     <input
-                        type="text"
+                        type="search"
+                        aria-label="Search cryptographic terms"
                         className="block w-full pl-10 pr-3 py-2 border border-slate-300 dark:border-slate-700 rounded-xl leading-5 bg-white dark:bg-cyber-dark text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyber-blue/50 focus:border-cyber-blue transition duration-150 ease-in-out sm:text-sm"
                         placeholder="Search terms..."
                         value={searchTerm}
@@ -53,6 +56,7 @@ export const GlossaryPage = () => {
                     <button
                         key={category}
                         onClick={() => setSelectedCategory(category)}
+                        aria-pressed={selectedCategory === category}
                         className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 active:scale-95 ${selectedCategory === category
                                 ? 'bg-cyber-blue text-white shadow-md shadow-cyber-blue/20'
                                 : 'bg-slate-100 dark:bg-cyber-surface border border-slate-200 dark:border-white/5 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white'
@@ -62,20 +66,21 @@ export const GlossaryPage = () => {
                     </button>
                 ))}
             </div>
+            <p role="status" className="eyebrow">{filteredTerms.length} of {glossaryTerms.length} terms</p>
 
             {/* Terms Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {filteredTerms.length > 0 ? (
-                    filteredTerms.map((term, index) => (
+                    filteredTerms.map((term) => (
                         <m.div
                             key={term.term}
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.05 }}
+                            transition={{ duration: 0.15 }}
                             className="glass-card-hover p-5 border-l-4 border-l-cyber-blue"
                         >
                             <div className="flex justify-between items-start mb-2">
-                                <h3 className="text-xl font-bold text-slate-900 dark:text-white">{term.term}</h3>
+                                <h2 className="text-xl font-bold text-slate-900 dark:text-white">{term.term}</h2>
                                 <span className="text-xs px-2 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400">
                                     {term.category}
                                 </span>
@@ -87,9 +92,10 @@ export const GlossaryPage = () => {
                                 <div className="mt-3 pt-3 border-t border-slate-200 dark:border-slate-700 flex flex-wrap gap-2">
                                     <span className="text-xs text-slate-400 dark:text-slate-500 mr-1">Related:</span>
                                     {term.relatedTerms.map((related) => (
-                                        <span key={related} className="text-xs text-blue-600 dark:text-cyber-cyan font-medium">
+                                        glossaryTerms.some((item) => item.term.toLowerCase().includes(related.toLowerCase())) ? <button key={related} className="text-xs text-blue-600 dark:text-cyber-cyan font-medium min-h-[44px] underline underline-offset-4" onClick={() => { setSelectedCategory('All'); setSearchTerm(related); document.querySelector<HTMLInputElement>('input[type="search"]')?.focus(); }}>
                                             {related}
-                                        </span>
+                                        </button>
+                                        : <span key={related} className="text-xs text-slate-600 dark:text-slate-400 self-center">{related}</span>
                                     ))}
                                 </div>
                             )}
@@ -107,6 +113,7 @@ export const GlossaryPage = () => {
                             Try different keywords or browse by category
                         </p>
                         <div className="flex flex-wrap justify-center gap-2">
+                            <button className="btn-secondary" onClick={() => { setSearchTerm(''); setSelectedCategory('All'); }}>Clear filters</button>
                             {categories.filter((c) => c !== 'All').map((category) => (
                                 <button
                                     key={category}

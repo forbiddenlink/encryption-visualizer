@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Check, Lock, ChevronRight } from 'lucide-react';
+import { isModuleAvailable } from '@/data/learningProgress';
 import type { LearningModule } from '@/data/learningPaths';
 
 interface PathProgressProps {
@@ -21,8 +22,7 @@ export const PathProgress: React.FC<PathProgressProps> = ({
   const isModuleCompleted = (id: string): boolean => completedModules.includes(id);
 
   const isModuleLocked = (module: LearningModule): boolean => {
-    if (module.prerequisites.length === 0) return false;
-    return module.prerequisites.some((prereq) => !completedModules.includes(prereq));
+    return !isModuleAvailable(module, completedModules);
   };
 
   const completedCount = modules.filter((m) => isModuleCompleted(m.id)).length;
@@ -67,7 +67,7 @@ export const PathProgress: React.FC<PathProgressProps> = ({
                     completed
                       ? 'bg-cyber-cyan border-cyber-cyan'
                       : isCurrent
-                      ? 'bg-cyber-blue/20 border-cyber-blue animate-pulse'
+                      ? 'bg-cyber-blue/20 border-cyber-blue '
                       : locked
                       ? 'bg-slate-800 border-slate-600'
                       : 'bg-slate-800 border-slate-500'
@@ -92,12 +92,12 @@ export const PathProgress: React.FC<PathProgressProps> = ({
                         ? 'text-cyber-cyan'
                         : locked
                         ? 'text-slate-500'
-                        : 'text-white'
+                        : 'text-slate-900 dark:text-white'
                     }`}
                   >
                     {module.title}
                   </h4>
-                  <p className="text-xs text-slate-400 mt-0.5 line-clamp-2">
+                  <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5 line-clamp-2">
                     {module.description}
                   </p>
                 </div>
@@ -149,7 +149,7 @@ export const PathProgress: React.FC<PathProgressProps> = ({
                   completed
                     ? 'bg-cyber-cyan border-cyber-cyan'
                     : isCurrent
-                    ? 'bg-cyber-blue/20 border-cyber-blue animate-pulse'
+                    ? 'bg-cyber-blue/20 border-cyber-blue '
                     : locked
                     ? 'bg-slate-800 border-slate-600'
                     : 'bg-slate-800 border-slate-500'

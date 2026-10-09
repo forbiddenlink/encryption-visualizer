@@ -70,7 +70,7 @@ export const AchievementBadge: React.FC<AchievementBadgeProps> = ({
         </div>
         <span
           className={`text-xs font-semibold ${
-            unlocked ? 'text-white' : 'text-slate-500'
+            unlocked ? 'text-slate-900 dark:text-white' : 'text-slate-500'
           }`}
         >
           {achievement.title}
@@ -97,7 +97,7 @@ export const AchievementBadge: React.FC<AchievementBadgeProps> = ({
       animate={{ scale: 1, opacity: 1 }}
       whileHover={unlocked ? { scale: 1.03 } : undefined}
       className={`relative glass-card p-4 text-center overflow-hidden ${
-        unlocked ? '' : 'opacity-50'
+        unlocked ? '' : 'border-dashed'
       }`}
     >
       {/* Shine animation on unlock */}
@@ -128,19 +128,19 @@ export const AchievementBadge: React.FC<AchievementBadgeProps> = ({
 
       <h4
         className={`text-sm font-bold mb-1 ${
-          unlocked ? 'text-white' : 'text-slate-500'
+          unlocked ? 'text-slate-900 dark:text-white' : 'text-slate-500'
         }`}
       >
         {achievement.title}
       </h4>
-      <p className="text-xs text-slate-400">{achievement.description}</p>
+      <p className="text-xs text-slate-600 dark:text-slate-400">{achievement.description}</p>
 
       {/* Category label */}
       <span
         className={`inline-block mt-2 text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full ${
           unlocked
-            ? 'bg-white/10 text-white/70'
-            : 'bg-slate-800 text-slate-600'
+            ? 'bg-slate-100 dark:bg-white/10 text-slate-700 dark:text-slate-300'
+            : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
         }`}
       >
         {achievement.category}
