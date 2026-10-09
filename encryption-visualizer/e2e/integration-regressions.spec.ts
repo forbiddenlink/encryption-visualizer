@@ -1,6 +1,32 @@
 import { test, expect } from '@playwright/test';
 
 for (const width of [1440, 390]) {
+  test(`blocked browser storage keeps lessons and theme controls usable at ${width}`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 900 });
+    await page.addInitScript(() => {
+      Object.defineProperty(window, 'localStorage', {
+        configurable: true,
+        get: () => { throw new DOMException('Storage is blocked', 'SecurityError'); },
+      });
+    });
+    const errors: string[] = [];
+    page.on('pageerror', (error) => errors.push(error.message));
+    await page.goto('/');
+    await expect(page.getByRole('link', { name: 'Start with AES', exact: true })).toBeVisible();
+    const themes = page.getByRole('radiogroup', { name: 'Theme selection' }).filter({ visible: true });
+    await themes.getByRole('radio', { name: 'Light mode' }).click();
+    await expect(page.locator('html')).not.toHaveClass(/dark/);
+    await page.evaluate(() => {
+      window.dispatchEvent(new Event('beforeinstallprompt', { cancelable: true }));
+    });
+    await page.getByRole('button', { name: 'Dismiss', exact: true }).click();
+    await expect(page.getByRole('button', { name: 'Install', exact: true })).toHaveCount(0);
+    await page.getByRole('link', { name: 'Start with AES', exact: true }).click();
+    await page.getByRole('button', { name: 'Start Encryption Visualization', exact: true }).click();
+    await expect(page.getByText(/^Step 1 of \d+$/)).toBeVisible();
+    expect(errors).toEqual([]);
+  });
+
   test(`navigation and theme keyboard recovery at ${width}`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
     await page.goto('/aes');

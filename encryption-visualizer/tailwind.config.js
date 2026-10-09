@@ -28,7 +28,7 @@ export default {
         'surface-hover': 'inset 0 1px 0 0 rgba(255, 255, 255, 0.15)',
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['DM Sans', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'monospace'],
       },
       animation: {

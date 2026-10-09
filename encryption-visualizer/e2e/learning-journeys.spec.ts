@@ -62,8 +62,23 @@ test('curriculum start, locked prerequisites, completion persistence and resume'
   await page.getByRole('button', { name: 'Start Path', exact: true }).click();
   await expect(page).toHaveURL(/\/hashing$/);
   await expect(page.getByRole('heading', { name: 'Hash Functions Visualizer' })).toBeVisible();
+  await expect(page.getByRole('region', { name: 'Continue learning' }).getByRole('link', { name: /Complete knowledge check/ })).toHaveAttribute('href', '#lesson-quiz');
   await page.goto('/');
   await expect(page.getByRole('link', { name: 'Resume learning' })).toHaveAttribute('href', '/hashing');
+});
+
+test('a completed standalone module remains available for review', async ({ page }) => {
+  await page.addInitScript(() => {
+    localStorage.setItem('cryptoviz-progress', JSON.stringify({ state: {
+      completedAlgorithms: ['ecc'], quizScores: {}, pathProgress: {}, achievements: [],
+    }, version: 0 }));
+  });
+  await page.goto('/learn');
+  await page.getByRole('button', { name: /Advanced Security/ }).click();
+  const ecc = page.getByRole('button', { name: /Elliptic Curve Cryptography/ });
+  await expect(ecc).toBeEnabled();
+  await ecc.click();
+  await expect(page).toHaveURL(/\/ecc$/);
 });
 
 test('glossary search, categories, related terms and empty recovery', async ({ page }) => {
@@ -85,12 +100,15 @@ test('client-side lesson switching clears incompatible visualization frames', as
   await page.goto('/aes');
   await page.getByRole('button', { name: 'Start Encryption Visualization', exact: true }).click();
   await page.getByRole('button', { name: /^(?:Go to )?Next step$/i }).click();
-  await page.getByRole('link', { name: /^Next: Hash Functions/ }).click();
+  const nav = page.getByRole('navigation', { name: 'Main navigation', exact: true });
+  await nav.locator('summary').click();
+  await nav.getByRole('link', { name: 'Hash Functions', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Hash Functions Visualizer', exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Hash It!', exact: true }).click();
   const pause = page.getByRole('button', { name: 'Pause', exact: true });
   if (await pause.count()) await pause.click();
-  await page.getByRole('link', { name: /^Next: AES/ }).click();
+  await nav.locator('summary').click();
+  await nav.getByRole('link', { name: 'AES Encryption', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'AES Encryption Visualizer', exact: true })).toBeVisible();
   await expect(page.getByText('No visualization data available', { exact: true })).toBeVisible();
   expect(errors).toEqual([]);

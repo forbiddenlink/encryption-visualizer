@@ -23,7 +23,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
   }, [location.pathname, lesson?.title]);
 
   return (
-    <div className="min-h-screen">
+    <div className="site-shell" data-page={lesson ? 'lesson' : location.pathname.slice(1) || 'home'} data-lesson={lesson?.slug}>
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded-lg focus:outline-none"
@@ -47,6 +47,12 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
             exit={shouldReduceMotion ? undefined : { opacity: 0 }}
             transition={{ duration: 0.2, ease: 'easeOut' }}
           >
+            {lesson && (
+              <div className="lesson-running-head" aria-label="Lesson index">
+                <span>Study {String(lessons.indexOf(lesson) + 1).padStart(2, '0')} / {String(lessons.length).padStart(2, '0')}</span>
+                <span>{lesson.category}</span>
+              </div>
+            )}
             {children}
             {lesson && <LessonNext slug={lesson.slug} />}
           </m.div>

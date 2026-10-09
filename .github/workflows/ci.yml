@@ -14,7 +14,9 @@ jobs:
           node-version: '22'
       - uses: pnpm/action-setup@v6.0.10
         with:
-          version: 9
+          version: 9.15.9
           run_install: false
-      - run: cd encryption-visualizer && pnpm install
+      - run: cd encryption-visualizer && pnpm install --frozen-lockfile
+      - run: cd encryption-visualizer && pnpm run lint
+      - run: cd encryption-visualizer && pnpm run test:run
       - run: cd encryption-visualizer && pnpm run build

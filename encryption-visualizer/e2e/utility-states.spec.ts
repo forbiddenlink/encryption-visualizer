@@ -17,10 +17,11 @@ for (const width of [1440, 390]) {
     });
     await page.goto('/learn');
     await page.getByRole('button', { name: /Cryptography Fundamentals/ }).click();
-    await expect(page.getByRole('button', { name: /Block Cipher Modes/ })).toBeEnabled();
+    await expect(page.getByRole('button', { name: /Padding Schemes/ })).toBeEnabled();
+    await expect(page.getByRole('button', { name: /Block Cipher Modes/ })).toBeDisabled();
     await capture(page, 'learn-partial', width);
     await page.getByRole('button', { name: 'Continue', exact: true }).click();
-    await expect(page.getByRole('heading', { name: 'Block Cipher Modes', exact: true })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Padding Schemes Visualizer', exact: true })).toBeVisible();
     await page.evaluate((ids) => {
       const data = JSON.parse(localStorage.getItem('cryptoviz-progress')!);
       data.state.completedAlgorithms = ids;

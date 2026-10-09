@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Check, Lock, ChevronRight } from 'lucide-react';
+import { isModuleAvailable } from '@/data/learningProgress';
 import type { LearningModule } from '@/data/learningPaths';
 
 interface PathProgressProps {
@@ -21,8 +22,7 @@ export const PathProgress: React.FC<PathProgressProps> = ({
   const isModuleCompleted = (id: string): boolean => completedModules.includes(id);
 
   const isModuleLocked = (module: LearningModule): boolean => {
-    if (module.prerequisites.length === 0) return false;
-    return module.prerequisites.some((prereq) => !completedModules.includes(prereq));
+    return !isModuleAvailable(module, completedModules);
   };
 
   const completedCount = modules.filter((m) => isModuleCompleted(m.id)).length;

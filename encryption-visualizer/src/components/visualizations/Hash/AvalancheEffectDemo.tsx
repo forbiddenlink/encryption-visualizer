@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
-import { demonstrateAvalancheEffect } from '@/lib/crypto/hash';
+import { demonstrateSHA256Avalanche, MAX_SHA256_TRACE_BYTES } from '@/lib/crypto/sha256';
 import { Zap, AlertTriangle } from 'lucide-react';
 import { m } from 'framer-motion';
 
 export const AvalancheEffectDemo: React.FC = () => {
   const [input, setInput] = useState('Hello');
-  const [results, setResults] = useState<ReturnType<typeof demonstrateAvalancheEffect>>([]);
+  const [results, setResults] = useState<ReturnType<typeof demonstrateSHA256Avalanche>>([]);
+
+  const error = new TextEncoder().encode(input).length > MAX_SHA256_TRACE_BYTES
+    ? `Use at most ${MAX_SHA256_TRACE_BYTES} UTF-8 bytes.`
+    : '';
 
   const handleDemonstrate = () => {
-    const avalancheResults = demonstrateAvalancheEffect(input);
+    if (error) return;
+    const avalancheResults = demonstrateSHA256Avalanche(input);
     setResults(avalancheResults);
   };
 
@@ -38,6 +43,8 @@ export const AvalancheEffectDemo: React.FC = () => {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           className="min-w-0 flex-1 px-4 py-3 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 transition-all"
+          aria-invalid={Boolean(error)}
+          aria-describedby="avalanche-input-error"
           aria-label="Avalanche message" placeholder="Enter text to test..."
         />
         <button
@@ -49,6 +56,8 @@ export const AvalancheEffectDemo: React.FC = () => {
         </button>
       </div>
 
+      <p id="avalanche-input-error" role="alert" className="text-sm text-red-600 dark:text-red-400">{error}</p>
+
       {results.length > 0 && (
         <m.div
           initial={{ opacity: 0, y: 20 }}
@@ -57,19 +66,19 @@ export const AvalancheEffectDemo: React.FC = () => {
         >
           {results.map((result, idx) => (
             <m.div
-              key={result.hash}
+              key={result.input}
               initial={{ opacity: 0, scale: 0.9, x: -20, filter: "blur(4px)" }}
               animate={{ opacity: 1, scale: 1, x: 0, filter: "blur(0px)" }}
               transition={{ type: "spring", stiffness: 350, damping: 20, delay: idx * 0.08 }}
               className={`p-4 rounded-xl shadow-sm ${idx === 0 ? 'bg-emerald-50 dark:bg-emerald-500/10 border-2 border-emerald-300 dark:border-emerald-500/30' : 'bg-slate-100 dark:bg-cyber-surface border border-slate-200 dark:border-white/5'}`}
             >
               <div className="flex items-start justify-between gap-4 mb-2">
-                <div className="flex-1">
+                <div className="min-w-0 flex-1">
                   <div className="text-xs text-slate-500 dark:text-slate-400 font-semibold mb-1">
                     {idx === 0 ? 'ORIGINAL INPUT:' : `VARIATION ${idx}:`}
                   </div>
-                  <div className="text-sm font-mono text-slate-900 dark:text-white mb-2">"{result.input}"</div>
-                  <div className="text-xs text-slate-500 dark:text-slate-400 font-semibold mb-1">HASH:</div>
+                  <div className="text-sm font-mono text-slate-900 dark:text-white mb-2 break-all">"{result.input}"</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-400 font-semibold mb-1">SHA-256 HASH:</div>
                   <div className="text-base font-mono text-emerald-600 dark:text-emerald-400 break-all">{result.hash}</div>
                 </div>
                 {idx > 0 && (

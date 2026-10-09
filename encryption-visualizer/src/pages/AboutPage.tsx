@@ -8,7 +8,7 @@ const GithubIcon = ({ className }: { className?: string }) => (
 
 export const AboutPage = () => {
   return (
-    <div className="space-y-8 max-w-3xl mx-auto">
+    <div className="about-page space-y-8">
       <p className="eyebrow">About the field guide</p>
       {/* Header */}
       <div className="about-intro">

@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { simpleHash, compareHashes } from '@/lib/crypto/hash';
+import { sha256, compareSHA256, MAX_SHA256_TRACE_BYTES } from '@/lib/crypto/sha256';
 import { Copy, Check, FlaskConical, GitCompare } from 'lucide-react';
 import { m, AnimatePresence } from 'framer-motion';
 
@@ -45,21 +45,30 @@ export const HashPlayground: React.FC = () => {
   const [display, setDisplay] = useState<HashDisplay>('blocks');
   const [copied, setCopied] = useState(false);
 
-  const hash = useMemo(() => (input ? simpleHash(input) : ''), [input]);
+  const [copyError, setCopyError] = useState('');
+  const inputTooLong = new TextEncoder().encode(input).length > MAX_SHA256_TRACE_BYTES;
+  const compareTooLong = new TextEncoder().encode(compareInput).length > MAX_SHA256_TRACE_BYTES;
+  const hash = useMemo(() => (inputTooLong ? '' : sha256(input)), [input, inputTooLong]);
   const comparison = useMemo(
-    () => (mode === 'compare' && input && compareInput ? compareHashes(input, compareInput) : null),
-    [mode, input, compareInput]
+    () => (mode === 'compare' && !inputTooLong && !compareTooLong ? compareSHA256(input, compareInput) : null),
+    [mode, input, compareInput, inputTooLong, compareTooLong]
   );
 
   const handleCopy = async () => {
     if (!hash) return;
-    await navigator.clipboard.writeText(hash);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 1500);
+    setCopyError('');
+    try {
+      await navigator.clipboard.writeText(hash);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    } catch {
+      setCopied(false);
+      setCopyError('Copy failed. Select the Hex view and copy the digest manually.');
+    }
   };
 
   const renderHash = (h: string, diffHash?: string) => {
-    if (!h) return <span className="text-slate-400 italic text-sm">Type something to see the hash</span>;
+    if (!h) return <span className="text-slate-400 italic text-sm">Shorten the message to calculate its SHA-256 hash</span>;
     switch (display) {
       case 'hex':
         return <span className="font-mono text-lg text-emerald-600 dark:text-emerald-400 break-all">{h}</span>;
@@ -109,6 +118,9 @@ export const HashPlayground: React.FC = () => {
         </div>
       </div>
 
+      <p className="text-sm text-slate-500 dark:text-slate-400">SHA-256 · 256 bits · up to {MAX_SHA256_TRACE_BYTES} UTF-8 bytes per message. Empty input has a digest too.</p>
+      <p role="status" className="text-sm text-slate-600 dark:text-slate-400">{copyError || (copied ? 'Hash copied.' : '')}</p>
+
       {/* Display mode selector */}
       <div className="flex items-center gap-2">
         <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">View:</span>
@@ -136,6 +148,8 @@ export const HashPlayground: React.FC = () => {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               className="w-full px-4 py-3 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all pr-16"
+              aria-invalid={inputTooLong}
+              aria-describedby="playground-input-error"
               aria-label="Playground message" placeholder="Type to hash in real-time..."
             />
             <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-slate-400 font-mono">
@@ -143,6 +157,7 @@ export const HashPlayground: React.FC = () => {
             </span>
           </div>
 
+          <p id="playground-input-error" role="alert" className="text-sm text-red-600 dark:text-red-400">{inputTooLong ? `Use at most ${MAX_SHA256_TRACE_BYTES} UTF-8 bytes.` : ''}</p>
           <AnimatePresence mode="wait">
             <m.div
               key={hash}
@@ -178,9 +193,12 @@ export const HashPlayground: React.FC = () => {
               value={compareInput}
               onChange={(e) => setCompareInput(e.target.value)}
               className="w-full px-4 py-3 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all"
+              aria-invalid={compareTooLong}
+              aria-describedby="playground-compare-error"
               aria-label="Comparison message" placeholder="Compare with..."
             />
 
+            <p id="playground-compare-error" role="alert" className="text-sm text-red-600 dark:text-red-400">{compareTooLong ? `Use at most ${MAX_SHA256_TRACE_BYTES} UTF-8 bytes.` : ''}</p>
             <AnimatePresence mode="wait">
               <m.div
                 key={comparison?.hash2 ?? ''}
@@ -216,7 +234,7 @@ export const HashPlayground: React.FC = () => {
           <div className="w-px h-8 bg-blue-200 dark:bg-blue-500/30" />
           <div>
             <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">
-              {32 - comparison.bitsChanged}/{32}
+              {comparison.hash1.length * 4 - comparison.bitsChanged}/{comparison.hash1.length * 4}
             </div>
             <div className="text-xs text-slate-500 dark:text-slate-400">bits match</div>
           </div>

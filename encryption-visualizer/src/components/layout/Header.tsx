@@ -56,9 +56,9 @@ export const Header = () => {
 
   const topicGroups = (
     <div className="topic-menu-grid">
-      {categories.map((category) => (
-        <div key={category}>
-          <p className="eyebrow mb-2">{category}</p>
+      {categories.map((category, categoryIndex) => (
+        <div key={category} className="topic-menu-group">
+          <p className="topic-group-label"><span>{String(categoryIndex + 1).padStart(2, '0')}</span>{category}</p>
           {algorithmLinks.filter((link) => link.category === category).map(({ to, icon: Icon, label }) => (
             <NavLink key={to} to={to} className="menu-topic" onClick={closeMenus}>
               <Icon className="w-4 h-4" aria-hidden="true" />{label}
@@ -73,13 +73,19 @@ export const Header = () => {
     <header ref={headerRef} className="site-header">
       <div className="site-header-inner">
         <Link to={ROUTES.HOME} className="brand" aria-label="CryptoViz home">
-          <span className="brand-mark"><img src="/logo-small.png" width="24" height="24" alt="" className="w-6 h-6 object-contain" /></span>
-          <span><span className="brand-name">CryptoViz</span><span className="brand-caption">Interactive learning</span></span>
+          <span className="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 36 36" width="36" height="36" fill="none">
+              <path d="M18 2 32 10v16l-14 8L4 26V10L18 2Z" stroke="currentColor" strokeWidth="1.5" />
+              <path d="m4 10 14 8 14-8M18 18v16M11 6v16l14 8M25 6v16l-14 8" stroke="currentColor" strokeWidth="1.2" />
+              <circle cx="18" cy="18" r="3" fill="currentColor" />
+            </svg>
+          </span>
+          <span><span className="brand-name">CryptoViz</span><span className="brand-caption">The cryptography atlas</span></span>
         </Link>
         <nav className="desktop-nav" aria-label="Main navigation" key={`desktop-${location.pathname}`}>
           <details className="explore-menu">
             <summary className="nav-item">Explore topics <ChevronDown className="w-4 h-4" aria-hidden="true" /></summary>
-            <div className="topic-menu">{topicGroups}<Link to={`${ROUTES.HOME}#topics`} className="menu-topic mt-4" onClick={closeMenus}>View the complete library →</Link></div>
+            <div className="topic-menu"><div className="topic-menu-heading"><span className="eyebrow">The atlas index</span><span>12 interactive studies</span></div>{topicGroups}<Link to={`${ROUTES.HOME}#topics`} className="menu-topic topic-menu-library" onClick={closeMenus}>View the complete library →</Link></div>
           </details>
           {otherLinks.map(({ to, label }) => <NavLink key={to} to={to} className="nav-item">{label}</NavLink>)}
           <ThemeToggle />
@@ -90,7 +96,7 @@ export const Header = () => {
             <summary className="nav-item" aria-label="Open navigation menu"><Menu className="w-5 h-5" aria-hidden="true" /></summary>
             <nav className="mobile-menu-panel" aria-label="Mobile navigation">
               {otherLinks.map(({ to, icon: Icon, label }) => <NavLink key={to} to={to} className="menu-topic" onClick={closeMenus}><Icon className="w-4 h-4" aria-hidden="true" />{label}</NavLink>)}
-              <div className="mt-6">{topicGroups}</div>
+              <div className="mobile-topic-index"><p className="eyebrow">The atlas index</p>{topicGroups}</div>
             </nav>
           </details>
         </div>

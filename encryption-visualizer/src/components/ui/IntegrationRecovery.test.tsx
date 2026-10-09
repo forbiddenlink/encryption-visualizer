@@ -70,6 +70,25 @@ describe('integration recovery', () => {
     expect(system).toHaveFocus();
   });
 
+  it('loads the theme and keeps switching available when browser storage is blocked', async () => {
+    const storage = Object.getOwnPropertyDescriptor(globalThis, 'localStorage')!;
+    Object.defineProperty(globalThis, 'localStorage', {
+      configurable: true,
+      get: () => { throw new DOMException('Storage is blocked', 'SecurityError'); },
+    });
+    try {
+      vi.resetModules();
+      const { useThemeStore: isolatedThemeStore } = await import('@/store/themeStore');
+      isolatedThemeStore.getState().setTheme('light');
+      expect(document.documentElement).not.toHaveClass('dark');
+      isolatedThemeStore.getState().setTheme('dark');
+      expect(document.documentElement).toHaveClass('dark');
+    } finally {
+      Object.defineProperty(globalThis, 'localStorage', storage);
+      vi.resetModules();
+    }
+  });
+
   it('closes mobile navigation when selecting the current lesson', () => {
     const { container } = render(<MemoryRouter initialEntries={['/aes']}><Header /></MemoryRouter>);
     const menu = container.querySelector('details.mobile-menu')!;

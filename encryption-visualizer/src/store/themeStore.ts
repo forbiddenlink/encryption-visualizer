@@ -50,15 +50,15 @@ export const useThemeStore = create<ThemeStore>()(
 );
 
 if (typeof window !== 'undefined') {
-  const stored = localStorage.getItem('cryptoviz-theme');
-  if (stored) {
-    try {
+  try {
+    const stored = localStorage.getItem('cryptoviz-theme');
+    if (stored) {
       const parsed = JSON.parse(stored);
       applyTheme(parsed.state?.theme || 'dark');
-    } catch {
+    } else {
       applyTheme('dark');
     }
-  } else {
+  } catch {
     applyTheme('dark');
   }
 

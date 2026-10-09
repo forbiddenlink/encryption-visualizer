@@ -11,7 +11,8 @@ import { AvalancheEffectDemo } from '@/components/visualizations/Hash/AvalancheE
 import { HashPlayground } from '@/components/visualizations/Hash/HashPlayground';
 import { ErrorBoundary } from '@/components/ui/ErrorBoundary';
 import { useVisualizationStore } from '@/store/visualizationStore';
-import { hashWithSteps, type HashStep } from '@/lib/crypto/hash';
+import { sha256WithSteps, MAX_SHA256_TRACE_BYTES } from '@/lib/crypto/sha256';
+import type { HashStep } from '@/lib/types';
 import { } from 'lucide-react';
 import { QuizSystem } from '@/components/educational/QuizSystem';
 import { hashingQuizQuestions } from '@/data/quizzes/hashingQuiz';
@@ -48,7 +49,8 @@ export const HashingPage = () => {
   const { expandedSections, toggleSection } = useExpandedSections(['whatIsHashing', 'properties']);
 
   const handleHash = (input: string) => {
-    const newSteps = hashWithSteps(input);
+    if (new TextEncoder().encode(input).length > MAX_SHA256_TRACE_BYTES) return;
+    const newSteps = sha256WithSteps(input);
     setSteps(newSteps);
     reset();
     play();
@@ -121,6 +123,22 @@ export const HashingPage = () => {
               Step {currentStep + 1} / {hashSteps.length}
             </div>
           </div>
+          <label htmlFor="hash-step" className="text-sm font-semibold text-slate-600 dark:text-slate-400 block">
+            Jump to step
+          </label>
+          <select
+            id="hash-step"
+            value={currentStep}
+            onChange={(event) => {
+              pause();
+              setCurrentStep(Number(event.target.value));
+            }}
+            className="w-full px-4 py-3 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white"
+          >
+            {hashSteps.map((step, index) => (
+              <option key={index} value={index}>{index + 1}. {step.title}</option>
+            ))}
+          </select>
           <SpeedControl />
         </div>
       )}

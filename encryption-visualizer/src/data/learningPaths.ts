@@ -14,7 +14,6 @@ export interface LearningModule {
   id: string;
   title: string;
   algorithmPage: string;
-  sections: string[];
   prerequisites: string[];
   description: string;
 }
@@ -33,7 +32,6 @@ export const learningPaths: LearningPath[] = [
         id: 'fund-hashing',
         title: 'Hash Functions',
         algorithmPage: ROUTES.HASHING,
-        sections: ['overview', 'sha256-steps', 'avalanche', 'quiz'],
         prerequisites: [],
         description:
           'Learn how one-way functions produce fixed-size digests and why the avalanche effect matters.',
@@ -42,17 +40,23 @@ export const learningPaths: LearningPath[] = [
         id: 'fund-aes',
         title: 'AES Symmetric Encryption',
         algorithmPage: ROUTES.AES,
-        sections: ['overview', 'subbytes', 'shiftrows', 'mixcolumns', 'addroundkey', 'quiz'],
         prerequisites: ['fund-hashing'],
         description:
           'Explore the worldwide standard for symmetric encryption and its substitution-permutation network.',
       },
       {
+        id: 'fund-padding',
+        title: 'Padding Schemes',
+        algorithmPage: ROUTES.PADDING,
+        prerequisites: ['fund-aes'],
+        description:
+          'Explore how padding fills incomplete blocks and why invalid padding must be handled carefully.',
+      },
+      {
         id: 'fund-block-modes',
         title: 'Block Cipher Modes',
         algorithmPage: ROUTES.BLOCK_MODES,
-        sections: ['overview', 'ecb', 'cbc', 'gcm', 'quiz'],
-        prerequisites: ['fund-aes'],
+        prerequisites: ['fund-padding'],
         description:
           'Understand how ECB, CBC, and GCM handle multi-block encryption and why mode choice matters.',
       },
@@ -60,7 +64,6 @@ export const learningPaths: LearningPath[] = [
         id: 'fund-rsa',
         title: 'RSA Asymmetric Encryption',
         algorithmPage: ROUTES.RSA,
-        sections: ['overview', 'key-generation', 'encryption', 'decryption', 'quiz'],
         prerequisites: ['fund-aes'],
         description:
           'See how prime numbers create public/private key pairs for secure communication.',
@@ -80,7 +83,6 @@ export const learningPaths: LearningPath[] = [
         id: 'kx-dh',
         title: 'Diffie-Hellman Key Exchange',
         algorithmPage: ROUTES.DIFFIE_HELLMAN,
-        sections: ['overview', 'key-exchange', 'shared-secret', 'quiz'],
         prerequisites: [],
         description:
           'Discover how two parties can agree on a shared secret over an insecure channel.',
@@ -89,7 +91,6 @@ export const learningPaths: LearningPath[] = [
         id: 'kx-signatures',
         title: 'Digital Signatures',
         algorithmPage: ROUTES.SIGNATURES,
-        sections: ['overview', 'signing', 'verification', 'quiz'],
         prerequisites: ['kx-dh'],
         description:
           'Learn how cryptographic signatures prove authenticity and detect tampering.',
@@ -98,7 +99,6 @@ export const learningPaths: LearningPath[] = [
         id: 'kx-tls',
         title: 'TLS Handshake Overview',
         algorithmPage: ROUTES.TLS,
-        sections: ['overview'],
         prerequisites: ['kx-dh', 'kx-signatures'],
         description:
           'See how DH key exchange and signatures combine in the TLS handshake to secure the web.',
@@ -118,7 +118,6 @@ export const learningPaths: LearningPath[] = [
         id: 'adv-cryptanalysis',
         title: 'Cryptanalysis Concepts',
         algorithmPage: ROUTES.CRYPTANALYSIS,
-        sections: ['security-levels'],
         prerequisites: [],
         description:
           'Understand attack models, brute-force complexity, and why key size matters.',
@@ -127,7 +126,6 @@ export const learningPaths: LearningPath[] = [
         id: 'adv-ecc',
         title: 'Elliptic Curve Cryptography',
         algorithmPage: ROUTES.ECC,
-        sections: ['security-levels'],
         prerequisites: ['adv-cryptanalysis'],
         description:
           'Compare ECC to RSA and understand why shorter keys can provide equivalent security.',
@@ -136,7 +134,6 @@ export const learningPaths: LearningPath[] = [
         id: 'adv-password-hashing',
         title: 'Password Hashing',
         algorithmPage: ROUTES.PASSWORD_HASHING,
-        sections: ['overview', 'sha256-steps', 'avalanche', 'quiz'],
         prerequisites: ['adv-cryptanalysis'],
         description:
           'Learn why general-purpose hashes are unsuitable for passwords and how bcrypt/scrypt differ.',
@@ -145,7 +142,6 @@ export const learningPaths: LearningPath[] = [
         id: 'adv-hmac',
         title: 'HMAC & Message Authentication',
         algorithmPage: ROUTES.HMAC,
-        sections: ['overview', 'signing', 'verification', 'quiz'],
         prerequisites: ['adv-password-hashing'],
         description:
           'Explore keyed hashing for message authentication and integrity verification.',

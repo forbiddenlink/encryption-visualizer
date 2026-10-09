@@ -1,7 +1,6 @@
-import React, { useMemo } from 'react';
-import type { HashStep } from '@/lib/crypto/hash';
+import React from 'react';
+import type { HashStep } from '@/lib/types';
 import { m } from 'framer-motion';
-import { Hash, Binary, Cpu, CheckCircle } from 'lucide-react';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 
 interface HashVisualizerProps {
@@ -10,123 +9,172 @@ interface HashVisualizerProps {
 }
 
 export const HashVisualizer: React.FC<HashVisualizerProps> = ({ steps, currentStep }) => {
-  const prefersReducedMotion = useReducedMotion();
-
-  const transition = useMemo(() =>
-    prefersReducedMotion
-      ? { duration: 0 }
-      : { type: 'spring' as const, stiffness: 400, damping: 40 },
-    [prefersReducedMotion]
-  );
-
-  if (steps.length === 0) {
+  const reducedMotion = useReducedMotion();
+  const step = steps[currentStep];
+  if (!step) {
     return (
-      <div className="glass-card p-8 text-center">
-        <div className="inline-block p-4 bg-emerald-100 dark:bg-emerald-500/20 rounded-2xl mb-4">
-          <Hash className="w-12 h-12 text-emerald-600 dark:text-emerald-400" />
-        </div>
-        <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Ready to Hash</h3>
-        <p className="text-slate-600 dark:text-slate-400">
-          Enter text above to see how hash functions transform input into a fixed-size output
+      <div className="hash-instrument hash-empty">
+        <p className="eyebrow">SHA-256 experiment</p>
+        <h3>Ready to Hash</h3>
+        <p>
+          Enter a message above. Inspect its bytes, padding, message schedule, and every compression
+          round.
         </p>
+        <div className="hash-empty-flow" aria-hidden="true">
+          <span>Message</span>
+          <span>→</span>
+          <span>64 rounds / block</span>
+          <span>→</span>
+          <span>256 bits</span>
+        </div>
       </div>
     );
   }
-
-  const step = steps[currentStep];
-
-  const getStepColor = (type: HashStep['type']) => {
-    switch (type) {
-      case 'input': return { bg: 'bg-blue-600', text: 'text-blue-600 dark:text-cyber-cyan', border: 'border-blue-300 dark:border-blue-500/30' };
-      case 'preprocessing': return { bg: 'bg-purple-600', text: 'text-purple-600 dark:text-purple-400', border: 'border-purple-300 dark:border-purple-500/30' };
-      case 'initialization': return { bg: 'bg-yellow-600', text: 'text-yellow-600 dark:text-yellow-400', border: 'border-yellow-300 dark:border-yellow-500/30' };
-      case 'compression': return { bg: 'bg-red-600', text: 'text-red-600 dark:text-red-400', border: 'border-red-300 dark:border-red-500/30' };
-      case 'output': return { bg: 'bg-emerald-600', text: 'text-emerald-600 dark:text-emerald-400', border: 'border-emerald-300 dark:border-emerald-500/30' };
-      default: return { bg: 'bg-slate-600', text: 'text-slate-600 dark:text-slate-400', border: 'border-slate-300 dark:border-slate-500/30' };
-    }
-  };
-
-  const stepColor = getStepColor(step.type);
-
-  const getStepIcon = (type: HashStep['type']) => {
-    switch (type) {
-      case 'output': return <CheckCircle className="w-7 h-7 text-white" strokeWidth={2.5} />;
-      case 'preprocessing': return <Binary className="w-7 h-7 text-white" strokeWidth={2.5} />;
-      default: return <Cpu className="w-7 h-7 text-white" strokeWidth={2.5} />;
-    }
-  };
-
+  const data = step.data;
+  const round = data?.sha256;
+  const previousValues = steps[currentStep - 1]?.data?.roundValues;
   return (
-    <div className="space-y-6">
-      {/* Step Header */}
-      <m.div
-        key={currentStep}
-        initial={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: 20, filter: "blur(4px)" }}
-        animate={prefersReducedMotion ? { opacity: 1 } : { opacity: 1, y: 0, filter: "blur(0px)" }}
-        exit={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: -20, filter: "blur(4px)" }}
-        transition={transition}
-        className="glass-card p-6 space-y-4"
-      >
-        <div className="flex items-start justify-between">
-          <div className="flex items-center gap-4">
-            <div className={`p-4 ${stepColor.bg} rounded-2xl shadow-lg`}>
-              {getStepIcon(step.type)}
+    <m.section
+      key={currentStep}
+      initial={{ opacity: reducedMotion ? 1 : 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: reducedMotion ? 0 : 0.16 }}
+      className="hash-instrument"
+      aria-label="Hash computation state"
+    >
+      <header className="hash-instrument-header">
+        <div>
+          <p className="eyebrow">
+            {data?.algorithm || 'Hash'} / {step.type}
+          </p>
+          <h3>{step.title}</h3>
+        </div>
+        <p className="hash-step-index">
+          Step {step.stepNumber + 1} of {steps.length}
+        </p>
+      </header>
+      <p className="hash-step-description">{step.description}</p>
+      {data && (
+        <div className="hash-data">
+          {data.input !== undefined && (
+            <div className="hash-data-row">
+              <h4>Input message</h4>
+              <code>{data.input || '(empty input)'}</code>
             </div>
-            <div>
-              <h3 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">{step.title}</h3>
-              <p className="text-sm text-slate-500 dark:text-slate-400 font-semibold mt-1">
-                Step {step.stepNumber + 1} of {steps.length}
+          )}
+          {data.binary !== undefined && (
+            <div className="hash-data-row">
+              <h4>UTF-8 bytes · binary</h4>
+              <code className="hash-binary">{data.binary || '(no bytes)'}</code>
+            </div>
+          )}
+          {data.padded && (
+            <details className="hash-padding">
+              <summary>Inspect padded message · binary</summary>
+              <code className="hash-binary">{data.padded}</code>
+            </details>
+          )}
+          {round && (
+            <div className="hash-round-label">
+              <span>
+                Block {round.blockIndex + 1} of {round.blockCount}
+              </span>
+              {round.round !== undefined && <span>Round {round.round + 1} of 64</span>}
+            </div>
+          )}
+          {round?.round !== undefined && (
+            <div className="hash-round-flow">
+              <dl className="hash-round-inputs">
+                {[
+                  ['W[t]', round.word],
+                  ['K[t]', round.constant],
+                ].map(([label, value]) => (
+                  <div key={label}>
+                    <dt>{label}</dt>
+                    <dd>{value}</dd>
+                  </div>
+                ))}
+              </dl>
+              <div className="hash-round-operation">
+                <span aria-hidden="true">↓</span>
+                <p>T₁ = h + Σ₁(e) + Ch(e,f,g) + K[t] + W[t]</p>
+                <p>T₂ = Σ₀(a) + Maj(a,b,c)</p>
+              </div>
+              <dl className="hash-round-temps">
+                {[
+                  ['T1', round.temp1],
+                  ['T2', round.temp2],
+                ].map(([label, value]) => (
+                  <div key={label}>
+                    <dt>{label}</dt>
+                    <dd>{value}</dd>
+                  </div>
+                ))}
+              </dl>
+              <p className="hash-round-result">
+                <span aria-hidden="true">↓</span> a = T₁ + T₂ <span aria-hidden="true">·</span> e =
+                d + T₁ <small>All sums modulo 2³²</small>
               </p>
             </div>
-          </div>
-        </div>
-
-        <p className="text-slate-700 dark:text-slate-300 leading-relaxed">{step.description}</p>
-
-        {/* Data Display */}
-        {step.data && (
-          <div className="space-y-3">
-            {step.data.input && (
-              <div className={`bg-slate-100 dark:bg-slate-800 p-4 border-2 ${stepColor.border} rounded-xl`}>
-                <div className="text-xs text-slate-500 dark:text-slate-400 font-semibold mb-2">INPUT:</div>
-                <div className="text-lg font-mono text-slate-900 dark:text-white break-all">{step.data.input}</div>
-              </div>
-            )}
-
-            {step.data.binary && (
-              <div className="bg-slate-100 dark:bg-slate-800 p-4 rounded-xl">
-                <div className="text-xs text-slate-500 dark:text-slate-400 font-semibold mb-2">BINARY REPRESENTATION:</div>
-                <div className="text-sm font-mono text-slate-700 dark:text-slate-300 break-all overflow-x-auto">
-                  {step.data.binary}
-                </div>
-              </div>
-            )}
-
-            {step.data.chunks && (
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                {step.data.chunks.map((chunk, idx) => (
-                  <div key={`chunk-${idx}-${chunk}`} className="bg-slate-100 dark:bg-slate-800 p-3 text-center rounded-lg">
-                    <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">Chunk {idx + 1}</div>
-                    <div className="text-sm font-mono text-slate-900 dark:text-white">{chunk}</div>
+          )}
+          {data.roundValues && (
+            <div className="hash-state">
+              <h4>
+                {round?.round !== undefined ? 'Working registers after this round' : 'State words'}
+              </h4>
+              <dl className="hash-registers">
+                {data.roundValues.map((value, index) => {
+                  const changed =
+                    round?.round !== undefined &&
+                    previousValues !== undefined &&
+                    previousValues[index] !== value;
+                  return (
+                    <div key={index} className={`hash-register${changed ? ' changed' : ''}`}>
+                      <dt>{round?.round !== undefined ? 'abcdefgh'[index] : `H${index}`}</dt>
+                      <dd>{value}</dd>
+                    </div>
+                  );
+                })}
+              </dl>
+              {round?.round !== undefined && (
+                <p className="hash-register-caption">
+                  Accented registers changed from the previous displayed state.
+                </p>
+              )}
+            </div>
+          )}
+          {data.chunks && (
+            <div className="hash-schedule">
+              <h4>{data.algorithm === 'SHA-256' ? 'Message words' : 'Message chunks'}</h4>
+              <div className="hash-words">
+                {data.chunks.map((chunk, index) => (
+                  <div key={index}>
+                    <span>
+                      {data.algorithm === 'SHA-256'
+                        ? round
+                          ? `W[${index}]`
+                          : `Word ${index + 1}`
+                        : `Chunk ${index + 1}`}
+                    </span>
+                    <code>{chunk}</code>
                   </div>
                 ))}
               </div>
-            )}
-
-            {step.data.hash && (
-              <div className={`bg-slate-100 dark:bg-slate-800 p-6 border-2 ${stepColor.border} rounded-xl`}>
-                <div className="text-xs text-slate-500 dark:text-slate-400 font-semibold mb-3">HASH OUTPUT:</div>
-                <div className={`text-2xl sm:text-3xl font-mono font-bold ${stepColor.text} break-all`}>
-                  {step.data.hash}
-                </div>
-                <div className="mt-3 text-xs text-slate-500 dark:text-slate-400">
-                  {step.data.hash.length * 4} bits - {step.data.hash.length} hex characters
-                </div>
-              </div>
-            )}
-          </div>
-        )}
-      </m.div>
-    </div>
+            </div>
+          )}
+          {data.hash && (
+            <div className={`hash-digest${step.type === 'output' ? ' is-final' : ''}`}>
+              <h4>
+                {step.type === 'output' ? `${data.algorithm || 'Hash'} hash output` : 'Hash state'}
+              </h4>
+              <code>{data.hash}</code>
+              <p>
+                {data.hash.length * 4} bits · {data.hash.length} hexadecimal characters
+              </p>
+            </div>
+          )}
+        </div>
+      )}
+    </m.section>
   );
 };
