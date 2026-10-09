@@ -71,3 +71,7 @@ out/
 
 # AGENTS.md is a local symlink to CLAUDE.md, not tracked
 /AGENTS.md
+
+# Review evidence and patches
+design-research/lint-plugin-patch/
+functional-review/evidence/*.json
