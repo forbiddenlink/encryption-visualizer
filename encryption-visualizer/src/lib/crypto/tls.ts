@@ -1,9 +1,9 @@
+import { randomInteger } from './random';
 /**
  * TLS 1.3 Handshake Simulation for Educational Visualization
  *
  * IMPORTANT SECURITY NOTICE:
  * This is an EDUCATIONAL implementation only. DO NOT use in production.
- * - Uses Math.random() which is NOT cryptographically secure
  * - Uses simplified key derivation for visualization clarity
  * - Real TLS uses proper HKDF, X25519/P-256, and full certificate chains
  *
@@ -17,8 +17,8 @@
 import type { TLSStep, TLSSession } from '../types/tls';
 
 function randomHex(bytes: number): string {
-  return Array.from({ length: bytes }, () =>
-    Math.floor(Math.random() * 256).toString(16).padStart(2, '0')
+  return Array.from(crypto.getRandomValues(new Uint8Array(bytes)), (byte) =>
+    byte.toString(16).padStart(2, '0')
   ).join('');
 }
 
@@ -37,7 +37,7 @@ function generateDHKeyPair(): { privateKey: number; publicKey: number; p: number
   // Small primes for educational visualization
   const p = 23;
   const g = 5;
-  const privateKey = Math.floor(Math.random() * (p - 3)) + 2;
+  const privateKey = randomInteger(2, p - 2);
 
   let publicKey = 1;
   for (let i = 0; i < privateKey; i++) {
@@ -63,7 +63,7 @@ export function simulateTLSHandshake(): TLSSession {
   // DH key exchange
   const clientDH = generateDHKeyPair();
   const serverDH = {
-    privateKey: Math.floor(Math.random() * (clientDH.p - 3)) + 2,
+    privateKey: randomInteger(2, clientDH.p - 2),
     publicKey: 0,
     p: clientDH.p,
     g: clientDH.g,

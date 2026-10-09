@@ -1,3 +1,4 @@
+import { randomInteger } from '@/lib/crypto/random';
 import { LessonHeader } from '@/components/learning/LessonHeader';
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
@@ -52,13 +53,13 @@ export const CryptanalysisPage = () => {
 
     switch (attack) {
       case 'frequency-analysis': {
-        const shift = (crypto.getRandomValues(new Uint32Array(1))[0] % 25) + 1;
+        const shift = randomInteger(1, 25);
         const ciphertext = caesarEncrypt(plaintext, shift);
         newSteps = frequencyAnalysisAttack(ciphertext);
         break;
       }
       case 'brute-force': {
-        const shift = (crypto.getRandomValues(new Uint32Array(1))[0] % 25) + 1;
+        const shift = randomInteger(1, 25);
         const ciphertext = caesarEncrypt(plaintext, shift);
         newSteps = bruteForceAttack(ciphertext, plaintext);
         break;

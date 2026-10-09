@@ -1,11 +1,11 @@
+import { randomInteger } from './random';
 /**
  * RSA Cryptography Implementation for Educational Visualization
  *
  * IMPORTANT SECURITY NOTICE:
  * This is an EDUCATIONAL implementation only. DO NOT use in production.
- * - Uses Math.random() which is NOT cryptographically secure
  * - Uses small prime numbers for visualization clarity
- * - Production systems must use crypto.getRandomValues() and 2048+ bit keys
+ * - Production systems must use established cryptographic libraries and 2048+ bit keys
  *
  * Implements RSA key generation, encryption, and decryption with visualization steps.
  */
@@ -25,10 +25,10 @@ export function isPrime(num: number): boolean {
 }
 
 export function generatePrime(min: number, max: number): number {
-  let prime = Math.floor(Math.random() * (max - min + 1)) + min;
+  let prime = randomInteger(min, max);
   
   while (!isPrime(prime)) {
-    prime = Math.floor(Math.random() * (max - min + 1)) + min;
+    prime = randomInteger(min, max);
   }
   
   return prime;

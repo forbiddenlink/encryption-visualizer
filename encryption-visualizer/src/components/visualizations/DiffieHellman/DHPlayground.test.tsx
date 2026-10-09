@@ -1,13 +1,16 @@
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { DHPlayground } from './DHPlayground';
+import { randomInteger } from '@/lib/crypto/random';
+
+vi.mock('@/lib/crypto/random', () => ({ randomInteger: vi.fn() }));
 
 afterEach(() => { cleanup(); vi.restoreAllMocks(); });
 
 describe('DH playground private-key bounds', () => {
   it('keeps both keys inside the new prime range immediately', () => {
-    // generatePrime maps these random values to the primes 97 then 23.
-    vi.spyOn(Math, 'random').mockReturnValueOnce(0.999).mockReturnValue(0);
+    // Choose primes 97 then 23 so regeneration must clamp both keys.
+    vi.mocked(randomInteger).mockReturnValueOnce(97).mockReturnValue(23);
     render(<DHPlayground />);
     fireEvent.change(screen.getByRole('spinbutton', { name: 'Alice private key' }), { target: { value: '95' } });
     fireEvent.change(screen.getByRole('spinbutton', { name: 'Bob private key' }), { target: { value: '94' } });
@@ -18,7 +21,7 @@ describe('DH playground private-key bounds', () => {
   });
 
   it('normalizes fractional and empty numeric keys to supported integers', () => {
-    vi.spyOn(Math, 'random').mockReturnValue(0);
+    vi.mocked(randomInteger).mockReturnValue(23);
     render(<DHPlayground />);
     const alice = screen.getByRole('spinbutton', { name: 'Alice private key' });
     fireEvent.change(alice, { target: { value: '3.5' } });

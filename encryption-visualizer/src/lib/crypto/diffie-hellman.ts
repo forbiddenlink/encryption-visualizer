@@ -1,11 +1,11 @@
+import { randomInteger } from './random';
 /**
  * Diffie-Hellman Key Exchange Implementation for Educational Visualization
  *
  * IMPORTANT SECURITY NOTICE:
  * This is an EDUCATIONAL implementation only. DO NOT use in production.
- * - Uses Math.random() which is NOT cryptographically secure
  * - Uses small prime numbers for visualization clarity
- * - Production systems must use crypto.getRandomValues() and 2048+ bit primes
+ * - Production systems must use established cryptographic libraries and 2048+ bit primes
  *
  * Implements Diffie-Hellman key exchange with visualization steps.
  */
@@ -41,7 +41,7 @@ export function findGenerator(p: number): number {
 export function generatePrivateKey(p: number): number {
   const min = 2;
   const max = p - 2;
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+  return randomInteger(min, max);
 }
 
 /**
