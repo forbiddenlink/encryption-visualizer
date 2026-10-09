@@ -1,4 +1,5 @@
-import { Shield, GraduationCap, Code, Mail } from 'lucide-react';
+import { GraduationCap, Code, Mail } from 'lucide-react';
+import { AtlasInsignia, CryptographicPillarsSchematic } from '@/components/educational/AboutSchematics';
 
 const GithubIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -12,51 +13,39 @@ export const AboutPage = () => {
       <p className="eyebrow">About the field guide</p>
       {/* Header */}
       <div className="about-intro">
-        <div className="inline-flex p-4 bg-cyber-blue/10 dark:bg-cyber-blue/20 border border-cyber-blue/20 rounded-2xl mb-6 shadow-inner">
-          <Shield className="w-10 h-10 text-cyber-blue dark:text-cyber-cyan" />
-        </div>
+        <AtlasInsignia />
         <h1 className="section-title mb-6">
           About CryptoViz
         </h1>
-        <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-          An open-source educational tool for understanding cryptographic algorithms through interactive visualization.
+        <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-3xl">
+          An open-source interactive atlas designed to teach modern cryptography through transparent, step-by-step mathematical specimens.
         </p>
       </div>
 
       {/* Mission */}
       <section className="reading-section">
         <div className="flex items-center gap-3 mb-4">
-          <GraduationCap className="w-6 h-6 text-cyber-blue dark:text-cyber-cyan" />
+          <GraduationCap className="w-6 h-6 text-[var(--accent)]" />
           <h2 className="section-title text-2xl">Our Mission</h2>
         </div>
         <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
           Cryptography can feel abstract and intimidating. CryptoViz was created to make these concepts accessible by showing you exactly what happens at each step of encryption, decryption, and hashing operations.
         </p>
         <p className="text-slate-600 dark:text-slate-400 leading-relaxed mt-4">
-          Whether you're a student learning about security fundamentals, a developer implementing encryption, or simply curious about how your data stays safe, we aim to provide clear, accurate visualizations of real-world algorithms.
+          Whether you are a student learning security fundamentals, a developer implementing encryption, or simply curious about how your data stays safe, we aim to provide clear, accurate visualizations of real-world algorithms.
         </p>
       </section>
 
       {/* What We Cover */}
       <section className="reading-section">
         <div className="flex items-center gap-3 mb-4">
-          <Code className="w-6 h-6 text-cyber-blue dark:text-cyber-cyan" />
+          <Code className="w-6 h-6 text-[var(--accent)]" />
           <h2 className="section-title text-2xl">What We Cover</h2>
         </div>
-        <ul className="space-y-3 text-slate-600 dark:text-slate-400">
-          <li className="flex items-start gap-3">
-            <span className="w-2 h-2 bg-cyber-blue rounded-full mt-2 flex-shrink-0"></span>
-            <span><strong className="text-slate-900 dark:text-white">AES (Advanced Encryption Standard)</strong> - The most widely used symmetric encryption algorithm, visualized round-by-round including SubBytes, ShiftRows, MixColumns, and AddRoundKey operations.</span>
-          </li>
-          <li className="flex items-start gap-3">
-            <span className="w-2 h-2 bg-cyber-cyan rounded-full mt-2 flex-shrink-0"></span>
-            <span><strong className="text-slate-900 dark:text-white">RSA</strong> - Public-key cryptography explained through prime number generation, key derivation, and modular arithmetic.</span>
-          </li>
-          <li className="flex items-start gap-3">
-            <span className="w-2 h-2 bg-emerald-500 rounded-full mt-2 flex-shrink-0"></span>
-            <span><strong className="text-slate-900 dark:text-white">Hash Functions</strong> - See the avalanche effect in action and understand why hash functions are one-way.</span>
-          </li>
-        </ul>
+        <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
+          The atlas spans twelve interactive studies grouped into the foundational disciplines of cryptography, from low-level byte substitutions to full transport security handshakes.
+        </p>
+        <CryptographicPillarsSchematic />
       </section>
 
       {/* Accuracy Note */}

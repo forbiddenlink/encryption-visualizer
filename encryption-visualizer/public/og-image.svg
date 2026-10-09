@@ -1,0 +1,264 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <radialGradient id="bgGlow" cx="25%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#162231"/>
+      <stop offset="60%" stop-color="#0c1219"/>
+      <stop offset="100%" stop-color="#080c10"/>
+    </radialGradient>
+    <radialGradient id="markGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#e0684b" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#e0684b" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="vermilionGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f07d61"/>
+      <stop offset="100%" stop-color="#c95d43"/>
+    </linearGradient>
+    <pattern id="archivalGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#182330" stroke-width="0.75"/>
+    </pattern>
+    <marker id="arrowHead" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M 0 0 L 6 3 L 0 6 z" fill="#e0684b"/>
+    </marker>
+  </defs>
+
+  <!-- Deep ink background -->
+  <rect width="1200" height="630" fill="url(#bgGlow)"/>
+  <rect width="1200" height="630" fill="url(#archivalGrid)" opacity="0.65"/>
+
+  <!-- Archival plate border -->
+  <rect x="28" y="28" width="1144" height="574" fill="none" stroke="#253241" stroke-width="1.5"/>
+  <rect x="36" y="36" width="1128" height="558" fill="none" stroke="#1d2834" stroke-width="0.75"/>
+
+  <!-- Corner registration ticks -->
+  <path d="M 20 28 H 36 M 28 20 V 36" stroke="#e0684b" stroke-width="1.5"/>
+  <path d="M 1164 28 H 1180 M 1172 20 V 36" stroke="#e0684b" stroke-width="1.5"/>
+  <path d="M 20 602 H 36 M 28 594 V 610" stroke="#e0684b" stroke-width="1.5"/>
+  <path d="M 1164 602 H 1180 M 1172 594 V 610" stroke="#e0684b" stroke-width="1.5"/>
+
+  <!-- Top masthead bar -->
+  <g transform="translate(64, 76)">
+    <text font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" letter-spacing="3" fill="#e0684b">FIELD GUIDE № 001</text>
+    <text x="180" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="500" letter-spacing="2" fill="#6c7f93">THE CRYPTOGRAPHY ATLAS</text>
+    <text x="960" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="500" letter-spacing="2" fill="#6c7f93" text-anchor="end">EXPLORE · EXPERIMENT · UNDERSTAND</text>
+    <line x1="0" y1="20" x2="1072" y2="20" stroke="#253241" stroke-width="1"/>
+  </g>
+
+  <!-- Left Column: Typography & Brand -->
+  <g transform="translate(64, 150)">
+    <!-- Brand row with vault mark -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="56" height="56" rx="14" fill="#131c26" stroke="#2b3b4c" stroke-width="1.5"/>
+      <g transform="translate(28, 28) scale(1.1) translate(-18, -18)">
+        <path d="M18 2 32 10v16l-14 8L4 26V10L18 2Z" fill="#1a2533" stroke="#e0684b" stroke-width="1.8" stroke-linejoin="round"/>
+        <path d="m4 10 14 8 14-8M18 18v16" fill="none" stroke="#e0684b" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M11 6v16l14 8M25 6v16l-14 8" fill="none" stroke="#8fa0b5" stroke-opacity="0.7" stroke-width="1.2" stroke-linejoin="round"/>
+        <circle cx="18" cy="18" r="3" fill="#fbf7ee"/>
+        <circle cx="18" cy="18" r="1.5" fill="#e0684b"/>
+      </g>
+      <text x="74" y="32" font-family="Georgia, Cambria, 'Times New Roman', serif" font-size="34" font-weight="bold" fill="#fbf7ee" letter-spacing="-0.5">CryptoViz</text>
+      <text x="74" y="50" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" letter-spacing="2" fill="#8fa0b5">THE CRYPTOGRAPHY ATLAS</text>
+    </g>
+
+    <!-- Main Headline -->
+    <g transform="translate(0, 114)">
+      <text font-family="Georgia, Cambria, 'Times New Roman', serif" font-size="52" font-weight="normal" fill="#fbf7ee" letter-spacing="-1">
+        See how encryption
+      </text>
+      <text y="62" font-family="Georgia, Cambria, 'Times New Roman', serif" font-size="52" font-style="italic" fill="url(#vermilionGrad)" letter-spacing="-1">
+        actually works.
+      </text>
+    </g>
+
+    <!-- Subtitle / Mission -->
+    <g transform="translate(0, 230)">
+      <text font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" fill="#9fb0c3" width="500">
+        <tspan x="0" dy="0">A message becomes bytes. Bytes become a secret.</tspan>
+        <tspan x="0" dy="28">Follow the mathematics in between, one operation at a time.</tspan>
+      </text>
+    </g>
+
+    <!-- Badges / Topics Covered -->
+    <g transform="translate(0, 310)">
+      <!-- Pill 1: 12 Interactive Studies -->
+      <g>
+        <rect x="0" y="0" width="168" height="32" rx="16" fill="#131c26" stroke="#253241"/>
+        <circle cx="16" cy="16" r="4" fill="#e0684b"/>
+        <text x="28" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" fill="#cbd5e1">12 Interactive Studies</text>
+      </g>
+      <!-- Pill 2: 3 Guided Paths -->
+      <g transform="translate(180, 0)">
+        <rect x="0" y="0" width="140" height="32" rx="16" fill="#131c26" stroke="#253241"/>
+        <circle cx="16" cy="16" r="4" fill="#60a5fa"/>
+        <text x="28" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" fill="#cbd5e1">3 Guided Paths</text>
+      </g>
+      <!-- Pill 3: FIPS & RFC Standards -->
+      <g transform="translate(332, 0)">
+        <rect x="0" y="0" width="164" height="32" rx="16" fill="#131c26" stroke="#253241"/>
+        <circle cx="16" cy="16" r="4" fill="#34d399"/>
+        <text x="28" y="20" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" fill="#cbd5e1">FIPS 197 &amp; SHA-256</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Right Column: Scientific Atlas Plates Exhibit -->
+  <g transform="translate(680, 130)">
+    <!-- Plate Container Backdrop -->
+    <rect x="0" y="0" width="456" height="420" rx="16" fill="#0f1620" stroke="#253241" stroke-width="1.5"/>
+    <rect x="12" y="12" width="432" height="396" rx="10" fill="#111923" stroke="#1d2834" stroke-width="1"/>
+
+    <!-- Plate Header -->
+    <g transform="translate(28, 36)">
+      <text font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="700" letter-spacing="2" fill="#e0684b">PLATE I · SPECIMEN EXHIBIT</text>
+      <text x="376" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="10" fill="#6c7f93" text-anchor="end">FIPS 197 / RFC 8446</text>
+      <line x1="0" y1="12" x2="376" y2="12" stroke="#253241" stroke-width="0.75"/>
+    </g>
+
+    <!-- Top Plate: AES 16-Byte State Matrix -->
+    <g transform="translate(28, 64)">
+      <text font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" fill="#fbf7ee">Fig. 01: AES-128 State Matrix (SubBytes &amp; ShiftRows)</text>
+      <!-- 4x4 matrix input -->
+      <g transform="translate(0, 16)">
+        <!-- 4x4 grid boxes -->
+        <rect x="0" y="0" width="96" height="72" fill="#15202c" stroke="#2d3f52" stroke-width="1"/>
+        <line x1="24" y1="0" x2="24" y2="72" stroke="#2d3f52"/>
+        <line x1="48" y1="0" x2="48" y2="72" stroke="#2d3f52"/>
+        <line x1="72" y1="0" x2="72" y2="72" stroke="#2d3f52"/>
+        <line x1="0" y1="18" x2="96" y2="18" stroke="#2d3f52"/>
+        <line x1="0" y1="36" x2="96" y2="36" stroke="#2d3f52"/>
+        <line x1="0" y1="54" x2="96" y2="54" stroke="#2d3f52"/>
+
+        <text x="12" y="13" font-family="monospace" font-size="9" fill="#8fa0b5" text-anchor="middle">54</text>
+        <text x="36" y="13" font-family="monospace" font-size="9" fill="#8fa0b5" text-anchor="middle">4f</text>
+        <text x="60" y="13" font-family="monospace" font-size="9" fill="#8fa0b5" text-anchor="middle">4e</text>
+        <text x="84" y="13" font-family="monospace" font-size="9" fill="#8fa0b5" text-anchor="middle">20</text>
+
+        <rect x="25" y="19" width="22" height="16" fill="#e0684b" fill-opacity="0.3"/>
+        <text x="36" y="31" font-family="monospace" font-size="9" fill="#fbf7ee" font-weight="bold" text-anchor="middle">77</text>
+
+        <text x="12" y="31" font-family="monospace" font-size="9" fill="#8fa0b5" text-anchor="middle">68</text>
+        <text x="60" y="31" font-family="monospace" font-size="9" fill="#8fa0b5" text-anchor="middle">69</text>
+        <text x="84" y="31" font-family="monospace" font-size="9" fill="#8fa0b5" text-anchor="middle">73</text>
+
+        <text x="12" y="49" font-family="monospace" font-size="9" fill="#8fa0b5" text-anchor="middle">61</text>
+        <text x="36" y="49" font-family="monospace" font-size="9" fill="#8fa0b5" text-anchor="middle">20</text>
+        <text x="60" y="49" font-family="monospace" font-size="9" fill="#8fa0b5" text-anchor="middle">73</text>
+        <text x="84" y="49" font-family="monospace" font-size="9" fill="#8fa0b5" text-anchor="middle">74</text>
+
+        <text x="12" y="67" font-family="monospace" font-size="9" fill="#8fa0b5" text-anchor="middle">74</text>
+        <text x="36" y="67" font-family="monospace" font-size="9" fill="#8fa0b5" text-anchor="middle">72</text>
+        <text x="60" y="67" font-family="monospace" font-size="9" fill="#8fa0b5" text-anchor="middle">69</text>
+        <text x="84" y="67" font-family="monospace" font-size="9" fill="#8fa0b5" text-anchor="middle">67</text>
+      </g>
+
+      <!-- Round transform arrow -->
+      <g transform="translate(108, 48)">
+        <line x1="0" y1="0" x2="38" y2="0" stroke="#e0684b" stroke-width="1.8" marker-end="url(#arrowHead)"/>
+        <text x="19" y="-6" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="9" fill="#e0684b" font-weight="600" text-anchor="middle">Round 10</text>
+      </g>
+
+      <!-- 4x4 matrix output -->
+      <g transform="translate(160, 16)">
+        <rect x="0" y="0" width="96" height="72" fill="#1a2533" stroke="#e0684b" stroke-width="1.2"/>
+        <line x1="24" y1="0" x2="24" y2="72" stroke="#2d3f52"/>
+        <line x1="48" y1="0" x2="48" y2="72" stroke="#2d3f52"/>
+        <line x1="72" y1="0" x2="72" y2="72" stroke="#2d3f52"/>
+        <line x1="0" y1="18" x2="96" y2="18" stroke="#2d3f52"/>
+        <line x1="0" y1="36" x2="96" y2="36" stroke="#2d3f52"/>
+        <line x1="0" y1="54" x2="96" y2="54" stroke="#2d3f52"/>
+
+        <text x="12" y="13" font-family="monospace" font-size="9" fill="#cbd5e1" text-anchor="middle">29</text>
+        <text x="36" y="13" font-family="monospace" font-size="9" fill="#cbd5e1" text-anchor="middle">c3</text>
+        <text x="60" y="13" font-family="monospace" font-size="9" fill="#cbd5e1" text-anchor="middle">50</text>
+        <text x="84" y="13" font-family="monospace" font-size="9" fill="#cbd5e1" text-anchor="middle">01</text>
+
+        <rect x="25" y="19" width="22" height="16" fill="#e0684b"/>
+        <text x="36" y="31" font-family="monospace" font-size="9" fill="#fbf7ee" font-weight="bold" text-anchor="middle">f2</text>
+
+        <text x="12" y="31" font-family="monospace" font-size="9" fill="#cbd5e1" text-anchor="middle">85</text>
+        <text x="60" y="31" font-family="monospace" font-size="9" fill="#cbd5e1" text-anchor="middle">97</text>
+        <text x="84" y="31" font-family="monospace" font-size="9" fill="#cbd5e1" text-anchor="middle">19</text>
+
+        <text x="12" y="49" font-family="monospace" font-size="9" fill="#cbd5e1" text-anchor="middle">d4</text>
+        <text x="36" y="49" font-family="monospace" font-size="9" fill="#cbd5e1" text-anchor="middle">d4</text>
+        <text x="60" y="49" font-family="monospace" font-size="9" fill="#cbd5e1" text-anchor="middle">40</text>
+        <text x="84" y="49" font-family="monospace" font-size="9" fill="#cbd5e1" text-anchor="middle">e5</text>
+
+        <text x="12" y="67" font-family="monospace" font-size="9" fill="#cbd5e1" text-anchor="middle">5a</text>
+        <text x="36" y="67" font-family="monospace" font-size="9" fill="#cbd5e1" text-anchor="middle">7c</text>
+        <text x="60" y="67" font-family="monospace" font-size="9" fill="#cbd5e1" text-anchor="middle">b8</text>
+        <text x="84" y="67" font-family="monospace" font-size="9" fill="#cbd5e1" text-anchor="middle">63</text>
+      </g>
+
+      <!-- Key Schedule Box -->
+      <g transform="translate(270, 16)">
+        <rect x="0" y="0" width="106" height="72" rx="4" fill="#141c26" stroke="#253241"/>
+        <text x="53" y="20" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="9" font-weight="700" fill="#60a5fa" text-anchor="middle">ROUND KEY</text>
+        <text x="53" y="38" font-family="monospace" font-size="8" fill="#8fa0b5" text-anchor="middle">w[40..43]</text>
+        <text x="53" y="54" font-family="monospace" font-size="9" fill="#fbf7ee" font-weight="bold" text-anchor="middle">⊕ AddRoundKey</text>
+      </g>
+    </g>
+
+    <!-- Middle Plate: Elliptic Curve & DH -->
+    <g transform="translate(28, 184)">
+      <text font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" fill="#fbf7ee">Fig. 02: Elliptic Curve Point Addition (y² = x³ + ax + b)</text>
+      <g transform="translate(0, 14)">
+        <rect x="0" y="0" width="376" height="88" rx="6" fill="#15202c" stroke="#2d3f52"/>
+        <!-- Curve axis -->
+        <line x1="20" y1="44" x2="356" y2="44" stroke="#253545" stroke-width="1"/>
+        <line x1="80" y1="10" x2="80" y2="78" stroke="#253545" stroke-width="1"/>
+
+        <!-- Elliptic Curve shape -->
+        <path d="M 68 44 C 68 20, 92 18, 120 22 C 160 28, 220 36, 340 14" fill="none" stroke="#60a5fa" stroke-width="1.8"/>
+        <path d="M 68 44 C 68 68, 92 70, 120 66 C 160 60, 220 52, 340 74" fill="none" stroke="#60a5fa" stroke-width="1.8"/>
+
+        <!-- Secant line intersecting curve -->
+        <line x1="90" y1="68" x2="320" y2="18" stroke="#e0684b" stroke-width="1.5" stroke-dasharray="3 2"/>
+
+        <!-- Point P -->
+        <circle cx="116" cy="63" r="4" fill="#fbf7ee" stroke="#e0684b" stroke-width="2"/>
+        <text x="116" y="80" font-family="Georgia, serif" font-size="10" font-weight="bold" fill="#fbf7ee" text-anchor="middle">P</text>
+
+        <!-- Point Q -->
+        <circle cx="196" cy="45" r="4" fill="#fbf7ee" stroke="#e0684b" stroke-width="2"/>
+        <text x="196" y="36" font-family="Georgia, serif" font-size="10" font-weight="bold" fill="#fbf7ee" text-anchor="middle">Q</text>
+
+        <!-- Intersection point R' -->
+        <circle cx="282" cy="26" r="3.5" fill="#fbf7ee" stroke="#8fa0b5" stroke-width="1.5"/>
+        <text x="282" y="18" font-family="Georgia, serif" font-size="9" fill="#8fa0b5" text-anchor="middle">−R</text>
+
+        <!-- Vertical reflection line to R -->
+        <line x1="282" y1="26" x2="282" y2="62" stroke="#8fa0b5" stroke-width="1" stroke-dasharray="2 2"/>
+
+        <!-- Result point R = P + Q -->
+        <circle cx="282" cy="62" r="4.5" fill="#e0684b"/>
+        <text x="312" y="66" font-family="Georgia, serif" font-size="11" font-weight="bold" fill="#e0684b">P ⊕ Q = R</text>
+      </g>
+    </g>
+
+    <!-- Bottom Plate: SHA-256 Digest -->
+    <g transform="translate(28, 314)">
+      <text font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" fill="#fbf7ee">Fig. 03: SHA-256 Compression &amp; Avalanche Effect</text>
+      <g transform="translate(0, 14)">
+        <rect x="0" y="0" width="376" height="56" rx="6" fill="#15202c" stroke="#2d3f52"/>
+        <g transform="translate(16, 14)">
+          <text font-family="monospace" font-size="9" fill="#8fa0b5">"Hello, World!"</text>
+          <text y="22" font-family="monospace" font-size="9" fill="#e0684b">"Hello, world!"</text>
+        </g>
+        <!-- Arrow -->
+        <line x1="120" y1="28" x2="148" y2="28" stroke="#8fa0b5" stroke-width="1.2" marker-end="url(#arrowHead)"/>
+        <!-- Digest comparison with flipped bits highlighted -->
+        <g transform="translate(160, 14)">
+          <text font-family="monospace" font-size="8.5" fill="#fbf7ee">dffd6021bb2bd5b0af676290809ec3a5</text>
+          <text y="22" font-family="monospace" font-size="8.5" fill="#34d399">315f5bdb76d078c43b8ac0500cbd45ca</text>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom URL / Brand line -->
+  <g transform="translate(64, 574)">
+    <text font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="11" fill="#6c7f93">
+      encryption-visualizer-zeta.vercel.app · FREE &amp; OPEN SOURCE
+    </text>
+  </g>
+</svg>

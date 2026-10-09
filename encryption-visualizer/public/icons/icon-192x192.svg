@@ -1,10 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#3b82f6"/>
-      <stop offset="100%" style="stop-color:#1d4ed8"/>
-    </linearGradient>
+    <radialGradient id="halo192" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#e0684b" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#e0684b" stop-opacity="0"/>
+    </radialGradient>
   </defs>
-  <rect width="192" height="192" rx="36" fill="url(#bg)"/>
-  <path d="M96 40a30 30 0 0 0-30 30v14H58a6 6 0 0 0-6 6v56a6 6 0 0 0 6 6h76a6 6 0 0 0 6-6V90a6 6 0 0 0-6-6h-8V70a30 30 0 0 0-30-30zm0 14a16 16 0 0 1 16 16v14H80V70a16 16 0 0 1 16-16zm0 50a10 10 0 1 1 0 20 10 10 0 0 1 0-20z" fill="white"/>
+  <rect width="192" height="192" rx="42" fill="#0c1219"/>
+  <rect x="1" y="1" width="190" height="190" rx="41" fill="none" stroke="#253241" stroke-width="2"/>
+  <circle cx="96" cy="96" r="68" fill="url(#halo192)"/>
+  <circle cx="96" cy="96" r="68" fill="none" stroke="#23303e" stroke-width="1" stroke-dasharray="3 3"/>
+  <g transform="translate(96, 96) scale(3.4) translate(-18, -18)">
+    <path d="M18 2 32 10v16l-14 8L4 26V10L18 2Z" fill="#131c26" stroke="#e0684b" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="m4 10 14 8 14-8M18 18v16" fill="none" stroke="#e0684b" stroke-width="1.4" stroke-linejoin="round"/>
+    <path d="M11 6v16l14 8M25 6v16l-14 8" fill="none" stroke="#8fa0b5" stroke-opacity="0.6" stroke-width="1.1" stroke-linejoin="round"/>
+    <circle cx="18" cy="18" r="3.2" fill="#fbf7ee"/>
+    <circle cx="18" cy="18" r="1.6" fill="#e0684b"/>
+  </g>
 </svg>

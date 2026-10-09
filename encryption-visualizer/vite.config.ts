@@ -10,7 +10,18 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.png', 'favicon.svg', 'apple-touch-icon.png', 'logo.png', 'logo-small.png', 'fonts/*.woff2'],
+      includeAssets: [
+        'favicon.png',
+        'favicon.ico',
+        'favicon.svg',
+        'favicon-32x32.png',
+        'favicon-16x16.png',
+        'apple-touch-icon.png',
+        'logo.png',
+        'logo-small.png',
+        'og-image.png',
+        'fonts/*.woff2',
+      ],
       manifest: {
         name: 'CryptoViz - Encryption Visualizer',
         short_name: 'CryptoViz',

@@ -6,6 +6,7 @@ import { getCompletedModuleIds, getNextAvailableModule, isModuleAvailable } from
 import { achievements } from '@/data/achievements';
 import { useProgressStore } from '@/store/progressStore';
 import { AchievementBadge } from '@/components/learning/AchievementBadge';
+import { PathRouteGlyph } from '@/components/learning/PathRouteGlyph';
 
 export const LearningPathsPage = () => {
   const [selectedPath, setSelectedPath] = useState<LearningPath | null>(null);
@@ -86,7 +87,13 @@ export const LearningPathsPage = () => {
             return (
               <button key={path.id} onClick={() => setSelectedPath(path)} className="curriculum-path-row">
                 <span className="curriculum-path-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-                <span className="curriculum-path-overview"><span className="eyebrow">{path.difficulty} / {path.estimatedTime}</span><span className="curriculum-path-title">{path.title}</span><span className="curriculum-path-description">{path.description}</span><span className="curriculum-path-next">{currentModule ? <>Next: <strong>{currentModule.title}</strong></> : 'All modules complete. Return to review.'}</span></span>
+                <span className="curriculum-path-overview">
+                  <span className="eyebrow">{path.difficulty} / {path.estimatedTime}</span>
+                  <span className="curriculum-path-title">{path.title}</span>
+                  <span className="curriculum-path-description">{path.description}</span>
+                  <PathRouteGlyph path={path} completedModuleIds={getCompletedModules(path)} />
+                  <span className="curriculum-path-next">{currentModule ? <>Next: <strong>{currentModule.title}</strong></> : 'All modules complete. Return to review.'}</span>
+                </span>
                 <span className="curriculum-path-meta"><span>{path.modules.length} modules</span><span className="curriculum-row-progress"><span>{completion}% complete</span><progress value={completion} max={100} aria-label={`${path.title} progress`} /></span><span className="curriculum-path-open">View path <ArrowRight size={20} aria-hidden="true" /></span></span>
               </button>
             );
