@@ -67,3 +67,7 @@ out/
 
 # Generated agent scratch output. Churns on every run and is not source.
 .claude/cache/
+.claude/tsc-cache/
+
+# AGENTS.md is a local symlink to CLAUDE.md, not tracked
+/AGENTS.md

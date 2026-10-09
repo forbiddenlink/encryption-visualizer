@@ -36,7 +36,7 @@ pnpm build
 - **Zustand** - State management
 - **Framer Motion** - Animations
 - **Tailwind CSS** - Styling
-- **Vitest** - Testing (133 tests)
+- **Vitest** - Testing
 
 ## Project Structure
 
