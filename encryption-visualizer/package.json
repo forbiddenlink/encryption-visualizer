@@ -1,7 +1,7 @@
 {
   "name": "encryption-visualizer",
   "private": false,
-  "version": "1.0.3",
+  "version": "1.1.0",
   "type": "module",
   "packageManager": "pnpm@12.6.0",
   "scripts": {

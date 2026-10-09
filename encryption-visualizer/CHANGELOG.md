@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.1.0](https://github.com/forbiddenlink/encryption-visualizer/compare/encryption-visualizer-v1.0.3...encryption-visualizer-v1.1.0) (2026-10-09)
+
+
+### Features
+
+* connect every cryptography lesson to a working learning journey ([76f7b91](https://github.com/forbiddenlink/encryption-visualizer/commit/76f7b91e790255fb6e7c0484505a183c0a1812c8))
+* make cryptography learning easier to discover and navigate ([cf4995f](https://github.com/forbiddenlink/encryption-visualizer/commit/cf4995f5fd491d77188aed66669e25ef641ff673))
+* make cryptography lessons accurate and spacious across devices ([05f53de](https://github.com/forbiddenlink/encryption-visualizer/commit/05f53de2020536b3be7f0a076f5054ff96339928))
+* unify visual assets, favicons, and social cards under atlas aesthetic ([7673f33](https://github.com/forbiddenlink/encryption-visualizer/commit/7673f333a5f19f94913fe84e518a2c9e1bec40a7))
+* upgrade cryptography learning with an expansive visual atlas ([eaaf3d8](https://github.com/forbiddenlink/encryption-visualizer/commit/eaaf3d8ace2af414f538c51c847c59d68c55e144))
+
+
+### Bug Fixes
+
+* keep learning accessible and stable during loading ([1c07d3a](https://github.com/forbiddenlink/encryption-visualizer/commit/1c07d3a999629e6fd273a65b1bafc8c000f96cd7))
+* make cryptography lessons accurate and learning flows recoverable ([76c6595](https://github.com/forbiddenlink/encryption-visualizer/commit/76c65950cf6c186ba68d1ccb7300ceeb79eb8303))
+* remove biased and predictable randomness from cryptography demos ([d71bb80](https://github.com/forbiddenlink/encryption-visualizer/commit/d71bb80a7c6dc511360dc9dd3b105a29b788385b))
+
 ## [1.0.3](https://github.com/forbiddenlink/encryption-visualizer/compare/encryption-visualizer-v1.0.2...encryption-visualizer-v1.0.3) (2026-09-19)
 
 
