@@ -8,5 +8,4 @@ Sitemap: https://encryption-visualizer-zeta.vercel.app/sitemap.xml
 
 # Disallow common non-content paths
 Disallow: /api/
-Disallow: /_next/
 Disallow: /static/
