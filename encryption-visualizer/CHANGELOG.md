@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/forbiddenlink/encryption-visualizer/compare/encryption-visualizer-v1.1.0...encryption-visualizer-v1.1.1) (2026-10-21)
+
+
+### Bug Fixes
+
+* **seo:** stop disallowing /_next/ so Googlebot can render pages ([#71](https://github.com/forbiddenlink/encryption-visualizer/issues/71)) ([b8e487c](https://github.com/forbiddenlink/encryption-visualizer/commit/b8e487c7698001686b7cfe4d423fc1b7aef2bf97))
+
 ## [1.1.0](https://github.com/forbiddenlink/encryption-visualizer/compare/encryption-visualizer-v1.0.3...encryption-visualizer-v1.1.0) (2026-10-15)
 
 
