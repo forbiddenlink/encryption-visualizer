@@ -3,6 +3,9 @@
   "buildCommand": "cd encryption-visualizer && npx --yes pnpm@12.6.0 run build",
   "outputDirectory": "encryption-visualizer/dist",
   "framework": "vite",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
   "headers": [
     {
       "source": "/(.*)",
