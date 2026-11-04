@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import App from '@/App';
 import { HomePage } from '@/pages/HomePage';
+import { NotFoundPage } from '@/pages/NotFoundPage';
 import { ROUTES } from './routes';
 import { ErrorBoundary } from '@/components/ui/ErrorBoundary';
 
@@ -52,6 +53,7 @@ export const router = createBrowserRouter([
       { path: ROUTES.LEARNING_PATHS.slice(1), element: <LazyPage><LearningPathsPage /></LazyPage> },
       { path: ROUTES.GLOSSARY.slice(1), element: <LazyPage><GlossaryPage /></LazyPage> },
       { path: ROUTES.ABOUT.slice(1), element: <LazyPage><AboutPage /></LazyPage> },
+      { path: '*', element: <NotFoundPage /> },
     ],
   },
 ]);
