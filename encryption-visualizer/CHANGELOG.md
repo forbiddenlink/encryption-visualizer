@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/forbiddenlink/encryption-visualizer/compare/encryption-visualizer-v1.1.1...encryption-visualizer-v1.1.2) (2026-11-04)
+
+
+### Bug Fixes
+
+* **router:** add a 404 catch-all route ([#83](https://github.com/forbiddenlink/encryption-visualizer/issues/83)) ([43bde63](https://github.com/forbiddenlink/encryption-visualizer/commit/43bde630423b7c6ec5339a15d041186189c706b9))
+
 ## [1.1.1](https://github.com/forbiddenlink/encryption-visualizer/compare/encryption-visualizer-v1.1.0...encryption-visualizer-v1.1.1) (2026-10-21)
 
 
