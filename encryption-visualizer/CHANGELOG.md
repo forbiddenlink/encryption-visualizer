@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.3](https://github.com/forbiddenlink/encryption-visualizer/compare/encryption-visualizer-v1.1.2...encryption-visualizer-v1.1.3) (2026-11-11)
+
+
+### Bug Fixes
+
+* **deps:** pin patched transitive versions for open Dependabot alerts ([#89](https://github.com/forbiddenlink/encryption-visualizer/issues/89)) ([3735472](https://github.com/forbiddenlink/encryption-visualizer/commit/3735472c4c9b78870aa2ac52e22da03a8e07679a))
+
 ## [1.1.2](https://github.com/forbiddenlink/encryption-visualizer/compare/encryption-visualizer-v1.1.1...encryption-visualizer-v1.1.2) (2026-11-04)
 
 
