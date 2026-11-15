@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.5](https://github.com/forbiddenlink/encryption-visualizer/compare/encryption-visualizer-v1.1.4...encryption-visualizer-v1.1.5) (2026-11-15)
+
+
+### Bug Fixes
+
+* **seo:** return a real 404 for unknown paths instead of serving the app with 200 ([#94](https://github.com/forbiddenlink/encryption-visualizer/issues/94)) ([64f9589](https://github.com/forbiddenlink/encryption-visualizer/commit/64f9589ef72b3441e780faa1ae187a2866530d32))
+
 ## [1.1.4](https://github.com/forbiddenlink/encryption-visualizer/compare/encryption-visualizer-v1.1.3...encryption-visualizer-v1.1.4) (2026-11-15)
 
 
