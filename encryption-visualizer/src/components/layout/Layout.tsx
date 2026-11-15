@@ -4,6 +4,7 @@ import { AnimatePresence, m, useReducedMotion } from 'framer-motion';
 import { Header } from './Header';
 import { Footer } from './Footer';
 import { ScrollToTop } from './ScrollToTop';
+import { CanonicalLink } from './CanonicalLink';
 import { ToastContainer } from '@/components/ui/Toast';
 import { lessons } from '@/data/lessonCatalog';
 import { LessonNext } from '@/components/learning/LessonNext';
@@ -32,6 +33,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
       </a>
 
       <ScrollToTop />
+      <CanonicalLink />
       <Header />
 
       <main
