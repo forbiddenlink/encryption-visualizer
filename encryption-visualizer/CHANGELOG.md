@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.4](https://github.com/forbiddenlink/encryption-visualizer/compare/encryption-visualizer-v1.1.3...encryption-visualizer-v1.1.4) (2026-11-15)
+
+
+### Bug Fixes
+
+* **seo:** per-route title, description and canonical; real paths in sitemap ([#92](https://github.com/forbiddenlink/encryption-visualizer/issues/92)) ([19d135f](https://github.com/forbiddenlink/encryption-visualizer/commit/19d135fcc42bccfc07fb51518db6d30398ced95f))
+
 ## [1.1.3](https://github.com/forbiddenlink/encryption-visualizer/compare/encryption-visualizer-v1.1.2...encryption-visualizer-v1.1.3) (2026-11-11)
 
 
