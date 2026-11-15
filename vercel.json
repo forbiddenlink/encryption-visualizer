@@ -4,7 +4,8 @@
   "outputDirectory": "encryption-visualizer/dist",
   "framework": "vite",
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/(aes|rsa|ecc|block-modes|diffie-hellman|hashing|hmac|signatures|padding|password-hashing|tls|cryptanalysis|compare|learn|glossary|about)", "destination": "/index.html" }
   ],
   "headers": [
     {
