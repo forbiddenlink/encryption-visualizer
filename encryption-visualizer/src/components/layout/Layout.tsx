@@ -7,6 +7,21 @@ import { ScrollToTop } from './ScrollToTop';
 import { ToastContainer } from '@/components/ui/Toast';
 import { lessons } from '@/data/lessonCatalog';
 import { LessonNext } from '@/components/learning/LessonNext';
+import { formatTitle, getRouteSeo } from '@/lib/seo';
+
+// Create, update or remove a single <head> tag so each route owns its metadata.
+function setHeadTag(selector: string, tag: 'meta' | 'link', attrs: Record<string, string> | null): void {
+  let el = document.head.querySelector<HTMLElement>(selector);
+  if (!attrs) {
+    el?.remove();
+    return;
+  }
+  if (!el) {
+    el = document.createElement(tag);
+    document.head.appendChild(el);
+  }
+  for (const [key, value] of Object.entries(attrs)) el.setAttribute(key, value);
+}
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -18,9 +33,11 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
   const lesson = lessons.find((item) => `/${item.slug}` === location.pathname);
 
   useEffect(() => {
-    const titles: Record<string, string> = { '/': 'Interactive cryptography field guide', '/learn': 'Learning Paths', '/glossary': 'Crypto Glossary', '/compare': 'Algorithm Comparison', '/about': 'About CryptoViz' };
-    document.title = `${lesson?.title ?? titles[location.pathname] ?? 'Cryptography'} | CryptoViz`;
-  }, [location.pathname, lesson?.title]);
+    const seo = getRouteSeo(location.pathname);
+    document.title = formatTitle(seo.title);
+    setHeadTag('meta[name="description"]', 'meta', { name: 'description', content: seo.description });
+    setHeadTag('link[rel="canonical"]', 'link', seo.canonical ? { rel: 'canonical', href: seo.canonical } : null);
+  }, [location.pathname]);
 
   return (
     <div className="site-shell" data-page={lesson ? 'lesson' : location.pathname.slice(1) || 'home'} data-lesson={lesson?.slug}>
