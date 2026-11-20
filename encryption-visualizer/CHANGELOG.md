@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.6](https://github.com/forbiddenlink/encryption-visualizer/compare/encryption-visualizer-v1.1.5...encryption-visualizer-v1.1.6) (2026-11-20)
+
+
+### Bug Fixes
+
+* preserve offline assets with patched glob matching ([#102](https://github.com/forbiddenlink/encryption-visualizer/issues/102)) ([5c60c7b](https://github.com/forbiddenlink/encryption-visualizer/commit/5c60c7b803aeedb04d5d4c6967a243eb2e33b73b))
+
 ## [1.1.5](https://github.com/forbiddenlink/encryption-visualizer/compare/encryption-visualizer-v1.1.4...encryption-visualizer-v1.1.5) (2026-11-15)
 
 
