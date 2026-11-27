@@ -13,7 +13,7 @@ beforeEach(() => {
 });
 afterEach(() => { cleanup(); vi.useRealTimers(); });
 it('completing AES playback at 4x awards the existing Speed Demon achievement', () => {
-  const steps = encryptAESWithSteps('Hello AES!', 'SecretKey12345!').slice(0, 2);
+  const steps = encryptAESWithSteps('Hello AES!', 'SecretKey123456!').slice(0, 2);
   render(<LazyMotion features={domAnimation}><AESVisualizer steps={steps} /></LazyMotion>);
   act(() => useVisualizationStore.getState().play());
   act(() => vi.advanceTimersByTime(500));
