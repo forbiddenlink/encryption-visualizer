@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.7](https://github.com/forbiddenlink/encryption-visualizer/compare/encryption-visualizer-v1.1.6...encryption-visualizer-v1.1.7) (2026-11-27)
+
+
+### Bug Fixes
+
+* /learn horizontal overflow and 15-byte sample AES key ([#109](https://github.com/forbiddenlink/encryption-visualizer/issues/109)) ([42473ee](https://github.com/forbiddenlink/encryption-visualizer/commit/42473ee82a742e56aef0faefc5eb2194bcfae11b))
+
 ## [1.1.6](https://github.com/forbiddenlink/encryption-visualizer/compare/encryption-visualizer-v1.1.5...encryption-visualizer-v1.1.6) (2026-11-23)
 
 
