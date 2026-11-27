@@ -20,6 +20,14 @@ describe('AES input byte validation', () => {
     render(<AESInputPanel onEncrypt={encrypt} />);
     fireEvent.change(screen.getByLabelText(/Plaintext/), { target: { value: 'café' } });
     fireEvent.click(screen.getByRole('button', { name: /Start Encryption/ }));
-    expect(encrypt).toHaveBeenCalledWith('café', 'SecretKey12345!');
+    expect(encrypt).toHaveBeenCalledWith('café', 'SecretKey123456!');
+  });
+
+  it('ships a sample key that is a full 16 bytes, not an implicitly zero-padded one', () => {
+    const encrypt = vi.fn();
+    render(<AESInputPanel onEncrypt={encrypt} />);
+    fireEvent.click(screen.getByRole('button', { name: /Start Encryption/ }));
+    const key = encrypt.mock.calls[0][1] as string;
+    expect(new TextEncoder().encode(key)).toHaveLength(16);
   });
 });

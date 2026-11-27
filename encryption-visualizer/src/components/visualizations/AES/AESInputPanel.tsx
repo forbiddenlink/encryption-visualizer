@@ -8,7 +8,7 @@ interface AESInputPanelProps {
 
 export const AESInputPanel: React.FC<AESInputPanelProps> = ({ onEncrypt }) => {
   const [plaintext, setPlaintext] = useState('Hello AES!');
-  const [key, setKey] = useState('SecretKey12345!');
+  const [key, setKey] = useState('SecretKey123456!');
 
   const inputError = validateAESInput(plaintext) ?? validateAESInput(key);
 
@@ -20,7 +20,7 @@ export const AESInputPanel: React.FC<AESInputPanelProps> = ({ onEncrypt }) => {
 
   const handleExample = () => {
     setPlaintext('Hello AES!');
-    setKey('SecretKey12345!');
+    setKey('SecretKey123456!');
   };
 
   return (

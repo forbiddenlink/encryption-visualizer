@@ -488,7 +488,7 @@ describe('AES byte arithmetic regressions', () => {
   });
 
   it('keeps every example frame renderable as 16 bytes', () => {
-    for (const step of encryptAESWithSteps('Hello AES!', 'SecretKey12345!')) {
+    for (const step of encryptAESWithSteps('Hello AES!', 'SecretKey123456!')) {
       expect(step.state.flat().every(byte => Number.isInteger(byte) && byte >= 0 && byte <= 255)).toBe(true);
       expect(() => stateToHex(step.state)).not.toThrow();
     }
